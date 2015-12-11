@@ -1,0 +1,86 @@
+package com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome;
+
+import java.util.Collection;
+import java.util.List;
+
+import com.roslin.mwicks.spring.variation.dto.DTOSearch;
+import com.roslin.mwicks.spring.variation.dto.DTODownload;
+import com.roslin.mwicks.spring.variation.dto.DTOSNPChromosome;
+
+import com.roslin.mwicks.spring.variation.exception.ExceptionSNPChromosomeNotFound;
+
+import com.roslin.mwicks.spring.variation.model.other.PageSNPChromosome;
+
+import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome;
+import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosomeLGE22C19W28_E50C23;
+
+/**
+ * Declares methods used to obtain and modify SNPChromosomeLGE22C19W28_E50C23 information.
+ * @author Mike Wicks
+ */
+public interface ServiceSNPChromosomeLGE22C19W28_E50C23 {
+	
+    /**
+     * Saves a List of SNPChromosome1
+     * @param created   The information of the created snpchromosome.
+     * @return  The created snpchromosome.
+     */
+	public <T extends SNPChromosomeLGE22C19W28_E50C23> Collection<T> bulkSave(int intBatchSize, Collection<T> entities);
+	
+    /**
+     * Creates a new snpchromosome.
+     * @param created   The information of the created snpchromosome.
+     * @return  The created snpchromosome.
+     */
+    public SNPChromosomeLGE22C19W28_E50C23 create(DTOSNPChromosome created);
+
+    /**
+     * Deletes a snpchromosome.
+     * @param snpchromosomeId  The id of the deleted snpchromosome.
+     * @return  The deleted snpchromosome.
+     * @throws SNPChromosomeLGE22C19W28_E50C23NotFoundException  if no snpchromosome is found with the given id.
+     */
+    public SNPChromosomeLGE22C19W28_E50C23 delete(Long snpchromosomeId) throws ExceptionSNPChromosomeNotFound;
+
+
+    /**
+     * Updates the information of a snpchromosome.
+     * @param updated   The information of the updated snpchromosome.
+     * @return  The updated snpchromosome.
+     * @throws SNPChromosomeLGE22C19W28_E50C23NotFoundException  if no snpchromosome is found with given id.
+     */
+    public SNPChromosomeLGE22C19W28_E50C23 update(DTOSNPChromosome updated) throws ExceptionSNPChromosomeNotFound;
+
+    /**
+     * Searches SNPChromosomeLGE22C19W28_E50C23s by using the search criteria given as a parameter.
+     * @param searchCriteria
+     * @param pageIndex
+     * @return  A Page of SNPChromosomeLGE22C19W28_E50C23s matching with the search criteria. 
+     *          If no SNPChromosomeLGE22C19W28_E50C23s is found, this method returns an empty list.
+     */
+    public PageSNPChromosome search(DTOSearch searchCriteria, Integer pageNumber) ;
+
+    
+    /**
+     * Searches SNPChromosomeLGE22C19W28_E50C23s by using the search criteria given as a parameter.
+     * @param searchCriteria
+     * @return  A list of SNPChromosomeLGE22C19W28_E50C23s matching with the search criteria. 
+     *          If no SNPChromosomeLGE22C19W28_E50C23s is found, this method returns an empty list.
+     */
+    public List<SNPChromosome> download(DTODownload dtoDownload);
+
+    
+    /**
+     * Finds ensemblgene by id.
+     * @param oid    The oid of the wanted ensemblgene.
+     * @return  The found ensemblgene. If no ensemblgene is found, this method returns null.
+     */
+    public SNPChromosomeLGE22C19W28_E50C23 findByOid(Long oid);
+
+
+    /**
+     * Finds all snpchromosome.
+     * @return  A list of snpchromosome.
+     */
+	public PageSNPChromosome findAll(Integer pageNumber);
+}
