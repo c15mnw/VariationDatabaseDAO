@@ -20,6 +20,14 @@ import java.util.List;
 public interface RepositorySNPChromosomeLGE64 extends JpaRepository<SNPChromosomeLGE64, Long> {
 
     /**
+     * Finds SNPChromosomeLGE64 by using the snpId as a search criteria.
+     * @param snpId
+     * @return  A list of SNPChromosomeLGE64 whose last snpId is an exact match with the given snpId.
+     *          If no SNPChromosomeLGE64 is found, this method returns null.
+     */
+    public List<SNPChromosomeLGE64> findBySnpId(String snpId);
+
+    /**
      * Finds SNPChromosomeLGE64s by using the strLowRange and strHighRange as a coordinate range for search criteria.
      * @param strLowRange - Low SNP Coordinate
      * @param strHighRange - High SNP Coordinate

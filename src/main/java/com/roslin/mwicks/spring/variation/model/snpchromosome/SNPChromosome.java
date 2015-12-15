@@ -75,35 +75,34 @@ public class SNPChromosome {
     private String ensemblAnnotation;
     private String strain7Allele;
     private String strain7AlleleFixed;
-    private long strain7AlleleRatio;
     private String strainPAllele;
     private String strainPAlleleFixed;
-    private long strainPAlleleRatio;
     private String strainWAllele;
     private String strainWAlleleFixed;
-    private long strainWAlleleRatio;
     private String strainNAllele;
     private String strainNAlleleFixed;
-    private long strainNAlleleRatio;
     private String strain15IAllele;
     private String strain15IAlleleFixed;
-    private long strain15IAlleleRatio;
     private String strainZeroAllele;
     private String strainZeroAlleleFixed;
-    private long strainZeroAlleleRatio;
     private String strain6Allele;
     private String strain6AlleleFixed;
-    private long strain6AlleleRatio;
     private String strainCAllele;
     private String strainCAlleleFixed;
-    private long strainCAlleleRatio;
+    private String aminoAcidSubs;
+    private String predictionCategory;
+    private double scoreSift;
+    private double scoreConservation;
+    private long proteinAlignNumber;
+    private long totalAlignSequenceNumber;
+    private double scoreProvean;
     private Date creationTime;
     private Date modificationTime;
     private long version;
     
 
     // Getters ------------------------------------------------------------------------------------
-    public Long getOid() {
+    public long getOid() {
     	return this.oid;
     }
     public String getSnpId() {
@@ -188,9 +187,6 @@ public class SNPChromosome {
     		return false;
     	}
     }
-    public long getStrain7AlleleRatio() {
-    	return this.strain7AlleleRatio;
-    }
     public String getStrainPAllele() {
     	return this.strainPAllele;
     }
@@ -228,9 +224,6 @@ public class SNPChromosome {
     	else {
     		return false;
     	}
-    }
-    public long getStrainPAlleleRatio() {
-    	return this.strainPAlleleRatio;
     }
     public String getStrainWAllele() {
     	return this.strainWAllele;
@@ -270,9 +263,6 @@ public class SNPChromosome {
     		return false;
     	}
     }
-    public long getStrainWAlleleRatio() {
-    	return this.strainWAlleleRatio;
-    }
     public String getStrainNAllele() {
     	return this.strainNAllele;
     }
@@ -310,9 +300,6 @@ public class SNPChromosome {
     	else {
     		return false;
     	}
-    }
-    public long getStrainNAlleleRatio() {
-    	return this.strainNAlleleRatio;
     }
     public String getStrain15IAllele() {
     	return this.strain15IAllele;
@@ -352,9 +339,6 @@ public class SNPChromosome {
     		return false;
     	}
     }
-    public long getStrain15IAlleleRatio() {
-    	return this.strain15IAlleleRatio;
-    }
     public String getStrainZeroAllele() {
     	return this.strainZeroAllele;
     }
@@ -392,9 +376,6 @@ public class SNPChromosome {
     	else {
     		return false;
     	}
-    }
-    public long getStrainZeroAlleleRatio() {
-    	return this.strainZeroAlleleRatio;
     }
     public String getStrain6Allele() {
     	return this.strain6Allele;
@@ -434,9 +415,6 @@ public class SNPChromosome {
     		return false;
     	}
     }
-    public long getStrain6AlleleRatio() {
-    	return this.strain6AlleleRatio;
-    }
     public String getStrainCAllele() {
     	return this.strainCAllele;
     }
@@ -475,9 +453,29 @@ public class SNPChromosome {
     		return false;
     	}
     }
-    public long getStrainCAlleleRatio() {
-    	return this.strainCAlleleRatio;
+    
+    public String getAminoAcidSubs() {
+    	return this.aminoAcidSubs;
     }
+    public String getPredictionCategory() {
+    	return this.predictionCategory;
+    }
+    public double getScoreSift() {
+    	return this.scoreSift;
+    }
+    public double getScoreConservation() {
+    	return this.scoreConservation;
+    }
+    public long getProteinAlignNumber() {
+    	return this.proteinAlignNumber;
+    }
+    public long getTotalAlignSequenceNumber() {
+    	return this.totalAlignSequenceNumber;
+    }
+    public double getScoreProvean() {
+    	return this.scoreProvean;
+    }
+
     public Date getCreationTime() {
     	return this.creationTime;
     }
@@ -495,30 +493,6 @@ public class SNPChromosome {
     }
     public String getPositionAsString() {
     	return ObjectConverter.convert(this.position, String.class);
-    }
-    public String getStrain7AlleleRatioAsString() {
-    	return ObjectConverter.convert(this.strain7AlleleRatio, String.class);
-    }
-    public String getStrainPAlleleRatioAsString() {
-    	return ObjectConverter.convert(this.strainPAlleleRatio, String.class);
-    }
-    public String getStrainWAlleleRatioAsString() {
-    	return ObjectConverter.convert(this.strainWAlleleRatio, String.class);
-    }
-    public String getStrainNAlleleRatioAsString() {
-    	return ObjectConverter.convert(this.strainNAlleleRatio, String.class);
-    }
-    public String getStrain15IAlleleRatioAsString() {
-    	return ObjectConverter.convert(this.strain15IAlleleRatio, String.class);
-    }
-    public String getStrainZeroAlleleRatioAsString() {
-    	return ObjectConverter.convert(this.strainZeroAlleleRatio, String.class);
-    }
-    public String getStrain6AlleleRatioAsString() {
-    	return ObjectConverter.convert(this.strain6AlleleRatio, String.class);
-    }
-    public String getStrainCAlleleRatioAsString() {
-    	return ObjectConverter.convert(this.strainCAlleleRatio, String.class);
     }
     public String getCreationTimeAsString() {
     	return ObjectConverter.convert(this.creationTime, String.class);
@@ -540,50 +514,26 @@ public class SNPChromosome {
     public String getStrain7AlleleFixedQuoted() {
     	return '\"' + this.strain7AlleleFixed + '\"';
     }
-    public String getStrain7AlleleRatioAsStringQuoted() {
-    	return '\"' + ObjectConverter.convert(this.strain7AlleleRatio, String.class) + '\"';
-    }
     public String getStrainPAlleleFixedQuoted() {
     	return '\"' + this.strainPAlleleFixed + '\"';
-    }
-    public String getStrainPAlleleRatioAsStringQuoted() {
-    	return '\"' + ObjectConverter.convert(this.strainPAlleleRatio, String.class) + '\"';
     }
     public String getStrainWAlleleFixedQuoted() {
     	return '\"' + this.strainWAlleleFixed + '\"';
     }
-    public String getStrainWAlleleRatioAsStringQuoted() {
-    	return '\"' + ObjectConverter.convert(this.strainWAlleleRatio, String.class) + '\"';
-    }
     public String getStrainNAlleleFixedQuoted() {
     	return '\"' + this.strainNAlleleFixed + '\"';
-    }
-    public String getStrainNAlleleRatioAsStringQuoted() {
-    	return '\"' + ObjectConverter.convert(this.strainNAlleleRatio, String.class) + '\"';
     }
     public String getStrain15IAlleleFixedQuoted() {
     	return '\"' + this.strain15IAlleleFixed + '\"';
     }
-    public String getStrain15IAlleleRatioAsStringQuoted() {
-    	return '\"' + ObjectConverter.convert(this.strain15IAlleleRatio, String.class) + '\"';
-    }
     public String getStrainZeroAlleleFixedQuoted() {  
     	return '\"' + this.strainZeroAlleleFixed + '\"';
-    }
-    public String getStrainZeroAlleleRatioAsStringQuoted() {
-    	return '\"' + ObjectConverter.convert(this.strainZeroAlleleRatio, String.class) + '\"';
     }
     public String getStrain6AlleleFixedQuoted() {
     	return '\"' + this.strain6AlleleFixed + '\"';
     }
-    public String getStrain6AlleleRatioAsStringQuoted() {
-    	return '\"' + ObjectConverter.convert(this.strain6AlleleRatio, String.class) + '\"';
-    }
     public String getStrainCAlleleFixedQuoted() {
     	return '\"' + this.strainCAlleleFixed + '\"';
-    }
-    public String getStrainCAlleleRatioAsStringQuoted() {
-    	return '\"' + ObjectConverter.convert(this.strainCAlleleRatio, String.class) + '\"';
     }
     public String getCreationTimeAsStringQuoted() {
     	return '\"' + ObjectConverter.convert(this.creationTime, String.class) + '\"';
@@ -644,7 +594,7 @@ public class SNPChromosome {
     }
 
     // Setters ------------------------------------------------------------------------------------
-    public void setOid(Long oid) {
+    public void setOid(long oid) {
     	this.oid = oid;
     }
     public void setSnpId(String snpId) {
@@ -680,17 +630,11 @@ public class SNPChromosome {
     public void setStrain7AlleleFixed(String strain7AlleleFixed) {
     	this.strain7AlleleFixed = strain7AlleleFixed;
     }
-    public void setStrain7AlleleRatio(long strain7AlleleRatio) {
-    	this.strain7AlleleRatio = strain7AlleleRatio;
-    }
     public void setStrainPAllele(String strainPAllele) {
     	this.strainPAllele = strainPAllele;
     }
     public void setStrainPAlleleFixed(String strainPAlleleFixed) {
     	this.strainPAlleleFixed = strainPAlleleFixed;
-    }
-    public void setStrainPAlleleRatio(long strainPAlleleRatio) {
-    	this.strainPAlleleRatio = strainPAlleleRatio;
     }
     public void setStrainWAllele(String strainWAllele) {
     	this.strainWAllele = strainWAllele;
@@ -698,17 +642,11 @@ public class SNPChromosome {
     public void setStrainWAlleleFixed(String strainWAlleleFixed) {
     	this.strainWAlleleFixed = strainWAlleleFixed;
     }
-    public void setStrainWAlleleRatio(long strainWAlleleRatio) {
-    	this.strainWAlleleRatio = strainWAlleleRatio;
-    }
     public void setStrainNAllele(String strainNAllele) {
     	this.strainNAllele = strainNAllele;
     }
     public void setStrainNAlleleFixed(String strainNAlleleFixed) {
     	this.strainNAlleleFixed = strainNAlleleFixed;
-    }
-    public void setStrainNAlleleRatio(long strainNAlleleRatio) {
-    	this.strainNAlleleRatio = strainNAlleleRatio;
     }
     public void setStrain15IAllele(String strain15IAllele) {
     	this.strain15IAllele = strain15IAllele;
@@ -716,17 +654,11 @@ public class SNPChromosome {
     public void setStrain15IAlleleFixed(String strain15IAlleleFixed) {
     	this.strain15IAlleleFixed = strain15IAlleleFixed;
     }
-    public void setStrain15IAlleleRatio(long strain15IAlleleRatio) {
-    	this.strain15IAlleleRatio = strain15IAlleleRatio;
-    }
     public void setstrainZeroAllele(String strainZeroAllele) {
     	this.strainZeroAllele = strainZeroAllele;
     }
     public void setstrainZeroAlleleFixed(String strainZeroAlleleFixed) {  
     	this.strainZeroAlleleFixed = strainZeroAlleleFixed;
-    }
-    public void setstrainZeroAlleleRatio(long strainZeroAlleleRatio) {
-    	this.strainZeroAlleleRatio = strainZeroAlleleRatio;
     }
     public void setStrain6Allele(String strain6Allele) {
     	this.strain6Allele = strain6Allele;
@@ -734,17 +666,32 @@ public class SNPChromosome {
     public void setStrain6AlleleFixed(String strain6AlleleFixed) {
     	this.strain6AlleleFixed = strain6AlleleFixed;
     }
-    public void setStrain6AlleleRatio(long strain6AlleleRatio) {
-    	this.strain6AlleleRatio = strain6AlleleRatio;
-    }
     public void setStrainCAllele(String strainCAllele) {
     	this.strainCAllele = strainCAllele;
     }
     public void setStrainCAlleleFixed(String strainCAlleleFixed) {
     	this.strainCAlleleFixed = strainCAlleleFixed;
     }
-    public void setStrainCAlleleRatio(long strainCAlleleRatio) {
-    	this.strainCAlleleRatio = strainCAlleleRatio;
+    public void setAminoAcidSubs(String aminoAcidSubs) {
+    	this.aminoAcidSubs = aminoAcidSubs;
+    }
+    public void setPredictionCategory(String predictionCategory) {
+    	this.predictionCategory = predictionCategory;
+    }
+    public void setScoreSift(double scoreSift) {
+    	this.scoreSift = scoreSift;
+    }
+    public void setScoreConservation(double scoreConservation) {
+    	this.scoreConservation = scoreConservation;
+    }
+    public void setProteinAlignNumber(long proteinAlignNumber) {
+    	this.proteinAlignNumber = proteinAlignNumber;
+    }
+    public void setTotalAlignSequenceNumber(long totalAlignSequenceNumber) {
+    	this.totalAlignSequenceNumber = totalAlignSequenceNumber;
+    }
+    public void setScoreProvean(double scoreProvean) {
+    	this.scoreProvean = scoreProvean;
     }
     public void setCreationTime(Date creationTime) {
     	this.creationTime = creationTime;
@@ -1040,28 +987,28 @@ public class SNPChromosome {
         	    this.getEnsemblAnnotation().equals(snpchromosome.getEnsemblAnnotation()) && 
         	    this.getStrain7Allele().equals(snpchromosome.getStrain7Allele()) && 
         	    this.getStrain7AlleleFixed() == snpchromosome.getStrain7AlleleFixed() && 
-        	    this.getStrain7AlleleRatio() == snpchromosome.getStrain7AlleleRatio() && 
         	    this.getStrainPAllele().equals(snpchromosome.getStrainPAllele()) && 
         	    this.getStrainPAlleleFixed() == snpchromosome.getStrainPAlleleFixed() && 
-        	    this.getStrainPAlleleRatio() == snpchromosome.getStrainPAlleleRatio() && 
         	    this.getStrainWAllele().equals(snpchromosome.getStrainWAllele()) && 
         	    this.getStrainWAlleleFixed() == snpchromosome.getStrainWAlleleFixed() && 
-        	    this.getStrainWAlleleRatio() == snpchromosome.getStrainWAlleleRatio() && 
         	    this.getStrainNAllele().equals(snpchromosome.getStrainNAllele()) && 
         	    this.getStrainNAlleleFixed() == snpchromosome.getStrainNAlleleFixed() && 
-        	    this.getStrainNAlleleRatio() == snpchromosome.getStrainNAlleleRatio() && 
         	    this.getStrain15IAllele().equals(snpchromosome.getStrain15IAllele()) && 
         	    this.getStrain15IAlleleFixed() == snpchromosome.getStrain15IAlleleFixed()  && 
-        	    this.getStrain15IAlleleRatio() == snpchromosome.getStrain15IAlleleRatio() && 
         	    this.getStrainZeroAllele().equals(snpchromosome.getStrainZeroAllele()) && 
         	    this.getStrainZeroAlleleFixed() == snpchromosome.getStrainZeroAlleleFixed() &&  
-        	    this.getStrainZeroAlleleRatio() == snpchromosome.getStrainZeroAlleleRatio() && 
         	    this.getStrain6Allele().equals(snpchromosome.getStrain6Allele()) && 
         	    this.getStrain6AlleleFixed() == snpchromosome.getStrain6AlleleFixed() && 
-        	    this.getStrain6AlleleRatio() == snpchromosome.getStrain6AlleleRatio() && 
         	    this.getStrainCAllele().equals(snpchromosome.getStrainCAllele()) && 
         	    this.getStrainCAlleleFixed() == snpchromosome.getStrainCAlleleFixed() && 
-        	    this.getStrainCAlleleRatio() == snpchromosome.getStrainCAlleleRatio() 
+        	    this.getAminoAcidSubs().equals(snpchromosome.getAminoAcidSubs()) && 
+        	    this.getPredictionCategory().equals(snpchromosome.getPredictionCategory()) && 
+        	    this.getScoreSift() == snpchromosome.getScoreSift() &&  
+        	    this.getScoreConservation() == snpchromosome.getScoreConservation() && 
+        	    this.getProteinAlignNumber() == snpchromosome.getProteinAlignNumber() && 
+        	    this.getTotalAlignSequenceNumber() == snpchromosome.getTotalAlignSequenceNumber() && 
+        	    this.getScoreProvean() == snpchromosome.getScoreProvean()
+
         	    ) {
 
         	return true;
@@ -1096,28 +1043,28 @@ public class SNPChromosome {
     		String ensemblAnnotation,
     		String strain7Allele,
     		String strain7AlleleFixed,
-    		long strain7AlleleRatio,
     		String strainPAllele,
     		String strainPAlleleFixed,
-    		long strainPAlleleRatio,
     		String strainWAllele,
     		String strainWAlleleFixed,
-    		long strainWAlleleRatio,
     		String strainNAllele,
     		String strainNAlleleFixed,
-    		long strainNAlleleRatio,
     		String strain15IAllele,
     		String strain15IAlleleFixed,
-    		long strain15IAlleleRatio,
     		String strainZeroAllele,
     		String strainZeroAlleleFixed,
-    		long strainZeroAlleleRatio,
     		String strain6Allele,
     		String strain6AlleleFixed,
-    		long strain6AlleleRatio,
     		String strainCAllele,
     		String strainCAlleleFixed,
-    		long strainCAlleleRatio ) {
+        	String aminoAcidSubs,
+        	String predictionCategory,
+        	double scoreSift,
+        	double scoreConservation,
+        	long proteinAlignNumber,
+        	long totalAlignSequenceNumber,
+        	double scoreProvean
+    		) {
 
     	this.snpId = snpId;
     	this.chromosomeId = chromosomeId;
@@ -1130,28 +1077,27 @@ public class SNPChromosome {
     	this.ensemblAnnotation = ensemblAnnotation;
     	this.strain7Allele = strain7Allele;
     	this.strain7AlleleFixed = strain7AlleleFixed;
-    	this.strain7AlleleRatio = strain7AlleleRatio;
     	this.strainPAllele = strainPAllele;
     	this.strainPAlleleFixed = strainPAlleleFixed;
-    	this.strainPAlleleRatio = strainPAlleleRatio;
     	this.strainWAllele = strainWAllele;
     	this.strainWAlleleFixed = strainWAlleleFixed;
-    	this.strainWAlleleRatio = strainWAlleleRatio;
     	this.strainNAllele = strainNAllele;
     	this.strainNAlleleFixed = strainNAlleleFixed;
-    	this.strainNAlleleRatio = strainNAlleleRatio;
     	this.strain15IAllele = strain15IAllele;
     	this.strain15IAlleleFixed = strain15IAlleleFixed;
-    	this.strain15IAlleleRatio = strain15IAlleleRatio;
     	this.strainZeroAllele = strainZeroAllele;
     	this.strainZeroAlleleFixed = strainZeroAlleleFixed;
-    	this.strainZeroAlleleRatio = strainZeroAlleleRatio;
     	this.strain6Allele = strain6Allele;
     	this.strain6AlleleFixed = strain6AlleleFixed;
-    	this.strain6AlleleRatio = strain6AlleleRatio;
     	this.strainCAllele = strainCAllele;
     	this.strainCAlleleFixed = strainCAlleleFixed;
-    	this.strainCAlleleRatio = strainCAlleleRatio;
+    	this.aminoAcidSubs = aminoAcidSubs;
+    	this.predictionCategory = predictionCategory;
+    	this.scoreSift = scoreSift;
+    	this.scoreConservation = scoreConservation;
+    	this.proteinAlignNumber = proteinAlignNumber;
+    	this.totalAlignSequenceNumber = totalAlignSequenceNumber;
+    	this.scoreProvean = scoreProvean;
     }
     
     @PreUpdate
@@ -1189,28 +1135,20 @@ public class SNPChromosome {
      * @param ensemblAnnotation Coding predictions based on Ensembl gene models
      * @param strain7Allele For Strain 7 the Alternative Allele
      * @param strain7AlleleFixed For Strain 7 is this fixed or not
-     * @param strain7AlleleRatio For Strain 7 for not fixed alleles what is the ratio that this occurs else 1 for fixed
      * @param strainPAllele For Strain P the Alternative Allele
      * @param strainPAlleleFixed For Strain P is this fixed or not
-     * @param strainPAlleleRatio For Strain P for not fixed alleles what is the ratio that this occurs else 1 for fixed
      * @param strainWAllele For Strain W the Alternative Allele
      * @param strainWAlleleFixed For Strain W is this fixed or not
-     * @param strainWAlleleRatio For Strain W for not fixed alleles what is the ratio that this occurs else 1 for fixed
      * @param strainNAllele For Strain N the Alternative Allele
      * @param strainNAlleleFixed For Strain N is this fixed or not
-     * @param strainNAlleleRatio For Strain N for not fixed alleles what is the ratio that this occurs else 1 for fixed
      * @param strain15IAllele For Strain 15I the Alternative Allele
      * @param strain15IAlleleFixed For Strain 15I is this fixed or not
-     * @param strain15IAlleleRatio For Strain 15I for not fixed alleles what is the ratio that this occurs else 1 for fixed
      * @param strainZeroAllele For Strain STRING_FALSE the Alternative Allele
      * @param strainZeroAlleleFixed For Strain STRING_FALSE is this fixed or not
-     * @param strainZeroAlleleRatio For Strain STRING_FALSE for not fixed alleles what is the ratio that this occurs else 1 for fixed
      * @param strain6Allele For Strain 6 the Alternative Allele
      * @param strain6AlleleFixed For Strain 6 is this fixed or not
-     * @param strain6AlleleRatio For Strain 6 for not fixed alleles what is the ratio that this occurs else 1 for fixed
      * @param strainCAllele For Strain C the Alternative Allele
      * @param strainCAlleleFixed For Strain C is this fixed or not
-     * @param strainCAlleleRatio For Strain C for not fixed alleles what is the ratio that this occurs else 1 for fixed
      * 
      * @return this. A new Builder instance.
      */
@@ -1226,28 +1164,28 @@ public class SNPChromosome {
     		String ensemblAnnotation,
     		String strain7Allele,
     		String strain7AlleleFixed,
-    		long strain7AlleleRatio,
     		String strainPAllele,
     		String strainPAlleleFixed,
-    		long strainPAlleleRatio,
     		String strainWAllele,
     		String strainWAlleleFixed,
-    		long strainWAlleleRatio,
     		String strainNAllele,
     		String strainNAlleleFixed,
-    		long strainNAlleleRatio,
     		String strain15IAllele,
     		String strain15IAlleleFixed,
-    		long strain15IAlleleRatio,
     		String strainZeroAllele,
     		String strainZeroAlleleFixed,
-    		long strainZeroAlleleRatio,
     		String strain6Allele,
     		String strain6AlleleFixed,
-    		long strain6AlleleRatio,
     		String strainCAllele,
     		String strainCAlleleFixed,
-    		long strainCAlleleRatio ) {
+        	String aminoAcidSubs,
+        	String predictionCategory,
+        	double scoreSift,
+        	double scoreConservation,
+        	long proteinAlignNumber,
+        	long totalAlignSequenceNumber,
+        	double scoreProvean
+    		) {
     	
         return new Builder(
         		snpId,
@@ -1261,28 +1199,28 @@ public class SNPChromosome {
         		ensemblAnnotation,
         		strain7Allele,
         		strain7AlleleFixed,
-        		strain7AlleleRatio,
         		strainPAllele,
         		strainPAlleleFixed,
-        		strainPAlleleRatio,
         		strainWAllele,
         		strainWAlleleFixed,
-        		strainWAlleleRatio,
         		strainNAllele,
         		strainNAlleleFixed,
-        		strainNAlleleRatio,
         		strain15IAllele,
         		strain15IAlleleFixed,
-        		strain15IAlleleRatio,
         		strainZeroAllele,
         		strainZeroAlleleFixed,
-        		strainZeroAlleleRatio,
         		strain6Allele,
         		strain6AlleleFixed,
-        		strain6AlleleRatio,
         		strainCAllele,
         		strainCAlleleFixed,
-        		strainCAlleleRatio );
+        		aminoAcidSubs,
+        		predictionCategory,
+        		scoreSift,
+        		scoreConservation,
+        		proteinAlignNumber,
+        		totalAlignSequenceNumber,
+        		scoreProvean
+        		);
     }
     
     /**
@@ -1305,28 +1243,20 @@ public class SNPChromosome {
          * @param ensemblAnnotation Coding predictions based on Ensembl gene models
          * @param strain7Allele For Strain 7 the Alternative Allele
          * @param strain7AlleleFixed For Strain 7 is this fixed or not
-         * @param strain7AlleleRatio For Strain 7 for not fixed alleles what is the ratio that this occurs else 1 for fixed
          * @param strainPAllele For Strain P the Alternative Allele
          * @param strainPAlleleFixed For Strain P is this fixed or not
-         * @param strainPAlleleRatio For Strain P for not fixed alleles what is the ratio that this occurs else 1 for fixed
          * @param strainWAllele For Strain W the Alternative Allele
          * @param strainWAlleleFixed For Strain W is this fixed or not
-         * @param strainWAlleleRatio For Strain W for not fixed alleles what is the ratio that this occurs else 1 for fixed
          * @param strainNAllele For Strain N the Alternative Allele
          * @param strainNAlleleFixed For Strain N is this fixed or not
-         * @param strainNAlleleRatio For Strain N for not fixed alleles what is the ratio that this occurs else 1 for fixed
          * @param strain15IAllele For Strain 15I the Alternative Allele
          * @param strain15IAlleleFixed For Strain 15I is this fixed or not
-         * @param strain15IAlleleRatio For Strain 15I for not fixed alleles what is the ratio that this occurs else 1 for fixed
          * @param strainZeroAllele For Strain STRING_FALSE the Alternative Allele
          * @param strainZeroAlleleFixed For Strain STRING_FALSE is this fixed or not
-         * @param strainZeroAlleleRatio For Strain STRING_FALSE for not fixed alleles what is the ratio that this occurs else 1 for fixed
          * @param strain6Allele For Strain 6 the Alternative Allele
          * @param strain6AlleleFixed For Strain 6 is this fixed or not
-         * @param strain6AlleleRatio For Strain 6 for not fixed alleles what is the ratio that this occurs else 1 for fixed
          * @param strainCAllele For Strain C the Alternative Allele
          * @param strainCAlleleFixed For Strain C is this fixed or not
-         * @param strainCAlleleRatio For Strain C for not fixed alleles what is the ratio that this occurs else 1 for fixed
          */
         Builder(
         		String snpId,
@@ -1340,28 +1270,28 @@ public class SNPChromosome {
         		String ensemblAnnotation,
         		String strain7Allele,
         		String strain7AlleleFixed,
-        		long strain7AlleleRatio,
         		String strainPAllele,
         		String strainPAlleleFixed,
-        		long strainPAlleleRatio,
         		String strainWAllele,
         		String strainWAlleleFixed,
-        		long strainWAlleleRatio,
         		String strainNAllele,
         		String strainNAlleleFixed,
-        		long strainNAlleleRatio,
         		String strain15IAllele,
         		String strain15IAlleleFixed,
-        		long strain15IAlleleRatio,
         		String strainZeroAllele,
         		String strainZeroAlleleFixed,
-        		long strainZeroAlleleRatio,
         		String strain6Allele,
         		String strain6AlleleFixed,
-        		long strain6AlleleRatio,
         		String strainCAllele,
         		String strainCAlleleFixed,
-        		long strainCAlleleRatio ) {
+            	String aminoAcidSubs,
+            	String predictionCategory,
+            	double scoreSift,
+            	double scoreConservation,
+            	long proteinAlignNumber,
+            	long totalAlignSequenceNumber,
+            	double scoreProvean
+        		) {
         	
             built = new SNPChromosome();
             
@@ -1376,28 +1306,27 @@ public class SNPChromosome {
         	built.ensemblAnnotation = ensemblAnnotation;
         	built.strain7Allele = strain7Allele;
         	built.strain7AlleleFixed = strain7AlleleFixed;
-        	built.strain7AlleleRatio = strain7AlleleRatio;
         	built.strainPAllele = strainPAllele;
         	built.strainPAlleleFixed = strainPAlleleFixed;
-        	built.strainPAlleleRatio = strainPAlleleRatio;
         	built.strainWAllele = strainWAllele;
         	built.strainWAlleleFixed = strainWAlleleFixed;
-        	built.strainWAlleleRatio = strainWAlleleRatio;
         	built.strainNAllele = strainNAllele;
         	built.strainNAlleleFixed = strainNAlleleFixed;
-        	built.strainNAlleleRatio = strainNAlleleRatio;
         	built.strain15IAllele = strain15IAllele;
         	built.strain15IAlleleFixed = strain15IAlleleFixed;
-        	built.strain15IAlleleRatio = strain15IAlleleRatio;
         	built.strainZeroAllele = strainZeroAllele;
         	built.strainZeroAlleleFixed = strainZeroAlleleFixed;
-        	built.strainZeroAlleleRatio = strainZeroAlleleRatio;
         	built.strain6Allele = strain6Allele;
         	built.strain6AlleleFixed = strain6AlleleFixed;
-        	built.strain6AlleleRatio = strain6AlleleRatio;
         	built.strainCAllele = strainCAllele;
         	built.strainCAlleleFixed = strainCAlleleFixed;
-        	built.strainCAlleleRatio = strainCAlleleRatio;
+        	built.aminoAcidSubs = aminoAcidSubs;
+        	built.predictionCategory = predictionCategory;
+        	built.scoreSift = scoreSift;
+        	built.scoreConservation = scoreConservation;
+        	built.proteinAlignNumber = proteinAlignNumber;
+        	built.totalAlignSequenceNumber = totalAlignSequenceNumber;
+        	built.scoreProvean = scoreProvean;
         }
 
         /**
@@ -1426,28 +1355,28 @@ public class SNPChromosome {
         snpchromosomeZ.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosomeZ.setStrain7Allele(this.getStrain7Allele());
         snpchromosomeZ.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosomeZ.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosomeZ.setStrainPAllele(this.getStrainPAllele());
         snpchromosomeZ.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosomeZ.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosomeZ.setStrainWAllele(this.getStrainWAllele());
         snpchromosomeZ.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosomeZ.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosomeZ.setStrainNAllele(this.getStrainNAllele());
         snpchromosomeZ.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosomeZ.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosomeZ.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosomeZ.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosomeZ.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosomeZ.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosomeZ.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosomeZ.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosomeZ.setStrain6Allele(this.getStrain6Allele());
         snpchromosomeZ.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosomeZ.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosomeZ.setStrainCAllele(this.getStrainCAllele());
         snpchromosomeZ.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosomeZ.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosomeZ.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosomeZ.setPredictionCategory(this.getPredictionCategory());
+        snpchromosomeZ.setScoreSift(this.getScoreSift());
+        snpchromosomeZ.setScoreConservation(this.getScoreConservation());
+        snpchromosomeZ.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosomeZ.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosomeZ.setScoreProvean(this.getScoreProvean());
+
 
     	return snpchromosomeZ;
     }
@@ -1467,28 +1396,27 @@ public class SNPChromosome {
         snpchromosomeW.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosomeW.setStrain7Allele(this.getStrain7Allele());
         snpchromosomeW.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosomeW.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosomeW.setStrainPAllele(this.getStrainPAllele());
         snpchromosomeW.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosomeW.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosomeW.setStrainWAllele(this.getStrainWAllele());
         snpchromosomeW.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosomeW.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosomeW.setStrainNAllele(this.getStrainNAllele());
         snpchromosomeW.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosomeW.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosomeW.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosomeW.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosomeW.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosomeW.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosomeW.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosomeW.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosomeW.setStrain6Allele(this.getStrain6Allele());
         snpchromosomeW.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosomeW.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosomeW.setStrainCAllele(this.getStrainCAllele());
         snpchromosomeW.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosomeW.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosomeW.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosomeW.setPredictionCategory(this.getPredictionCategory());
+        snpchromosomeW.setScoreSift(this.getScoreSift());
+        snpchromosomeW.setScoreConservation(this.getScoreConservation());
+        snpchromosomeW.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosomeW.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosomeW.setScoreProvean(this.getScoreProvean());
 
     	return snpchromosomeW;
     }
@@ -1508,28 +1436,27 @@ public class SNPChromosome {
         snpchromosomeLGE64.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosomeLGE64.setStrain7Allele(this.getStrain7Allele());
         snpchromosomeLGE64.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosomeLGE64.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosomeLGE64.setStrainPAllele(this.getStrainPAllele());
         snpchromosomeLGE64.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosomeLGE64.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosomeLGE64.setStrainWAllele(this.getStrainWAllele());
         snpchromosomeLGE64.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosomeLGE64.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosomeLGE64.setStrainNAllele(this.getStrainNAllele());
         snpchromosomeLGE64.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosomeLGE64.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosomeLGE64.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosomeLGE64.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosomeLGE64.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosomeLGE64.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosomeLGE64.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosomeLGE64.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosomeLGE64.setStrain6Allele(this.getStrain6Allele());
         snpchromosomeLGE64.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosomeLGE64.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosomeLGE64.setStrainCAllele(this.getStrainCAllele());
         snpchromosomeLGE64.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosomeLGE64.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosomeLGE64.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosomeLGE64.setPredictionCategory(this.getPredictionCategory());
+        snpchromosomeLGE64.setScoreSift(this.getScoreSift());
+        snpchromosomeLGE64.setScoreConservation(this.getScoreConservation());
+        snpchromosomeLGE64.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosomeLGE64.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosomeLGE64.setScoreProvean(this.getScoreProvean());
 
     	return snpchromosomeLGE64;
     }
@@ -1549,28 +1476,27 @@ public class SNPChromosome {
         snpchromosomeLGE22C19W28_E50C23.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosomeLGE22C19W28_E50C23.setStrain7Allele(this.getStrain7Allele());
         snpchromosomeLGE22C19W28_E50C23.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosomeLGE22C19W28_E50C23.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosomeLGE22C19W28_E50C23.setStrainPAllele(this.getStrainPAllele());
         snpchromosomeLGE22C19W28_E50C23.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosomeLGE22C19W28_E50C23.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosomeLGE22C19W28_E50C23.setStrainWAllele(this.getStrainWAllele());
         snpchromosomeLGE22C19W28_E50C23.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosomeLGE22C19W28_E50C23.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosomeLGE22C19W28_E50C23.setStrainNAllele(this.getStrainNAllele());
         snpchromosomeLGE22C19W28_E50C23.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosomeLGE22C19W28_E50C23.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosomeLGE22C19W28_E50C23.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosomeLGE22C19W28_E50C23.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosomeLGE22C19W28_E50C23.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosomeLGE22C19W28_E50C23.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosomeLGE22C19W28_E50C23.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosomeLGE22C19W28_E50C23.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosomeLGE22C19W28_E50C23.setStrain6Allele(this.getStrain6Allele());
         snpchromosomeLGE22C19W28_E50C23.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosomeLGE22C19W28_E50C23.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosomeLGE22C19W28_E50C23.setStrainCAllele(this.getStrainCAllele());
         snpchromosomeLGE22C19W28_E50C23.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosomeLGE22C19W28_E50C23.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosomeLGE22C19W28_E50C23.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosomeLGE22C19W28_E50C23.setPredictionCategory(this.getPredictionCategory());
+        snpchromosomeLGE22C19W28_E50C23.setScoreSift(this.getScoreSift());
+        snpchromosomeLGE22C19W28_E50C23.setScoreConservation(this.getScoreConservation());
+        snpchromosomeLGE22C19W28_E50C23.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosomeLGE22C19W28_E50C23.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosomeLGE22C19W28_E50C23.setScoreProvean(this.getScoreProvean());
 
     	return snpchromosomeLGE22C19W28_E50C23;
     }
@@ -1591,28 +1517,27 @@ public class SNPChromosome {
         snpchromosome32.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosome32.setStrain7Allele(this.getStrain7Allele());
         snpchromosome32.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosome32.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosome32.setStrainPAllele(this.getStrainPAllele());
         snpchromosome32.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosome32.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosome32.setStrainWAllele(this.getStrainWAllele());
         snpchromosome32.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosome32.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosome32.setStrainNAllele(this.getStrainNAllele());
         snpchromosome32.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosome32.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosome32.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosome32.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosome32.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosome32.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosome32.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosome32.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosome32.setStrain6Allele(this.getStrain6Allele());
         snpchromosome32.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosome32.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosome32.setStrainCAllele(this.getStrainCAllele());
         snpchromosome32.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosome32.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosome32.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosome32.setPredictionCategory(this.getPredictionCategory());
+        snpchromosome32.setScoreSift(this.getScoreSift());
+        snpchromosome32.setScoreConservation(this.getScoreConservation());
+        snpchromosome32.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosome32.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosome32.setScoreProvean(this.getScoreProvean());
 
     	return snpchromosome32;
     }
@@ -1632,28 +1557,27 @@ public class SNPChromosome {
         snpchromosome28.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosome28.setStrain7Allele(this.getStrain7Allele());
         snpchromosome28.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosome28.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosome28.setStrainPAllele(this.getStrainPAllele());
         snpchromosome28.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosome28.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosome28.setStrainWAllele(this.getStrainWAllele());
         snpchromosome28.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosome28.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosome28.setStrainNAllele(this.getStrainNAllele());
         snpchromosome28.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosome28.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosome28.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosome28.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosome28.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosome28.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosome28.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosome28.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosome28.setStrain6Allele(this.getStrain6Allele());
         snpchromosome28.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosome28.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosome28.setStrainCAllele(this.getStrainCAllele());
         snpchromosome28.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosome28.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosome28.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosome28.setPredictionCategory(this.getPredictionCategory());
+        snpchromosome28.setScoreSift(this.getScoreSift());
+        snpchromosome28.setScoreConservation(this.getScoreConservation());
+        snpchromosome28.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosome28.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosome28.setScoreProvean(this.getScoreProvean());
 
     	return snpchromosome28;
     }
@@ -1673,28 +1597,27 @@ public class SNPChromosome {
         snpchromosome27.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosome27.setStrain7Allele(this.getStrain7Allele());
         snpchromosome27.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosome27.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosome27.setStrainPAllele(this.getStrainPAllele());
         snpchromosome27.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosome27.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosome27.setStrainWAllele(this.getStrainWAllele());
         snpchromosome27.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosome27.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosome27.setStrainNAllele(this.getStrainNAllele());
         snpchromosome27.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosome27.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosome27.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosome27.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosome27.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosome27.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosome27.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosome27.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosome27.setStrain6Allele(this.getStrain6Allele());
         snpchromosome27.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosome27.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosome27.setStrainCAllele(this.getStrainCAllele());
         snpchromosome27.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosome27.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosome27.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosome27.setPredictionCategory(this.getPredictionCategory());
+        snpchromosome27.setScoreSift(this.getScoreSift());
+        snpchromosome27.setScoreConservation(this.getScoreConservation());
+        snpchromosome27.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosome27.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosome27.setScoreProvean(this.getScoreProvean());
 
     	return snpchromosome27;
     }
@@ -1714,28 +1637,27 @@ public class SNPChromosome {
         snpchromosome26.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosome26.setStrain7Allele(this.getStrain7Allele());
         snpchromosome26.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosome26.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosome26.setStrainPAllele(this.getStrainPAllele());
         snpchromosome26.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosome26.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosome26.setStrainWAllele(this.getStrainWAllele());
         snpchromosome26.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosome26.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosome26.setStrainNAllele(this.getStrainNAllele());
         snpchromosome26.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosome26.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosome26.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosome26.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosome26.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosome26.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosome26.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosome26.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosome26.setStrain6Allele(this.getStrain6Allele());
         snpchromosome26.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosome26.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosome26.setStrainCAllele(this.getStrainCAllele());
         snpchromosome26.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosome26.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosome26.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosome26.setPredictionCategory(this.getPredictionCategory());
+        snpchromosome26.setScoreSift(this.getScoreSift());
+        snpchromosome26.setScoreConservation(this.getScoreConservation());
+        snpchromosome26.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosome26.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosome26.setScoreProvean(this.getScoreProvean());
 
     	return snpchromosome26;
     }
@@ -1755,28 +1677,27 @@ public class SNPChromosome {
         snpchromosome25.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosome25.setStrain7Allele(this.getStrain7Allele());
         snpchromosome25.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosome25.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosome25.setStrainPAllele(this.getStrainPAllele());
         snpchromosome25.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosome25.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosome25.setStrainWAllele(this.getStrainWAllele());
         snpchromosome25.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosome25.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosome25.setStrainNAllele(this.getStrainNAllele());
         snpchromosome25.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosome25.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosome25.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosome25.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosome25.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosome25.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosome25.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosome25.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosome25.setStrain6Allele(this.getStrain6Allele());
         snpchromosome25.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosome25.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosome25.setStrainCAllele(this.getStrainCAllele());
         snpchromosome25.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosome25.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosome25.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosome25.setPredictionCategory(this.getPredictionCategory());
+        snpchromosome25.setScoreSift(this.getScoreSift());
+        snpchromosome25.setScoreConservation(this.getScoreConservation());
+        snpchromosome25.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosome25.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosome25.setScoreProvean(this.getScoreProvean());
 
     	return snpchromosome25;
     }
@@ -1796,28 +1717,27 @@ public class SNPChromosome {
         snpchromosome24.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosome24.setStrain7Allele(this.getStrain7Allele());
         snpchromosome24.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosome24.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosome24.setStrainPAllele(this.getStrainPAllele());
         snpchromosome24.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosome24.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosome24.setStrainWAllele(this.getStrainWAllele());
         snpchromosome24.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosome24.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosome24.setStrainNAllele(this.getStrainNAllele());
         snpchromosome24.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosome24.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosome24.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosome24.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosome24.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosome24.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosome24.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosome24.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosome24.setStrain6Allele(this.getStrain6Allele());
         snpchromosome24.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosome24.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosome24.setStrainCAllele(this.getStrainCAllele());
         snpchromosome24.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosome24.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosome24.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosome24.setPredictionCategory(this.getPredictionCategory());
+        snpchromosome24.setScoreSift(this.getScoreSift());
+        snpchromosome24.setScoreConservation(this.getScoreConservation());
+        snpchromosome24.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosome24.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosome24.setScoreProvean(this.getScoreProvean());
 
     	return snpchromosome24;
     }
@@ -1837,28 +1757,27 @@ public class SNPChromosome {
         snpchromosome23.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosome23.setStrain7Allele(this.getStrain7Allele());
         snpchromosome23.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosome23.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosome23.setStrainPAllele(this.getStrainPAllele());
         snpchromosome23.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosome23.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosome23.setStrainWAllele(this.getStrainWAllele());
         snpchromosome23.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosome23.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosome23.setStrainNAllele(this.getStrainNAllele());
         snpchromosome23.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosome23.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosome23.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosome23.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosome23.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosome23.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosome23.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosome23.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosome23.setStrain6Allele(this.getStrain6Allele());
         snpchromosome23.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosome23.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosome23.setStrainCAllele(this.getStrainCAllele());
         snpchromosome23.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosome23.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosome23.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosome23.setPredictionCategory(this.getPredictionCategory());
+        snpchromosome23.setScoreSift(this.getScoreSift());
+        snpchromosome23.setScoreConservation(this.getScoreConservation());
+        snpchromosome23.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosome23.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosome23.setScoreProvean(this.getScoreProvean());
 
     	return snpchromosome23;
     }
@@ -1878,28 +1797,27 @@ public class SNPChromosome {
         snpchromosome22.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosome22.setStrain7Allele(this.getStrain7Allele());
         snpchromosome22.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosome22.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosome22.setStrainPAllele(this.getStrainPAllele());
         snpchromosome22.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosome22.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosome22.setStrainWAllele(this.getStrainWAllele());
         snpchromosome22.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosome22.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosome22.setStrainNAllele(this.getStrainNAllele());
         snpchromosome22.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosome22.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosome22.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosome22.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosome22.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosome22.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosome22.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosome22.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosome22.setStrain6Allele(this.getStrain6Allele());
         snpchromosome22.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosome22.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosome22.setStrainCAllele(this.getStrainCAllele());
         snpchromosome22.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosome22.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosome22.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosome22.setPredictionCategory(this.getPredictionCategory());
+        snpchromosome22.setScoreSift(this.getScoreSift());
+        snpchromosome22.setScoreConservation(this.getScoreConservation());
+        snpchromosome22.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosome22.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosome22.setScoreProvean(this.getScoreProvean());
 
     	return snpchromosome22;
     }
@@ -1919,28 +1837,27 @@ public class SNPChromosome {
         snpchromosome21.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosome21.setStrain7Allele(this.getStrain7Allele());
         snpchromosome21.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosome21.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosome21.setStrainPAllele(this.getStrainPAllele());
         snpchromosome21.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosome21.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosome21.setStrainWAllele(this.getStrainWAllele());
         snpchromosome21.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosome21.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosome21.setStrainNAllele(this.getStrainNAllele());
         snpchromosome21.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosome21.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosome21.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosome21.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosome21.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosome21.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosome21.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosome21.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosome21.setStrain6Allele(this.getStrain6Allele());
         snpchromosome21.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosome21.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosome21.setStrainCAllele(this.getStrainCAllele());
         snpchromosome21.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosome21.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosome21.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosome21.setPredictionCategory(this.getPredictionCategory());
+        snpchromosome21.setScoreSift(this.getScoreSift());
+        snpchromosome21.setScoreConservation(this.getScoreConservation());
+        snpchromosome21.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosome21.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosome21.setScoreProvean(this.getScoreProvean());
 
     	return snpchromosome21;
     }
@@ -1960,28 +1877,27 @@ public class SNPChromosome {
         snpchromosome20.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosome20.setStrain7Allele(this.getStrain7Allele());
         snpchromosome20.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosome20.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosome20.setStrainPAllele(this.getStrainPAllele());
         snpchromosome20.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosome20.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosome20.setStrainWAllele(this.getStrainWAllele());
         snpchromosome20.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosome20.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosome20.setStrainNAllele(this.getStrainNAllele());
         snpchromosome20.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosome20.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosome20.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosome20.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosome20.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosome20.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosome20.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosome20.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosome20.setStrain6Allele(this.getStrain6Allele());
         snpchromosome20.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosome20.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosome20.setStrainCAllele(this.getStrainCAllele());
         snpchromosome20.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosome20.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosome20.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosome20.setPredictionCategory(this.getPredictionCategory());
+        snpchromosome20.setScoreSift(this.getScoreSift());
+        snpchromosome20.setScoreConservation(this.getScoreConservation());
+        snpchromosome20.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosome20.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosome20.setScoreProvean(this.getScoreProvean());
 
     	return snpchromosome20;
     }
@@ -2001,28 +1917,27 @@ public class SNPChromosome {
         snpchromosome19.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosome19.setStrain7Allele(this.getStrain7Allele());
         snpchromosome19.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosome19.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosome19.setStrainPAllele(this.getStrainPAllele());
         snpchromosome19.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosome19.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosome19.setStrainWAllele(this.getStrainWAllele());
         snpchromosome19.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosome19.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosome19.setStrainNAllele(this.getStrainNAllele());
         snpchromosome19.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosome19.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosome19.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosome19.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosome19.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosome19.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosome19.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosome19.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosome19.setStrain6Allele(this.getStrain6Allele());
         snpchromosome19.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosome19.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosome19.setStrainCAllele(this.getStrainCAllele());
         snpchromosome19.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosome19.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosome19.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosome19.setPredictionCategory(this.getPredictionCategory());
+        snpchromosome19.setScoreSift(this.getScoreSift());
+        snpchromosome19.setScoreConservation(this.getScoreConservation());
+        snpchromosome19.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosome19.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosome19.setScoreProvean(this.getScoreProvean());
 
     	return snpchromosome19;
     }
@@ -2042,28 +1957,27 @@ public class SNPChromosome {
         snpchromosome18.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosome18.setStrain7Allele(this.getStrain7Allele());
         snpchromosome18.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosome18.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosome18.setStrainPAllele(this.getStrainPAllele());
         snpchromosome18.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosome18.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosome18.setStrainWAllele(this.getStrainWAllele());
         snpchromosome18.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosome18.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosome18.setStrainNAllele(this.getStrainNAllele());
         snpchromosome18.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosome18.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosome18.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosome18.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosome18.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosome18.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosome18.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosome18.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosome18.setStrain6Allele(this.getStrain6Allele());
         snpchromosome18.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosome18.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosome18.setStrainCAllele(this.getStrainCAllele());
         snpchromosome18.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosome18.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosome18.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosome18.setPredictionCategory(this.getPredictionCategory());
+        snpchromosome18.setScoreSift(this.getScoreSift());
+        snpchromosome18.setScoreConservation(this.getScoreConservation());
+        snpchromosome18.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosome18.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosome18.setScoreProvean(this.getScoreProvean());
 
     	return snpchromosome18;
     }
@@ -2083,28 +1997,27 @@ public class SNPChromosome {
         snpchromosome17.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosome17.setStrain7Allele(this.getStrain7Allele());
         snpchromosome17.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosome17.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosome17.setStrainPAllele(this.getStrainPAllele());
         snpchromosome17.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosome17.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosome17.setStrainWAllele(this.getStrainWAllele());
         snpchromosome17.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosome17.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosome17.setStrainNAllele(this.getStrainNAllele());
         snpchromosome17.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosome17.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosome17.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosome17.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosome17.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosome17.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosome17.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosome17.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosome17.setStrain6Allele(this.getStrain6Allele());
         snpchromosome17.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosome17.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosome17.setStrainCAllele(this.getStrainCAllele());
         snpchromosome17.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosome17.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosome17.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosome17.setPredictionCategory(this.getPredictionCategory());
+        snpchromosome17.setScoreSift(this.getScoreSift());
+        snpchromosome17.setScoreConservation(this.getScoreConservation());
+        snpchromosome17.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosome17.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosome17.setScoreProvean(this.getScoreProvean());
 
     	return snpchromosome17;
     }
@@ -2124,28 +2037,27 @@ public class SNPChromosome {
         snpchromosome16.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosome16.setStrain7Allele(this.getStrain7Allele());
         snpchromosome16.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosome16.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosome16.setStrainPAllele(this.getStrainPAllele());
         snpchromosome16.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosome16.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosome16.setStrainWAllele(this.getStrainWAllele());
         snpchromosome16.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosome16.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosome16.setStrainNAllele(this.getStrainNAllele());
         snpchromosome16.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosome16.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosome16.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosome16.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosome16.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosome16.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosome16.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosome16.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosome16.setStrain6Allele(this.getStrain6Allele());
         snpchromosome16.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosome16.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosome16.setStrainCAllele(this.getStrainCAllele());
         snpchromosome16.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosome16.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosome16.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosome16.setPredictionCategory(this.getPredictionCategory());
+        snpchromosome16.setScoreSift(this.getScoreSift());
+        snpchromosome16.setScoreConservation(this.getScoreConservation());
+        snpchromosome16.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosome16.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosome16.setScoreProvean(this.getScoreProvean());
 
     	return snpchromosome16;
     }
@@ -2165,28 +2077,27 @@ public class SNPChromosome {
         snpchromosome15.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosome15.setStrain7Allele(this.getStrain7Allele());
         snpchromosome15.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosome15.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosome15.setStrainPAllele(this.getStrainPAllele());
         snpchromosome15.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosome15.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosome15.setStrainWAllele(this.getStrainWAllele());
         snpchromosome15.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosome15.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosome15.setStrainNAllele(this.getStrainNAllele());
         snpchromosome15.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosome15.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosome15.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosome15.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosome15.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosome15.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosome15.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosome15.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosome15.setStrain6Allele(this.getStrain6Allele());
         snpchromosome15.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosome15.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosome15.setStrainCAllele(this.getStrainCAllele());
         snpchromosome15.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosome15.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosome15.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosome15.setPredictionCategory(this.getPredictionCategory());
+        snpchromosome15.setScoreSift(this.getScoreSift());
+        snpchromosome15.setScoreConservation(this.getScoreConservation());
+        snpchromosome15.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosome15.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosome15.setScoreProvean(this.getScoreProvean());
 
     	return snpchromosome15;
     }
@@ -2206,28 +2117,27 @@ public class SNPChromosome {
         snpchromosome14.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosome14.setStrain7Allele(this.getStrain7Allele());
         snpchromosome14.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosome14.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosome14.setStrainPAllele(this.getStrainPAllele());
         snpchromosome14.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosome14.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosome14.setStrainWAllele(this.getStrainWAllele());
         snpchromosome14.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosome14.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosome14.setStrainNAllele(this.getStrainNAllele());
         snpchromosome14.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosome14.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosome14.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosome14.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosome14.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosome14.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosome14.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosome14.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosome14.setStrain6Allele(this.getStrain6Allele());
         snpchromosome14.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosome14.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosome14.setStrainCAllele(this.getStrainCAllele());
         snpchromosome14.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosome14.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosome14.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosome14.setPredictionCategory(this.getPredictionCategory());
+        snpchromosome14.setScoreSift(this.getScoreSift());
+        snpchromosome14.setScoreConservation(this.getScoreConservation());
+        snpchromosome14.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosome14.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosome14.setScoreProvean(this.getScoreProvean());
 
     	return snpchromosome14;
     }
@@ -2247,28 +2157,27 @@ public class SNPChromosome {
         snpchromosome13.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosome13.setStrain7Allele(this.getStrain7Allele());
         snpchromosome13.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosome13.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosome13.setStrainPAllele(this.getStrainPAllele());
         snpchromosome13.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosome13.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosome13.setStrainWAllele(this.getStrainWAllele());
         snpchromosome13.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosome13.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosome13.setStrainNAllele(this.getStrainNAllele());
         snpchromosome13.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosome13.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosome13.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosome13.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosome13.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosome13.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosome13.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosome13.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosome13.setStrain6Allele(this.getStrain6Allele());
         snpchromosome13.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosome13.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosome13.setStrainCAllele(this.getStrainCAllele());
         snpchromosome13.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosome13.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosome13.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosome13.setPredictionCategory(this.getPredictionCategory());
+        snpchromosome13.setScoreSift(this.getScoreSift());
+        snpchromosome13.setScoreConservation(this.getScoreConservation());
+        snpchromosome13.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosome13.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosome13.setScoreProvean(this.getScoreProvean());
 
     	return snpchromosome13;
     }
@@ -2288,28 +2197,27 @@ public class SNPChromosome {
         snpchromosome12.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosome12.setStrain7Allele(this.getStrain7Allele());
         snpchromosome12.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosome12.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosome12.setStrainPAllele(this.getStrainPAllele());
         snpchromosome12.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosome12.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosome12.setStrainWAllele(this.getStrainWAllele());
         snpchromosome12.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosome12.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosome12.setStrainNAllele(this.getStrainNAllele());
         snpchromosome12.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosome12.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosome12.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosome12.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosome12.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosome12.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosome12.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosome12.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosome12.setStrain6Allele(this.getStrain6Allele());
         snpchromosome12.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosome12.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosome12.setStrainCAllele(this.getStrainCAllele());
         snpchromosome12.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosome12.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosome12.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosome12.setPredictionCategory(this.getPredictionCategory());
+        snpchromosome12.setScoreSift(this.getScoreSift());
+        snpchromosome12.setScoreConservation(this.getScoreConservation());
+        snpchromosome12.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosome12.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosome12.setScoreProvean(this.getScoreProvean());
 
     	return snpchromosome12;
     }
@@ -2329,28 +2237,27 @@ public class SNPChromosome {
         snpchromosome11.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosome11.setStrain7Allele(this.getStrain7Allele());
         snpchromosome11.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosome11.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosome11.setStrainPAllele(this.getStrainPAllele());
         snpchromosome11.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosome11.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosome11.setStrainWAllele(this.getStrainWAllele());
         snpchromosome11.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosome11.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosome11.setStrainNAllele(this.getStrainNAllele());
         snpchromosome11.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosome11.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosome11.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosome11.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosome11.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosome11.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosome11.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosome11.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosome11.setStrain6Allele(this.getStrain6Allele());
         snpchromosome11.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosome11.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosome11.setStrainCAllele(this.getStrainCAllele());
         snpchromosome11.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosome11.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosome11.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosome11.setPredictionCategory(this.getPredictionCategory());
+        snpchromosome11.setScoreSift(this.getScoreSift());
+        snpchromosome11.setScoreConservation(this.getScoreConservation());
+        snpchromosome11.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosome11.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosome11.setScoreProvean(this.getScoreProvean());
 
     	return snpchromosome11;
     }
@@ -2370,35 +2277,34 @@ public class SNPChromosome {
         snpchromosome10.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosome10.setStrain7Allele(this.getStrain7Allele());
         snpchromosome10.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosome10.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosome10.setStrainPAllele(this.getStrainPAllele());
         snpchromosome10.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosome10.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosome10.setStrainWAllele(this.getStrainWAllele());
         snpchromosome10.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosome10.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosome10.setStrainNAllele(this.getStrainNAllele());
         snpchromosome10.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosome10.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosome10.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosome10.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosome10.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosome10.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosome10.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosome10.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosome10.setStrain6Allele(this.getStrain6Allele());
         snpchromosome10.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosome10.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosome10.setStrainCAllele(this.getStrainCAllele());
         snpchromosome10.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosome10.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosome10.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosome10.setPredictionCategory(this.getPredictionCategory());
+        snpchromosome10.setScoreSift(this.getScoreSift());
+        snpchromosome10.setScoreConservation(this.getScoreConservation());
+        snpchromosome10.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosome10.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosome10.setScoreProvean(this.getScoreProvean());
 
     	return snpchromosome10;
     }
 
-    public SNPChromosome9 convertTo9() {
+    public SNPChromosome09 convertTo9() {
     	
-    	SNPChromosome9 snpchromosome9 = new SNPChromosome9();
+    	SNPChromosome09 snpchromosome9 = new SNPChromosome09();
     	
         snpchromosome9.setSnpId(this.getSnpId());
         snpchromosome9.setChromosomeId(this.getChromosomeId());
@@ -2411,35 +2317,34 @@ public class SNPChromosome {
         snpchromosome9.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosome9.setStrain7Allele(this.getStrain7Allele());
         snpchromosome9.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosome9.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosome9.setStrainPAllele(this.getStrainPAllele());
         snpchromosome9.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosome9.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosome9.setStrainWAllele(this.getStrainWAllele());
         snpchromosome9.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosome9.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosome9.setStrainNAllele(this.getStrainNAllele());
         snpchromosome9.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosome9.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosome9.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosome9.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosome9.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosome9.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosome9.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosome9.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosome9.setStrain6Allele(this.getStrain6Allele());
         snpchromosome9.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosome9.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosome9.setStrainCAllele(this.getStrainCAllele());
         snpchromosome9.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosome9.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosome9.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosome9.setPredictionCategory(this.getPredictionCategory());
+        snpchromosome9.setScoreSift(this.getScoreSift());
+        snpchromosome9.setScoreConservation(this.getScoreConservation());
+        snpchromosome9.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosome9.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosome9.setScoreProvean(this.getScoreProvean());
 
     	return snpchromosome9;
     }
 
-    public SNPChromosome8 convertTo8() {
+    public SNPChromosome08 convertTo8() {
     	
-    	SNPChromosome8 snpchromosome8 = new SNPChromosome8();
+    	SNPChromosome08 snpchromosome8 = new SNPChromosome08();
     	
         snpchromosome8.setSnpId(this.getSnpId());
         snpchromosome8.setChromosomeId(this.getChromosomeId());
@@ -2452,35 +2357,34 @@ public class SNPChromosome {
         snpchromosome8.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosome8.setStrain7Allele(this.getStrain7Allele());
         snpchromosome8.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosome8.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosome8.setStrainPAllele(this.getStrainPAllele());
         snpchromosome8.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosome8.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosome8.setStrainWAllele(this.getStrainWAllele());
         snpchromosome8.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosome8.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosome8.setStrainNAllele(this.getStrainNAllele());
         snpchromosome8.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosome8.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosome8.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosome8.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosome8.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosome8.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosome8.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosome8.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosome8.setStrain6Allele(this.getStrain6Allele());
         snpchromosome8.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosome8.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosome8.setStrainCAllele(this.getStrainCAllele());
         snpchromosome8.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosome8.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosome8.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosome8.setPredictionCategory(this.getPredictionCategory());
+        snpchromosome8.setScoreSift(this.getScoreSift());
+        snpchromosome8.setScoreConservation(this.getScoreConservation());
+        snpchromosome8.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosome8.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosome8.setScoreProvean(this.getScoreProvean());
 
     	return snpchromosome8;
     }
 
-    public SNPChromosome7 convertTo7() {
+    public SNPChromosome07 convertTo7() {
     	
-    	SNPChromosome7 snpchromosome7 = new SNPChromosome7();
+    	SNPChromosome07 snpchromosome7 = new SNPChromosome07();
     	
         snpchromosome7.setSnpId(this.getSnpId());
         snpchromosome7.setChromosomeId(this.getChromosomeId());
@@ -2493,35 +2397,34 @@ public class SNPChromosome {
         snpchromosome7.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosome7.setStrain7Allele(this.getStrain7Allele());
         snpchromosome7.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosome7.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosome7.setStrainPAllele(this.getStrainPAllele());
         snpchromosome7.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosome7.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosome7.setStrainWAllele(this.getStrainWAllele());
         snpchromosome7.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosome7.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosome7.setStrainNAllele(this.getStrainNAllele());
         snpchromosome7.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosome7.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosome7.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosome7.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosome7.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosome7.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosome7.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosome7.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosome7.setStrain6Allele(this.getStrain6Allele());
         snpchromosome7.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosome7.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosome7.setStrainCAllele(this.getStrainCAllele());
         snpchromosome7.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosome7.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosome7.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosome7.setPredictionCategory(this.getPredictionCategory());
+        snpchromosome7.setScoreSift(this.getScoreSift());
+        snpchromosome7.setScoreConservation(this.getScoreConservation());
+        snpchromosome7.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosome7.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosome7.setScoreProvean(this.getScoreProvean());
 
     	return snpchromosome7;
     }
 
-    public SNPChromosome6 convertTo6() {
+    public SNPChromosome06 convertTo6() {
     	
-    	SNPChromosome6 snpchromosome6 = new SNPChromosome6();
+    	SNPChromosome06 snpchromosome6 = new SNPChromosome06();
     	
         snpchromosome6.setSnpId(this.getSnpId());
         snpchromosome6.setChromosomeId(this.getChromosomeId());
@@ -2534,35 +2437,34 @@ public class SNPChromosome {
         snpchromosome6.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosome6.setStrain7Allele(this.getStrain7Allele());
         snpchromosome6.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosome6.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosome6.setStrainPAllele(this.getStrainPAllele());
         snpchromosome6.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosome6.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosome6.setStrainWAllele(this.getStrainWAllele());
         snpchromosome6.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosome6.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosome6.setStrainNAllele(this.getStrainNAllele());
         snpchromosome6.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosome6.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosome6.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosome6.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosome6.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosome6.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosome6.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosome6.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosome6.setStrain6Allele(this.getStrain6Allele());
         snpchromosome6.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosome6.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosome6.setStrainCAllele(this.getStrainCAllele());
         snpchromosome6.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosome6.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosome6.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosome6.setPredictionCategory(this.getPredictionCategory());
+        snpchromosome6.setScoreSift(this.getScoreSift());
+        snpchromosome6.setScoreConservation(this.getScoreConservation());
+        snpchromosome6.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosome6.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosome6.setScoreProvean(this.getScoreProvean());
 
     	return snpchromosome6;
     }
 
-    public SNPChromosome5 convertTo5() {
+    public SNPChromosome05 convertTo5() {
     	
-    	SNPChromosome5 snpchromosome5 = new SNPChromosome5();
+    	SNPChromosome05 snpchromosome5 = new SNPChromosome05();
     	
         snpchromosome5.setSnpId(this.getSnpId());
         snpchromosome5.setChromosomeId(this.getChromosomeId());
@@ -2575,35 +2477,34 @@ public class SNPChromosome {
         snpchromosome5.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosome5.setStrain7Allele(this.getStrain7Allele());
         snpchromosome5.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosome5.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosome5.setStrainPAllele(this.getStrainPAllele());
         snpchromosome5.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosome5.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosome5.setStrainWAllele(this.getStrainWAllele());
         snpchromosome5.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosome5.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosome5.setStrainNAllele(this.getStrainNAllele());
         snpchromosome5.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosome5.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosome5.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosome5.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosome5.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosome5.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosome5.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosome5.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosome5.setStrain6Allele(this.getStrain6Allele());
         snpchromosome5.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosome5.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosome5.setStrainCAllele(this.getStrainCAllele());
         snpchromosome5.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosome5.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosome5.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosome5.setPredictionCategory(this.getPredictionCategory());
+        snpchromosome5.setScoreSift(this.getScoreSift());
+        snpchromosome5.setScoreConservation(this.getScoreConservation());
+        snpchromosome5.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosome5.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosome5.setScoreProvean(this.getScoreProvean());
 
     	return snpchromosome5;
     }
 
-    public SNPChromosome4 convertTo4() {
+    public SNPChromosome04 convertTo4() {
     	
-    	SNPChromosome4 snpchromosome4 = new SNPChromosome4();
+    	SNPChromosome04 snpchromosome4 = new SNPChromosome04();
     	
         snpchromosome4.setSnpId(this.getSnpId());
         snpchromosome4.setChromosomeId(this.getChromosomeId());
@@ -2616,35 +2517,34 @@ public class SNPChromosome {
         snpchromosome4.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosome4.setStrain7Allele(this.getStrain7Allele());
         snpchromosome4.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosome4.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosome4.setStrainPAllele(this.getStrainPAllele());
         snpchromosome4.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosome4.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosome4.setStrainWAllele(this.getStrainWAllele());
         snpchromosome4.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosome4.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosome4.setStrainNAllele(this.getStrainNAllele());
         snpchromosome4.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosome4.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosome4.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosome4.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosome4.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosome4.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosome4.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosome4.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosome4.setStrain6Allele(this.getStrain6Allele());
         snpchromosome4.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosome4.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosome4.setStrainCAllele(this.getStrainCAllele());
         snpchromosome4.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosome4.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosome4.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosome4.setPredictionCategory(this.getPredictionCategory());
+        snpchromosome4.setScoreSift(this.getScoreSift());
+        snpchromosome4.setScoreConservation(this.getScoreConservation());
+        snpchromosome4.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosome4.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosome4.setScoreProvean(this.getScoreProvean());
 
     	return snpchromosome4;
     }
 
-    public SNPChromosome3 convertTo3() {
+    public SNPChromosome03 convertTo3() {
     	
-    	SNPChromosome3 snpchromosome3 = new SNPChromosome3();
+    	SNPChromosome03 snpchromosome3 = new SNPChromosome03();
     	
         snpchromosome3.setSnpId(this.getSnpId());
         snpchromosome3.setChromosomeId(this.getChromosomeId());
@@ -2657,35 +2557,34 @@ public class SNPChromosome {
         snpchromosome3.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosome3.setStrain7Allele(this.getStrain7Allele());
         snpchromosome3.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosome3.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosome3.setStrainPAllele(this.getStrainPAllele());
         snpchromosome3.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosome3.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosome3.setStrainWAllele(this.getStrainWAllele());
         snpchromosome3.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosome3.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosome3.setStrainNAllele(this.getStrainNAllele());
         snpchromosome3.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosome3.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosome3.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosome3.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosome3.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosome3.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosome3.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosome3.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosome3.setStrain6Allele(this.getStrain6Allele());
         snpchromosome3.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosome3.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosome3.setStrainCAllele(this.getStrainCAllele());
         snpchromosome3.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosome3.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosome3.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosome3.setPredictionCategory(this.getPredictionCategory());
+        snpchromosome3.setScoreSift(this.getScoreSift());
+        snpchromosome3.setScoreConservation(this.getScoreConservation());
+        snpchromosome3.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosome3.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosome3.setScoreProvean(this.getScoreProvean());
 
     	return snpchromosome3;
     }
 
-    public SNPChromosome1 convertTo1() {
+    public SNPChromosome01 convertTo1() {
     	
-    	SNPChromosome1 snpchromosome1 = new SNPChromosome1();
+    	SNPChromosome01 snpchromosome1 = new SNPChromosome01();
     	
         snpchromosome1.setSnpId(this.getSnpId());
         snpchromosome1.setChromosomeId(this.getChromosomeId());
@@ -2698,28 +2597,27 @@ public class SNPChromosome {
         snpchromosome1.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosome1.setStrain7Allele(this.getStrain7Allele());
         snpchromosome1.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosome1.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosome1.setStrainPAllele(this.getStrainPAllele());
         snpchromosome1.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosome1.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosome1.setStrainWAllele(this.getStrainWAllele());
         snpchromosome1.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosome1.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosome1.setStrainNAllele(this.getStrainNAllele());
         snpchromosome1.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosome1.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosome1.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosome1.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosome1.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosome1.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosome1.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosome1.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosome1.setStrain6Allele(this.getStrain6Allele());
         snpchromosome1.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosome1.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosome1.setStrainCAllele(this.getStrainCAllele());
         snpchromosome1.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosome1.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosome1.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosome1.setPredictionCategory(this.getPredictionCategory());
+        snpchromosome1.setScoreSift(this.getScoreSift());
+        snpchromosome1.setScoreConservation(this.getScoreConservation());
+        snpchromosome1.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosome1.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosome1.setScoreProvean(this.getScoreProvean());
 
     	return snpchromosome1;
     }
@@ -2728,7 +2626,7 @@ public class SNPChromosome {
      * This setter method should only be used by unit tests.
      * @param oid
      */
-    protected void setId(Long oid) {
+    protected void setId(long oid) {
         this.oid = oid;
     }
 }

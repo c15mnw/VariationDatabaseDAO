@@ -21,6 +21,14 @@ import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosomeLGE64
 public interface ServiceSNPChromosomeLGE64 {
 	
     /**
+     * Finds SNPChromosomeLGE64 by SNPId.
+     * @param SnpId    The SNPId of the wanted SNPChromosomeLGE64.
+     * @return  The found SNPChromosomeLGE64. If no SNPChromosomeLGE64 is found, this method returns null.
+     */
+    public List<SNPChromosomeLGE64> findBySnpId(String SnpId);
+
+
+    /**
      * Saves a List of SNPChromosome1
      * @param created   The information of the created snpchromosome.
      * @return  The created snpchromosome.
@@ -49,7 +57,7 @@ public interface ServiceSNPChromosomeLGE64 {
      * @return  The updated snpchromosome.
      * @throws SNPChromosomeLGE64NotFoundException  if no snpchromosome is found with given id.
      */
-    public SNPChromosomeLGE64 update(DTOSNPChromosome updated) throws ExceptionSNPChromosomeNotFound;
+    public SNPChromosomeLGE64 update(SNPChromosomeLGE64 updated) throws ExceptionSNPChromosomeNotFound;
 
     /**
      * Searches SNPChromosomeLGE64s by using the search criteria given as a parameter.

@@ -21,6 +21,14 @@ import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome16;
 public interface ServiceSNPChromosome16 {
 	
     /**
+     * Finds SNPChromosome16 by SNPId.
+     * @param SnpId    The SNPId of the wanted SNPChromosome16.
+     * @return  The found SNPChromosome16. If no SNPChromosome16 is found, this method returns null.
+     */
+    public List<SNPChromosome16> findBySnpId(String SnpId);
+
+
+    /**
      * Saves a List of SNPChromosome1
      * @param created   The information of the created snpchromosome.
      * @return  The created snpchromosome.
@@ -49,7 +57,7 @@ public interface ServiceSNPChromosome16 {
      * @return  The updated snpchromosome.
      * @throws SNPChromosome16NotFoundException  if no snpchromosome is found with given id.
      */
-    public SNPChromosome16 update(DTOSNPChromosome updated) throws ExceptionSNPChromosomeNotFound;
+    public SNPChromosome16 update(SNPChromosome16 updated) throws ExceptionSNPChromosomeNotFound;
 
     /**
      * Searches SNPChromosome16s by using the search criteria given as a parameter.

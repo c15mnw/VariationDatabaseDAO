@@ -20,6 +20,14 @@ import java.util.List;
 public interface RepositorySNPChromosome15 extends JpaRepository<SNPChromosome15, Long> {
 
     /**
+     * Finds SNPChromosome15 by using the snpId as a search criteria.
+     * @param snpId
+     * @return  A list of SNPChromosome15 whose last snpId is an exact match with the given snpId.
+     *          If no SNPChromosome15 is found, this method returns null.
+     */
+    public List<SNPChromosome15> findBySnpId(String snpId);
+
+    /**
      * Finds SNPChromosome15s by using the strLowRange and strHighRange as a coordinate range for search criteria.
      * @param strLowRange - Low SNP Coordinate
      * @param strHighRange - High SNP Coordinate

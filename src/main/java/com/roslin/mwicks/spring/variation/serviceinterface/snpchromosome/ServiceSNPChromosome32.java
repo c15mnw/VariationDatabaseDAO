@@ -21,6 +21,14 @@ import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome32;
 public interface ServiceSNPChromosome32 {
 	
     /**
+     * Finds SNPChromosome32 by SNPId.
+     * @param SnpId    The SNPId of the wanted SNPChromosome32.
+     * @return  The found SNPChromosome32. If no SNPChromosome32 is found, this method returns null.
+     */
+    public List<SNPChromosome32> findBySnpId(String SnpId);
+
+
+    /**
      * Saves a List of SNPChromosome1
      * @param created   The information of the created snpchromosome.
      * @return  The created snpchromosome.
@@ -49,7 +57,7 @@ public interface ServiceSNPChromosome32 {
      * @return  The updated snpchromosome.
      * @throws SNPChromosome32NotFoundException  if no snpchromosome is found with given id.
      */
-    public SNPChromosome32 update(DTOSNPChromosome updated) throws ExceptionSNPChromosomeNotFound;
+    public SNPChromosome32 update(SNPChromosome32 updated) throws ExceptionSNPChromosomeNotFound;
 
     /**
      * Searches SNPChromosome32s by using the search criteria given as a parameter.

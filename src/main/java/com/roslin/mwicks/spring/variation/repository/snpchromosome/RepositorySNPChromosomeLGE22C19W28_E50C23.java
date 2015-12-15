@@ -20,6 +20,14 @@ import java.util.List;
 public interface RepositorySNPChromosomeLGE22C19W28_E50C23 extends JpaRepository<SNPChromosomeLGE22C19W28_E50C23, Long> {
 
     /**
+     * Finds SNPChromosomeLGE22C19W28_E50C23 by using the snpId as a search criteria.
+     * @param snpId
+     * @return  A list of SNPChromosomeLGE22C19W28_E50C23 whose last snpId is an exact match with the given snpId.
+     *          If no SNPChromosomeLGE22C19W28_E50C23 is found, this method returns null.
+     */
+    public List<SNPChromosomeLGE22C19W28_E50C23> findBySnpId(String snpId);
+
+    /**
      * Finds SNPChromosomeLGE22C19W28_E50C23s by using the strLowRange and strHighRange as a coordinate range for search criteria.
      * @param strLowRange - Low SNP Coordinate
      * @param strHighRange - High SNP Coordinate

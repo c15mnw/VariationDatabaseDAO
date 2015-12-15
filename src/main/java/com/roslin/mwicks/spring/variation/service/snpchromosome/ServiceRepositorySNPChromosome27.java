@@ -54,6 +54,17 @@ public class ServiceRepositorySNPChromosome27 implements ServiceSNPChromosome27 
 
     
     @Transactional(readOnly = true)
+    public List<SNPChromosome27> findBySnpId(String SnpId) {
+    	
+        LOGGER.debug("Find a snpchromosome with SNP Id: " + SnpId);
+        
+        List<SNPChromosome27> snpchromosomeList = repositorysnpchromosome.findBySnpId(SnpId);
+        
+        return snpchromosomeList;
+    }
+
+
+    @Transactional(readOnly = true)
     public SNPChromosome27 findByOid(Long oid) {
     	
         LOGGER.debug("Finding SNPChromosome by oid: " + oid);
@@ -665,28 +676,27 @@ public class ServiceRepositorySNPChromosome27 implements ServiceSNPChromosome27 
         		created.getEnsemblAnnotation(),
         		created.getStrain7Allele(),
         		created.getStrain7AlleleFixed(),
-        		created.getStrain7AlleleRatioAsLong(),
         		created.getStrainPAllele(),
         		created.getStrainPAlleleFixed(),
-        		created.getStrainPAlleleRatioAsLong(),
         		created.getStrainWAllele(),
         		created.getStrainWAlleleFixed(),
-        		created.getStrainWAlleleRatioAsLong(),
         		created.getStrainNAllele(),
         		created.getStrainNAlleleFixed(),
-        		created.getStrainNAlleleRatioAsLong(),
         		created.getStrain15IAllele(),
         		created.getStrain15IAlleleFixed(),
-        		created.getStrain15IAlleleRatioAsLong(),
         		created.getStrainZeroAllele(),
         		created.getStrainZeroAlleleFixed(),
-        		created.getStrainZeroAlleleRatioAsLong(),
         		created.getStrain6Allele(),
         		created.getStrain6AlleleFixed(),
-        		created.getStrain6AlleleRatioAsLong(),
         		created.getStrainCAllele(),
         		created.getStrainCAlleleFixed(),
-        		created.getStrainCAlleleRatioAsLong()
+                created.getAminoAcidSubs(),
+                created.getPredictionCategory(),
+                created.getScoreSiftAsLong(),
+                created.getScoreConservationAsLong(),
+                created.getProteinAlignNumberAsLong(),
+                created.getTotalAlignSequenceNumberAsLong(),
+                created.getScoreProveanAsLong()
         		).build();
         
         return repositorysnpchromosome.save(snpchromosome);
@@ -713,7 +723,7 @@ public class ServiceRepositorySNPChromosome27 implements ServiceSNPChromosome27 
 
     
     @Transactional(rollbackFor = ExceptionSNPChromosomeNotFound.class)
-    public SNPChromosome27 update(DTOSNPChromosome updated) throws ExceptionSNPChromosomeNotFound {
+    public SNPChromosome27 update(SNPChromosome27 updated) throws ExceptionSNPChromosomeNotFound {
     	
         LOGGER.debug("Updating snpchromosome with information: " + updated);
         
@@ -729,7 +739,7 @@ public class ServiceRepositorySNPChromosome27 implements ServiceSNPChromosome27 
         snpchromosome.update(
         		updated.getSnpId(),
         		updated.getChromosomeId(),
-        		updated.getPositionAsInteger(),
+        		updated.getPosition(),
         		updated.getReference(),    
         		updated.getAlternative(),
         		updated.getRegion(),
@@ -738,28 +748,27 @@ public class ServiceRepositorySNPChromosome27 implements ServiceSNPChromosome27 
         		updated.getEnsemblAnnotation(),
         		updated.getStrain7Allele(),
         		updated.getStrain7AlleleFixed(),
-        		updated.getStrain7AlleleRatioAsLong(),
         		updated.getStrainPAllele(),
         		updated.getStrainPAlleleFixed(),
-        		updated.getStrainPAlleleRatioAsLong(),
         		updated.getStrainWAllele(),
         		updated.getStrainWAlleleFixed(),
-        		updated.getStrainWAlleleRatioAsLong(),
         		updated.getStrainNAllele(),
         		updated.getStrainNAlleleFixed(),
-        		updated.getStrainNAlleleRatioAsLong(),
         		updated.getStrain15IAllele(),
         		updated.getStrain15IAlleleFixed(),
-        		updated.getStrain15IAlleleRatioAsLong(),
         		updated.getStrainZeroAllele(),
         		updated.getStrainZeroAlleleFixed(),
-        		updated.getStrainZeroAlleleRatioAsLong(),
         		updated.getStrain6Allele(),
         		updated.getStrain6AlleleFixed(),
-        		updated.getStrain6AlleleRatioAsLong(),
         		updated.getStrainCAllele(),
         		updated.getStrainCAlleleFixed(),
-        		updated.getStrainCAlleleRatioAsLong()
+                updated.getAminoAcidSubs(),
+                updated.getPredictionCategory(),
+                updated.getScoreSift(),
+                updated.getScoreConservation(),
+                updated.getProteinAlignNumber(),
+                updated.getTotalAlignSequenceNumber(),
+                updated.getScoreProvean()
         		);
 
         return snpchromosome;

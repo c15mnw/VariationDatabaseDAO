@@ -26,6 +26,10 @@ public class SNPChromosome21 {
 	protected static final String STRING_NOT_FIXED = "Not Fixed";
 	protected static final String STRING_REFERENCE = "Ref.";
 
+	protected static final String STRING_TOLERATED = "TOLERATED";
+	protected static final String STRING_DELETERIOUS = "DELETERIOUS";
+	
+
 	// Properties ---------------------------------------------------------------------------------
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -65,17 +69,11 @@ public class SNPChromosome21 {
     @Column(name = "VSS_STRAIN_7_ALTERNATIVE_ALLELE_FIXED", nullable = false)
     private String strain7AlleleFixed;
     
-    @Column(name = "VSS_STRAIN_7_ALTERNATIVE_ALLELE_RATIO", nullable = false)
-    private long strain7AlleleRatio;
-    
     @Column(name = "VSS_STRAIN_P_ALTERNATIVE_ALLELE", nullable = false)
     private String strainPAllele;
     
     @Column(name = "VSS_STRAIN_P_ALTERNATIVE_ALLELE_FIXED", nullable = false)
     private String strainPAlleleFixed;
-    
-    @Column(name = "VSS_STRAIN_P_ALTERNATIVE_ALLELE_RATIO", nullable = false)
-    private long strainPAlleleRatio;
     
     @Column(name = "VSS_STRAIN_W_ALTERNATIVE_ALLELE", nullable = false)
     private String strainWAllele;
@@ -83,17 +81,11 @@ public class SNPChromosome21 {
     @Column(name = "VSS_STRAIN_W_ALTERNATIVE_ALLELE_FIXED", nullable = false)
     private String strainWAlleleFixed;
     
-    @Column(name = "VSS_STRAIN_W_ALTERNATIVE_ALLELE_RATIO", nullable = false)
-    private long strainWAlleleRatio;
-    
     @Column(name = "VSS_STRAIN_N_ALTERNATIVE_ALLELE", nullable = false)
     private String strainNAllele;
     
     @Column(name = "VSS_STRAIN_N_ALTERNATIVE_ALLELE_FIXED", nullable = false)
     private String strainNAlleleFixed;
-    
-    @Column(name = "VSS_STRAIN_N_ALTERNATIVE_ALLELE_RATIO", nullable = false)
-    private long strainNAlleleRatio;
     
     @Column(name = "VSS_STRAIN_15I_ALTERNATIVE_ALLELE", nullable = false)
     private String strain15IAllele;
@@ -101,17 +93,11 @@ public class SNPChromosome21 {
     @Column(name = "VSS_STRAIN_15I_ALTERNATIVE_ALLELE_FIXED", nullable = false)
     private String strain15IAlleleFixed;
     
-    @Column(name = "VSS_STRAIN_15I_ALTERNATIVE_ALLELE_RATIO", nullable = false)
-    private long strain15IAlleleRatio;
-    
     @Column(name = "VSS_STRAIN_ZERO_ALTERNATIVE_ALLELE", nullable = false)
     private String strainZeroAllele;
     
     @Column(name = "VSS_STRAIN_ZERO_ALTERNATIVE_ALLELE_FIXED", nullable = false)
     private String strainZeroAlleleFixed;
-    
-    @Column(name = "VSS_STRAIN_ZERO_ALTERNATIVE_ALLELE_RATIO", nullable = false)
-    private long strainZeroAlleleRatio;
     
     @Column(name = "VSS_STRAIN_6_ALTERNATIVE_ALLELE", nullable = false)
     private String strain6Allele;
@@ -119,18 +105,33 @@ public class SNPChromosome21 {
     @Column(name = "VSS_STRAIN_6_ALTERNATIVE_ALLELE_FIXED", nullable = false)
     private String strain6AlleleFixed;
     
-    @Column(name = "VSS_STRAIN_6_ALTERNATIVE_ALLELE_RATIO", nullable = false)
-    private long strain6AlleleRatio;
-    
     @Column(name = "VSS_STRAIN_C_ALTERNATIVE_ALLELE", nullable = false)
     private String strainCAllele;
     
     @Column(name = "VSS_STRAIN_C_ALTERNATIVE_ALLELE_FIXED", nullable = false)
     private String strainCAlleleFixed;
     
-    @Column(name = "VSS_STRAIN_C_ALTERNATIVE_ALLELE_RATIO", nullable = false)
-    private long strainCAlleleRatio;
+    @Column(name = "VSS_AMINO_ACID_SUBSITUTION", nullable = false)
+    private String aminoAcidSubs;
+
+    @Column(name = "VSS_PREDICTION_CATEGORY", nullable = false)
+    private String predictionCategory;
     
+    @Column(name = "VSS_SIFT_SCORE", nullable = false)
+    private double scoreSift;
+    
+    @Column(name = "VSS_SIFT_SCORE_CONSERVATION", nullable = false)
+    private double scoreConservation;
+    
+    @Column(name = "VSS_PROTEIN_ALIGNMENT_NUMBER", nullable = false)
+    private long proteinAlignNumber;
+    
+    @Column(name = "VSS_TOTAL_SEQUENCE_ALIGNMENT_NUMBER", nullable = false)
+    private long totalAlignSequenceNumber;
+
+    @Column(name = "VSS_PROVEAN_SCORE", nullable = false)
+    private double scoreProvean;
+
     @Column(name = "VSS_CREATION_TIME", nullable = false)
     private Date creationTime;
     
@@ -217,9 +218,6 @@ public class SNPChromosome21 {
     		return false;
     	}
     }
-    public long getStrain7AlleleRatio() {
-    	return this.strain7AlleleRatio;
-    }
     public String getStrainPAllele() {
     	return this.strainPAllele;
     }
@@ -257,9 +255,6 @@ public class SNPChromosome21 {
     	else {
     		return false;
     	}
-    }
-    public long getStrainPAlleleRatio() {
-    	return this.strainPAlleleRatio;
     }
     public String getStrainWAllele() {
     	return this.strainWAllele;
@@ -299,9 +294,6 @@ public class SNPChromosome21 {
     		return false;
     	}
     }
-    public long getStrainWAlleleRatio() {
-    	return this.strainWAlleleRatio;
-    }
     public String getStrainNAllele() {
     	return this.strainNAllele;
     }
@@ -339,9 +331,6 @@ public class SNPChromosome21 {
     	else {
     		return false;
     	}
-    }
-    public long getStrainNAlleleRatio() {
-    	return this.strainNAlleleRatio;
     }
     public String getStrain15IAllele() {
     	return this.strain15IAllele;
@@ -381,9 +370,6 @@ public class SNPChromosome21 {
     		return false;
     	}
     }
-    public long getStrain15IAlleleRatio() {
-    	return this.strain15IAlleleRatio;
-    }
     public String getStrainZeroAllele() {
     	return this.strainZeroAllele;
     }
@@ -421,9 +407,6 @@ public class SNPChromosome21 {
     	else {
     		return false;
     	}
-    }
-    public long getStrainZeroAlleleRatio() {
-    	return this.strainZeroAlleleRatio;
     }
     public String getStrain6Allele() {
     	return this.strain6Allele;
@@ -463,9 +446,6 @@ public class SNPChromosome21 {
     		return false;
     	}
     }
-    public long getStrain6AlleleRatio() {
-    	return this.strain6AlleleRatio;
-    }
     public String getStrainCAllele() {
     	return this.strainCAllele;
     }
@@ -504,9 +484,44 @@ public class SNPChromosome21 {
     		return false;
     	}
     }
-    public long getStrainCAlleleRatio() {
-    	return this.strainCAlleleRatio;
+    public String getAminoAcidSubs() {
+    	return this.aminoAcidSubs;
     }
+    public String getPredictionCategory() {
+    	return this.predictionCategory;
+    }
+    public boolean isPredictionCategoryTolerated() {
+    	if ( this.predictionCategory.equals(STRING_TOLERATED) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isPredictionCategoryDeleterious() {
+    	if ( this.predictionCategory.equals(STRING_DELETERIOUS) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public double getScoreSift() {
+    	return this.scoreSift;
+    }
+    public double getScoreConservation() {
+    	return this.scoreConservation;
+    }
+    public long getProteinAlignNumber() {
+    	return this.proteinAlignNumber;
+    }
+    public long getTotalAlignSequenceNumber() {
+    	return this.totalAlignSequenceNumber;
+    }
+    public double getScoreProvean() {
+    	return this.scoreProvean;
+    }
+
     public Date getCreationTime() {
     	return this.creationTime;
     }
@@ -517,160 +532,151 @@ public class SNPChromosome21 {
         return this.version;
     }
     
+    
     // Getters As Strings -------------------------------------------------------------------------
     public String getOidAsString() {
-    	return ObjectConverter.convert(oid, String.class);
+    	return ObjectConverter.convert(this.oid, String.class);
     }
     public String getPositionAsString() {
-    	return ObjectConverter.convert(position, String.class);
+    	return ObjectConverter.convert(this.position, String.class);
     }
-    public String getStrain7AlleleRatioAsString() {
-    	return ObjectConverter.convert(strain7AlleleRatio, String.class);
+    public String getScoreSiftAsString() {
+    	return ObjectConverter.convert(this.scoreSift, String.class);
     }
-    public String getStrainPAlleleRatioAsString() {
-    	return ObjectConverter.convert(strainPAlleleRatio, String.class);
+    public String getScoreConservationAsString() {
+    	return ObjectConverter.convert(this.scoreConservation, String.class);
     }
-    public String getStrainWAlleleRatioAsString() {
-    	return ObjectConverter.convert(strainWAlleleRatio, String.class);
+    public String getProteinAlignNumberAsString() {
+    	return ObjectConverter.convert(this.proteinAlignNumber, String.class);
     }
-    public String getStrainNAlleleRatioAsString() {
-    	return ObjectConverter.convert(strainNAlleleRatio, String.class);
+    public String getTotalAlignSequenceNumberAsString() {
+    	return ObjectConverter.convert(this.totalAlignSequenceNumber, String.class);
     }
-    public String getStrain15IAlleleRatioAsString() {
-    	return ObjectConverter.convert(strain15IAlleleRatio, String.class);
-    }
-    public String getStrainZeroAlleleRatioAsString() {
-    	return ObjectConverter.convert(strainZeroAlleleRatio, String.class);
-    }
-    public String getStrain6AlleleRatioAsString() {
-    	return ObjectConverter.convert(strain6AlleleRatio, String.class);
-    }
-    public String getStrainCAlleleRatioAsString() {
-    	return ObjectConverter.convert(strainCAlleleRatio, String.class);
+    public String getScoreProveanAsString() {
+    	return ObjectConverter.convert(this.scoreProvean, String.class);
     }
     public String getCreationTimeAsString() {
-    	return ObjectConverter.convert(creationTime, String.class);
+    	return ObjectConverter.convert(this.creationTime, String.class);
     }
     public String getModificationTimeAsString() {
-    	return ObjectConverter.convert(modificationTime, String.class);
+    	return ObjectConverter.convert(this.modificationTime, String.class);
     }
     public String getVersionAsString() {
-    	return ObjectConverter.convert(version, String.class);
+    	return ObjectConverter.convert(this.version, String.class);
     }
+    
 
     // Getters As Strings Enclosed in Quotes ------------------------------------------------------
     public String getOidAsStringQuoted() {
-    	return '\"' + ObjectConverter.convert(oid, String.class) + '\"';
+    	return '\"' + ObjectConverter.convert(this.oid, String.class) + '\"';
     }
     public String getPositionAsStringQuoted() {
-    	return '\"' + ObjectConverter.convert(position, String.class) + '\"';
+    	return '\"' + ObjectConverter.convert(this.position, String.class) + '\"';
     }
     public String getStrain7AlleleFixedQuoted() {
-    	return '\"' + strain7AlleleFixed + '\"';
-    }
-    public String getStrain7AlleleRatioAsStringQuoted() {
-    	return '\"' + ObjectConverter.convert(strain7AlleleRatio, String.class) + '\"';
+    	return '\"' + this.strain7AlleleFixed + '\"';
     }
     public String getStrainPAlleleFixedQuoted() {
-    	return '\"' + strainPAlleleFixed + '\"';
-    }
-    public String getStrainPAlleleRatioAsStringQuoted() {
-    	return '\"' + ObjectConverter.convert(strainPAlleleRatio, String.class) + '\"';
+    	return '\"' + this.strainPAlleleFixed + '\"';
     }
     public String getStrainWAlleleFixedQuoted() {
-    	return '\"' + strainWAlleleFixed + '\"';
-    }
-    public String getStrainWAlleleRatioAsStringQuoted() {
-    	return '\"' + ObjectConverter.convert(strainWAlleleRatio, String.class) + '\"';
+    	return '\"' + this.strainWAlleleFixed + '\"';
     }
     public String getStrainNAlleleFixedQuoted() {
-    	return '\"' + strainNAlleleFixed + '\"';
-    }
-    public String getStrainNAlleleRatioAsStringQuoted() {
-    	return '\"' + ObjectConverter.convert(strainNAlleleRatio, String.class) + '\"';
+    	return '\"' + this.strainNAlleleFixed + '\"';
     }
     public String getStrain15IAlleleFixedQuoted() {
-    	return '\"' + strain15IAlleleFixed + '\"';
-    }
-    public String getStrain15IAlleleRatioAsStringQuoted() {
-    	return '\"' + ObjectConverter.convert(strain15IAlleleRatio, String.class) + '\"';
+    	return '\"' + this.strain15IAlleleFixed + '\"';
     }
     public String getStrainZeroAlleleFixedQuoted() {  
-    	return '\"' + strainZeroAlleleFixed + '\"';
-    }
-    public String getStrainZeroAlleleRatioAsStringQuoted() {
-    	return '\"' + ObjectConverter.convert(strainZeroAlleleRatio, String.class) + '\"';
+    	return '\"' + this.strainZeroAlleleFixed + '\"';
     }
     public String getStrain6AlleleFixedQuoted() {
-    	return '\"' + strain6AlleleFixed + '\"';
-    }
-    public String getStrain6AlleleRatioAsStringQuoted() {
-    	return '\"' + ObjectConverter.convert(strain6AlleleRatio, String.class) + '\"';
+    	return '\"' + this.strain6AlleleFixed + '\"';
     }
     public String getStrainCAlleleFixedQuoted() {
-    	return '\"' + strainCAlleleFixed + '\"';
-    }
-    public String getStrainCAlleleRatioAsStringQuoted() {
-    	return '\"' + ObjectConverter.convert(strainCAlleleRatio, String.class) + '\"';
+    	return '\"' + this.strainCAlleleFixed + '\"';
     }
     public String getCreationTimeAsStringQuoted() {
-    	return '\"' + ObjectConverter.convert(creationTime, String.class) + '\"';
+    	return '\"' + ObjectConverter.convert(this.creationTime, String.class) + '\"';
     }
     public String getModificationTimeAsStringQuoted() {
-    	return '\"' + ObjectConverter.convert(modificationTime, String.class) + '\"';
+    	return '\"' + ObjectConverter.convert(this.modificationTime, String.class) + '\"';
     }
     public String getVersionAsStringQuoted() {
-    	return '\"' + ObjectConverter.convert(version, String.class) + '\"';
+    	return '\"' + ObjectConverter.convert(this.version, String.class) + '\"';
     }
     public String getSnpIdQuoted() {
-    	return '\"' + snpId + '\"';
+    	return '\"' + this.snpId + '\"';
     }
     public String getChromosomeIdQuoted() {
-    	return '\"' + chromosomeId + '\"';
+    	return '\"' + this.chromosomeId + '\"';
     }
     public String getReferenceQuoted() {
-    	return '\"' + reference + '\"';    
+    	return '\"' + this.reference + '\"';    
     }
     public String getAlternativeQuoted() {
-    	return '\"' + alternative + '\"';
+    	return '\"' + this.alternative + '\"';
     }
     public String getRegionQuoted() {
-    	return '\"' + region + '\"';
+    	return '\"' + this.region + '\"';
     }
     public String getEnsemblGeneQuoted() {
-    	return '\"' + ensemblGene + '\"';
+    	return '\"' + this.ensemblGene + '\"';
     }
     public String getEnsemblTranscriptQuoted() {
-    	return '\"' + ensemblTranscript + '\"';
+    	return '\"' + this.ensemblTranscript + '\"';
     }
     public String getEnsemblAnnotationQuoted() {
-    	return '\"' + ensemblAnnotation + '\"';
+    	return '\"' + this.ensemblAnnotation + '\"';
     }
     public String getStrain7AlleleQuoted() {
-    	return '\"' + strain7Allele + '\"';
+    	return '\"' + this.strain7Allele + '\"';
     }
     public String getStrainPAlleleQuoted() {
-    	return '\"' + strainPAllele + '\"';
+    	return '\"' + this.strainPAllele + '\"';
     }
     public String getStrainWAlleleQuoted() {
-    	return '\"' + strainWAllele + '\"';
+    	return '\"' + this.strainWAllele + '\"';
     }
     public String getStrainNAlleleQuoted() {
-    	return '\"' + strainNAllele + '\"';
+    	return '\"' + this.strainNAllele + '\"';
     }
     public String getStrain15IAlleleQuoted() {
-    	return '\"' + strain15IAllele + '\"';
+    	return '\"' + this.strain15IAllele + '\"';
     }
     public String getStrainZeroAlleleQuoted() {
-    	return '\"' + strainZeroAllele + '\"';
+    	return '\"' + this.strainZeroAllele + '\"';
     }
     public String getStrain6AlleleQuoted() {
-    	return '\"' + strain6Allele + '\"';
+    	return '\"' + this.strain6Allele + '\"';
     }
     public String getStrainCAlleleQuoted() {
-    	return '\"' + strainCAllele + '\"';
+    	return '\"' + this.strainCAllele + '\"';
+    }
+    public String getAminoAcidSubsQuoted() {
+    	return '\"' + this.aminoAcidSubs + '\"';
+    }
+    public String getPredictionCategoryQuoted() {
+    	return '\"' + this.predictionCategory + '\"';
+    }
+    public String getScoreSiftAsStringQuoted() {
+    	return '\"' + ObjectConverter.convert(this.scoreSift, String.class) + '\"';
+    }
+    public String getScoreConservationAsStringQuoted() {
+    	return '\"' + ObjectConverter.convert(this.scoreConservation, String.class) + '\"';
+    }
+    public String getProteinAlignNumberAsStringQuoted() {
+    	return '\"' + ObjectConverter.convert(this.proteinAlignNumber, String.class) + '\"';
+    }
+    public String getTotalAlignSequenceNumberAsStringQuoted() {
+    	return '\"' +  ObjectConverter.convert(this.totalAlignSequenceNumber, String.class) + '\"';
+    }
+    public String getScoreProveanAsStringQuoted() {
+    	return '\"' + ObjectConverter.convert(this.scoreProvean, String.class) + '\"';
     }
 
+    
     // Setters ------------------------------------------------------------------------------------
     public void setOid(Long oid) {
     	this.oid = oid;
@@ -708,17 +714,11 @@ public class SNPChromosome21 {
     public void setStrain7AlleleFixed(String strain7AlleleFixed) {
     	this.strain7AlleleFixed = strain7AlleleFixed;
     }
-    public void setStrain7AlleleRatio(long strain7AlleleRatio) {
-    	this.strain7AlleleRatio = strain7AlleleRatio;
-    }
     public void setStrainPAllele(String strainPAllele) {
     	this.strainPAllele = strainPAllele;
     }
     public void setStrainPAlleleFixed(String strainPAlleleFixed) {
     	this.strainPAlleleFixed = strainPAlleleFixed;
-    }
-    public void setStrainPAlleleRatio(long strainPAlleleRatio) {
-    	this.strainPAlleleRatio = strainPAlleleRatio;
     }
     public void setStrainWAllele(String strainWAllele) {
     	this.strainWAllele = strainWAllele;
@@ -726,17 +726,11 @@ public class SNPChromosome21 {
     public void setStrainWAlleleFixed(String strainWAlleleFixed) {
     	this.strainWAlleleFixed = strainWAlleleFixed;
     }
-    public void setStrainWAlleleRatio(long strainWAlleleRatio) {
-    	this.strainWAlleleRatio = strainWAlleleRatio;
-    }
     public void setStrainNAllele(String strainNAllele) {
     	this.strainNAllele = strainNAllele;
     }
     public void setStrainNAlleleFixed(String strainNAlleleFixed) {
     	this.strainNAlleleFixed = strainNAlleleFixed;
-    }
-    public void setStrainNAlleleRatio(long strainNAlleleRatio) {
-    	this.strainNAlleleRatio = strainNAlleleRatio;
     }
     public void setStrain15IAllele(String strain15IAllele) {
     	this.strain15IAllele = strain15IAllele;
@@ -744,17 +738,11 @@ public class SNPChromosome21 {
     public void setStrain15IAlleleFixed(String strain15IAlleleFixed) {
     	this.strain15IAlleleFixed = strain15IAlleleFixed;
     }
-    public void setStrain15IAlleleRatio(long strain15IAlleleRatio) {
-    	this.strain15IAlleleRatio = strain15IAlleleRatio;
-    }
     public void setstrainZeroAllele(String strainZeroAllele) {
     	this.strainZeroAllele = strainZeroAllele;
     }
     public void setstrainZeroAlleleFixed(String strainZeroAlleleFixed) {  
     	this.strainZeroAlleleFixed = strainZeroAlleleFixed;
-    }
-    public void setstrainZeroAlleleRatio(long strainZeroAlleleRatio) {
-    	this.strainZeroAlleleRatio = strainZeroAlleleRatio;
     }
     public void setStrain6Allele(String strain6Allele) {
     	this.strain6Allele = strain6Allele;
@@ -762,17 +750,32 @@ public class SNPChromosome21 {
     public void setStrain6AlleleFixed(String strain6AlleleFixed) {
     	this.strain6AlleleFixed = strain6AlleleFixed;
     }
-    public void setStrain6AlleleRatio(long strain6AlleleRatio) {
-    	this.strain6AlleleRatio = strain6AlleleRatio;
-    }
     public void setStrainCAllele(String strainCAllele) {
     	this.strainCAllele = strainCAllele;
     }
     public void setStrainCAlleleFixed(String strainCAlleleFixed) {
     	this.strainCAlleleFixed = strainCAlleleFixed;
     }
-    public void setStrainCAlleleRatio(long strainCAlleleRatio) {
-    	this.strainCAlleleRatio = strainCAlleleRatio;
+    public void setAminoAcidSubs(String aminoAcidSubs) {
+    	this.aminoAcidSubs = aminoAcidSubs;
+    }
+    public void setPredictionCategory(String predictionCategory) {
+    	this.predictionCategory = predictionCategory;
+    }
+    public void setScoreSift(double scoreSift) {
+    	this.scoreSift = scoreSift;
+    }
+    public void setScoreConservation(double scoreConservation) {
+    	this.scoreConservation = scoreConservation;
+    }
+    public void setProteinAlignNumber(long proteinAlignNumber) {
+    	this.proteinAlignNumber = proteinAlignNumber;
+    }
+    public void setTotalAlignSequenceNumber(long totalAlignSequenceNumber) {
+    	this.totalAlignSequenceNumber = totalAlignSequenceNumber;
+    }
+    public void setScoreProvean(double scoreProvean) {
+    	this.scoreProvean = scoreProvean;
     }
     public void setCreationTime(Date creationTime) {
     	this.creationTime = creationTime;
@@ -784,6 +787,7 @@ public class SNPChromosome21 {
     	this.version = version;
     }
 
+    
     // Helpers ------------------------------------------------------------------------------------
     public SNPChromosome convert() {
     	
@@ -800,28 +804,27 @@ public class SNPChromosome21 {
         snpchromosome.setEnsemblAnnotation(this.getEnsemblAnnotation());
         snpchromosome.setStrain7Allele(this.getStrain7Allele());
         snpchromosome.setStrain7AlleleFixed(this.getStrain7AlleleFixed());
-        snpchromosome.setStrain7AlleleRatio(this.getStrain7AlleleRatio());
         snpchromosome.setStrainPAllele(this.getStrainPAllele());
         snpchromosome.setStrainPAlleleFixed(this.getStrainPAlleleFixed());
-        snpchromosome.setStrainPAlleleRatio(this.getStrainPAlleleRatio());
         snpchromosome.setStrainWAllele(this.getStrainWAllele());
         snpchromosome.setStrainWAlleleFixed(this.getStrainWAlleleFixed());
-        snpchromosome.setStrainWAlleleRatio(this.getStrainWAlleleRatio());
         snpchromosome.setStrainNAllele(this.getStrainNAllele());
         snpchromosome.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
-        snpchromosome.setStrainNAlleleRatio(this.getStrainNAlleleRatio());
         snpchromosome.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosome.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosome.setStrain15IAlleleRatio(this.getStrain15IAlleleRatio());
         snpchromosome.setstrainZeroAllele(this.getStrainZeroAllele());
         snpchromosome.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
-        snpchromosome.setstrainZeroAlleleRatio(this.getStrainZeroAlleleRatio());
         snpchromosome.setStrain6Allele(this.getStrain6Allele());
         snpchromosome.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
-        snpchromosome.setStrain6AlleleRatio(this.getStrain6AlleleRatio());
         snpchromosome.setStrainCAllele(this.getStrainCAllele());
         snpchromosome.setStrainCAlleleFixed(this.getStrainCAlleleFixed());
-        snpchromosome.setStrainCAlleleRatio(this.getStrainCAlleleRatio());
+        snpchromosome.setAminoAcidSubs(this.getAminoAcidSubs());
+        snpchromosome.setPredictionCategory(this.getPredictionCategory());
+        snpchromosome.setScoreSift(this.getScoreSift());
+        snpchromosome.setScoreConservation(this.getScoreConservation());
+        snpchromosome.setProteinAlignNumber(this.getProteinAlignNumber());
+        snpchromosome.setTotalAlignSequenceNumber(this.getTotalAlignSequenceNumber());
+        snpchromosome.setScoreProvean(this.getScoreProvean());
 
     	return snpchromosome;
     }
@@ -844,28 +847,27 @@ public class SNPChromosome21 {
         	    this.getEnsemblAnnotation().equals(snpchromosome.getEnsemblAnnotation()) && 
         	    this.getStrain7Allele().equals(snpchromosome.getStrain7Allele()) && 
         	    this.getStrain7AlleleFixed() == snpchromosome.getStrain7AlleleFixed() && 
-        	    this.getStrain7AlleleRatio() == snpchromosome.getStrain7AlleleRatio() && 
         	    this.getStrainPAllele().equals(snpchromosome.getStrainPAllele()) && 
         	    this.getStrainPAlleleFixed() == snpchromosome.getStrainPAlleleFixed() && 
-        	    this.getStrainPAlleleRatio() == snpchromosome.getStrainPAlleleRatio() && 
         	    this.getStrainWAllele().equals(snpchromosome.getStrainWAllele()) && 
         	    this.getStrainWAlleleFixed() == snpchromosome.getStrainWAlleleFixed() && 
-        	    this.getStrainWAlleleRatio() == snpchromosome.getStrainWAlleleRatio() && 
         	    this.getStrainNAllele().equals(snpchromosome.getStrainNAllele()) && 
         	    this.getStrainNAlleleFixed() == snpchromosome.getStrainNAlleleFixed() && 
-        	    this.getStrainNAlleleRatio() == snpchromosome.getStrainNAlleleRatio() && 
         	    this.getStrain15IAllele().equals(snpchromosome.getStrain15IAllele()) && 
         	    this.getStrain15IAlleleFixed() == snpchromosome.getStrain15IAlleleFixed()  && 
-        	    this.getStrain15IAlleleRatio() == snpchromosome.getStrain15IAlleleRatio() && 
         	    this.getStrainZeroAllele().equals(snpchromosome.getStrainZeroAllele()) && 
         	    this.getStrainZeroAlleleFixed() == snpchromosome.getStrainZeroAlleleFixed() &&  
-        	    this.getStrainZeroAlleleRatio() == snpchromosome.getStrainZeroAlleleRatio() && 
         	    this.getStrain6Allele().equals(snpchromosome.getStrain6Allele()) && 
         	    this.getStrain6AlleleFixed() == snpchromosome.getStrain6AlleleFixed() && 
-        	    this.getStrain6AlleleRatio() == snpchromosome.getStrain6AlleleRatio() && 
         	    this.getStrainCAllele().equals(snpchromosome.getStrainCAllele()) && 
-        	    this.getStrainCAlleleFixed() == snpchromosome.getStrainCAlleleFixed() && 
-        	    this.getStrainCAlleleRatio() == snpchromosome.getStrainCAlleleRatio() 
+        	    this.getStrainCAlleleFixed() == snpchromosome.getStrainCAlleleFixed() &&
+        	    this.getAminoAcidSubs().equals(snpchromosome.getAminoAcidSubs()) && 
+        	    this.getPredictionCategory().equals(snpchromosome.getPredictionCategory()) && 
+        	    this.getScoreSift() == snpchromosome.getScoreSift() &&  
+        	    this.getScoreConservation() == snpchromosome.getScoreConservation() && 
+        	    this.getProteinAlignNumber() == snpchromosome.getProteinAlignNumber() && 
+        	    this.getTotalAlignSequenceNumber() == snpchromosome.getTotalAlignSequenceNumber() && 
+        	    this.getScoreProvean() == snpchromosome.getScoreProvean()
         	    ) {
 
         	return true;
@@ -900,28 +902,28 @@ public class SNPChromosome21 {
     		String ensemblAnnotation,
     		String strain7Allele,
     		String strain7AlleleFixed,
-    		long strain7AlleleRatio,
     		String strainPAllele,
     		String strainPAlleleFixed,
-    		long strainPAlleleRatio,
     		String strainWAllele,
     		String strainWAlleleFixed,
-    		long strainWAlleleRatio,
     		String strainNAllele,
     		String strainNAlleleFixed,
-    		long strainNAlleleRatio,
     		String strain15IAllele,
     		String strain15IAlleleFixed,
-    		long strain15IAlleleRatio,
     		String strainZeroAllele,
     		String strainZeroAlleleFixed,
-    		long strainZeroAlleleRatio,
     		String strain6Allele,
     		String strain6AlleleFixed,
-    		long strain6AlleleRatio,
     		String strainCAllele,
     		String strainCAlleleFixed,
-    		long strainCAlleleRatio ) {
+        	String aminoAcidSubs,
+        	String predictionCategory,
+        	double scoreSift,
+        	double scoreConservation,
+        	long proteinAlignNumber,
+        	long totalAlignSequenceNumber,
+        	double scoreProvean
+    		) {
 
     	this.snpId = snpId;
     	this.chromosomeId = chromosomeId;
@@ -934,28 +936,27 @@ public class SNPChromosome21 {
     	this.ensemblAnnotation = ensemblAnnotation;
     	this.strain7Allele = strain7Allele;
     	this.strain7AlleleFixed = strain7AlleleFixed;
-    	this.strain7AlleleRatio = strain7AlleleRatio;
     	this.strainPAllele = strainPAllele;
     	this.strainPAlleleFixed = strainPAlleleFixed;
-    	this.strainPAlleleRatio = strainPAlleleRatio;
     	this.strainWAllele = strainWAllele;
     	this.strainWAlleleFixed = strainWAlleleFixed;
-    	this.strainWAlleleRatio = strainWAlleleRatio;
     	this.strainNAllele = strainNAllele;
     	this.strainNAlleleFixed = strainNAlleleFixed;
-    	this.strainNAlleleRatio = strainNAlleleRatio;
     	this.strain15IAllele = strain15IAllele;
     	this.strain15IAlleleFixed = strain15IAlleleFixed;
-    	this.strain15IAlleleRatio = strain15IAlleleRatio;
     	this.strainZeroAllele = strainZeroAllele;
     	this.strainZeroAlleleFixed = strainZeroAlleleFixed;
-    	this.strainZeroAlleleRatio = strainZeroAlleleRatio;
     	this.strain6Allele = strain6Allele;
     	this.strain6AlleleFixed = strain6AlleleFixed;
-    	this.strain6AlleleRatio = strain6AlleleRatio;
     	this.strainCAllele = strainCAllele;
     	this.strainCAlleleFixed = strainCAlleleFixed;
-    	this.strainCAlleleRatio = strainCAlleleRatio;
+    	this.aminoAcidSubs = aminoAcidSubs;
+    	this.predictionCategory = predictionCategory;
+    	this.scoreSift = scoreSift;
+    	this.scoreConservation = scoreConservation;
+    	this.proteinAlignNumber = proteinAlignNumber;
+    	this.totalAlignSequenceNumber = totalAlignSequenceNumber;
+    	this.scoreProvean = scoreProvean;
     }
     
     @PreUpdate
@@ -996,25 +997,18 @@ public class SNPChromosome21 {
      * @param strain7AlleleRatio For Strain 7 for not fixed alleles what is the ratio that this occurs else 1 for fixed
      * @param strainPAllele For Strain P the Alternative Allele
      * @param strainPAlleleFixed For Strain P is this fixed or not
-     * @param strainPAlleleRatio For Strain P for not fixed alleles what is the ratio that this occurs else 1 for fixed
      * @param strainWAllele For Strain W the Alternative Allele
      * @param strainWAlleleFixed For Strain W is this fixed or not
-     * @param strainWAlleleRatio For Strain W for not fixed alleles what is the ratio that this occurs else 1 for fixed
      * @param strainNAllele For Strain N the Alternative Allele
      * @param strainNAlleleFixed For Strain N is this fixed or not
-     * @param strainNAlleleRatio For Strain N for not fixed alleles what is the ratio that this occurs else 1 for fixed
      * @param strain15IAllele For Strain 15I the Alternative Allele
      * @param strain15IAlleleFixed For Strain 15I is this fixed or not
-     * @param strain15IAlleleRatio For Strain 15I for not fixed alleles what is the ratio that this occurs else 1 for fixed
      * @param strainZeroAllele For Strain ZERO the Alternative Allele
      * @param strainZeroAlleleFixed For Strain ZERO is this fixed or not
-     * @param strainZeroAlleleRatio For Strain ZERO for not fixed alleles what is the ratio that this occurs else 1 for fixed
      * @param strain6Allele For Strain 6 the Alternative Allele
      * @param strain6AlleleFixed For Strain 6 is this fixed or not
-     * @param strain6AlleleRatio For Strain 6 for not fixed alleles what is the ratio that this occurs else 1 for fixed
      * @param strainCAllele For Strain C the Alternative Allele
      * @param strainCAlleleFixed For Strain C is this fixed or not
-     * @param strainCAlleleRatio For Strain C for not fixed alleles what is the ratio that this occurs else 1 for fixed
      * 
      * @return this. A new Builder instance.
      */
@@ -1030,28 +1024,28 @@ public class SNPChromosome21 {
     		String ensemblAnnotation,
     		String strain7Allele,
     		String strain7AlleleFixed,
-    		long strain7AlleleRatio,
     		String strainPAllele,
     		String strainPAlleleFixed,
-    		long strainPAlleleRatio,
     		String strainWAllele,
     		String strainWAlleleFixed,
-    		long strainWAlleleRatio,
     		String strainNAllele,
     		String strainNAlleleFixed,
-    		long strainNAlleleRatio,
     		String strain15IAllele,
     		String strain15IAlleleFixed,
-    		long strain15IAlleleRatio,
     		String strainZeroAllele,
     		String strainZeroAlleleFixed,
-    		long strainZeroAlleleRatio,
     		String strain6Allele,
     		String strain6AlleleFixed,
-    		long strain6AlleleRatio,
     		String strainCAllele,
     		String strainCAlleleFixed,
-    		long strainCAlleleRatio ) {
+        	String aminoAcidSubs,
+        	String predictionCategory,
+        	double scoreSift,
+        	double scoreConservation,
+        	long proteinAlignNumber,
+        	long totalAlignSequenceNumber,
+        	double scoreProvean
+    		) {
     	
         return new Builder(
         		snpId,
@@ -1065,28 +1059,28 @@ public class SNPChromosome21 {
         		ensemblAnnotation,
         		strain7Allele,
         		strain7AlleleFixed,
-        		strain7AlleleRatio,
         		strainPAllele,
         		strainPAlleleFixed,
-        		strainPAlleleRatio,
         		strainWAllele,
         		strainWAlleleFixed,
-        		strainWAlleleRatio,
         		strainNAllele,
         		strainNAlleleFixed,
-        		strainNAlleleRatio,
         		strain15IAllele,
         		strain15IAlleleFixed,
-        		strain15IAlleleRatio,
         		strainZeroAllele,
         		strainZeroAlleleFixed,
-        		strainZeroAlleleRatio,
         		strain6Allele,
         		strain6AlleleFixed,
-        		strain6AlleleRatio,
         		strainCAllele,
         		strainCAlleleFixed,
-        		strainCAlleleRatio );
+        		aminoAcidSubs,
+        		predictionCategory,
+        		scoreSift,
+        		scoreConservation,
+        		proteinAlignNumber,
+        		totalAlignSequenceNumber,
+        		scoreProvean
+        		);
     }
     
     
@@ -1105,28 +1099,27 @@ public class SNPChromosome21 {
         		snpchromosome.getEnsemblAnnotation(),
         		snpchromosome.getStrain7Allele(),
         		snpchromosome.getStrain7AlleleFixed(),
-        		snpchromosome.getStrain7AlleleRatio(),
         		snpchromosome.getStrainPAllele(),
         		snpchromosome.getStrainPAlleleFixed(),
-        		snpchromosome.getStrainPAlleleRatio(),
         		snpchromosome.getStrainWAllele(),
         		snpchromosome.getStrainWAlleleFixed(),
-        		snpchromosome.getStrainWAlleleRatio(),
         		snpchromosome.getStrainNAllele(),
         		snpchromosome.getStrainNAlleleFixed(),
-        		snpchromosome.getStrainNAlleleRatio(),
         		snpchromosome.getStrain15IAllele(),
         		snpchromosome.getStrain15IAlleleFixed(),
-        		snpchromosome.getStrain15IAlleleRatio(),
         		snpchromosome.getStrainZeroAllele(),
         		snpchromosome.getStrainZeroAlleleFixed(),
-        		snpchromosome.getStrainZeroAlleleRatio(),
         		snpchromosome.getStrain6Allele(),
         		snpchromosome.getStrain6AlleleFixed(),
-        		snpchromosome.getStrain6AlleleRatio(),
         		snpchromosome.getStrainCAllele(),
         		snpchromosome.getStrainCAlleleFixed(),
-        		snpchromosome.getStrainCAlleleRatio()
+                snpchromosome.getAminoAcidSubs(),
+                snpchromosome.getPredictionCategory(),
+                snpchromosome.getScoreSift(),
+                snpchromosome.getScoreConservation(),
+                snpchromosome.getProteinAlignNumber(),
+                snpchromosome.getTotalAlignSequenceNumber(),
+                snpchromosome.getScoreProvean()
         		);
     }
     
@@ -1151,28 +1144,27 @@ public class SNPChromosome21 {
          * @param ensemblAnnotation Coding predictions based on Ensembl gene models
          * @param strain7Allele For Strain 7 the Alternative Allele
          * @param strain7AlleleFixed For Strain 7 is this fixed or not
-         * @param strain7AlleleRatio For Strain 7 for not fixed alleles what is the ratio that this occurs else 1 for fixed
          * @param strainPAllele For Strain P the Alternative Allele
          * @param strainPAlleleFixed For Strain P is this fixed or not
-         * @param strainPAlleleRatio For Strain P for not fixed alleles what is the ratio that this occurs else 1 for fixed
          * @param strainWAllele For Strain W the Alternative Allele
          * @param strainWAlleleFixed For Strain W is this fixed or not
-         * @param strainWAlleleRatio For Strain W for not fixed alleles what is the ratio that this occurs else 1 for fixed
          * @param strainNAllele For Strain N the Alternative Allele
          * @param strainNAlleleFixed For Strain N is this fixed or not
-         * @param strainNAlleleRatio For Strain N for not fixed alleles what is the ratio that this occurs else 1 for fixed
          * @param strain15IAllele For Strain 15I the Alternative Allele
          * @param strain15IAlleleFixed For Strain 15I is this fixed or not
-         * @param strain15IAlleleRatio For Strain 15I for not fixed alleles what is the ratio that this occurs else 1 for fixed
          * @param strainZeroAllele For Strain ZERO the Alternative Allele
          * @param strainZeroAlleleFixed For Strain ZERO is this fixed or not
-         * @param strainZeroAlleleRatio For Strain ZERO for not fixed alleles what is the ratio that this occurs else 1 for fixed
          * @param strain6Allele For Strain 6 the Alternative Allele
          * @param strain6AlleleFixed For Strain 6 is this fixed or not
-         * @param strain6AlleleRatio For Strain 6 for not fixed alleles what is the ratio that this occurs else 1 for fixed
          * @param strainCAllele For Strain C the Alternative Allele
          * @param strainCAlleleFixed For Strain C is this fixed or not
-         * @param strainCAlleleRatio For Strain C for not fixed alleles what is the ratio that this occurs else 1 for fixed
+         * @param scoreProvean 
+         * @param totalAlignSequenceNumber 
+         * @param proteinAlignNumber 
+         * @param scoreConservation 
+         * @param scoreSift 
+         * @param predictionCategory 
+         * @param aminoAcidSubs 
          */
         Builder(
         		String snpId,
@@ -1186,28 +1178,28 @@ public class SNPChromosome21 {
         		String ensemblAnnotation,
         		String strain7Allele,
         		String strain7AlleleFixed,
-        		long strain7AlleleRatio,
         		String strainPAllele,
         		String strainPAlleleFixed,
-        		long strainPAlleleRatio,
         		String strainWAllele,
         		String strainWAlleleFixed,
-        		long strainWAlleleRatio,
         		String strainNAllele,
         		String strainNAlleleFixed,
-        		long strainNAlleleRatio,
         		String strain15IAllele,
         		String strain15IAlleleFixed,
-        		long strain15IAlleleRatio,
         		String strainZeroAllele,
         		String strainZeroAlleleFixed,
-        		long strainZeroAlleleRatio,
         		String strain6Allele,
         		String strain6AlleleFixed,
-        		long strain6AlleleRatio,
         		String strainCAllele,
-        		String strainCAlleleFixed,
-        		long strainCAlleleRatio ) {
+        		String strainCAlleleFixed, 
+        		String aminoAcidSubs, 
+        		String predictionCategory, 
+        		double scoreSift, 
+        		double scoreConservation, 
+        		long proteinAlignNumber, 
+        		long totalAlignSequenceNumber, 
+        		double scoreProvean
+        		) {
         	
             built = new SNPChromosome21();
             
@@ -1222,28 +1214,27 @@ public class SNPChromosome21 {
         	built.ensemblAnnotation = ensemblAnnotation;
         	built.strain7Allele = strain7Allele;
         	built.strain7AlleleFixed = strain7AlleleFixed;
-        	built.strain7AlleleRatio = strain7AlleleRatio;
         	built.strainPAllele = strainPAllele;
         	built.strainPAlleleFixed = strainPAlleleFixed;
-        	built.strainPAlleleRatio = strainPAlleleRatio;
         	built.strainWAllele = strainWAllele;
         	built.strainWAlleleFixed = strainWAlleleFixed;
-        	built.strainWAlleleRatio = strainWAlleleRatio;
         	built.strainNAllele = strainNAllele;
         	built.strainNAlleleFixed = strainNAlleleFixed;
-        	built.strainNAlleleRatio = strainNAlleleRatio;
         	built.strain15IAllele = strain15IAllele;
         	built.strain15IAlleleFixed = strain15IAlleleFixed;
-        	built.strain15IAlleleRatio = strain15IAlleleRatio;
         	built.strainZeroAllele = strainZeroAllele;
         	built.strainZeroAlleleFixed = strainZeroAlleleFixed;
-        	built.strainZeroAlleleRatio = strainZeroAlleleRatio;
         	built.strain6Allele = strain6Allele;
         	built.strain6AlleleFixed = strain6AlleleFixed;
-        	built.strain6AlleleRatio = strain6AlleleRatio;
         	built.strainCAllele = strainCAllele;
         	built.strainCAlleleFixed = strainCAlleleFixed;
-        	built.strainCAlleleRatio = strainCAlleleRatio;
+        	built.aminoAcidSubs = aminoAcidSubs;
+        	built.predictionCategory = predictionCategory;
+        	built.scoreSift = scoreSift;
+        	built.scoreConservation = scoreConservation;
+        	built.proteinAlignNumber = proteinAlignNumber;
+        	built.totalAlignSequenceNumber = totalAlignSequenceNumber;
+        	built.scoreProvean = scoreProvean;
         }
 
         /**

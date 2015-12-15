@@ -4,7 +4,7 @@
   <artifactId>VariationDatabaseDAO</artifactId>
   <version>1.0.0</version>
       <name>Variation Database DAO</name>
-    <description>Variation Database DAO</description>
+      <description>Variation Database DAO</description>
   
       <url>http://www.roslin.ed.ac.uk</url>
   

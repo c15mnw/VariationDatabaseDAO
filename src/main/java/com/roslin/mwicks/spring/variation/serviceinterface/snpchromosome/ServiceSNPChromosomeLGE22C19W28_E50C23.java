@@ -21,6 +21,14 @@ import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosomeLGE22
 public interface ServiceSNPChromosomeLGE22C19W28_E50C23 {
 	
     /**
+     * Finds SNPChromosomeLGE22C19W28_E50C23 by SNPId.
+     * @param SnpId    The SNPId of the wanted SNPChromosomeLGE22C19W28_E50C23.
+     * @return  The found SNPChromosomeLGE22C19W28_E50C23. If no SNPChromosomeLGE22C19W28_E50C23 is found, this method returns null.
+     */
+    public List<SNPChromosomeLGE22C19W28_E50C23> findBySnpId(String SnpId);
+
+
+    /**
      * Saves a List of SNPChromosome1
      * @param created   The information of the created snpchromosome.
      * @return  The created snpchromosome.
@@ -49,7 +57,7 @@ public interface ServiceSNPChromosomeLGE22C19W28_E50C23 {
      * @return  The updated snpchromosome.
      * @throws SNPChromosomeLGE22C19W28_E50C23NotFoundException  if no snpchromosome is found with given id.
      */
-    public SNPChromosomeLGE22C19W28_E50C23 update(DTOSNPChromosome updated) throws ExceptionSNPChromosomeNotFound;
+    public SNPChromosomeLGE22C19W28_E50C23 update(SNPChromosomeLGE22C19W28_E50C23 updated) throws ExceptionSNPChromosomeNotFound;
 
     /**
      * Searches SNPChromosomeLGE22C19W28_E50C23s by using the search criteria given as a parameter.
