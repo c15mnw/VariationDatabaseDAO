@@ -208,6 +208,7 @@ public class DTOSiftData {
     		return true;
     	}
     	else {
+    		
     		return false;
     	}
     }
@@ -227,17 +228,21 @@ public class DTOSiftData {
      */
     public boolean isThisAValidSiftData(){
 
-        if (this.isPredictionCategoryAValidValue() && 
-        	    this.isScoreSiftANumber() && 
-        	    this.isScoreConservationANumber() &&
-        	    this.isProteinAlignANumber() && 
-        	    this.isTotalAlignSequenceANumber()  
-        	    ) {
+        if ( this.isPredictionCategoryAValidValue() ) {
 
-        	return true;
+            if (this.isProteinAlignANumber() && 
+            	    this.isTotalAlignSequenceANumber()  
+            	    ) {
+
+            	return true;
+            }
+            else {
+
+            	return false;
+            }
         }
         else {
-
+        	
         	return false;
         }
     }

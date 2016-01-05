@@ -183,7 +183,8 @@ public class DTOProveanData {
      */
     public boolean isThisAValidProveanData(){
 
-        if (this.isScoreProveanANumber() && 
+        if (
+        		//this.isScoreProveanANumber() && 
         	    this.isProteinAlignANumber() && 
         	    this.isTotalAlignSequenceANumber()  
         	    ) {
