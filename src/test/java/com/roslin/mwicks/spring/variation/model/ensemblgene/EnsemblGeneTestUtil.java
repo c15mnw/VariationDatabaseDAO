@@ -1,6 +1,6 @@
 package com.roslin.mwicks.spring.variation.model.ensemblgene;
 
-import com.roslin.mwicks.spring.variation.dto.DTOEnsemblGene;
+import com.roslin.mwicks.spring.variation.dto.offline.DTOEnsemblGene;
 
 /**
  * An utility class which contains useful methods for unit testing person related

@@ -1,4 +1,4 @@
-package com.roslin.mwicks.spring.variation.dto;
+package com.roslin.mwicks.spring.variation.dto.web;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 
@@ -91,6 +91,26 @@ public class DTOSearch {
 	protected static final String ONLY_W = "W";
 	protected static final String ONLY_Z = "Z";
 
+	protected static final String SIFT_SCORE_NONE = "SIFT_SCORE_NONE";
+	protected static final String SIFT_SCORE_ABOVE = "SIFT_SCORE_ABOVE";
+	protected static final String SIFT_SCORE_BELOW = "SIFT_SCORE_BELOW";
+
+	protected static final String SIFT_CONSERVATION_SCORE_NONE = "SIFT_CONSERVATION_SCORE_NONE";
+	protected static final String SIFT_CONSERVATION_SCORE_ABOVE = "SIFT_CONSERVATION_SCORE_ABOVE";
+	protected static final String SIFT_CONSERVATION_SCORE_BELOW = "SIFT_CONSERVATION_SCORE_BELOW";
+
+	protected static final String PROTEIN_ALIGN_NUMBER_NONE = "PROTEIN_ALIGN_NUMBER_NONE";
+	protected static final String PROTEIN_ALIGN_NUMBER_ABOVE = "PROTEIN_ALIGN_NUMBER_ABOVE";
+	protected static final String PROTEIN_ALIGN_NUMBER_BELOW = "PROTEIN_ALIGN_NUMBER_BELOW";
+
+	protected static final String TOTAL_NUMBER_SEQ_ALIGNED_NONE = "TOTAL_NUMBER_SEQ_ALIGNED_NONE";
+	protected static final String TOTAL_NUMBER_SEQ_ALIGNED_ABOVE = "TOTAL_NUMBER_SEQ_ALIGNED_ABOVE";
+	protected static final String TOTAL_NUMBER_SEQ_ALIGNED_BELOW = "TOTAL_NUMBER_SEQ_ALIGNED_BELOW";
+
+	protected static final String PROVEAN_SCORE_NONE = "PROVEAN_SCORE_NONE";
+	protected static final String PROVEAN_SCORE_ABOVE = "PROVEAN_SCORE_ABOVE";
+	protected static final String PROVEAN_SCORE_BELOW = "PROVEAN_SCORE_BELOW";
+
 	
     // Properties ---------------------------------------------------------------------------------
     private int pageIndex;
@@ -107,6 +127,18 @@ public class DTOSearch {
     private SearchAlternative searchAlternative;
 
     private SearchChromosome searchChromosome;
+
+    private String searchFilterSiftScoreValue;
+    private String searchFilterSiftConservationScoreValue;
+    private String searchFilterProteinAlignNumberValue;
+    private String searchFilterTotalNumberSeqAlignedValue;
+    private String searchFilterProveanScoreValue;
+
+    private SearchFilterSiftScore searchFilterSiftScore;
+    private SearchFilterSiftConservationScore searchFilterSiftConservationScore;
+    private SearchFilterProteinAlignNumber searchFilterProteinAlignNumber;
+    private SearchFilterTotalNumberSeqAligned searchFilterTotalNumberSeqAligned;
+    private SearchFilterProveanScore searchFilterProveanScore;
 
     
     // Constructor --------------------------------------------------------------------------------
@@ -125,6 +157,19 @@ public class DTOSearch {
         this.searchReference = SearchReference.STRAIN_NONE;
         this.searchAlternative = SearchAlternative.STRAIN_NONE;
         this.searchChromosome = SearchChromosome.CHROMOSOME_NONE;
+        
+        this.searchFilterSiftScoreValue = "";
+        this.searchFilterSiftConservationScoreValue = "";
+        this.searchFilterProteinAlignNumberValue = "";
+        this.searchFilterTotalNumberSeqAlignedValue = "";
+        this.searchFilterProveanScoreValue = "";
+
+        this.searchFilterSiftScore = SearchFilterSiftScore.SIFT_SCORE_NONE;
+        this.searchFilterSiftConservationScore = SearchFilterSiftConservationScore.SIFT_CONSERVATION_SCORE_NONE;
+        this.searchFilterProteinAlignNumber = SearchFilterProteinAlignNumber.PROTEIN_ALIGN_NUMBER_NONE;
+        this.searchFilterTotalNumberSeqAligned = SearchFilterTotalNumberSeqAligned.TOTAL_NUMBER_SEQ_ALIGNED_NONE;
+        this.searchFilterProveanScore = SearchFilterProveanScore.PROVEAN_SCORE_NONE;
+
     }
     
 
@@ -156,7 +201,36 @@ public class DTOSearch {
     public SearchChromosome getSearchChromosome() {
         return this.searchChromosome;
     }
-    
+    public String getSearchFilterSiftScoreValue() {
+        return this.searchFilterSiftScoreValue;
+    }
+    public String getSearchFilterSiftConservationScoreValue() {
+        return this.searchFilterSiftConservationScoreValue;
+    }
+    public String getSearchFilterProteinAlignNumberValue() {
+        return this.searchFilterProteinAlignNumberValue;
+    }
+    public String getSearchFilterTotalNumberSeqAlignedValue() {
+        return this.searchFilterTotalNumberSeqAlignedValue;
+    }
+    public String getSearchFilterProveanScoreValue() {
+        return this.searchFilterProveanScoreValue;
+    }
+    public SearchFilterSiftScore getSearchFilterSiftScore() {
+        return this.searchFilterSiftScore;
+    }
+    public SearchFilterSiftConservationScore getSearchFilterSiftConservationScore() {
+        return this.searchFilterSiftConservationScore;
+    }
+    public SearchFilterProteinAlignNumber getSearchFilterProteinAlignNumber() {
+        return this.searchFilterProteinAlignNumber;
+    }
+    public SearchFilterTotalNumberSeqAligned getSearchFilterTotalNumberSeqAligned() {
+        return this.searchFilterTotalNumberSeqAligned;
+    }
+    public SearchFilterProveanScore getSearchFilterProveanScore() {
+        return this.searchFilterProveanScore;
+    }
 
     // Setters ------------------------------------------------------------------------------------
     public void setPageIndex(int pageIndex) {
@@ -186,7 +260,36 @@ public class DTOSearch {
     public void setSearchChromosome(SearchChromosome searchChromosome) {
         this.searchChromosome = searchChromosome;
     }
-
+    public void setSearchFilterSiftScoreValue(String searchFilterSiftScoreValue) {
+        this.searchFilterSiftScoreValue = searchFilterSiftScoreValue;
+    }
+    public void setSearchFilterSiftConservationScoreValue(String searchFilterSiftConservationScoreValue) {
+        this.searchFilterSiftConservationScoreValue = searchFilterSiftConservationScoreValue;
+    }
+    public void setSearchFilterProteinAlignNumberValue(String searchFilterProteinAlignNumberValue) {
+        this.searchFilterProteinAlignNumberValue = searchFilterProteinAlignNumberValue;
+    }
+    public void setSearchFilterTotalNumberSeqAlignedValue(String searchFilterTotalNumberSeqAlignedValue) {
+        this.searchFilterTotalNumberSeqAlignedValue = searchFilterTotalNumberSeqAlignedValue;
+    }
+    public void setSearchFilterProveanScoreValue(String searchFilterProveanScoreValue) {
+        this.searchFilterProveanScoreValue = searchFilterProveanScoreValue;
+    }
+    public void setSearchFilterSiftScore(SearchFilterSiftScore searchFilterSiftScore) {
+        this.searchFilterSiftScore = searchFilterSiftScore;
+    }
+    public void setSearchFilterSiftConservationScore(SearchFilterSiftConservationScore searchFilterSiftConservationScore) {
+        this.searchFilterSiftConservationScore = searchFilterSiftConservationScore;
+    }
+    public void setSearchFilterProteinAlignNumber(SearchFilterProteinAlignNumber searchFilterProteinAlignNumber) {
+        this.searchFilterProteinAlignNumber = searchFilterProteinAlignNumber;
+    }
+    public void setSearchFilterTotalNumberSeqAligned(SearchFilterTotalNumberSeqAligned searchFilterTotalNumberSeqAligned) {
+        this.searchFilterTotalNumberSeqAligned = searchFilterTotalNumberSeqAligned;
+    }
+    public void setSearchFilterProveanScore(SearchFilterProveanScore searchFilterProveanScore) {
+        this.searchFilterProveanScore = searchFilterProveanScore;
+    }
     
     // helpers ------------------------------------------------------------------------------------
     public void setSearchAlternative(String searchAlternative) {
@@ -949,6 +1052,219 @@ public class DTOSearch {
     }
     public boolean isSearchChromosomeZ() {
     	if ( this.searchChromosome.name().equals(CHROMOSOME_Z)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    
+    public boolean isSearchFilterSiftScoreNone() {
+    	if ( this.searchFilterSiftScore.name().equals(SIFT_SCORE_NONE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchFilterSiftScoreAbove() {
+    	if ( this.searchFilterSiftScore.name().equals(SIFT_SCORE_ABOVE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchFilterSiftScoreBelow() {
+    	if ( this.searchFilterSiftScore.name().equals(SIFT_SCORE_BELOW)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+
+    public boolean isSearchFilterSiftConservationScoreNone() {
+    	if ( this.searchFilterSiftConservationScore.name().equals(SIFT_CONSERVATION_SCORE_NONE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchFilterSiftConservationScoreAbove() {
+    	if ( this.searchFilterSiftConservationScore.name().equals(SIFT_CONSERVATION_SCORE_ABOVE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchFilterSiftConservationScoreBelow() {
+    	if ( this.searchFilterSiftConservationScore.name().equals(SIFT_CONSERVATION_SCORE_BELOW)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+
+    public boolean isSearchFilterProteinAlignNumberNone() {
+    	if ( this.searchFilterProteinAlignNumber.name().equals(PROTEIN_ALIGN_NUMBER_NONE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchFilterProteinAlignNumberAbove() {
+    	if ( this.searchFilterProteinAlignNumber.name().equals(PROTEIN_ALIGN_NUMBER_ABOVE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchFilterProteinAlignNumberBelow() {
+    	if ( this.searchFilterProteinAlignNumber.name().equals(PROTEIN_ALIGN_NUMBER_BELOW)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+
+    public boolean isSearchFilterTotalNumberSeqAlignedNone() {
+    	if ( this.searchFilterTotalNumberSeqAligned.name().equals(TOTAL_NUMBER_SEQ_ALIGNED_NONE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchFilterTotalNumberSeqAlignedAbove() {
+    	if ( this.searchFilterTotalNumberSeqAligned.name().equals(TOTAL_NUMBER_SEQ_ALIGNED_ABOVE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchFilterTotalNumberSeqAlignedBelow() {
+    	if ( this.searchFilterTotalNumberSeqAligned.name().equals(TOTAL_NUMBER_SEQ_ALIGNED_BELOW)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+
+    public boolean isSearchFilterProveanScoreNone() {
+    	if ( this.searchFilterProveanScore.name().equals(PROVEAN_SCORE_NONE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchFilterProveanScoreAbove() {
+    	if ( this.searchFilterProveanScore.name().equals(PROVEAN_SCORE_ABOVE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchFilterProveanScoreBelow() {
+    	if ( this.searchFilterProveanScore.name().equals(PROVEAN_SCORE_BELOW)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+
+    public boolean isSearchFilterSiftScoreValueEmpty() {
+        if ( this.searchFilterSiftScoreValue.equals("") ){
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchFilterSiftConservationScoreValueEmpty() {
+        if ( this.searchFilterSiftConservationScoreValue.equals("") ){
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchFilterProteinAlignNumberValueEmpty() {
+        if ( this.searchFilterProteinAlignNumberValue.equals("") ){
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchFilterTotalNumberSeqAlignedValueEmpty() {
+        if ( this.searchFilterTotalNumberSeqAlignedValue.equals("") ){
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchFilterProveanScoreValueEmpty() {
+        if ( this.searchFilterProveanScoreValue.equals("") ){
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+
+    public boolean isSearchFilterSiftScoreValueANumber() {
+
+    	if ( StringUtility.isItNumeric(this.searchFilterSiftScoreValue) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchFilterSiftConservationScoreValueANumber() {
+
+    	if ( StringUtility.isItNumeric(this.searchFilterSiftConservationScoreValue) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchFilterProteinAlignNumberValueANumber() {
+
+    	if ( StringUtility.isItNumeric(this.searchFilterProteinAlignNumberValue) ) {
+    		return true;
+    	}
+    	else {
+    		
+    		return false;
+    	}
+    }
+    public boolean isSearchFilterTotalNumberSeqAlignedValueANumber() {
+
+    	if ( StringUtility.isItNumeric(this.searchFilterTotalNumberSeqAlignedValue) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchFilterProveanScoreValueANumber() {
+
+    	if ( StringUtility.isItNumeric(this.searchFilterProveanScoreValue) ) {
     		return true;
     	}
     	else {

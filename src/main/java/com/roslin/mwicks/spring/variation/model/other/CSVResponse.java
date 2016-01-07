@@ -3,8 +3,7 @@ package com.roslin.mwicks.spring.variation.model.other;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import com.roslin.mwicks.spring.variation.dto.DTODownload;
-
+import com.roslin.mwicks.spring.variation.dto.web.DTODownload;
 import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome;
 
 

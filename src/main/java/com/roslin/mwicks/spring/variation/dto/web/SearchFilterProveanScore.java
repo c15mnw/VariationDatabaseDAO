@@ -1,4 +1,4 @@
-package com.roslin.mwicks.spring.variation.dto;
+package com.roslin.mwicks.spring.variation.dto.web;
 
 /**
  * Describes the search type of the search. Legal values are:
@@ -15,9 +15,8 @@ package com.roslin.mwicks.spring.variation.dto;
  * </ul>
  * @author Mike Wicks
  */
-public enum DownloadFormat {
-	FORMAT_NONE,
-	FORMAT_CSV,
-	FORMAT_TSV,
-	FORMAT_VCF
+public enum SearchFilterProveanScore {
+	PROVEAN_SCORE_NONE,
+	PROVEAN_SCORE_ABOVE,
+	PROVEAN_SCORE_BELOW
 }

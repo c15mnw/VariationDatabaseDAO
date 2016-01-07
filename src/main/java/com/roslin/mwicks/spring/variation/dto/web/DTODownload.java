@@ -1,4 +1,4 @@
-package com.roslin.mwicks.spring.variation.dto;
+package com.roslin.mwicks.spring.variation.dto.web;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 

@@ -3,10 +3,9 @@ package com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome;
 import java.util.Collection;
 import java.util.List;
 
-import com.roslin.mwicks.spring.variation.dto.DTOSearch;
-import com.roslin.mwicks.spring.variation.dto.DTODownload;
-import com.roslin.mwicks.spring.variation.dto.DTOSNPChromosome;
-
+import com.roslin.mwicks.spring.variation.dto.offline.DTOSNPChromosome;
+import com.roslin.mwicks.spring.variation.dto.web.DTODownload;
+import com.roslin.mwicks.spring.variation.dto.web.DTOSearch;
 import com.roslin.mwicks.spring.variation.exception.ExceptionSNPChromosomeNotFound;
 
 import com.roslin.mwicks.spring.variation.model.other.PageSNPChromosome;

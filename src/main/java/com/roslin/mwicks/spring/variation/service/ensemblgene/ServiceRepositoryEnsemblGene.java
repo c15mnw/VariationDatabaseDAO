@@ -1,5 +1,6 @@
 package com.roslin.mwicks.spring.variation.service.ensemblgene;
 
+import com.roslin.mwicks.spring.variation.dto.offline.DTOEnsemblGene;
 import com.roslin.mwicks.spring.variation.exception.ExceptionEnsemblGeneNotFound;
 
 import com.roslin.mwicks.spring.variation.model.ensemblgene.EnsemblGene;
@@ -7,8 +8,6 @@ import com.roslin.mwicks.spring.variation.model.ensemblgene.EnsemblGene;
 import com.roslin.mwicks.spring.variation.repository.ensemblgene.RepositoryEnsemblGene;
 
 import com.roslin.mwicks.spring.variation.serviceinterface.ensemblgene.ServiceEnsemblGene;
-
-import com.roslin.mwicks.spring.variation.dto.DTOEnsemblGene;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,4 +1,4 @@
-package com.roslin.mwicks.spring.variation.dto;
+package com.roslin.mwicks.spring.variation.dto.web;
 
 /**
  * Describes the search type of the search. Legal values are:

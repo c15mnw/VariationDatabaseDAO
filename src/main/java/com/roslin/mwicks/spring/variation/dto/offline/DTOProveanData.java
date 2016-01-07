@@ -1,4 +1,4 @@
-package com.roslin.mwicks.spring.variation.dto;
+package com.roslin.mwicks.spring.variation.dto.offline;
 
 import java.util.Date;
 
@@ -6,7 +6,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.roslin.mwicks.spring.variation.model.other.SiftData;
+import com.roslin.mwicks.spring.variation.model.other.ProveanData;
 
 import com.roslin.mwicks.utility.ObjectConverter;
 import com.roslin.mwicks.utility.StringUtility;
@@ -17,12 +17,8 @@ import com.roslin.mwicks.utility.StringUtility;
  * in create person and edit person forms.
  * @author Mike Wicks
  */
-public class DTOSiftData {
+public class DTOProveanData {
     
-    // Constants ----------------------------------------------------------------------------------
-	protected static final String STRING_TOLERATED = "TOLERATED";
-	protected static final String STRING_DELETERIOUS = "DELETERIOUS";
-	
     // Properties ---------------------------------------------------------------------------------
     @NotEmpty
     private String snpId;
@@ -40,13 +36,7 @@ public class DTOSiftData {
     private String aminoAcidSubs;
     
     @NotEmpty
-    private String predictionCategory;
-    
-    @NotEmpty
-    private String scoreSift;
-    
-    @NotEmpty
-    private String scoreConservation;
+    private String scoreProvean;
     
     @NotEmpty
     private String proteinAlignNumber;
@@ -64,7 +54,7 @@ public class DTOSiftData {
     private long version;
 
 
-    public DTOSiftData() {
+    public DTOProveanData() {
 
     }
 
@@ -84,14 +74,8 @@ public class DTOSiftData {
     public String getAminoAcidSubs() {
     	return this.aminoAcidSubs;
     }
-    public String getPredictionCategory() {
-    	return this.predictionCategory;
-    }
-    public String getScoreSift() {
-    	return this.scoreSift;
-    }
-    public String getScoreConservation() {
-    	return this.scoreConservation;
+    public String getScoreProvean() {
+    	return this.scoreProvean;
     }
     public String getProteinAlignNumber() {
     	return this.proteinAlignNumber;
@@ -110,11 +94,8 @@ public class DTOSiftData {
     }
     
     // Getters As Required DataTypes --------------------------------------------------------------
-    public Double getScoreSiftAsDouble() {
-    	return Double.parseDouble(this.scoreSift);
-    }
-    public Double getScoreConservationAsDouble() {
-    	return Double.parseDouble(this.scoreConservation);
+    public Double getScoreProveanAsDouble() {
+    	return Double.parseDouble(this.scoreProvean);
     }
     public Long getProteinAlignNumberAsLong() {
     	return ObjectConverter.convert(this.proteinAlignNumber, Long.class);
@@ -148,14 +129,8 @@ public class DTOSiftData {
     public void setAminoAcidSubs(String aminoAcidSubs) {
     	this.aminoAcidSubs = aminoAcidSubs;
     }
-    public void setPredictionCategory(String predictionCategory) {
-    	this.predictionCategory = predictionCategory;
-    }
-    public void setScoreSift(String scoreSift) {
-    	this.scoreSift = scoreSift;
-    }
-    public void setScoreConservation(String scoreConservation) {
-    	this.scoreConservation = scoreConservation;
+    public void setScoreProvean(String scoreProvean) {
+    	this.scoreProvean = scoreProvean;
     }
     public void setProteinAlignNumber(String proteinAlignNumber) {
     	this.proteinAlignNumber = proteinAlignNumber;
@@ -174,28 +149,9 @@ public class DTOSiftData {
     }
     
     // Check for Required DataTypes ---------------------------------------------------------------
-    public boolean isPredictionCategoryAValidValue() {
+    public boolean isScoreProveanANumber() {
 
-    	if ( this.predictionCategory.equals(STRING_TOLERATED) || 
-    			this.predictionCategory.equals(STRING_DELETERIOUS) ) {
-    		return true;
-    	}
-    	else {
-    		return false;
-    	}
-    }
-    public boolean isScoreSiftANumber() {
-
-    	if ( StringUtility.isItNumeric(this.scoreSift) ) {
-    		return true;
-    	}
-    	else {
-    		return false;
-    	}
-    }
-    public boolean isScoreConservationANumber() {
-
-    	if ( StringUtility.isItNumeric(this.scoreConservation) ) {
+    	if ( StringUtility.isItNumeric(this.scoreProvean) ) {
     		return true;
     	}
     	else {
@@ -208,7 +164,6 @@ public class DTOSiftData {
     		return true;
     	}
     	else {
-    		
     		return false;
     	}
     }
@@ -224,51 +179,44 @@ public class DTOSiftData {
 
     // Helpers ------------------------------------------------------------------------------------    
     /*
-     * Is this SiftData VALID?
+     * Is this ProveanData VALID?
      */
-    public boolean isThisAValidSiftData(){
+    public boolean isThisAValidProveanData(){
 
-        if ( this.isPredictionCategoryAValidValue() ) {
+        if (
+        		//this.isScoreProveanANumber() && 
+        	    this.isProteinAlignANumber() && 
+        	    this.isTotalAlignSequenceANumber()  
+        	    ) {
 
-            if (this.isProteinAlignANumber() && 
-            	    this.isTotalAlignSequenceANumber()  
-            	    ) {
-
-            	return true;
-            }
-            else {
-
-            	return false;
-            }
+        	return true;
         }
         else {
-        	
+
         	return false;
         }
     }
 
 
     /*
-     * Convert a DTOSiftData Object to an SiftData Object
+     * Convert a DTOProveanData Object to an ProveanData Object
      */
-    public SiftData convertToSiftData(){
+    public ProveanData convertToProveanData(){
 
-    	SiftData siftdata = SiftData.getBuilder(
+    	ProveanData proveandata = ProveanData.getBuilder(
     	    	this.getSnpId(),
     	    	this.getEnsemblGene(),
     	    	this.getEnsemblTranscript(),
     	    	this.getEnsemblAnnotation(),
     	    	this.getAminoAcidSubs(),
-    	    	this.getPredictionCategory(),
-    	    	this.getScoreSiftAsDouble(),
-    	    	this.getScoreConservationAsDouble(),
+    	    	this.getScoreProveanAsDouble(),
     	    	this.getProteinAlignNumberAsLong(),
     	    	this.getTotalAlignSequenceNumberAsLong()
         		).build();
-        
-    	siftdata.deriveChromosomeId();
     	
-        return siftdata;
+    	proveandata.deriveChromosomeId();
+    	
+        return proveandata;
     }
 
     
