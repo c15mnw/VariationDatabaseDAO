@@ -164,12 +164,11 @@ public class DTOSearch {
         this.searchFilterTotalNumberSeqAlignedValue = "";
         this.searchFilterProveanScoreValue = "";
 
-        this.searchFilterSiftScore = SearchFilterSiftScore.SIFT_SCORE_NONE;
-        this.searchFilterSiftConservationScore = SearchFilterSiftConservationScore.SIFT_CONSERVATION_SCORE_NONE;
-        this.searchFilterProteinAlignNumber = SearchFilterProteinAlignNumber.PROTEIN_ALIGN_NUMBER_NONE;
-        this.searchFilterTotalNumberSeqAligned = SearchFilterTotalNumberSeqAligned.TOTAL_NUMBER_SEQ_ALIGNED_NONE;
-        this.searchFilterProveanScore = SearchFilterProveanScore.PROVEAN_SCORE_NONE;
-
+        this.searchFilterSiftScore = SearchFilterSiftScore.SIFT_SCORE_ABOVE;
+        this.searchFilterSiftConservationScore = SearchFilterSiftConservationScore.SIFT_CONSERVATION_SCORE_ABOVE;
+        this.searchFilterProteinAlignNumber = SearchFilterProteinAlignNumber.PROTEIN_ALIGN_NUMBER_ABOVE;
+        this.searchFilterTotalNumberSeqAligned = SearchFilterTotalNumberSeqAligned.TOTAL_NUMBER_SEQ_ALIGNED_ABOVE;
+        this.searchFilterProveanScore = SearchFilterProveanScore.PROVEAN_SCORE_ABOVE;
     }
     
 
@@ -1226,7 +1225,6 @@ public class DTOSearch {
     }
 
     public boolean isSearchFilterSiftScoreValueANumber() {
-
     	if ( StringUtility.isItNumeric(this.searchFilterSiftScoreValue) ) {
     		return true;
     	}
@@ -1234,8 +1232,16 @@ public class DTOSearch {
     		return false;
     	}
     }
-    public boolean isSearchFilterSiftConservationScoreValueANumber() {
+    public double getSearchFilterSiftScoreValueAsDouble(){
+    	if ( isSearchFilterSiftScoreValueANumber() ) {
+            return Double.parseDouble(this.searchFilterSiftScoreValue);
+    	}
+    	else {
+            return 0;
+    	}
+    }
 
+    public boolean isSearchFilterSiftConservationScoreValueANumber() {
     	if ( StringUtility.isItNumeric(this.searchFilterSiftConservationScoreValue) ) {
     		return true;
     	}
@@ -1243,8 +1249,16 @@ public class DTOSearch {
     		return false;
     	}
     }
-    public boolean isSearchFilterProteinAlignNumberValueANumber() {
+    public double getSearchFilterSiftConservationScoreValueAsDouble(){
+    	if ( isSearchFilterSiftConservationScoreValueANumber() ) {
+            return Double.parseDouble(this.searchFilterSiftConservationScoreValue);
+    	}
+    	else {
+            return 0;
+    	}
+    }
 
+    public boolean isSearchFilterProteinAlignNumberValueANumber() {
     	if ( StringUtility.isItNumeric(this.searchFilterProteinAlignNumberValue) ) {
     		return true;
     	}
@@ -1253,8 +1267,16 @@ public class DTOSearch {
     		return false;
     	}
     }
-    public boolean isSearchFilterTotalNumberSeqAlignedValueANumber() {
+    public long getSearchFilterProteinAlignNumberValueAsLong(){
+    	if ( isSearchFilterProteinAlignNumberValueANumber() ) {
+            return ObjectConverter.convert(this.searchFilterProteinAlignNumberValue, Long.class);
+    	}
+    	else {
+            return 0;
+    	}
+    }
 
+    public boolean isSearchFilterTotalNumberSeqAlignedValueANumber() {
     	if ( StringUtility.isItNumeric(this.searchFilterTotalNumberSeqAlignedValue) ) {
     		return true;
     	}
@@ -1262,13 +1284,29 @@ public class DTOSearch {
     		return false;
     	}
     }
-    public boolean isSearchFilterProveanScoreValueANumber() {
+    public long getSearchFilterTotalNumberSeqAlignedValueAsLong(){
+    	if ( isSearchFilterTotalNumberSeqAlignedValueANumber() ) {
+            return ObjectConverter.convert(this.searchFilterTotalNumberSeqAlignedValue, Long.class);
+    	}
+    	else {
+            return 0;
+    	}
+    }
 
+    public boolean isSearchFilterProveanScoreValueANumber() {
     	if ( StringUtility.isItNumeric(this.searchFilterProveanScoreValue) ) {
     		return true;
     	}
     	else {
     		return false;
+    	}
+    }
+    public double getSearchFilterProveanScoreValueAsDouble(){
+    	if ( isSearchFilterProveanScoreValueANumber() ) {
+            return Double.parseDouble(this.searchFilterProveanScoreValue);
+    	}
+    	else {
+            return 0;
     	}
     }
 

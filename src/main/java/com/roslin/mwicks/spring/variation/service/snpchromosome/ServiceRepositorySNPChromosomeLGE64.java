@@ -43,7 +43,7 @@ public class ServiceRepositorySNPChromosomeLGE64 implements ServiceSNPChromosome
     
     private static final Logger LOGGER = LoggerFactory.getLogger(ServiceRepositorySNPChromosomeLGE64.class);
     
-    private static final int NUMBER_OF_SNPCHROMOSOMES_PER_PAGE = 30;
+    private static final int NUMBER_OF_SNPCHROMOSOMES_PER_PAGE = 300000;
 
     @Resource
     private RepositorySNPChromosomeLGE64 repositorysnpchromosome;

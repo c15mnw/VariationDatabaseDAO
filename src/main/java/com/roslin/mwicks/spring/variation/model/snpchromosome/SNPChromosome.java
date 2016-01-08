@@ -494,6 +494,21 @@ public class SNPChromosome {
     public String getPositionAsString() {
     	return ObjectConverter.convert(this.position, String.class);
     }
+    public String getScoreSiftAsString() {
+    	return String.valueOf(this.scoreSift);
+    }
+    public String getScoreConservationAsString() {
+    	return String.valueOf(this.scoreConservation);
+    }
+    public String getProteinAlignNumberAsString() {
+    	return ObjectConverter.convert(this.proteinAlignNumber, String.class);
+    }
+    public String getTotalAlignSequenceNumberAsString() {
+    	return ObjectConverter.convert(this.totalAlignSequenceNumber, String.class);
+    }
+    public String getScoreProveanAsString() {
+    	return String.valueOf(this.scoreProvean);
+    }
     public String getCreationTimeAsString() {
     	return ObjectConverter.convert(this.creationTime, String.class);
     }
@@ -591,6 +606,27 @@ public class SNPChromosome {
     }
     public String getStrainCAlleleQuoted() {
     	return '\"' + this.strainCAllele + '\"';
+    }
+    public String getAminoAcidSubsQuoted() {
+    	return '\"' + this.aminoAcidSubs + '\"';
+    }
+    public String getPredictionCategoryQuoted() {
+    	return '\"' + this.predictionCategory + '\"';
+    }
+    public String getScoreSiftAsStringQuoted() {
+    	return '\"' + String.valueOf(this.scoreSift) + '\"';
+    }
+    public String getScoreConservationAsStringQuoted() {
+    	return '\"' + String.valueOf(this.scoreConservation) + '\"';
+    }
+    public String getProteinAlignNumberAsStringQuoted() {
+    	return '\"' + ObjectConverter.convert(this.proteinAlignNumber, String.class) + '\"';
+    }
+    public String getTotalAlignSequenceNumberAsStringQuoted() {
+    	return '\"' + ObjectConverter.convert(this.totalAlignSequenceNumber, String.class) + '\"';
+    }
+    public String getScoreProveanAsStringQuoted() {
+    	return '\"' + String.valueOf(this.scoreProvean) + '\"';
     }
 
     // Setters ------------------------------------------------------------------------------------

@@ -19,7 +19,7 @@ import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome01;
  */
 
 @SuppressWarnings("serial")
-public class FilteredSNPChromosome extends ArrayList<SNPChromosome> {
+public class FilteredSNPChromosome {
     
     // Constants ----------------------------------------------------------------------------------
 	protected static final String SIFT_SCORE_ABOVE = "SIFT_SCORE_ABOVE";
@@ -38,6 +38,11 @@ public class FilteredSNPChromosome extends ArrayList<SNPChromosome> {
 	protected static final String PROVEAN_SCORE_BELOW = "PROVEAN_SCORE_BELOW";
 
     // Properties ----------------------------------------------------------------------------------
+    private int pageNumber;
+    private int pageSize;
+    private int totalPages;
+    private long totalElements;
+
     private double searchFilterSiftScoreValue;
     private double searchFilterSiftConservationScoreValue;
     private long searchFilterProteinAlignNumberValue;
@@ -50,7 +55,10 @@ public class FilteredSNPChromosome extends ArrayList<SNPChromosome> {
     private SearchFilterTotalNumberSeqAligned searchFilterTotalNumberSeqAligned;
     private SearchFilterProveanScore searchFilterProveanScore;
     
-    private List<SNPChromosome> filteredSNPChromosomes;
+    private List<SNPChromosome> inputSNPChromosomes = new ArrayList<SNPChromosome>();
+    private List<SNPChromosome> filteredSNPChromosomes = new ArrayList<SNPChromosome>();
+    private List<SNPChromosome> pagedSNPChromosomes = new ArrayList<SNPChromosome>();
+
 
     
     // Constructors --------------------------------------------------------------------------------
@@ -58,6 +66,10 @@ public class FilteredSNPChromosome extends ArrayList<SNPChromosome> {
     }
 
     public FilteredSNPChromosome(
+    		int pageNumber, 
+    		int pageSize, 
+    		int totalPages, 
+    		long totalElements, 
     		double searchFilterSiftScoreValue, 
     		double searchFilterSiftConservationScoreValue, 
     		long searchFilterProteinAlignNumberValue, 
@@ -68,9 +80,14 @@ public class FilteredSNPChromosome extends ArrayList<SNPChromosome> {
     	    SearchFilterProteinAlignNumber searchFilterProteinAlignNumber,
     	    SearchFilterTotalNumberSeqAligned searchFilterTotalNumberSeqAligned,
     	    SearchFilterProveanScore searchFilterProveanScore,
-    		Collection<? extends SNPChromosome> c) {
-     
-    	super(c);
+    	    List<SNPChromosome> inputSNPChromosomes) {
+        	
+    	this.inputSNPChromosomes = inputSNPChromosomes;
+    	
+    	this.pageNumber = pageNumber;
+    	this.pageSize = pageSize;
+    	this.totalPages = totalPages;
+    	this.totalElements = totalElements;
 
     	this.searchFilterSiftScoreValue = searchFilterSiftScoreValue;
     	this.searchFilterSiftConservationScoreValue = searchFilterSiftConservationScoreValue;
@@ -85,12 +102,27 @@ public class FilteredSNPChromosome extends ArrayList<SNPChromosome> {
     	this.searchFilterProveanScore = searchFilterProveanScore;
     	
     	this.filteredSNPChromosomes = new ArrayList<SNPChromosome>();
+    	this.pagedSNPChromosomes = new ArrayList<SNPChromosome>();
     	
     	filterSNPChromsomes();
+
+    	pageSNPChromsomes();
     }
 
     
     // Getters ------------------------------------------------------------------------------------
+    public int getPageNumber() {
+        return this.pageNumber;
+    }
+    public int getPageSize() {
+        return this.pageSize;
+    }
+    public int getTotalPages() {
+        return this.totalPages;
+    }
+    public long getTotalElements() {
+        return this.totalElements;
+    }
     public double getSearchFilterSiftScoreValue() {
         return this.searchFilterSiftScoreValue;
     }
@@ -123,6 +155,9 @@ public class FilteredSNPChromosome extends ArrayList<SNPChromosome> {
     }
     public List<SNPChromosome> getFilteredSNPChromosomes() {
         return this.filteredSNPChromosomes;
+    }
+    public List<SNPChromosome> getPagedSNPChromosomes() {
+        return this.pagedSNPChromosomes;
     }
     
     public boolean isSearchFilterSiftScoreValueZero() {
@@ -252,6 +287,18 @@ public class FilteredSNPChromosome extends ArrayList<SNPChromosome> {
     }
 
     // Setters ------------------------------------------------------------------------------------
+    public void setPageNumber(int pageNumber) {
+    	this.pageNumber = pageNumber;
+    }
+    public void setPageSize(int pageSize) {
+    	this.pageSize = pageSize;
+    }
+    public void getTotalPages(int totalPages) {
+    	this.totalPages = totalPages;
+    }
+    public void geTotalElements(long totalElements) {
+    	this.totalElements = totalElements;
+    }
     public void setSearchFilterSiftScoreValue(double searchFilterSiftScoreValue) {
     	this.searchFilterSiftScoreValue = searchFilterSiftScoreValue;
     }
@@ -285,15 +332,18 @@ public class FilteredSNPChromosome extends ArrayList<SNPChromosome> {
     public void setFilteredSNPChromosomes(ArrayList<SNPChromosome> filteredSNPChromosomes) {
         this.filteredSNPChromosomes = filteredSNPChromosomes;
     }
+    public void setPagedSNPChromosomes(ArrayList<SNPChromosome> pagedSNPChromosomes) {
+        this.pagedSNPChromosomes = pagedSNPChromosomes;
+    }
 
     // Helpers ------------------------------------------------------------------------------------
     public void filterSNPChromsomes() {
 
-        Iterator<SNPChromosome> iteratorSNPChromosome = this.iterator();
+        Iterator<SNPChromosome> iteratorInputSNPChromosomes = this.inputSNPChromosomes.iterator();
         
-     	while (iteratorSNPChromosome.hasNext()) {
+     	while (iteratorInputSNPChromosomes.hasNext()) {
     		
-     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
+     		SNPChromosome snpchromosome = iteratorInputSNPChromosomes.next();
 
      		boolean addRow = false;
      		
@@ -405,4 +455,39 @@ public class FilteredSNPChromosome extends ArrayList<SNPChromosome> {
      		}
      	}
     }
+    
+    public void pageSNPChromsomes() {
+
+    	this.totalElements = this.filteredSNPChromosomes.size();
+    	
+    	this.totalPages = this.filteredSNPChromosomes.size() / this.pageSize;
+    	
+    	int remainder = this.filteredSNPChromosomes.size() % this.pageSize;
+    	
+    	if ( remainder > 0 ) {
+    		
+        	this.totalPages++;
+    	}
+    	
+    	int startIndex = ( this.pageSize * ( this.pageNumber - 1 ) );
+    	int endIndex = ( this.pageSize * this.pageNumber ) - 1;
+    	
+    	if ( endIndex > this.filteredSNPChromosomes.size() ) {
+    		
+    		endIndex = this.filteredSNPChromosomes.size() - 1;
+    	}
+
+    	/*
+    	System.out.println("startIndex : " + startIndex);
+    	System.out.println("endIndex : " + endIndex);
+    	System.out.println("this.totalPages : " + this.totalPages);
+    	System.out.println("this.totalElements : " + this.totalElements);
+    	 */
+    	
+    	for (int i = startIndex; i <= endIndex; i++) {
+    		
+    		this.pagedSNPChromosomes.add(this.filteredSNPChromosomes.get(i));
+    	}
+    }
+
 }

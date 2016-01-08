@@ -43,7 +43,7 @@ public class ServiceRepositorySNPChromosomeLGE22C19W28_E50C23 implements Service
     
     private static final Logger LOGGER = LoggerFactory.getLogger(ServiceRepositorySNPChromosomeLGE22C19W28_E50C23.class);
     
-    private static final int NUMBER_OF_SNPCHROMOSOMES_PER_PAGE = 30;
+    private static final int NUMBER_OF_SNPCHROMOSOMES_PER_PAGE = 300000;
 
     @Resource
     private RepositorySNPChromosomeLGE22C19W28_E50C23 repositorysnpchromosome;

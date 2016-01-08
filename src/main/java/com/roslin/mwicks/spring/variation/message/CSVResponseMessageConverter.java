@@ -414,6 +414,14 @@ public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CS
             		headerList.add("Strain C Allele");
                 	headerList.add("Strain C Allele Fixed?");
             	}
+
+            	headerList.add("Amino Acid Substitution Information");
+            	headerList.add("Prediction Category");
+            	headerList.add("PROVEAN Score");
+            	headerList.add("SIFT Score");
+            	headerList.add("SIFT Conservation Score");
+            	headerList.add("Protein Alignment Number");
+            	headerList.add("Total Number of Sequences Aligned");
             		
                 csvList.add(headerList);
             }
@@ -462,6 +470,14 @@ public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CS
             		headerList.add("\"Strain C Allele\"");
                 	headerList.add("\"Strain C Allele Fixed?\"");
             	}
+            	
+            	headerList.add("\"Amino Acid Substitution Information\"");
+            	headerList.add("\"Prediction Category\"");
+            	headerList.add("\"PROVEAN Score\"");
+            	headerList.add("\"SIFT Score\"");
+            	headerList.add("\"SIFT Conservation Score\"");
+            	headerList.add("\"Protein Alignment Number\"");
+            	headerList.add("\"Total Number of Sequences Aligned\"");
             		
                 csvList.add(headerList);
             }
@@ -515,6 +531,14 @@ public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CS
                     	outputList.add(snpchromosome.getStrainCAlleleFixedQuoted());
                 	}
                 		
+                	outputList.add(snpchromosome.getAminoAcidSubsQuoted());
+                	outputList.add(snpchromosome.getPredictionCategoryQuoted());
+                	outputList.add(snpchromosome.getScoreProveanAsStringQuoted());
+                	outputList.add(snpchromosome.getScoreSiftAsStringQuoted());
+                	outputList.add(snpchromosome.getScoreConservationAsStringQuoted());
+                	outputList.add(snpchromosome.getProteinAlignNumberAsStringQuoted());
+                	outputList.add(snpchromosome.getTotalAlignSequenceNumberAsStringQuoted());
+
                     csvList.add(outputList);
                 }
             }
@@ -567,7 +591,15 @@ public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CS
                 		outputList.add(snpchromosome.getStrainCAllele());
                     	outputList.add(snpchromosome.getStrainCAlleleFixed());
                 	}
-                		
+                	
+                	outputList.add(snpchromosome.getAminoAcidSubs());
+                	outputList.add(snpchromosome.getPredictionCategory());
+                	outputList.add(snpchromosome.getScoreProveanAsString());
+                	outputList.add(snpchromosome.getScoreSiftAsString());
+                	outputList.add(snpchromosome.getScoreConservationAsString());
+                	outputList.add(snpchromosome.getProteinAlignNumberAsString());
+                	outputList.add(snpchromosome.getTotalAlignSequenceNumberAsString());
+
                     csvList.add(outputList);
                 }
             }

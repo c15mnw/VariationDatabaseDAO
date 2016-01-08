@@ -3,6 +3,7 @@ package com.roslin.mwicks.spring.variation.dto.web;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 import com.roslin.mwicks.utility.ObjectConverter;
+import com.roslin.mwicks.utility.StringUtility;
 
 
 /**
@@ -69,6 +70,26 @@ public class DTODownload {
 	protected static final String CHROMOSOME_W = "CHROMOSOME_W";
 	protected static final String CHROMOSOME_Z = "CHROMOSOME_Z";
 
+	protected static final String SIFT_SCORE_NONE = "SIFT_SCORE_NONE";
+	protected static final String SIFT_SCORE_ABOVE = "SIFT_SCORE_ABOVE";
+	protected static final String SIFT_SCORE_BELOW = "SIFT_SCORE_BELOW";
+
+	protected static final String SIFT_CONSERVATION_SCORE_NONE = "SIFT_CONSERVATION_SCORE_NONE";
+	protected static final String SIFT_CONSERVATION_SCORE_ABOVE = "SIFT_CONSERVATION_SCORE_ABOVE";
+	protected static final String SIFT_CONSERVATION_SCORE_BELOW = "SIFT_CONSERVATION_SCORE_BELOW";
+
+	protected static final String PROTEIN_ALIGN_NUMBER_NONE = "PROTEIN_ALIGN_NUMBER_NONE";
+	protected static final String PROTEIN_ALIGN_NUMBER_ABOVE = "PROTEIN_ALIGN_NUMBER_ABOVE";
+	protected static final String PROTEIN_ALIGN_NUMBER_BELOW = "PROTEIN_ALIGN_NUMBER_BELOW";
+
+	protected static final String TOTAL_NUMBER_SEQ_ALIGNED_NONE = "TOTAL_NUMBER_SEQ_ALIGNED_NONE";
+	protected static final String TOTAL_NUMBER_SEQ_ALIGNED_ABOVE = "TOTAL_NUMBER_SEQ_ALIGNED_ABOVE";
+	protected static final String TOTAL_NUMBER_SEQ_ALIGNED_BELOW = "TOTAL_NUMBER_SEQ_ALIGNED_BELOW";
+
+	protected static final String PROVEAN_SCORE_NONE = "PROVEAN_SCORE_NONE";
+	protected static final String PROVEAN_SCORE_ABOVE = "PROVEAN_SCORE_ABOVE";
+	protected static final String PROVEAN_SCORE_BELOW = "PROVEAN_SCORE_BELOW";
+
 	
     // Properties ---------------------------------------------------------------------------------
 	private String downloadLowRange;
@@ -85,6 +106,18 @@ public class DTODownload {
     private DownloadHeaders downloadHeaders;
 
     private SearchChromosome downloadChromosome;
+    
+    private String downloadFilterSiftScoreValue;
+    private String downloadFilterSiftConservationScoreValue;
+    private String downloadFilterProteinAlignNumberValue;
+    private String downloadFilterTotalNumberSeqAlignedValue;
+    private String downloadFilterProveanScoreValue;
+
+    private SearchFilterSiftScore downloadFilterSiftScore;
+    private SearchFilterSiftConservationScore downloadFilterSiftConservationScore;
+    private SearchFilterProteinAlignNumber downloadFilterProteinAlignNumber;
+    private SearchFilterTotalNumberSeqAligned downloadFilterTotalNumberSeqAligned;
+    private SearchFilterProveanScore downloadFilterProveanScore;
 
     
     // Constructor --------------------------------------------------------------------------------
@@ -104,6 +137,18 @@ public class DTODownload {
         this.downloadHeaders = DownloadHeaders.HEADERS_NO;
 
         this.downloadChromosome = SearchChromosome.CHROMOSOME_NONE;
+        
+        this.downloadFilterSiftScoreValue = "";
+        this.downloadFilterSiftConservationScoreValue = "";
+        this.downloadFilterProteinAlignNumberValue = "";
+        this.downloadFilterTotalNumberSeqAlignedValue = "";
+        this.downloadFilterProveanScoreValue = "";
+
+        this.downloadFilterSiftScore = SearchFilterSiftScore.SIFT_SCORE_ABOVE;
+        this.downloadFilterSiftConservationScore = SearchFilterSiftConservationScore.SIFT_CONSERVATION_SCORE_ABOVE;
+        this.downloadFilterProteinAlignNumber = SearchFilterProteinAlignNumber.PROTEIN_ALIGN_NUMBER_ABOVE;
+        this.downloadFilterTotalNumberSeqAligned = SearchFilterTotalNumberSeqAligned.TOTAL_NUMBER_SEQ_ALIGNED_ABOVE;
+        this.downloadFilterProveanScore = SearchFilterProveanScore.PROVEAN_SCORE_ABOVE;
     }
 
     // Getters ------------------------------------------------------------------------------------
@@ -137,6 +182,36 @@ public class DTODownload {
     public SearchChromosome getDownloadChromosome() {
         return this.downloadChromosome;
     }
+    public String getDownloadFilterSiftScoreValue() {
+        return this.downloadFilterSiftScoreValue;
+    }
+    public String getDownloadFilterSiftConservationScoreValue() {
+        return this.downloadFilterSiftConservationScoreValue;
+    }
+    public String getDownloadFilterProteinAlignNumberValue() {
+        return this.downloadFilterProteinAlignNumberValue;
+    }
+    public String getDownloadFilterTotalNumberSeqAlignedValue() {
+        return this.downloadFilterTotalNumberSeqAlignedValue;
+    }
+    public String getDownloadFilterProveanScoreValue() {
+        return this.downloadFilterProveanScoreValue;
+    }
+    public SearchFilterSiftScore getDownloadFilterSiftScore() {
+        return this.downloadFilterSiftScore;
+    }
+    public SearchFilterSiftConservationScore getDownloadFilterSiftConservationScore() {
+        return this.downloadFilterSiftConservationScore;
+    }
+    public SearchFilterProteinAlignNumber getDownloadFilterProteinAlignNumber() {
+        return this.downloadFilterProteinAlignNumber;
+    }
+    public SearchFilterTotalNumberSeqAligned getDownloadFilterTotalNumberSeqAligned() {
+        return this.downloadFilterTotalNumberSeqAligned;
+    }
+    public SearchFilterProveanScore getDownloadFilterProveanScore() {
+        return this.downloadFilterProveanScore;
+    }
 
     // Setters ------------------------------------------------------------------------------------
     public void setDownloadDownStream(String downloadDownStream) {
@@ -168,6 +243,36 @@ public class DTODownload {
     }
     public void setDownloadChromosome(SearchChromosome downloadChromosome) {
     	this.downloadChromosome = downloadChromosome;
+    }
+    public void setDownloadFilterSiftScoreValue(String downloadFilterSiftScoreValue) {
+        this.downloadFilterSiftScoreValue = downloadFilterSiftScoreValue;
+    }
+    public void setDownloadFilterSiftConservationScoreValue(String downloadFilterSiftConservationScoreValue) {
+        this.downloadFilterSiftConservationScoreValue = downloadFilterSiftConservationScoreValue;
+    }
+    public void setDownloadFilterProteinAlignNumberValue(String downloadFilterProteinAlignNumberValue) {
+        this.downloadFilterProteinAlignNumberValue = downloadFilterProteinAlignNumberValue;
+    }
+    public void setDownloadFilterTotalNumberSeqAlignedValue(String downloadFilterTotalNumberSeqAlignedValue) {
+        this.downloadFilterTotalNumberSeqAlignedValue = downloadFilterTotalNumberSeqAlignedValue;
+    }
+    public void setDownloadFilterProveanScoreValue(String downloadFilterProveanScoreValue) {
+        this.downloadFilterProveanScoreValue = downloadFilterProveanScoreValue;
+    }
+    public void setDownloadFilterSiftScore(SearchFilterSiftScore downloadFilterSiftScore) {
+        this.downloadFilterSiftScore = downloadFilterSiftScore;
+    }
+    public void setDownloadFilterSiftConservationScore(SearchFilterSiftConservationScore downloadFilterSiftConservationScore) {
+        this.downloadFilterSiftConservationScore = downloadFilterSiftConservationScore;
+    }
+    public void setDownloadFilterProteinAlignNumber(SearchFilterProteinAlignNumber downloadFilterProteinAlignNumber) {
+        this.downloadFilterProteinAlignNumber = downloadFilterProteinAlignNumber;
+    }
+    public void setDownloadFilterTotalNumberSeqAligned(SearchFilterTotalNumberSeqAligned downloadFilterTotalNumberSeqAligned) {
+        this.downloadFilterTotalNumberSeqAligned = downloadFilterTotalNumberSeqAligned;
+    }
+    public void setDownloadFilterProveanScore(SearchFilterProveanScore downloadFilterProveanScore) {
+        this.downloadFilterProveanScore = downloadFilterProveanScore;
     }
 
     // Helpers ------------------------------------------------------------------------------------
@@ -781,6 +886,258 @@ public class DTODownload {
     	}
     	else {
     		return false;
+    	}
+    }
+
+    public boolean isDownloadFilterSiftScoreNone() {
+    	if ( this.downloadFilterSiftScore.name().equals(SIFT_SCORE_NONE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadFilterSiftScoreAbove() {
+    	if ( this.downloadFilterSiftScore.name().equals(SIFT_SCORE_ABOVE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadFilterSiftScoreBelow() {
+    	if ( this.downloadFilterSiftScore.name().equals(SIFT_SCORE_BELOW)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+
+    public boolean isDownloadFilterSiftConservationScoreNone() {
+    	if ( this.downloadFilterSiftConservationScore.name().equals(SIFT_CONSERVATION_SCORE_NONE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadFilterSiftConservationScoreAbove() {
+    	if ( this.downloadFilterSiftConservationScore.name().equals(SIFT_CONSERVATION_SCORE_ABOVE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadFilterSiftConservationScoreBelow() {
+    	if ( this.downloadFilterSiftConservationScore.name().equals(SIFT_CONSERVATION_SCORE_BELOW)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+
+    public boolean isDownloadFilterProteinAlignNumberNone() {
+    	if ( this.downloadFilterProteinAlignNumber.name().equals(PROTEIN_ALIGN_NUMBER_NONE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadFilterProteinAlignNumberAbove() {
+    	if ( this.downloadFilterProteinAlignNumber.name().equals(PROTEIN_ALIGN_NUMBER_ABOVE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadFilterProteinAlignNumberBelow() {
+    	if ( this.downloadFilterProteinAlignNumber.name().equals(PROTEIN_ALIGN_NUMBER_BELOW)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+
+    public boolean isDownloadFilterTotalNumberSeqAlignedNone() {
+    	if ( this.downloadFilterTotalNumberSeqAligned.name().equals(TOTAL_NUMBER_SEQ_ALIGNED_NONE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadFilterTotalNumberSeqAlignedAbove() {
+    	if ( this.downloadFilterTotalNumberSeqAligned.name().equals(TOTAL_NUMBER_SEQ_ALIGNED_ABOVE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadFilterTotalNumberSeqAlignedBelow() {
+    	if ( this.downloadFilterTotalNumberSeqAligned.name().equals(TOTAL_NUMBER_SEQ_ALIGNED_BELOW)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+
+    public boolean isDownloadFilterProveanScoreNone() {
+    	if ( this.downloadFilterProveanScore.name().equals(PROVEAN_SCORE_NONE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadFilterProveanScoreAbove() {
+    	if ( this.downloadFilterProveanScore.name().equals(PROVEAN_SCORE_ABOVE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadFilterProveanScoreBelow() {
+    	if ( this.downloadFilterProveanScore.name().equals(PROVEAN_SCORE_BELOW)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+
+    public boolean isDownloadFilterSiftScoreValueEmpty() {
+        if ( this.downloadFilterSiftScoreValue.equals("") ){
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadFilterSiftConservationScoreValueEmpty() {
+        if ( this.downloadFilterSiftConservationScoreValue.equals("") ){
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadFilterProteinAlignNumberValueEmpty() {
+        if ( this.downloadFilterProteinAlignNumberValue.equals("") ){
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadFilterTotalNumberSeqAlignedValueEmpty() {
+        if ( this.downloadFilterTotalNumberSeqAlignedValue.equals("") ){
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadFilterProveanScoreValueEmpty() {
+        if ( this.downloadFilterProveanScoreValue.equals("") ){
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+
+    public boolean isDownloadFilterSiftScoreValueANumber() {
+    	if ( StringUtility.isItNumeric(this.downloadFilterSiftScoreValue) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public double getDownloadFilterSiftScoreValueAsDouble(){
+    	if ( isDownloadFilterSiftScoreValueANumber() ) {
+            return Double.parseDouble(this.downloadFilterSiftScoreValue);
+    	}
+    	else {
+            return 0;
+    	}
+    }
+
+    public boolean isDownloadFilterSiftConservationScoreValueANumber() {
+    	if ( StringUtility.isItNumeric(this.downloadFilterSiftConservationScoreValue) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public double getDownloadFilterSiftConservationScoreValueAsDouble(){
+    	if ( isDownloadFilterSiftConservationScoreValueANumber() ) {
+            return Double.parseDouble(this.downloadFilterSiftConservationScoreValue);
+    	}
+    	else {
+            return 0;
+    	}
+    }
+
+    public boolean isDownloadFilterProteinAlignNumberValueANumber() {
+    	if ( StringUtility.isItNumeric(this.downloadFilterProteinAlignNumberValue) ) {
+    		return true;
+    	}
+    	else {
+    		
+    		return false;
+    	}
+    }
+    public long getDownloadFilterProteinAlignNumberValueAsLong(){
+    	if ( isDownloadFilterProteinAlignNumberValueANumber() ) {
+            return ObjectConverter.convert(this.downloadFilterProteinAlignNumberValue, Long.class);
+    	}
+    	else {
+            return 0;
+    	}
+    }
+
+    public boolean isDownloadFilterTotalNumberSeqAlignedValueANumber() {
+    	if ( StringUtility.isItNumeric(this.downloadFilterTotalNumberSeqAlignedValue) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public long getDownloadFilterTotalNumberSeqAlignedValueAsLong(){
+    	if ( isDownloadFilterTotalNumberSeqAlignedValueANumber() ) {
+            return ObjectConverter.convert(this.downloadFilterTotalNumberSeqAlignedValue, Long.class);
+    	}
+    	else {
+            return 0;
+    	}
+    }
+
+    public boolean isDownloadFilterProveanScoreValueANumber() {
+    	if ( StringUtility.isItNumeric(this.downloadFilterProveanScoreValue) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public double getDownloadFilterProveanScoreValueAsDouble(){
+    	if ( isDownloadFilterProveanScoreValueANumber() ) {
+            return Double.parseDouble(this.downloadFilterProveanScoreValue);
+    	}
+    	else {
+            return 0;
     	}
     }
 
