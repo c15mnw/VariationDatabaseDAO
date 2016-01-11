@@ -1225,7 +1225,7 @@ public class DTOSearch {
     }
 
     public boolean isSearchFilterSiftScoreValueANumber() {
-    	if ( StringUtility.isItNumeric(this.searchFilterSiftScoreValue) ) {
+    	if ( StringUtility.isItNumericWithLeadingSignAndDecimalPoint(this.searchFilterSiftScoreValue) ) {
     		return true;
     	}
     	else {
@@ -1242,7 +1242,7 @@ public class DTOSearch {
     }
 
     public boolean isSearchFilterSiftConservationScoreValueANumber() {
-    	if ( StringUtility.isItNumeric(this.searchFilterSiftConservationScoreValue) ) {
+    	if ( StringUtility.isItNumericWithLeadingSignAndDecimalPoint(this.searchFilterSiftConservationScoreValue) ) {
     		return true;
     	}
     	else {
@@ -1294,7 +1294,7 @@ public class DTOSearch {
     }
 
     public boolean isSearchFilterProveanScoreValueANumber() {
-    	if ( StringUtility.isItNumeric(this.searchFilterProveanScoreValue) ) {
+    	if ( StringUtility.isItNumericWithLeadingSignAndDecimalPoint(this.searchFilterProveanScoreValue) ) {
     		return true;
     	}
     	else {

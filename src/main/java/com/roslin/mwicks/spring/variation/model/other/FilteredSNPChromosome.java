@@ -477,13 +477,6 @@ public class FilteredSNPChromosome {
     		endIndex = this.filteredSNPChromosomes.size() - 1;
     	}
 
-    	/*
-    	System.out.println("startIndex : " + startIndex);
-    	System.out.println("endIndex : " + endIndex);
-    	System.out.println("this.totalPages : " + this.totalPages);
-    	System.out.println("this.totalElements : " + this.totalElements);
-    	 */
-    	
     	for (int i = startIndex; i <= endIndex; i++) {
     		
     		this.pagedSNPChromosomes.add(this.filteredSNPChromosomes.get(i));
