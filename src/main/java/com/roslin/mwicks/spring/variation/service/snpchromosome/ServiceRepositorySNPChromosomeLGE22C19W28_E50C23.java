@@ -691,11 +691,11 @@ public class ServiceRepositorySNPChromosomeLGE22C19W28_E50C23 implements Service
         		created.getStrainCAlleleFixed(),
                 created.getAminoAcidSubs(),
                 created.getPredictionCategory(),
-                created.getScoreSiftAsLong(),
-                created.getScoreConservationAsLong(),
+                created.getScoreSiftAsDouble(),
+                created.getScoreConservationAsDouble(),
                 created.getProteinAlignNumberAsLong(),
                 created.getTotalAlignSequenceNumberAsLong(),
-                created.getScoreProveanAsLong()
+                created.getScoreProveanAsDouble()
         		).build();
         
         return repositorysnpchromosome.save(snpchromosome);

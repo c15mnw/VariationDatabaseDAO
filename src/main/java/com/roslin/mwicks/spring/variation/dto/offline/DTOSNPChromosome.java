@@ -258,11 +258,11 @@ public class DTOSNPChromosome {
     public int getPositionAsInteger() {
     	return ObjectConverter.convert(this.position, Integer.class);
     }
-    public double getScoreSiftAsLong() {
-    	return ObjectConverter.convert(this.scoreSift, Double.class);
+    public double getScoreSiftAsDouble() {
+    	return Double.parseDouble(this.scoreSift);
     }
-    public double getScoreConservationAsLong() {
-    	return ObjectConverter.convert(this.scoreConservation, Double.class);
+    public double getScoreConservationAsDouble() {
+    	return Double.parseDouble(this.scoreConservation);
     }
     public Long getProteinAlignNumberAsLong() {
     	return ObjectConverter.convert(this.proteinAlignNumber, Long.class);
@@ -270,8 +270,8 @@ public class DTOSNPChromosome {
     public Long getTotalAlignSequenceNumberAsLong() {
     	return ObjectConverter.convert(this.totalAlignSequenceNumber, Long.class);
     }
-    public double getScoreProveanAsLong() {
-    	return ObjectConverter.convert(this.scoreProvean, Double.class);
+    public double getScoreProveanAsDouble() {
+    	return Double.parseDouble(this.scoreProvean);
     }
 
     public String getCreationTimeAsString() {
@@ -626,11 +626,11 @@ public class DTOSNPChromosome {
         		this.getStrainCAlleleFixed(),
                 this.getAminoAcidSubs(),
                 this.getPredictionCategory(),
-                this.getScoreSiftAsLong(),
-                this.getScoreConservationAsLong(),
+                this.getScoreSiftAsDouble(),
+                this.getScoreConservationAsDouble(),
                 this.getProteinAlignNumberAsLong(),
                 this.getTotalAlignSequenceNumberAsLong(),
-                this.getScoreProveanAsLong()
+                this.getScoreProveanAsDouble()
         		).build();
         
         return snpchromosome;
