@@ -111,10 +111,10 @@ public class DTOSiftData {
     
     // Getters As Required DataTypes --------------------------------------------------------------
     public Double getScoreSiftAsDouble() {
-    	return Double.parseDouble(this.scoreSift);
+    	return ObjectConverter.convert(this.scoreSift, Double.class);
     }
     public Double getScoreConservationAsDouble() {
-    	return Double.parseDouble(this.scoreConservation);
+    	return ObjectConverter.convert(this.scoreConservation, Double.class);
     }
     public Long getProteinAlignNumberAsLong() {
     	return ObjectConverter.convert(this.proteinAlignNumber, Long.class);

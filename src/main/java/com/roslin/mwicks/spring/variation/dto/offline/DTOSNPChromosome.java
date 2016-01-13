@@ -259,10 +259,10 @@ public class DTOSNPChromosome {
     	return ObjectConverter.convert(this.position, Integer.class);
     }
     public double getScoreSiftAsDouble() {
-    	return Double.parseDouble(this.scoreSift);
+    	return ObjectConverter.convert(this.scoreSift, Double.class);
     }
     public double getScoreConservationAsDouble() {
-    	return Double.parseDouble(this.scoreConservation);
+    	return ObjectConverter.convert(this.scoreConservation, Double.class);
     }
     public Long getProteinAlignNumberAsLong() {
     	return ObjectConverter.convert(this.proteinAlignNumber, Long.class);
@@ -271,7 +271,7 @@ public class DTOSNPChromosome {
     	return ObjectConverter.convert(this.totalAlignSequenceNumber, Long.class);
     }
     public double getScoreProveanAsDouble() {
-    	return Double.parseDouble(this.scoreProvean);
+    	return ObjectConverter.convert(this.scoreProvean, Double.class);
     }
 
     public String getCreationTimeAsString() {

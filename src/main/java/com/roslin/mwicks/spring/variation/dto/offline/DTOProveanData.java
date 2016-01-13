@@ -95,7 +95,7 @@ public class DTOProveanData {
     
     // Getters As Required DataTypes --------------------------------------------------------------
     public Double getScoreProveanAsDouble() {
-    	return Double.parseDouble(this.scoreProvean);
+    	return ObjectConverter.convert(this.scoreProvean, Double.class);
     }
     public Long getProteinAlignNumberAsLong() {
     	return ObjectConverter.convert(this.proteinAlignNumber, Long.class);

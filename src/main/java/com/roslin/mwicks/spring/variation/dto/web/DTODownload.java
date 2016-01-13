@@ -1065,7 +1065,7 @@ public class DTODownload {
     }
     public double getDownloadFilterSiftScoreValueAsDouble(){
     	if ( isDownloadFilterSiftScoreValueANumber() ) {
-            return Double.parseDouble(this.downloadFilterSiftScoreValue);
+        	return ObjectConverter.convert(this.downloadFilterSiftScoreValue, Double.class);
     	}
     	else {
             return 0;
@@ -1082,7 +1082,7 @@ public class DTODownload {
     }
     public double getDownloadFilterSiftConservationScoreValueAsDouble(){
     	if ( isDownloadFilterSiftConservationScoreValueANumber() ) {
-            return Double.parseDouble(this.downloadFilterSiftConservationScoreValue);
+        	return ObjectConverter.convert(this.downloadFilterSiftConservationScoreValue, Double.class);
     	}
     	else {
             return 0;
@@ -1134,7 +1134,7 @@ public class DTODownload {
     }
     public double getDownloadFilterProveanScoreValueAsDouble(){
     	if ( isDownloadFilterProveanScoreValueANumber() ) {
-            return Double.parseDouble(this.downloadFilterProveanScoreValue);
+        	return ObjectConverter.convert(this.downloadFilterProveanScoreValue, Double.class);
     	}
     	else {
             return 0;

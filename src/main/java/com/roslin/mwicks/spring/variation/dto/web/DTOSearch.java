@@ -1234,7 +1234,7 @@ public class DTOSearch {
     }
     public double getSearchFilterSiftScoreValueAsDouble(){
     	if ( isSearchFilterSiftScoreValueANumber() ) {
-            return Double.parseDouble(this.searchFilterSiftScoreValue);
+        	return ObjectConverter.convert(this.searchFilterSiftScoreValue, Double.class);
     	}
     	else {
             return 0;
@@ -1251,7 +1251,7 @@ public class DTOSearch {
     }
     public double getSearchFilterSiftConservationScoreValueAsDouble(){
     	if ( isSearchFilterSiftConservationScoreValueANumber() ) {
-            return Double.parseDouble(this.searchFilterSiftConservationScoreValue);
+        	return ObjectConverter.convert(this.searchFilterSiftConservationScoreValue, Double.class);
     	}
     	else {
             return 0;
@@ -1303,7 +1303,7 @@ public class DTOSearch {
     }
     public double getSearchFilterProveanScoreValueAsDouble(){
     	if ( isSearchFilterProveanScoreValueANumber() ) {
-            return Double.parseDouble(this.searchFilterProveanScoreValue);
+        	return ObjectConverter.convert(this.searchFilterProveanScoreValue, Double.class);
     	}
     	else {
             return 0;
