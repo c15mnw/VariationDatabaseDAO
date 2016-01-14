@@ -8,6 +8,7 @@ import javax.persistence.*;
 
 import java.util.Date;
 
+import com.roslin.mwicks.spring.variation.format.CustomDateToStringStyle;
 import com.roslin.mwicks.utility.ObjectConverter;
 
 /**
@@ -787,6 +788,14 @@ public class SNPChromosome06 {
     	this.version = version;
     }
 
+    // Setters From Strings -----------------------------------------------------------------------
+    public void setCreationTimeFromString(String creationTime) {
+    	this.creationTime = ObjectConverter.convert(creationTime, Date.class);
+    }
+    public void setModificationTimeFromString(String modificationTime) {
+    	this.modificationTime = ObjectConverter.convert(modificationTime, Date.class);
+    }
+
     
     // Helpers ------------------------------------------------------------------------------------
     public SNPChromosome convert() {
@@ -976,7 +985,7 @@ public class SNPChromosome06 {
 
     public String toString() {
     	
-        return ToStringBuilder.reflectionToString(this);
+        return ToStringBuilder.reflectionToString(this, new CustomDateToStringStyle());
     }
 
     // SNPChromosome06 Builder ---------------------------------------------------------------------

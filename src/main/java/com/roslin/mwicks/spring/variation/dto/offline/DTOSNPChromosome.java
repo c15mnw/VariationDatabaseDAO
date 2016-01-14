@@ -7,6 +7,8 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome;
+import com.roslin.mwicks.spring.variation.format.CustomDateToStringStyle;
+
 import com.roslin.mwicks.utility.ObjectConverter;
 import com.roslin.mwicks.utility.StringUtility;
 
@@ -394,6 +396,14 @@ public class DTOSNPChromosome {
     	this.version = version;
     }
     
+    // Setters From Strings -----------------------------------------------------------------------
+    public void setCreationTimeFromString(String creationTime) {
+    	this.creationTime = ObjectConverter.convert(creationTime, Date.class);
+    }
+    public void setModificationTimeFromString(String modificationTime) {
+    	this.modificationTime = ObjectConverter.convert(modificationTime, Date.class);
+    }
+
     // Check for Required DataTypes ---------------------------------------------------------------
     public boolean isPositionAnInteger() {
          
@@ -638,6 +648,6 @@ public class DTOSNPChromosome {
 
     
     public String toString() {
-        return ToStringBuilder.reflectionToString(this);
+        return ToStringBuilder.reflectionToString(this, new CustomDateToStringStyle());
     }
 }

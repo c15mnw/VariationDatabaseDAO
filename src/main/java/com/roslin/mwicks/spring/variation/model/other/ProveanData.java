@@ -5,6 +5,9 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import com.roslin.mwicks.spring.variation.format.CustomDateToStringStyle;
+import com.roslin.mwicks.utility.ObjectConverter;
+
 import javax.persistence.*;
 
 import java.util.Date;
@@ -147,6 +150,14 @@ public class ProveanData {
     	this.version = version;
     }
     
+    // Setters From Strings -----------------------------------------------------------------------
+    public void setCreationTimeFromString(String creationTime) {
+    	this.creationTime = ObjectConverter.convert(creationTime, Date.class);
+    }
+    public void setModificationTimeFromString(String modificationTime) {
+    	this.modificationTime = ObjectConverter.convert(modificationTime, Date.class);
+    }
+
     // Helpers ------------------------------------------------------------------------------------
     public void deriveChromosomeId() {
     	
@@ -488,7 +499,7 @@ public class ProveanData {
     
     public String toString() {
     	
-        return ToStringBuilder.reflectionToString(this);
+        return ToStringBuilder.reflectionToString(this, new CustomDateToStringStyle());
     }
 
     // ProveanData Builder ---------------------------------------------------------------------

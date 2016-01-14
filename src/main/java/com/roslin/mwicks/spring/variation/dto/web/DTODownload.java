@@ -2,6 +2,7 @@ package com.roslin.mwicks.spring.variation.dto.web;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 
+import com.roslin.mwicks.spring.variation.format.CustomDateToStringStyle;
 import com.roslin.mwicks.utility.ObjectConverter;
 import com.roslin.mwicks.utility.StringUtility;
 
@@ -1143,6 +1144,6 @@ public class DTODownload {
 
     
     public String toString() {
-        return ToStringBuilder.reflectionToString(this);
+        return ToStringBuilder.reflectionToString(this, new CustomDateToStringStyle());
     }
 }
