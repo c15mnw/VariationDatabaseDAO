@@ -142,7 +142,6 @@ public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CS
                 
             	outputList.add(snpchromosome.getChromosomeId());
             	outputList.add(snpchromosome.getPositionAsString());
-            	outputList.add(snpchromosome.getSnpId());
             	outputList.add(snpchromosome.getReference());
             	outputList.add(snpchromosome.getAlternative());
             	outputList.add(DOT);
@@ -372,7 +371,6 @@ public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CS
 
             if ( csvResponse.isDownloadHeadersYes() && csvResponse.isDownloadQuotesNo()) {
             	
-            	headerList.add("SNP Identifier");
             	headerList.add("Chromosome Identifier");
             	headerList.add("Position");
             	headerList.add("Reference Allele");
@@ -428,7 +426,6 @@ public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CS
 
             if ( csvResponse.isDownloadHeadersYes() && csvResponse.isDownloadQuotesYes()) {
             	
-            	headerList.add("\"SNP Identifier\"");
             	headerList.add("\"Chromosome Identifier\"");
             	headerList.add("\"Position\"");
             	headerList.add("\"Reference Allele\"");
@@ -488,7 +485,6 @@ public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CS
                 	
                     List<String> outputList = new ArrayList<String>();
                     
-                	outputList.add(snpchromosome.getSnpIdQuoted());
                 	outputList.add(snpchromosome.getChromosomeIdQuoted());
                 	outputList.add(snpchromosome.getPositionAsStringQuoted());
                 	outputList.add(snpchromosome.getReferenceQuoted());
@@ -549,7 +545,6 @@ public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CS
 
                     List<String> outputList = new ArrayList<String>();
 
-                	outputList.add(snpchromosome.getSnpId());
                 	outputList.add(snpchromosome.getChromosomeId());
                 	outputList.add(snpchromosome.getPositionAsString());
                 	outputList.add(snpchromosome.getReference());

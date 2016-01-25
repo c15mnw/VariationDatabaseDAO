@@ -375,7 +375,7 @@ public class ServiceRepositorySNPChromosome16 implements ServiceSNPChromosome16 
 
     	Page<SNPChromosome16> pagesnpchromosome16s = null;
 
-    	PageRequest pageRequest = new PageRequest(pageNumber - 1, NUMBER_OF_SNPCHROMOSOMES_PER_PAGE, Sort.Direction.ASC, "snpId");
+    	PageRequest pageRequest = new PageRequest(pageNumber - 1, NUMBER_OF_SNPCHROMOSOMES_PER_PAGE, Sort.Direction.ASC, "position");
 
         if (dtoSearch.isSearchReference7() && dtoSearch.isSearchAlternativeP()) {
             LOGGER.debug("Searching pagesnpchromosome16s by using findByRangeANDStrain7NEStrainP");
@@ -634,7 +634,7 @@ public class ServiceRepositorySNPChromosome16 implements ServiceSNPChromosome16 
     	
         LOGGER.debug("Finding all snpchromosomes");
 
-        PageRequest pageRequest = new PageRequest(pageNumber - 1, NUMBER_OF_SNPCHROMOSOMES_PER_PAGE, Sort.Direction.ASC, "snpId");
+        PageRequest pageRequest = new PageRequest(pageNumber - 1, NUMBER_OF_SNPCHROMOSOMES_PER_PAGE, Sort.Direction.ASC, "position");
         
         Page<SNPChromosome16> pagesnpchromosome16s = repositorysnpchromosome.findAll(pageRequest);
         
