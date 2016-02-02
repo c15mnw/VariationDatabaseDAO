@@ -22,7 +22,6 @@ import com.roslin.mwicks.spring.variation.model.other.CSVResponse;
 import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome;
 
 import com.roslin.mwicks.utility.CsvUtil;
-import com.roslin.mwicks.utility.ObjectConverter;
 
 
 public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CSVResponse> {
