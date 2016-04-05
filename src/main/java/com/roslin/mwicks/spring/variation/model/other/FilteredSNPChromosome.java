@@ -1,17 +1,16 @@
 package com.roslin.mwicks.spring.variation.model.other;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import com.roslin.mwicks.spring.variation.dto.web.SearchFilterProteinAlignNumber;
-import com.roslin.mwicks.spring.variation.dto.web.SearchFilterProveanScore;
-import com.roslin.mwicks.spring.variation.dto.web.SearchFilterSiftConservationScore;
-import com.roslin.mwicks.spring.variation.dto.web.SearchFilterSiftScore;
-import com.roslin.mwicks.spring.variation.dto.web.SearchFilterTotalNumberSeqAligned;
+import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterProteinAlignNumber;
+import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterProveanScore;
+import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterSiftConservationScore;
+import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterSiftScore;
+import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterTotalNumberSeqAligned;
+
 import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome01;
 
 /**
  * An entity class which contains the information of a single SNPChromosome1 Table Row.

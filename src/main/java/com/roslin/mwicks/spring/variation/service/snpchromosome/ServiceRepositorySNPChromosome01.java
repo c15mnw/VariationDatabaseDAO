@@ -1,8 +1,8 @@
 package com.roslin.mwicks.spring.variation.service.snpchromosome;
 
 import com.roslin.mwicks.spring.variation.dto.offline.DTOSNPChromosome;
-import com.roslin.mwicks.spring.variation.dto.web.DTODownload;
-import com.roslin.mwicks.spring.variation.dto.web.DTOSearch;
+import com.roslin.mwicks.spring.variation.dto.web.objects.DTODownload;
+import com.roslin.mwicks.spring.variation.dto.web.objects.DTOSearch;
 import com.roslin.mwicks.spring.variation.exception.ExceptionSNPChromosomeNotFound;
 
 import com.roslin.mwicks.spring.variation.model.other.PageSNPChromosome;
@@ -358,13 +358,13 @@ public class ServiceRepositorySNPChromosome01 implements ServiceSNPChromosome01 
 
     
     @Transactional(readOnly = true)
-    public PageSNPChromosome search(DTOSearch dtoSearch, Integer pageNumber) {
+    public PageSNPChromosome search(DTOSearch dtoSearch, Integer pageNumber, String sortField, Sort.Direction sortDirection) {
         
     	LOGGER.debug("Searching snpchromosomes with search criteria: " + dtoSearch);
 
     	Page<SNPChromosome01> pagesnpchromosome1s = null;
 
-    	PageRequest pageRequest = new PageRequest(pageNumber - 1, NUMBER_OF_SNPCHROMOSOMES_PER_PAGE, Sort.Direction.ASC, "position");
+    	PageRequest pageRequest = new PageRequest(pageNumber - 1, NUMBER_OF_SNPCHROMOSOMES_PER_PAGE, sortDirection, sortField);
 
         if (dtoSearch.isSearchReference7() && dtoSearch.isSearchAlternativeP()) {
             LOGGER.debug("Searching pagesnpchromosome1s by using findByRangeANDStrain7NEStrainP");

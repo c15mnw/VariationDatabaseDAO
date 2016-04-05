@@ -3,6 +3,7 @@ package  com.roslin.mwicks.spring.variation.service.ensemblgene;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import com.roslin.mwicks.spring.variation.dto.web.enums.SearchSortField;
 
 import com.roslin.mwicks.spring.variation.model.ensemblgene.EnsemblGene;
 import com.roslin.mwicks.spring.variation.model.ensemblgene.EnsemblGeneTestUtil;

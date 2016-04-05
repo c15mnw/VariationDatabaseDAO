@@ -739,10 +739,10 @@ public class SNPChromosome20 {
     public void setStrain15IAlleleFixed(String strain15IAlleleFixed) {
     	this.strain15IAlleleFixed = strain15IAlleleFixed;
     }
-    public void setstrainZeroAllele(String strainZeroAllele) {
+    public void setStrainZeroAllele(String strainZeroAllele) {
     	this.strainZeroAllele = strainZeroAllele;
     }
-    public void setstrainZeroAlleleFixed(String strainZeroAlleleFixed) {  
+    public void setStrainZeroAlleleFixed(String strainZeroAlleleFixed) {  
     	this.strainZeroAlleleFixed = strainZeroAlleleFixed;
     }
     public void setStrain6Allele(String strain6Allele) {
@@ -821,8 +821,8 @@ public class SNPChromosome20 {
         snpchromosome.setStrainNAlleleFixed(this.getStrainNAlleleFixed());
         snpchromosome.setStrain15IAllele(this.getStrain15IAllele());
         snpchromosome.setStrain15IAlleleFixed(this.getStrain15IAlleleFixed());
-        snpchromosome.setstrainZeroAllele(this.getStrainZeroAllele());
-        snpchromosome.setstrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
+        snpchromosome.setStrainZeroAllele(this.getStrainZeroAllele());
+        snpchromosome.setStrainZeroAlleleFixed(this.getStrainZeroAlleleFixed());  
         snpchromosome.setStrain6Allele(this.getStrain6Allele());
         snpchromosome.setStrain6AlleleFixed(this.getStrain6AlleleFixed());
         snpchromosome.setStrainCAllele(this.getStrainCAllele());

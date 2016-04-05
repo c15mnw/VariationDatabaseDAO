@@ -1,8 +1,26 @@
-package com.roslin.mwicks.spring.variation.dto.web;
+package com.roslin.mwicks.spring.variation.dto.web.objects;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 
+import org.springframework.data.domain.Sort;
+
+import com.roslin.mwicks.spring.variation.dto.web.enums.DownloadFormat;
+import com.roslin.mwicks.spring.variation.dto.web.enums.DownloadHeaders;
+import com.roslin.mwicks.spring.variation.dto.web.enums.DownloadQuotes;
+
+import com.roslin.mwicks.spring.variation.dto.web.enums.SearchReference;
+import com.roslin.mwicks.spring.variation.dto.web.enums.SearchSortDirection;
+import com.roslin.mwicks.spring.variation.dto.web.enums.SearchSortField;
+import com.roslin.mwicks.spring.variation.dto.web.enums.SearchAlternative;
+import com.roslin.mwicks.spring.variation.dto.web.enums.SearchChromosome;
+import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterSiftScore;
+import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterSiftConservationScore;
+import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterProteinAlignNumber;
+import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterTotalNumberSeqAligned;
+import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterProveanScore;
+
 import com.roslin.mwicks.spring.variation.format.CustomDateToStringStyle;
+
 import com.roslin.mwicks.utility.ObjectConverter;
 import com.roslin.mwicks.utility.StringUtility;
 
@@ -27,6 +45,46 @@ public class DTODownload {
 	protected static final String FORMAT_TSV = "FORMAT_TSV";
 	protected static final String FORMAT_VCF = "FORMAT_VCF";
 
+	protected static final String SORT_FIELD_NONE = "SORT_FIELD_NONE";
+	protected static final String SORT_FIELD_POSITION = "SORT_FIELD_POSITION";
+	protected static final String SORT_FIELD_REFERENCE = "SORT_FIELD_REFERENCE";
+	protected static final String SORT_FIELD_ALTERNATIVE = "SORT_FIELD_ALTERNATIVE";
+	protected static final String SORT_FIELD_REGION = "SORT_FIELD_REGION";
+	protected static final String SORT_FIELD_ENSEMBL_GENE = "SORT_FIELD_ENSEMBL_GENE";
+	protected static final String SORT_FIELD_ENSEMBLE_TRANSCRIPT = "SORT_FIELD_ENSEMBLE_TRANSCRIPT";
+	protected static final String SORT_FIELD_ENSEMBLE_ANNOTATION = "SORT_FIELD_ENSEMBLE_ANNOTATION";
+	protected static final String SORT_FIELD_AMINO_ACID_SUBS = "SORT_FIELD_AMINO_ACID_SUBS";
+	protected static final String SORT_FIELD_PREDICTION_CATEGORY = "SORT_FIELD_PREDICTION_CATEGORY";
+	protected static final String SORT_FIELD_SCORE_SIFT = "SORT_FIELD_SCORE_SIFT";
+	protected static final String SORT_FIELD_SCORE_CONSERV = "SORT_FIELD_SCORE_CONSERV";
+	protected static final String SORT_FIELD_PROTEIN_ALIGN_NO = "SORT_FIELD_PROTEIN_ALIGN_NO";
+	protected static final String SORT_FIELD_TOT_ALIGN_SEQ_NO = "SORT_FIELD_TOT_ALIGN_SEQ_NO";
+	protected static final String SORT_FIELD_SCORE_PROVEAN = "SORT_FIELD_SCORE_PROVEAN";
+
+	protected static final String SORT_DIRECTION_NONE = "SORT_DIRECTION_NONE";
+	protected static final String SORT_DIRECTION_ASCENDING = "SORT_DIRECTION_ASCENDING";
+	protected static final String SORT_DIRECTION_DESCENDING = "SORT_DIRECTION_DESCENDING";
+			
+	protected static final String ONLY_SORT_FIELD_NONE = "position";
+	protected static final String ONLY_SORT_FIELD_POSITION = "position";
+	protected static final String ONLY_SORT_FIELD_REFERENCE = "reference";
+	protected static final String ONLY_SORT_FIELD_ALTERNATIVE = "alternative";
+	protected static final String ONLY_SORT_FIELD_REGION = "region";
+	protected static final String ONLY_SORT_FIELD_ENSEMBL_GENE = "ensemblGene";
+	protected static final String ONLY_SORT_FIELD_ENSEMBLE_TRANSCRIPT = "ensemblTranscript";
+	protected static final String ONLY_SORT_FIELD_ENSEMBLE_ANNOTATION = "ensemblAnnotation";
+	protected static final String ONLY_SORT_FIELD_AMINO_ACID_SUBS = "aminoAcidSubs";
+	protected static final String ONLY_SORT_FIELD_PREDICTION_CATEGORY = "predictionCategory";
+	protected static final String ONLY_SORT_FIELD_SCORE_SIFT = "scoreSift";
+	protected static final String ONLY_SORT_FIELD_SCORE_CONSERV = "scoreConservation";
+	protected static final String ONLY_SORT_FIELD_PROTEIN_ALIGN_NO = "proteinAlignNumber";
+	protected static final String ONLY_SORT_FIELD_TOT_ALIGN_SEQ_NO = "totalAlignSequenceNumber";
+	protected static final String ONLY_SORT_FIELD_SCORE_PROVEAN = "scoreProvean";
+
+	protected static final String ONLY_SORT_DIRECTION_NONE = "asc";
+	protected static final String ONLY_SORT_DIRECTION_ASCENDING = "asc";
+	protected static final String ONLY_SORT_DIRECTION_DESCENDING = "desc";
+
 	protected static final String STRAIN_NONE = "STRAIN_NONE";
 	protected static final String STRAIN_7 = "STRAIN_7";
 	protected static final String STRAIN_P = "STRAIN_P";
@@ -36,6 +94,16 @@ public class DTODownload {
 	protected static final String STRAIN_ZERO = "STRAIN_ZERO";
 	protected static final String STRAIN_6 = "STRAIN_6";
 	protected static final String STRAIN_C = "STRAIN_C";
+			
+	protected static final String ONLY_STRAIN_NONE = "NONE";
+	protected static final String ONLY_STRAIN_7 = "7";
+	protected static final String ONLY_STRAIN_P = "P";
+	protected static final String ONLY_STRAIN_W = "W";
+	protected static final String ONLY_STRAIN_N = "N";
+	protected static final String ONLY_STRAIN_15I = "15I";
+	protected static final String ONLY_STRAIN_ZERO = "ZERO";
+	protected static final String ONLY_STRAIN_6 = "6";
+	protected static final String ONLY_STRAIN_C = "C";
 			
 	protected static final String CHROMOSOME_NONE = "CHROMOSOME_NONE";
 	protected static final String CHROMOSOME_1 = "CHROMOSOME_1";
@@ -70,6 +138,40 @@ public class DTODownload {
 	protected static final String CHROMOSOME_LGE64 = "CHROMOSOME_LGE64";
 	protected static final String CHROMOSOME_W = "CHROMOSOME_W";
 	protected static final String CHROMOSOME_Z = "CHROMOSOME_Z";
+
+	protected static final String ONLY_NONE = "NONE";
+	protected static final String ONLY_1 = "1";
+	protected static final String ONLY_3 = "3";
+	protected static final String ONLY_4 = "4";
+	protected static final String ONLY_5 = "5";
+	protected static final String ONLY_6 = "6";
+	protected static final String ONLY_7 = "7";
+	protected static final String ONLY_8 = "8";
+	protected static final String ONLY_9 = "9";
+	protected static final String ONLY_10 = "10";
+	protected static final String ONLY_11 = "11";
+	protected static final String ONLY_12 = "12";
+	protected static final String ONLY_13 = "13";
+	protected static final String ONLY_14 = "14";
+	protected static final String ONLY_15 = "15";
+	protected static final String ONLY_16 = "16";
+	protected static final String ONLY_17 = "17";
+	protected static final String ONLY_18 = "18";
+	protected static final String ONLY_19 = "19";
+	protected static final String ONLY_20 = "20";
+	protected static final String ONLY_21 = "21";
+	protected static final String ONLY_22 = "22";
+	protected static final String ONLY_23 = "23";
+	protected static final String ONLY_24 = "24";
+	protected static final String ONLY_25 = "25";
+	protected static final String ONLY_26 = "26";
+	protected static final String ONLY_27 = "27";
+	protected static final String ONLY_28 = "28";
+	protected static final String ONLY_32 = "32";
+	protected static final String ONLY_LGE22C19W28_E50C23 = "LGE22C19W28_E50C23";
+	protected static final String ONLY_LGE64 = "LGE64";
+	protected static final String ONLY_W = "W";
+	protected static final String ONLY_Z = "Z";
 
 	protected static final String SIFT_SCORE_NONE = "SIFT_SCORE_NONE";
 	protected static final String SIFT_SCORE_ABOVE = "SIFT_SCORE_ABOVE";
@@ -120,7 +222,9 @@ public class DTODownload {
     private SearchFilterTotalNumberSeqAligned downloadFilterTotalNumberSeqAligned;
     private SearchFilterProveanScore downloadFilterProveanScore;
 
-    
+    private SearchSortField downloadSortField;
+    private SearchSortDirection downloadSortDirection;
+
     // Constructor --------------------------------------------------------------------------------
     public DTODownload() {
 
@@ -150,6 +254,9 @@ public class DTODownload {
         this.downloadFilterProteinAlignNumber = SearchFilterProteinAlignNumber.PROTEIN_ALIGN_NUMBER_ABOVE;
         this.downloadFilterTotalNumberSeqAligned = SearchFilterTotalNumberSeqAligned.TOTAL_NUMBER_SEQ_ALIGNED_ABOVE;
         this.downloadFilterProveanScore = SearchFilterProveanScore.PROVEAN_SCORE_ABOVE;
+
+        this.downloadSortField = SearchSortField.SORT_FIELD_POSITION;
+        this.downloadSortDirection = SearchSortDirection.SORT_DIRECTION_ASCENDING;
     }
 
     // Getters ------------------------------------------------------------------------------------
@@ -168,8 +275,76 @@ public class DTODownload {
     public SearchReference getDownloadReference() {
         return this.downloadReference;
     }
+    public String getDownloadReferenceAsString() {
+
+        String rtnString = "";
+        
+    	if ( this.downloadReference.equals(SearchReference.STRAIN_NONE)) {
+            rtnString = ONLY_STRAIN_NONE;
+    	}
+    	if ( this.downloadReference.equals(SearchReference.STRAIN_7)) {
+            rtnString = ONLY_STRAIN_7;
+    	}
+    	if ( this.downloadReference.equals(SearchReference.STRAIN_P)) {
+            rtnString = ONLY_STRAIN_P;
+    	}
+    	if ( this.downloadReference.equals(SearchReference.STRAIN_W)) {
+            rtnString = ONLY_STRAIN_W;
+    	}
+    	if ( this.downloadReference.equals(SearchReference.STRAIN_N)) {
+            rtnString = ONLY_STRAIN_N;
+    	}
+    	if ( this.downloadReference.equals(SearchReference.STRAIN_15I)) {
+            rtnString = ONLY_STRAIN_15I;
+    	}
+    	if ( this.downloadReference.equals(SearchReference.STRAIN_ZERO)) {
+            rtnString = ONLY_STRAIN_ZERO;
+    	}
+    	if ( this.downloadReference.equals(SearchReference.STRAIN_6)) {
+            rtnString = ONLY_STRAIN_6;
+    	}
+    	if ( this.downloadReference.equals(SearchReference.STRAIN_C)) {
+            rtnString = ONLY_STRAIN_C;
+    	}
+    	
+    	return rtnString;
+    }
     public SearchAlternative getDownloadAlternative() {
         return this.downloadAlternative;
+    }
+    public String getDownloadAlternativeAsString() {
+
+        String rtnString = "";
+        
+    	if ( this.downloadAlternative.equals(SearchAlternative.STRAIN_NONE)) {
+            rtnString = ONLY_STRAIN_NONE;
+    	}
+    	if ( this.downloadAlternative.equals(SearchAlternative.STRAIN_7)) {
+            rtnString = ONLY_STRAIN_7;
+    	}
+    	if ( this.downloadAlternative.equals(SearchAlternative.STRAIN_P)) {
+            rtnString = ONLY_STRAIN_P;
+    	}
+    	if ( this.downloadAlternative.equals(SearchAlternative.STRAIN_W)) {
+            rtnString = ONLY_STRAIN_W;
+    	}
+    	if ( this.downloadAlternative.equals(SearchAlternative.STRAIN_N)) {
+            rtnString = ONLY_STRAIN_N;
+    	}
+    	if ( this.downloadAlternative.equals(SearchAlternative.STRAIN_15I)) {
+            rtnString = ONLY_STRAIN_15I;
+    	}
+    	if ( this.downloadAlternative.equals(SearchAlternative.STRAIN_ZERO)) {
+            rtnString = ONLY_STRAIN_ZERO;
+    	}
+    	if ( this.downloadAlternative.equals(SearchAlternative.STRAIN_6)) {
+            rtnString = ONLY_STRAIN_6;
+    	}
+    	if ( this.downloadAlternative.equals(SearchAlternative.STRAIN_C)) {
+            rtnString = ONLY_STRAIN_C;
+    	}
+    	
+    	return rtnString;
     }
     public DownloadFormat getDownloadFormat() {
         return this.downloadFormat;
@@ -182,6 +357,115 @@ public class DTODownload {
     }
     public SearchChromosome getDownloadChromosome() {
         return this.downloadChromosome;
+    }
+    public String getDownloadChromosomeAsString() {
+        
+        String rtnString = "";
+        
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_NONE) ) {
+            rtnString = ONLY_NONE;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_1) ) {
+            rtnString = ONLY_1;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_3) ) {
+            rtnString = ONLY_3;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_4) ) {
+            rtnString = ONLY_4;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_5) ) {
+            rtnString = ONLY_5;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_6) ) {
+            rtnString = ONLY_6;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_7) ) {
+            rtnString = ONLY_7;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_8) ) {
+            rtnString = ONLY_8;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_9) ) {
+            rtnString = ONLY_9;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_10) ) {
+            rtnString = ONLY_10;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_11) ) {
+            rtnString = ONLY_11;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_11) ) {
+            rtnString = ONLY_11;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_12) ) {
+            rtnString = ONLY_12;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_13) ) {
+            rtnString = ONLY_13;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_14) ) {
+            rtnString = ONLY_14;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_15) ) {
+            rtnString = ONLY_15;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_16) ) {
+            rtnString = ONLY_16;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_17) ) {
+            rtnString = ONLY_17;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_18) ) {
+            rtnString = ONLY_18;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_19) ) {
+            rtnString = ONLY_19;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_20) ) {
+            rtnString = ONLY_20;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_21) ) {
+            rtnString = ONLY_21;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_22) ) {
+            rtnString = ONLY_22;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_23) ) {
+            rtnString = ONLY_23;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_24) ) {
+            rtnString = ONLY_24;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_25) ) {
+            rtnString = ONLY_25;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_26) ) {
+            rtnString = ONLY_26;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_27) ) {
+            rtnString = ONLY_27;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_28) ) {
+            rtnString = ONLY_28;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_32) ) {
+            rtnString = ONLY_32;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_W) ) {
+            rtnString = ONLY_W;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_Z) ) {
+            rtnString = ONLY_Z;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_LGE22C19W28_E50C23) ) {
+            rtnString = ONLY_LGE22C19W28_E50C23;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_LGE64) ) {
+            rtnString = ONLY_LGE64;
+    	}
+    	
+    	return rtnString;
     }
     public String getDownloadFilterSiftScoreValue() {
         return this.downloadFilterSiftScoreValue;
@@ -212,6 +496,87 @@ public class DTODownload {
     }
     public SearchFilterProveanScore getDownloadFilterProveanScore() {
         return this.downloadFilterProveanScore;
+    }
+    public SearchSortField getDownloadSortField() {
+        return this.downloadSortField;
+    }
+    public SearchSortDirection getDownloadSortDirection() {
+        return this.downloadSortDirection;
+    }
+    public String getDownloadSortDirectionAsString() {
+    	String strReturn = "";
+    	if ( this.downloadSortDirection.equals(SearchSortDirection.SORT_DIRECTION_NONE) ) {
+    		strReturn = ONLY_SORT_DIRECTION_NONE;
+        }
+    	if ( this.downloadSortDirection.equals(SearchSortDirection.SORT_DIRECTION_ASCENDING) ) {
+    		strReturn = ONLY_SORT_DIRECTION_ASCENDING;
+        }
+        if ( this.downloadSortDirection.equals(SearchSortDirection.SORT_DIRECTION_DESCENDING) ) {
+        	strReturn = ONLY_SORT_DIRECTION_DESCENDING;
+        }
+        return strReturn;
+    }
+    public Sort.Direction getDownloadSortDirectionAsSortDirection() {
+    	Sort.Direction strReturn = Sort.Direction.ASC;
+    	if ( this.downloadSortDirection.equals(SearchSortDirection.SORT_DIRECTION_NONE) ) {
+    		strReturn = Sort.Direction.ASC;
+        }
+    	if ( this.downloadSortDirection.equals(SearchSortDirection.SORT_DIRECTION_ASCENDING) ) {
+    		strReturn = Sort.Direction.ASC;
+        }
+        if ( this.downloadSortDirection.equals(SearchSortDirection.SORT_DIRECTION_DESCENDING) ) {
+        	strReturn = Sort.Direction.DESC;
+        }
+        return strReturn;
+    }
+    public String getDownloadSortFieldAsString() {
+    	String strReturn = "";
+    	if ( this.downloadSortField.equals(SearchSortField.SORT_FIELD_NONE) ) {
+    		strReturn = ONLY_SORT_FIELD_NONE;
+        }
+    	if ( this.downloadSortField.equals(SearchSortField.SORT_FIELD_POSITION) ) {
+    		strReturn = ONLY_SORT_FIELD_POSITION;
+        }
+        if ( this.downloadSortField.equals(SearchSortField.SORT_FIELD_REFERENCE) ) {
+        	strReturn = ONLY_SORT_FIELD_REFERENCE;
+        }
+    	if ( this.downloadSortField.equals(SearchSortField.SORT_FIELD_ALTERNATIVE) ) {
+    		strReturn = ONLY_SORT_FIELD_ALTERNATIVE;
+        }
+    	if ( this.downloadSortField.equals(SearchSortField.SORT_FIELD_REGION) ) {
+    		strReturn = ONLY_SORT_FIELD_REGION;
+        }
+        if ( this.downloadSortField.equals(SearchSortField.SORT_FIELD_ENSEMBL_GENE) ) {
+        	strReturn = ONLY_SORT_FIELD_ENSEMBL_GENE;
+        }
+    	if ( this.downloadSortField.equals(SearchSortField.SORT_FIELD_ENSEMBLE_TRANSCRIPT) ) {
+    		strReturn = ONLY_SORT_FIELD_ENSEMBLE_TRANSCRIPT;
+        }
+    	if ( this.downloadSortField.equals(SearchSortField.SORT_FIELD_ENSEMBLE_ANNOTATION) ) {
+    		strReturn = ONLY_SORT_FIELD_ENSEMBLE_ANNOTATION;
+        }
+        if ( this.downloadSortField.equals(SearchSortField.SORT_FIELD_AMINO_ACID_SUBS) ) {
+        	strReturn = ONLY_SORT_FIELD_AMINO_ACID_SUBS;
+        }
+    	if ( this.downloadSortField.equals(SearchSortField.SORT_FIELD_PREDICTION_CATEGORY) ) {
+    		strReturn = ONLY_SORT_FIELD_PREDICTION_CATEGORY;
+        }
+    	if ( this.downloadSortField.equals(SearchSortField.SORT_FIELD_SCORE_SIFT) ) {
+    		strReturn = ONLY_SORT_FIELD_SCORE_SIFT;
+        }
+        if ( this.downloadSortField.equals(SearchSortField.SORT_FIELD_SCORE_CONSERV) ) {
+        	strReturn = ONLY_SORT_FIELD_SCORE_CONSERV;
+        }
+    	if ( this.downloadSortField.equals(SearchSortField.SORT_FIELD_PROTEIN_ALIGN_NO) ) {
+    		strReturn = ONLY_SORT_FIELD_PROTEIN_ALIGN_NO;
+        }
+    	if ( this.downloadSortField.equals(SearchSortField.SORT_FIELD_TOT_ALIGN_SEQ_NO) ) {
+    		strReturn = ONLY_SORT_FIELD_TOT_ALIGN_SEQ_NO;
+        }
+        if ( this.downloadSortField.equals(SearchSortField.SORT_FIELD_SCORE_PROVEAN) ) {
+        	strReturn = ONLY_SORT_FIELD_SCORE_PROVEAN;
+        }
+        return strReturn;
     }
 
     // Setters ------------------------------------------------------------------------------------
@@ -275,8 +640,126 @@ public class DTODownload {
     public void setDownloadFilterProveanScore(SearchFilterProveanScore downloadFilterProveanScore) {
         this.downloadFilterProveanScore = downloadFilterProveanScore;
     }
-
+    public void setDownloadSortField(SearchSortField downloadSortField) {
+        this.downloadSortField = downloadSortField;
+    }
+    public void setDownloadSortDirection(SearchSortDirection downloadSortDirection) {
+        this.downloadSortDirection = downloadSortDirection;
+    }
+    
     // Helpers ------------------------------------------------------------------------------------
+    public void setDownloadSortField(String downloadSortField) {
+    	if ( downloadSortField.equals(SORT_FIELD_NONE)) {
+            this.downloadSortField = SearchSortField.SORT_FIELD_POSITION;
+    	}
+    	if ( downloadSortField.equals(SORT_FIELD_POSITION)) {
+            this.downloadSortField = SearchSortField.SORT_FIELD_POSITION;
+    	}
+    	if ( downloadSortField.equals(SORT_FIELD_REFERENCE)) {
+            this.downloadSortField = SearchSortField.SORT_FIELD_REFERENCE;
+    	}
+    	if ( downloadSortField.equals(SORT_FIELD_ALTERNATIVE)) {
+            this.downloadSortField = SearchSortField.SORT_FIELD_ALTERNATIVE;
+    	}
+    	if ( downloadSortField.equals(SORT_FIELD_REGION)) {
+            this.downloadSortField = SearchSortField.SORT_FIELD_REGION;
+    	}
+    	if ( downloadSortField.equals(SORT_FIELD_ENSEMBL_GENE)) {
+            this.downloadSortField = SearchSortField.SORT_FIELD_ENSEMBL_GENE;
+    	}
+    	if ( downloadSortField.equals(SORT_FIELD_ENSEMBLE_TRANSCRIPT)) {
+            this.downloadSortField = SearchSortField.SORT_FIELD_ENSEMBLE_TRANSCRIPT;
+    	}
+    	if ( downloadSortField.equals(SORT_FIELD_ENSEMBLE_ANNOTATION)) {
+            this.downloadSortField = SearchSortField.SORT_FIELD_ENSEMBLE_ANNOTATION;
+    	}
+    	if ( downloadSortField.equals(SORT_FIELD_AMINO_ACID_SUBS)) {
+            this.downloadSortField = SearchSortField.SORT_FIELD_AMINO_ACID_SUBS;
+    	}
+    	if ( downloadSortField.equals(SORT_FIELD_PREDICTION_CATEGORY)) {
+            this.downloadSortField = SearchSortField.SORT_FIELD_PREDICTION_CATEGORY;
+    	}
+    	if ( downloadSortField.equals(SORT_FIELD_SCORE_SIFT)) {
+            this.downloadSortField = SearchSortField.SORT_FIELD_SCORE_SIFT;
+    	}
+    	if ( downloadSortField.equals(SORT_FIELD_SCORE_CONSERV)) {
+            this.downloadSortField = SearchSortField.SORT_FIELD_SCORE_CONSERV;
+    	}
+    	if ( downloadSortField.equals(SORT_FIELD_PROTEIN_ALIGN_NO)) {
+            this.downloadSortField = SearchSortField.SORT_FIELD_PROTEIN_ALIGN_NO;
+    	}
+    	if ( downloadSortField.equals(SORT_FIELD_TOT_ALIGN_SEQ_NO)) {
+            this.downloadSortField = SearchSortField.SORT_FIELD_TOT_ALIGN_SEQ_NO;
+    	}
+    	if ( downloadSortField.equals(SORT_FIELD_SCORE_PROVEAN)) {
+            this.downloadSortField = SearchSortField.SORT_FIELD_SCORE_PROVEAN;
+    	}
+    	if ( downloadSortField.equals(ONLY_SORT_FIELD_NONE)) {
+            this.downloadSortField = SearchSortField.SORT_FIELD_POSITION;
+    	}
+    	if ( downloadSortField.equals(ONLY_SORT_FIELD_POSITION)) {
+            this.downloadSortField = SearchSortField.SORT_FIELD_POSITION;
+    	}
+    	if ( downloadSortField.equals(ONLY_SORT_FIELD_REFERENCE)) {
+            this.downloadSortField = SearchSortField.SORT_FIELD_REFERENCE;
+    	}
+    	if ( downloadSortField.equals(ONLY_SORT_FIELD_ALTERNATIVE)) {
+            this.downloadSortField = SearchSortField.SORT_FIELD_ALTERNATIVE;
+    	}
+    	if ( downloadSortField.equals(ONLY_SORT_FIELD_REGION)) {
+            this.downloadSortField = SearchSortField.SORT_FIELD_REGION;
+    	}
+    	if ( downloadSortField.equals(ONLY_SORT_FIELD_ENSEMBL_GENE)) {
+            this.downloadSortField = SearchSortField.SORT_FIELD_ENSEMBL_GENE;
+    	}
+    	if ( downloadSortField.equals(ONLY_SORT_FIELD_ENSEMBLE_TRANSCRIPT)) {
+            this.downloadSortField = SearchSortField.SORT_FIELD_ENSEMBLE_TRANSCRIPT;
+    	}
+    	if ( downloadSortField.equals(ONLY_SORT_FIELD_ENSEMBLE_ANNOTATION)) {
+            this.downloadSortField = SearchSortField.SORT_FIELD_ENSEMBLE_ANNOTATION;
+    	}
+    	if ( downloadSortField.equals(ONLY_SORT_FIELD_AMINO_ACID_SUBS)) {
+            this.downloadSortField = SearchSortField.SORT_FIELD_AMINO_ACID_SUBS;
+    	}
+    	if ( downloadSortField.equals(ONLY_SORT_FIELD_PREDICTION_CATEGORY)) {
+            this.downloadSortField = SearchSortField.SORT_FIELD_PREDICTION_CATEGORY;
+    	}
+    	if ( downloadSortField.equals(ONLY_SORT_FIELD_SCORE_SIFT)) {
+            this.downloadSortField = SearchSortField.SORT_FIELD_SCORE_SIFT;
+    	}
+    	if ( downloadSortField.equals(ONLY_SORT_FIELD_SCORE_CONSERV)) {
+            this.downloadSortField = SearchSortField.SORT_FIELD_SCORE_CONSERV;
+    	}
+    	if ( downloadSortField.equals(ONLY_SORT_FIELD_PROTEIN_ALIGN_NO)) {
+            this.downloadSortField = SearchSortField.SORT_FIELD_PROTEIN_ALIGN_NO;
+    	}
+    	if ( downloadSortField.equals(ONLY_SORT_FIELD_TOT_ALIGN_SEQ_NO)) {
+            this.downloadSortField = SearchSortField.SORT_FIELD_TOT_ALIGN_SEQ_NO;
+    	}
+    	if ( downloadSortField.equals(ONLY_SORT_FIELD_SCORE_PROVEAN)) {
+            this.downloadSortField = SearchSortField.SORT_FIELD_SCORE_PROVEAN;
+    	}
+    }
+    public void setDownloadSortDirection(String downloadSortDirection) {
+    	if ( downloadSortDirection.equals(SORT_DIRECTION_NONE)) {
+            this.downloadSortDirection = SearchSortDirection.SORT_DIRECTION_ASCENDING;
+    	}
+    	if ( downloadSortDirection.equals(SORT_DIRECTION_ASCENDING)) {
+            this.downloadSortDirection = SearchSortDirection.SORT_DIRECTION_ASCENDING;
+    	}
+    	if ( downloadSortDirection.equals(SORT_DIRECTION_DESCENDING)) {
+            this.downloadSortDirection = SearchSortDirection.SORT_DIRECTION_DESCENDING;
+    	}
+    	if ( downloadSortDirection.equals(ONLY_SORT_DIRECTION_NONE)) {
+            this.downloadSortDirection = SearchSortDirection.SORT_DIRECTION_ASCENDING;
+    	}
+    	if ( downloadSortDirection.equals(ONLY_SORT_DIRECTION_ASCENDING)) {
+            this.downloadSortDirection = SearchSortDirection.SORT_DIRECTION_ASCENDING;
+    	}
+    	if ( downloadSortDirection.equals(ONLY_SORT_DIRECTION_DESCENDING)) {
+            this.downloadSortDirection = SearchSortDirection.SORT_DIRECTION_DESCENDING;
+    	}
+    }
     public void setSearchChromosome(String downloadChromosome) {
     	if ( downloadChromosome.equals(CHROMOSOME_NONE)) {
             this.downloadChromosome = SearchChromosome.CHROMOSOME_NONE;
@@ -1142,6 +1625,151 @@ public class DTODownload {
     	}
     }
 
+    public boolean isDownloadSortFieldNone() {
+    	if ( this.downloadSortField.name().equals(SORT_FIELD_NONE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadSortFieldPosition() {
+    	if ( this.downloadSortField.name().equals(SORT_FIELD_POSITION)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadSortFieldReference() {
+    	if ( this.downloadSortField.name().equals(SORT_FIELD_REFERENCE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadSortFieldAlternative() {
+    	if ( this.downloadSortField.name().equals(SORT_FIELD_ALTERNATIVE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadSortFieldRegion() {
+    	if ( this.downloadSortField.name().equals(SORT_FIELD_REGION)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadSortFieldEnsemblGene() {
+    	if ( this.downloadSortField.name().equals(SORT_FIELD_ENSEMBL_GENE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadSortFieldEnsemblTranscript() {
+    	if ( this.downloadSortField.name().equals(SORT_FIELD_ENSEMBLE_TRANSCRIPT)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadSortFieldEnsemblAnnotation() {
+    	if ( this.downloadSortField.name().equals(SORT_FIELD_ENSEMBLE_ANNOTATION)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadSortFieldAminoAcidSubs() {
+    	if ( this.downloadSortField.name().equals(SORT_FIELD_AMINO_ACID_SUBS)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadSortFieldPredictionCategory() {
+    	if ( this.downloadSortField.name().equals(SORT_FIELD_PREDICTION_CATEGORY)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadSortFieldScoreSift() {
+    	if ( this.downloadSortField.name().equals(SORT_FIELD_SCORE_SIFT)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadSortFieldScoreConservation() {
+    	if ( this.downloadSortField.name().equals(SORT_FIELD_SCORE_CONSERV)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadSortFieldProteinAlignNumber() {
+    	if ( this.downloadSortField.name().equals(SORT_FIELD_PROTEIN_ALIGN_NO)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadSortFieldTotalAlignSequenceNumber() {
+    	if ( this.downloadSortField.name().equals(SORT_FIELD_TOT_ALIGN_SEQ_NO)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadSortFieldScoreProvean() {
+    	if ( this.downloadSortField.name().equals(SORT_FIELD_SCORE_PROVEAN)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+
+    public boolean isDownloadSortDirectionNone() {
+    	if ( this.downloadSortDirection.name().equals(SORT_DIRECTION_NONE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadSortDirectionAsc() {
+    	if ( this.downloadSortDirection.name().equals(SORT_DIRECTION_ASCENDING)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadSortDirectionDesc() {
+    	if ( this.downloadSortDirection.name().equals(SORT_DIRECTION_DESCENDING)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
     
     public String toString() {
         return ToStringBuilder.reflectionToString(this, new CustomDateToStringStyle());

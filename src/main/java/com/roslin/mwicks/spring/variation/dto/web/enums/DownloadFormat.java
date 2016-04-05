@@ -1,4 +1,4 @@
-package com.roslin.mwicks.spring.variation.dto.web;
+package com.roslin.mwicks.spring.variation.dto.web.enums;
 
 /**
  * What Format do you want the downloaded file in?

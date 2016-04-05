@@ -3,9 +3,12 @@ package com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome;
 import java.util.Collection;
 import java.util.List;
 
+import org.springframework.data.domain.Sort;
+import com.roslin.mwicks.spring.variation.dto.web.enums.SearchSortField;
+
 import com.roslin.mwicks.spring.variation.dto.offline.DTOSNPChromosome;
-import com.roslin.mwicks.spring.variation.dto.web.DTODownload;
-import com.roslin.mwicks.spring.variation.dto.web.DTOSearch;
+import com.roslin.mwicks.spring.variation.dto.web.objects.DTODownload;
+import com.roslin.mwicks.spring.variation.dto.web.objects.DTOSearch;
 import com.roslin.mwicks.spring.variation.exception.ExceptionSNPChromosomeNotFound;
 
 import com.roslin.mwicks.spring.variation.model.other.PageSNPChromosome;
@@ -65,7 +68,7 @@ public interface ServiceSNPChromosome12 {
      * @return  A Page of SNPChromosome12s matching with the search criteria. 
      *          If no SNPChromosome12s is found, this method returns an empty list.
      */
-    public PageSNPChromosome search(DTOSearch searchCriteria, Integer pageNumber) ;
+    public PageSNPChromosome search(DTOSearch searchCriteria, Integer pageNumber, String sortField, Sort.Direction sortDirection);
 
     
     /**

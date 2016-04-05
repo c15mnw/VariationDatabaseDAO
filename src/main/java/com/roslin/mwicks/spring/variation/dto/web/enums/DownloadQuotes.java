@@ -1,4 +1,4 @@
-package com.roslin.mwicks.spring.variation.dto.web;
+package com.roslin.mwicks.spring.variation.dto.web.enums;
 
 /**
  * Do you want the downloaded fields to be surrounded by Quotes?

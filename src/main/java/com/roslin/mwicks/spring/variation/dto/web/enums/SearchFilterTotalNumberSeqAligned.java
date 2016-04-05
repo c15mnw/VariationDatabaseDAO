@@ -1,4 +1,4 @@
-package com.roslin.mwicks.spring.variation.dto.web;
+package com.roslin.mwicks.spring.variation.dto.web.enums;
 
 /**
  * Describes the search type of the search. Legal values are:
@@ -15,8 +15,8 @@ package com.roslin.mwicks.spring.variation.dto.web;
  * </ul>
  * @author Mike Wicks
  */
-public enum SearchFilterProteinAlignNumber {
-	PROTEIN_ALIGN_NUMBER_NONE,
-	PROTEIN_ALIGN_NUMBER_ABOVE,
-	PROTEIN_ALIGN_NUMBER_BELOW
+public enum SearchFilterTotalNumberSeqAligned {
+	TOTAL_NUMBER_SEQ_ALIGNED_NONE,
+	TOTAL_NUMBER_SEQ_ALIGNED_ABOVE,
+	TOTAL_NUMBER_SEQ_ALIGNED_BELOW
 }

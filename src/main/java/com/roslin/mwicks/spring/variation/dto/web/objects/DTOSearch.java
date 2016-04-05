@@ -1,6 +1,19 @@
-package com.roslin.mwicks.spring.variation.dto.web;
+package com.roslin.mwicks.spring.variation.dto.web.objects;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
+
+import org.springframework.data.domain.Sort;
+
+import com.roslin.mwicks.spring.variation.dto.web.enums.SearchReference;
+import com.roslin.mwicks.spring.variation.dto.web.enums.SearchAlternative;
+import com.roslin.mwicks.spring.variation.dto.web.enums.SearchChromosome;
+import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterSiftScore;
+import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterSiftConservationScore;
+import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterProteinAlignNumber;
+import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterTotalNumberSeqAligned;
+import com.roslin.mwicks.spring.variation.dto.web.enums.SearchSortField;
+import com.roslin.mwicks.spring.variation.dto.web.enums.SearchSortDirection;
+import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterProveanScore;
 
 import com.roslin.mwicks.spring.variation.format.CustomDateToStringStyle;
 import com.roslin.mwicks.utility.ObjectConverter;
@@ -14,6 +27,46 @@ import com.roslin.mwicks.utility.StringUtility;
 public class DTOSearch {
 
     // Constants ----------------------------------------------------------------------------------
+	protected static final String SORT_FIELD_NONE = "SORT_FIELD_NONE";
+	protected static final String SORT_FIELD_POSITION = "SORT_FIELD_POSITION";
+	protected static final String SORT_FIELD_REFERENCE = "SORT_FIELD_REFERENCE";
+	protected static final String SORT_FIELD_ALTERNATIVE = "SORT_FIELD_ALTERNATIVE";
+	protected static final String SORT_FIELD_REGION = "SORT_FIELD_REGION";
+	protected static final String SORT_FIELD_ENSEMBL_GENE = "SORT_FIELD_ENSEMBL_GENE";
+	protected static final String SORT_FIELD_ENSEMBLE_TRANSCRIPT = "SORT_FIELD_ENSEMBLE_TRANSCRIPT";
+	protected static final String SORT_FIELD_ENSEMBLE_ANNOTATION = "SORT_FIELD_ENSEMBLE_ANNOTATION";
+	protected static final String SORT_FIELD_AMINO_ACID_SUBS = "SORT_FIELD_AMINO_ACID_SUBS";
+	protected static final String SORT_FIELD_PREDICTION_CATEGORY = "SORT_FIELD_PREDICTION_CATEGORY";
+	protected static final String SORT_FIELD_SCORE_SIFT = "SORT_FIELD_SCORE_SIFT";
+	protected static final String SORT_FIELD_SCORE_CONSERV = "SORT_FIELD_SCORE_CONSERV";
+	protected static final String SORT_FIELD_PROTEIN_ALIGN_NO = "SORT_FIELD_PROTEIN_ALIGN_NO";
+	protected static final String SORT_FIELD_TOT_ALIGN_SEQ_NO = "SORT_FIELD_TOT_ALIGN_SEQ_NO";
+	protected static final String SORT_FIELD_SCORE_PROVEAN = "SORT_FIELD_SCORE_PROVEAN";
+
+	protected static final String SORT_DIRECTION_NONE = "SORT_DIRECTION_NONE";
+	protected static final String SORT_DIRECTION_ASCENDING = "SORT_DIRECTION_ASCENDING";
+	protected static final String SORT_DIRECTION_DESCENDING = "SORT_DIRECTION_DESCENDING";
+			
+	protected static final String ONLY_SORT_FIELD_NONE = "position";
+	protected static final String ONLY_SORT_FIELD_POSITION = "position";
+	protected static final String ONLY_SORT_FIELD_REFERENCE = "reference";
+	protected static final String ONLY_SORT_FIELD_ALTERNATIVE = "alternative";
+	protected static final String ONLY_SORT_FIELD_REGION = "region";
+	protected static final String ONLY_SORT_FIELD_ENSEMBL_GENE = "ensemblGene";
+	protected static final String ONLY_SORT_FIELD_ENSEMBLE_TRANSCRIPT = "ensemblTranscript";
+	protected static final String ONLY_SORT_FIELD_ENSEMBLE_ANNOTATION = "ensemblAnnotation";
+	protected static final String ONLY_SORT_FIELD_AMINO_ACID_SUBS = "aminoAcidSubs";
+	protected static final String ONLY_SORT_FIELD_PREDICTION_CATEGORY = "predictionCategory";
+	protected static final String ONLY_SORT_FIELD_SCORE_SIFT = "scoreSift";
+	protected static final String ONLY_SORT_FIELD_SCORE_CONSERV = "scoreConservation";
+	protected static final String ONLY_SORT_FIELD_PROTEIN_ALIGN_NO = "proteinAlignNumber";
+	protected static final String ONLY_SORT_FIELD_TOT_ALIGN_SEQ_NO = "totalAlignSequenceNumber";
+	protected static final String ONLY_SORT_FIELD_SCORE_PROVEAN = "scoreProvean";
+
+	protected static final String ONLY_SORT_DIRECTION_NONE = "asc";
+	protected static final String ONLY_SORT_DIRECTION_ASCENDING = "asc";
+	protected static final String ONLY_SORT_DIRECTION_DESCENDING = "desc";
+
 	protected static final String STRAIN_NONE = "STRAIN_NONE";
 	protected static final String STRAIN_7 = "STRAIN_7";
 	protected static final String STRAIN_P = "STRAIN_P";
@@ -23,6 +76,16 @@ public class DTOSearch {
 	protected static final String STRAIN_ZERO = "STRAIN_ZERO";
 	protected static final String STRAIN_6 = "STRAIN_6";
 	protected static final String STRAIN_C = "STRAIN_C";
+			
+	protected static final String ONLY_STRAIN_NONE = "NONE";
+	protected static final String ONLY_STRAIN_7 = "7";
+	protected static final String ONLY_STRAIN_P = "P";
+	protected static final String ONLY_STRAIN_W = "W";
+	protected static final String ONLY_STRAIN_N = "N";
+	protected static final String ONLY_STRAIN_15I = "15I";
+	protected static final String ONLY_STRAIN_ZERO = "ZERO";
+	protected static final String ONLY_STRAIN_6 = "6";
+	protected static final String ONLY_STRAIN_C = "C";
 			
 	protected static final String CHROMOSOME_NONE = "CHROMOSOME_NONE";
 	protected static final String CHROMOSOME_1 = "CHROMOSOME_1";
@@ -126,7 +189,7 @@ public class DTOSearch {
 
     private SearchReference searchReference;
     private SearchAlternative searchAlternative;
-
+    
     private SearchChromosome searchChromosome;
 
     private String searchFilterSiftScoreValue;
@@ -140,6 +203,9 @@ public class DTOSearch {
     private SearchFilterProteinAlignNumber searchFilterProteinAlignNumber;
     private SearchFilterTotalNumberSeqAligned searchFilterTotalNumberSeqAligned;
     private SearchFilterProveanScore searchFilterProveanScore;
+
+    private SearchSortField searchSortField;
+    private SearchSortDirection searchSortDirection;
 
     
     // Constructor --------------------------------------------------------------------------------
@@ -158,7 +224,7 @@ public class DTOSearch {
         this.searchReference = SearchReference.STRAIN_NONE;
         this.searchAlternative = SearchAlternative.STRAIN_NONE;
         this.searchChromosome = SearchChromosome.CHROMOSOME_NONE;
-        
+
         this.searchFilterSiftScoreValue = "";
         this.searchFilterSiftConservationScoreValue = "";
         this.searchFilterProteinAlignNumberValue = "";
@@ -170,6 +236,9 @@ public class DTOSearch {
         this.searchFilterProteinAlignNumber = SearchFilterProteinAlignNumber.PROTEIN_ALIGN_NUMBER_ABOVE;
         this.searchFilterTotalNumberSeqAligned = SearchFilterTotalNumberSeqAligned.TOTAL_NUMBER_SEQ_ALIGNED_ABOVE;
         this.searchFilterProveanScore = SearchFilterProveanScore.PROVEAN_SCORE_ABOVE;
+
+        this.searchSortField = SearchSortField.SORT_FIELD_POSITION;
+        this.searchSortDirection = SearchSortDirection.SORT_DIRECTION_ASCENDING;
     }
     
 
@@ -195,11 +264,188 @@ public class DTOSearch {
     public SearchReference getSearchReference() {
         return this.searchReference;
     }
+    public String getSearchReferenceAsString() {
+
+        String rtnString = "";
+        
+    	if ( this.searchReference.equals(SearchReference.STRAIN_NONE)) {
+            rtnString = ONLY_STRAIN_NONE;
+    	}
+    	if ( this.searchReference.equals(SearchReference.STRAIN_7)) {
+            rtnString = ONLY_STRAIN_7;
+    	}
+    	if ( this.searchReference.equals(SearchReference.STRAIN_P)) {
+            rtnString = ONLY_STRAIN_P;
+    	}
+    	if ( this.searchReference.equals(SearchReference.STRAIN_W)) {
+            rtnString = ONLY_STRAIN_W;
+    	}
+    	if ( this.searchReference.equals(SearchReference.STRAIN_N)) {
+            rtnString = ONLY_STRAIN_N;
+    	}
+    	if ( this.searchReference.equals(SearchReference.STRAIN_15I)) {
+            rtnString = ONLY_STRAIN_15I;
+    	}
+    	if ( this.searchReference.equals(SearchReference.STRAIN_ZERO)) {
+            rtnString = ONLY_STRAIN_ZERO;
+    	}
+    	if ( this.searchReference.equals(SearchReference.STRAIN_6)) {
+            rtnString = ONLY_STRAIN_6;
+    	}
+    	if ( this.searchReference.equals(SearchReference.STRAIN_C)) {
+            rtnString = ONLY_STRAIN_C;
+    	}
+    	
+    	return rtnString;
+    }
     public SearchAlternative getSearchAlternative() {
         return this.searchAlternative;
     }
+    public String getSearchAlternativeAsString() {
+
+        String rtnString = "";
+        
+    	if ( this.searchAlternative.equals(SearchAlternative.STRAIN_NONE)) {
+            rtnString = ONLY_STRAIN_NONE;
+    	}
+    	if ( this.searchAlternative.equals(SearchAlternative.STRAIN_7)) {
+            rtnString = ONLY_STRAIN_7;
+    	}
+    	if ( this.searchAlternative.equals(SearchAlternative.STRAIN_P)) {
+            rtnString = ONLY_STRAIN_P;
+    	}
+    	if ( this.searchAlternative.equals(SearchAlternative.STRAIN_W)) {
+            rtnString = ONLY_STRAIN_W;
+    	}
+    	if ( this.searchAlternative.equals(SearchAlternative.STRAIN_N)) {
+            rtnString = ONLY_STRAIN_N;
+    	}
+    	if ( this.searchAlternative.equals(SearchAlternative.STRAIN_15I)) {
+            rtnString = ONLY_STRAIN_15I;
+    	}
+    	if ( this.searchAlternative.equals(SearchAlternative.STRAIN_ZERO)) {
+            rtnString = ONLY_STRAIN_ZERO;
+    	}
+    	if ( this.searchAlternative.equals(SearchAlternative.STRAIN_6)) {
+            rtnString = ONLY_STRAIN_6;
+    	}
+    	if ( this.searchAlternative.equals(SearchAlternative.STRAIN_C)) {
+            rtnString = ONLY_STRAIN_C;
+    	}
+    	
+    	return rtnString;
+    }
     public SearchChromosome getSearchChromosome() {
         return this.searchChromosome;
+    }
+    public String getSearchChromosomeAsString() {
+        
+        String rtnString = "";
+        
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_NONE) ) {
+            rtnString = ONLY_NONE;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_1) ) {
+            rtnString = ONLY_1;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_3) ) {
+            rtnString = ONLY_3;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_4) ) {
+            rtnString = ONLY_4;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_5) ) {
+            rtnString = ONLY_5;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_6) ) {
+            rtnString = ONLY_6;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_7) ) {
+            rtnString = ONLY_7;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_8) ) {
+            rtnString = ONLY_8;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_9) ) {
+            rtnString = ONLY_9;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_10) ) {
+            rtnString = ONLY_10;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_11) ) {
+            rtnString = ONLY_11;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_11) ) {
+            rtnString = ONLY_11;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_12) ) {
+            rtnString = ONLY_12;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_13) ) {
+            rtnString = ONLY_13;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_14) ) {
+            rtnString = ONLY_14;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_15) ) {
+            rtnString = ONLY_15;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_16) ) {
+            rtnString = ONLY_16;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_17) ) {
+            rtnString = ONLY_17;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_18) ) {
+            rtnString = ONLY_18;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_19) ) {
+            rtnString = ONLY_19;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_20) ) {
+            rtnString = ONLY_20;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_21) ) {
+            rtnString = ONLY_21;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_22) ) {
+            rtnString = ONLY_22;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_23) ) {
+            rtnString = ONLY_23;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_24) ) {
+            rtnString = ONLY_24;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_25) ) {
+            rtnString = ONLY_25;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_26) ) {
+            rtnString = ONLY_26;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_27) ) {
+            rtnString = ONLY_27;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_28) ) {
+            rtnString = ONLY_28;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_32) ) {
+            rtnString = ONLY_32;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_W) ) {
+            rtnString = ONLY_W;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_Z) ) {
+            rtnString = ONLY_Z;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_LGE22C19W28_E50C23) ) {
+            rtnString = ONLY_LGE22C19W28_E50C23;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_LGE64) ) {
+            rtnString = ONLY_LGE64;
+    	}
+    	
+    	return rtnString;
     }
     public String getSearchFilterSiftScoreValue() {
         return this.searchFilterSiftScoreValue;
@@ -230,6 +476,87 @@ public class DTOSearch {
     }
     public SearchFilterProveanScore getSearchFilterProveanScore() {
         return this.searchFilterProveanScore;
+    }
+    public SearchSortField getSearchSortField() {
+        return this.searchSortField;
+    }
+    public SearchSortDirection getSearchSortDirection() {
+        return this.searchSortDirection;
+    }
+    public String getSearchSortDirectionAsString() {
+    	String strReturn = "";
+    	if ( this.searchSortDirection.equals(SearchSortDirection.SORT_DIRECTION_NONE) ) {
+    		strReturn = ONLY_SORT_DIRECTION_NONE;
+        }
+    	if ( this.searchSortDirection.equals(SearchSortDirection.SORT_DIRECTION_ASCENDING) ) {
+    		strReturn = ONLY_SORT_DIRECTION_ASCENDING;
+        }
+        if ( this.searchSortDirection.equals(SearchSortDirection.SORT_DIRECTION_DESCENDING) ) {
+        	strReturn = ONLY_SORT_DIRECTION_DESCENDING;
+        }
+        return strReturn;
+    }
+    public Sort.Direction getSearchSortDirectionAsSortDirection() {
+    	Sort.Direction strReturn = Sort.Direction.ASC;
+    	if ( this.searchSortDirection.equals(SearchSortDirection.SORT_DIRECTION_NONE) ) {
+    		strReturn = Sort.Direction.ASC;
+        }
+    	if ( this.searchSortDirection.equals(SearchSortDirection.SORT_DIRECTION_ASCENDING) ) {
+    		strReturn = Sort.Direction.ASC;
+        }
+        if ( this.searchSortDirection.equals(SearchSortDirection.SORT_DIRECTION_DESCENDING) ) {
+        	strReturn = Sort.Direction.DESC;
+        }
+        return strReturn;
+    }
+    public String getSearchSortFieldAsString() {
+    	String strReturn = "";
+    	if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_NONE) ) {
+    		strReturn = ONLY_SORT_FIELD_NONE;
+        }
+    	if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_POSITION) ) {
+    		strReturn = ONLY_SORT_FIELD_POSITION;
+        }
+        if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_REFERENCE) ) {
+        	strReturn = ONLY_SORT_FIELD_REFERENCE;
+        }
+    	if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_ALTERNATIVE) ) {
+    		strReturn = ONLY_SORT_FIELD_ALTERNATIVE;
+        }
+    	if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_REGION) ) {
+    		strReturn = ONLY_SORT_FIELD_REGION;
+        }
+        if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_ENSEMBL_GENE) ) {
+        	strReturn = ONLY_SORT_FIELD_ENSEMBL_GENE;
+        }
+    	if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_ENSEMBLE_TRANSCRIPT) ) {
+    		strReturn = ONLY_SORT_FIELD_ENSEMBLE_TRANSCRIPT;
+        }
+    	if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_ENSEMBLE_ANNOTATION) ) {
+    		strReturn = ONLY_SORT_FIELD_ENSEMBLE_ANNOTATION;
+        }
+        if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_AMINO_ACID_SUBS) ) {
+        	strReturn = ONLY_SORT_FIELD_AMINO_ACID_SUBS;
+        }
+    	if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_PREDICTION_CATEGORY) ) {
+    		strReturn = ONLY_SORT_FIELD_PREDICTION_CATEGORY;
+        }
+    	if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_SCORE_SIFT) ) {
+    		strReturn = ONLY_SORT_FIELD_SCORE_SIFT;
+        }
+        if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_SCORE_CONSERV) ) {
+        	strReturn = ONLY_SORT_FIELD_SCORE_CONSERV;
+        }
+    	if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_PROTEIN_ALIGN_NO) ) {
+    		strReturn = ONLY_SORT_FIELD_PROTEIN_ALIGN_NO;
+        }
+    	if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_TOT_ALIGN_SEQ_NO) ) {
+    		strReturn = ONLY_SORT_FIELD_TOT_ALIGN_SEQ_NO;
+        }
+        if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_SCORE_PROVEAN) ) {
+        	strReturn = ONLY_SORT_FIELD_SCORE_PROVEAN;
+        }
+        return strReturn;
     }
 
     // Setters ------------------------------------------------------------------------------------
@@ -290,8 +617,126 @@ public class DTOSearch {
     public void setSearchFilterProveanScore(SearchFilterProveanScore searchFilterProveanScore) {
         this.searchFilterProveanScore = searchFilterProveanScore;
     }
+    public void setSearchSortField(SearchSortField searchSortField) {
+        this.searchSortField = searchSortField;
+    }
+    public void setSearchSortDirection(SearchSortDirection searchSortDirection) {
+        this.searchSortDirection = searchSortDirection;
+    }
     
     // helpers ------------------------------------------------------------------------------------
+    public void setSearchSortField(String searchSortField) {
+    	if ( searchSortField.equals(SORT_FIELD_NONE)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_NONE;
+    	}
+    	if ( searchSortField.equals(SORT_FIELD_POSITION)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_POSITION;
+    	}
+    	if ( searchSortField.equals(SORT_FIELD_REFERENCE)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_REFERENCE;
+    	}
+    	if ( searchSortField.equals(SORT_FIELD_ALTERNATIVE)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_ALTERNATIVE;
+    	}
+    	if ( searchSortField.equals(SORT_FIELD_REGION)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_REGION;
+    	}
+    	if ( searchSortField.equals(SORT_FIELD_ENSEMBL_GENE)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_ENSEMBL_GENE;
+    	}
+    	if ( searchSortField.equals(SORT_FIELD_ENSEMBLE_TRANSCRIPT)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_ENSEMBLE_TRANSCRIPT;
+    	}
+    	if ( searchSortField.equals(SORT_FIELD_ENSEMBLE_ANNOTATION)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_ENSEMBLE_ANNOTATION;
+    	}
+    	if ( searchSortField.equals(SORT_FIELD_AMINO_ACID_SUBS)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_AMINO_ACID_SUBS;
+    	}
+    	if ( searchSortField.equals(SORT_FIELD_PREDICTION_CATEGORY)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_PREDICTION_CATEGORY;
+    	}
+    	if ( searchSortField.equals(SORT_FIELD_SCORE_SIFT)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_SCORE_SIFT;
+    	}
+    	if ( searchSortField.equals(SORT_FIELD_SCORE_CONSERV)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_SCORE_CONSERV;
+    	}
+    	if ( searchSortField.equals(SORT_FIELD_PROTEIN_ALIGN_NO)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_PROTEIN_ALIGN_NO;
+    	}
+    	if ( searchSortField.equals(SORT_FIELD_TOT_ALIGN_SEQ_NO)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_TOT_ALIGN_SEQ_NO;
+    	}
+    	if ( searchSortField.equals(SORT_FIELD_SCORE_PROVEAN)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_SCORE_PROVEAN;
+    	}
+    	if ( searchSortField.equals(ONLY_SORT_FIELD_NONE)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_POSITION;
+    	}
+    	if ( searchSortField.equals(ONLY_SORT_FIELD_POSITION)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_POSITION;
+    	}
+    	if ( searchSortField.equals(ONLY_SORT_FIELD_REFERENCE)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_REFERENCE;
+    	}
+    	if ( searchSortField.equals(ONLY_SORT_FIELD_ALTERNATIVE)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_ALTERNATIVE;
+    	}
+    	if ( searchSortField.equals(ONLY_SORT_FIELD_REGION)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_REGION;
+    	}
+    	if ( searchSortField.equals(ONLY_SORT_FIELD_ENSEMBL_GENE)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_ENSEMBL_GENE;
+    	}
+    	if ( searchSortField.equals(ONLY_SORT_FIELD_ENSEMBLE_TRANSCRIPT)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_ENSEMBLE_TRANSCRIPT;
+    	}
+    	if ( searchSortField.equals(ONLY_SORT_FIELD_ENSEMBLE_ANNOTATION)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_ENSEMBLE_ANNOTATION;
+    	}
+    	if ( searchSortField.equals(ONLY_SORT_FIELD_AMINO_ACID_SUBS)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_AMINO_ACID_SUBS;
+    	}
+    	if ( searchSortField.equals(ONLY_SORT_FIELD_PREDICTION_CATEGORY)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_PREDICTION_CATEGORY;
+    	}
+    	if ( searchSortField.equals(ONLY_SORT_FIELD_SCORE_SIFT)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_SCORE_SIFT;
+    	}
+    	if ( searchSortField.equals(ONLY_SORT_FIELD_SCORE_CONSERV)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_SCORE_CONSERV;
+    	}
+    	if ( searchSortField.equals(ONLY_SORT_FIELD_PROTEIN_ALIGN_NO)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_PROTEIN_ALIGN_NO;
+    	}
+    	if ( searchSortField.equals(ONLY_SORT_FIELD_TOT_ALIGN_SEQ_NO)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_TOT_ALIGN_SEQ_NO;
+    	}
+    	if ( searchSortField.equals(ONLY_SORT_FIELD_SCORE_PROVEAN)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_SCORE_PROVEAN;
+    	}
+    }
+    public void setSearchSortDirection(String searchSortDirection) {
+    	if ( searchSortDirection.equals(SORT_DIRECTION_NONE)) {
+            this.searchSortDirection = SearchSortDirection.SORT_DIRECTION_ASCENDING;
+    	}
+    	if ( searchSortDirection.equals(SORT_DIRECTION_ASCENDING)) {
+            this.searchSortDirection = SearchSortDirection.SORT_DIRECTION_ASCENDING;
+    	}
+    	if ( searchSortDirection.equals(SORT_DIRECTION_DESCENDING)) {
+            this.searchSortDirection = SearchSortDirection.SORT_DIRECTION_DESCENDING;
+    	}
+    	if ( searchSortDirection.equals(ONLY_SORT_DIRECTION_NONE)) {
+            this.searchSortDirection = SearchSortDirection.SORT_DIRECTION_ASCENDING;
+    	}
+    	if ( searchSortDirection.equals(ONLY_SORT_DIRECTION_ASCENDING)) {
+            this.searchSortDirection = SearchSortDirection.SORT_DIRECTION_ASCENDING;
+    	}
+    	if ( searchSortDirection.equals(ONLY_SORT_DIRECTION_DESCENDING)) {
+            this.searchSortDirection = SearchSortDirection.SORT_DIRECTION_DESCENDING;
+    	}
+    }
     public void setSearchAlternative(String searchAlternative) {
     	if ( searchAlternative.equals(STRAIN_NONE)) {
             this.searchAlternative = SearchAlternative.STRAIN_NONE;
@@ -318,6 +763,33 @@ public class DTOSearch {
             this.searchAlternative = SearchAlternative.STRAIN_6;
     	}
     	if ( searchAlternative.equals(STRAIN_C)) {
+            this.searchAlternative = SearchAlternative.STRAIN_C;
+    	}
+    	if ( searchAlternative.equals(ONLY_STRAIN_NONE)) {
+            this.searchAlternative = SearchAlternative.STRAIN_NONE;
+    	}
+    	if ( searchAlternative.equals(ONLY_STRAIN_7)) {
+            this.searchAlternative = SearchAlternative.STRAIN_7;
+    	}
+    	if ( searchAlternative.equals(ONLY_STRAIN_P)) {
+            this.searchAlternative = SearchAlternative.STRAIN_P;
+    	}
+    	if ( searchAlternative.equals(ONLY_STRAIN_W)) {
+            this.searchAlternative = SearchAlternative.STRAIN_W;
+    	}
+    	if ( searchAlternative.equals(ONLY_STRAIN_N)) {
+            this.searchAlternative = SearchAlternative.STRAIN_N;
+    	}
+    	if ( searchAlternative.equals(ONLY_STRAIN_15I)) {
+            this.searchAlternative = SearchAlternative.STRAIN_15I;
+    	}
+    	if ( searchAlternative.equals(ONLY_STRAIN_ZERO)) {
+            this.searchAlternative = SearchAlternative.STRAIN_ZERO;
+    	}
+    	if ( searchAlternative.equals(ONLY_STRAIN_6)) {
+            this.searchAlternative = SearchAlternative.STRAIN_6;
+    	}
+    	if ( searchAlternative.equals(ONLY_STRAIN_C)) {
             this.searchAlternative = SearchAlternative.STRAIN_C;
     	}
     }
@@ -348,6 +820,33 @@ public class DTOSearch {
             this.searchReference = SearchReference.STRAIN_6;
     	}
     	if ( searchReference.equals(STRAIN_C)) {
+            this.searchReference = SearchReference.STRAIN_C;
+    	}
+    	if ( searchReference.equals(ONLY_STRAIN_NONE)) {
+            this.searchReference = SearchReference.STRAIN_NONE;
+    	}
+    	if ( searchReference.equals(ONLY_STRAIN_7)) {
+            this.searchReference = SearchReference.STRAIN_7;
+    	}
+    	if ( searchReference.equals(ONLY_STRAIN_P)) {
+            this.searchReference = SearchReference.STRAIN_P;
+    	}
+    	if ( searchReference.equals(ONLY_STRAIN_W)) {
+            this.searchReference = SearchReference.STRAIN_W;
+    	}
+    	if ( searchReference.equals(ONLY_STRAIN_N)) {
+            this.searchReference = SearchReference.STRAIN_N;
+    	}
+    	if ( searchReference.equals(ONLY_STRAIN_15I)) {
+            this.searchReference = SearchReference.STRAIN_15I;
+    	}
+    	if ( searchReference.equals(ONLY_STRAIN_ZERO)) {
+            this.searchReference = SearchReference.STRAIN_ZERO;
+    	}
+    	if ( searchReference.equals(ONLY_STRAIN_6)) {
+            this.searchReference = SearchReference.STRAIN_6;
+    	}
+    	if ( searchReference.equals(ONLY_STRAIN_C)) {
             this.searchReference = SearchReference.STRAIN_C;
     	}
     }
@@ -1311,7 +1810,152 @@ public class DTOSearch {
     	}
     }
 
-    
+    public boolean isSearchSortFieldNone() {
+    	if ( this.searchSortField.name().equals(SORT_FIELD_NONE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchSortFieldPosition() {
+    	if ( this.searchSortField.name().equals(SORT_FIELD_POSITION)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchSortFieldReference() {
+    	if ( this.searchSortField.name().equals(SORT_FIELD_REFERENCE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchSortFieldAlternative() {
+    	if ( this.searchSortField.name().equals(SORT_FIELD_ALTERNATIVE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchSortFieldRegion() {
+    	if ( this.searchSortField.name().equals(SORT_FIELD_REGION)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchSortFieldEnsemblGene() {
+    	if ( this.searchSortField.name().equals(SORT_FIELD_ENSEMBL_GENE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchSortFieldEnsemblTranscript() {
+    	if ( this.searchSortField.name().equals(SORT_FIELD_ENSEMBLE_TRANSCRIPT)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchSortFieldEnsemblAnnotation() {
+    	if ( this.searchSortField.name().equals(SORT_FIELD_ENSEMBLE_ANNOTATION)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchSortFieldAminoAcidSubs() {
+    	if ( this.searchSortField.name().equals(SORT_FIELD_AMINO_ACID_SUBS)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchSortFieldPredictionCategory() {
+    	if ( this.searchSortField.name().equals(SORT_FIELD_PREDICTION_CATEGORY)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchSortFieldScoreSift() {
+    	if ( this.searchSortField.name().equals(SORT_FIELD_SCORE_SIFT)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchSortFieldScoreConservation() {
+    	if ( this.searchSortField.name().equals(SORT_FIELD_SCORE_CONSERV)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchSortFieldProteinAlignNumber() {
+    	if ( this.searchSortField.name().equals(SORT_FIELD_PROTEIN_ALIGN_NO)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchSortFieldTotalAlignSequenceNumber() {
+    	if ( this.searchSortField.name().equals(SORT_FIELD_TOT_ALIGN_SEQ_NO)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchSortFieldScoreProvean() {
+    	if ( this.searchSortField.name().equals(SORT_FIELD_SCORE_PROVEAN)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+
+    public boolean isSearchSortDirectionNone() {
+    	if ( this.searchSortDirection.name().equals(SORT_DIRECTION_NONE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchSortDirectionAsc() {
+    	if ( this.searchSortDirection.name().equals(SORT_DIRECTION_ASCENDING)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchSortDirectionDesc() {
+    	if ( this.searchSortDirection.name().equals(SORT_DIRECTION_DESCENDING)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+
     public String toString() {
         return ToStringBuilder.reflectionToString(this, new CustomDateToStringStyle());
     }
