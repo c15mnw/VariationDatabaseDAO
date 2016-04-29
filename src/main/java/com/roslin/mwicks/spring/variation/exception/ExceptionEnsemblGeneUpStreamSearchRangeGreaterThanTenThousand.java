@@ -5,12 +5,12 @@ package com.roslin.mwicks.spring.variation.exception;
  * @author Mike Wicks
  */
 @SuppressWarnings("serial")
-public class ExceptionEnsemblGeneSearchRangeGreaterThanTenThousand extends Exception {
+public class ExceptionEnsemblGeneUpStreamSearchRangeGreaterThanTenThousand extends Exception {
     // Constructors -------------------------------------------------------------------------------
     /*
      * Constructs an ExceptionSNPChromosomeNotFound with the given detail message.
      */
-    public ExceptionEnsemblGeneSearchRangeGreaterThanTenThousand(String message) {
+    public ExceptionEnsemblGeneUpStreamSearchRangeGreaterThanTenThousand(String message) {
 
     	super(message);
     }
@@ -18,7 +18,7 @@ public class ExceptionEnsemblGeneSearchRangeGreaterThanTenThousand extends Excep
     /*
      * Constructs an ExceptionSNPChromosomeNotFound with the given root cause.
      */
-    public ExceptionEnsemblGeneSearchRangeGreaterThanTenThousand(Throwable cause) {
+    public ExceptionEnsemblGeneUpStreamSearchRangeGreaterThanTenThousand(Throwable cause) {
         
     	super(cause);
     }
@@ -26,7 +26,7 @@ public class ExceptionEnsemblGeneSearchRangeGreaterThanTenThousand extends Excep
     /*
      * Constructs an ExceptionSNPChromosomeNotFound with the given detail message and root cause.
      */
-    public ExceptionEnsemblGeneSearchRangeGreaterThanTenThousand(String message, Throwable cause) {
+    public ExceptionEnsemblGeneUpStreamSearchRangeGreaterThanTenThousand(String message, Throwable cause) {
         
     	super(message, cause);
     }
