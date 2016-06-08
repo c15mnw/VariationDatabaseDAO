@@ -20,6 +20,9 @@ import com.roslin.mwicks.utility.StringUtility;
  */
 public class DTOProveanData {
     
+    // Constants ----------------------------------------------------------------------------------
+	protected static final String STRING_NAN = "nan";
+	
     // Properties ---------------------------------------------------------------------------------
     @NotEmpty
     private String snpId;
@@ -158,15 +161,110 @@ public class DTOProveanData {
     }
 
     // Check for Required DataTypes ---------------------------------------------------------------
-    public boolean isScoreProveanANumber() {
+    public boolean isScoreProveanEmpty() {
 
-    	if ( StringUtility.isItNumeric(this.scoreProvean) ) {
+    	if ( "".equals(this.scoreProvean.toLowerCase()) ) {
     		return true;
     	}
     	else {
     		return false;
     	}
     }
+    public boolean isScoreProveanNAN() {
+
+    	if ( "nan".equals(this.scoreProvean.toLowerCase()) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isScoreProveanBizarre() {
+
+    	String upTo6Characters = this.scoreProvean.substring(0, Math.min(this.scoreProvean.length(), 6));
+
+    	if ( "Binary".equals(upTo6Characters) ) {
+    		
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+
+    public boolean isProteinAlignNumberEmpty() {
+
+    	if ( "".equals(this.proteinAlignNumber.toLowerCase()) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isProteinAlignNumberNAN() {
+
+    	if ( "nan".equals(this.proteinAlignNumber.toLowerCase()) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isProteinAlignNumberBizarre() {
+
+    	String upTo6Characters = this.proteinAlignNumber.substring(0, Math.min(this.proteinAlignNumber.length(), 6));
+    	
+    	if ( "Binary".equals(upTo6Characters) ) {
+
+        	return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+
+    public boolean isTotalAlignSequenceNumberEmpty() {
+
+    	if ( "".equals(this.totalAlignSequenceNumber.toLowerCase()) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isTotalAlignSequenceNumberNAN() {
+
+    	if ( "nan".equals(this.totalAlignSequenceNumber.toLowerCase()) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isAminoAcidSubsBizarre() {
+
+    	String upTo6Characters = this.aminoAcidSubs.substring(0, Math.min(this.aminoAcidSubs.length(), 6));
+
+    	if ( "Binary".equals(upTo6Characters) ) {
+
+        	return true;
+    	}
+    	else {
+    		
+    		return false;
+    	}
+    }
+
+    public boolean isScoreProveanANumber() {
+
+    	if ( StringUtility.isItNumericWithLeadingSignAndDecimalPoint(this.scoreProvean) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    
     public boolean isProteinAlignANumber() {
 
     	if ( StringUtility.isItNumeric(this.proteinAlignNumber) ) {
@@ -176,6 +274,7 @@ public class DTOProveanData {
     		return false;
     	}
     }
+    
     public boolean isTotalAlignSequenceANumber() {
 
     	if ( StringUtility.isItNumeric(this.totalAlignSequenceNumber) ) {
@@ -193,7 +292,7 @@ public class DTOProveanData {
     public boolean isThisAValidProveanData(){
 
         if (
-        		//this.isScoreProveanANumber() && 
+        		this.isScoreProveanANumber() && 
         	    this.isProteinAlignANumber() && 
         	    this.isTotalAlignSequenceANumber()  
         	    ) {
@@ -202,7 +301,34 @@ public class DTOProveanData {
         }
         else {
 
-        	return false;
+            if ( this.isScoreProveanNAN() && 
+            	    this.isProteinAlignNumberNAN() && 
+            	    this.isTotalAlignSequenceNumberNAN() ) {
+
+            	return true;
+            }
+            else {
+
+                if ( this.isScoreProveanBizarre() && 
+                	    this.isProteinAlignNumberBizarre() && 
+                	    this.isAminoAcidSubsBizarre() ) {
+
+                	return true;
+                }
+                else {
+
+                    if ( this.isScoreProveanEmpty() && 
+                    	    this.isProteinAlignNumberEmpty() && 
+                    	    this.isTotalAlignSequenceNumberEmpty() ) {
+
+                    	return true;
+                    }
+                    else {
+                	
+                    	return false;
+                    }
+                }
+            }
         }
     }
 
@@ -212,6 +338,34 @@ public class DTOProveanData {
      */
     public ProveanData convertToProveanData(){
 
+        if ( this.isScoreProveanNAN() || 
+        	    this.isProteinAlignNumberNAN() || 
+        	    this.isTotalAlignSequenceNumberNAN() ) {
+
+        	this.setScoreProvean("0");
+        	this.setProteinAlignNumber("0");
+        	this.setTotalAlignSequenceNumber("0");
+        }
+        
+        if ( this.isScoreProveanBizarre() || 
+        	    this.isProteinAlignNumberBizarre() || 
+        	    this.isAminoAcidSubsBizarre() ) {
+
+        	this.setAminoAcidSubs("");
+        	this.setScoreProvean("0");
+        	this.setProteinAlignNumber("0");
+        	this.setTotalAlignSequenceNumber("0");
+        }
+        
+        if ( this.isScoreProveanEmpty() || 
+        	    this.isProteinAlignNumberEmpty() || 
+        	    this.isTotalAlignSequenceNumberEmpty() ) {
+
+        	this.setScoreProvean("0");
+        	this.setProteinAlignNumber("0");
+        	this.setTotalAlignSequenceNumber("0");
+        }
+        
     	ProveanData proveandata = ProveanData.getBuilder(
     	    	this.getSnpId(),
     	    	this.getEnsemblGene(),

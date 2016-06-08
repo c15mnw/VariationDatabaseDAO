@@ -23,6 +23,7 @@ public class SiftData {
     // Constants ----------------------------------------------------------------------------------
 	protected static final String ONLY_NONE = "NONE";
 	protected static final String ONLY_1 = "1";
+	protected static final String ONLY_2 = "2";
 	protected static final String ONLY_3 = "3";
 	protected static final String ONLY_4 = "4";
 	protected static final String ONLY_5 = "5";
@@ -183,6 +184,16 @@ public class SiftData {
     	String[] parts = string.split("_");
     	
     	this.chromosomeId = parts[0].substring(3);
+
+    	if ( parts[0].toLowerCase().equals("chr38") ) {
+    		this.chromosomeId = ONLY_W;
+    	}
+    	if ( parts[0].toLowerCase().equals("chr40") ) {
+    		this.chromosomeId = ONLY_LGE22C19W28_E50C23;
+    	}
+    	if ( parts[0].toLowerCase().equals("chr41") ) {
+    		this.chromosomeId = ONLY_LGE64;
+    	}
     }
 
     public boolean isChromosomeNone() {
@@ -195,6 +206,14 @@ public class SiftData {
     }
     public boolean isChromosome1() {
     	if ( this.chromosomeId.equals(ONLY_1)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isChromosome2() {
+    	if ( this.chromosomeId.equals(ONLY_2)) {
     		return true;
     	}
     	else {
@@ -477,6 +496,23 @@ public class SiftData {
     		return false;
     	}
     }
+
+    
+    /*
+     * Is this SiftData VALID?
+     */
+    public boolean isThisAValidSiftData(){
+
+        if ( ( this.isChromosome1() || this.isChromosome2() || this.isChromosome3() || this.isChromosome4() || this.isChromosome5() || this.isChromosome6() || this.isChromosome7() || this.isChromosome8() || this.isChromosome9() || this.isChromosome10() || this.isChromosome11() || this.isChromosome12() || this.isChromosome13() || this.isChromosome14() || this.isChromosome15() || this.isChromosome16() || this.isChromosome17() || this.isChromosome18() || this.isChromosome19() || this.isChromosome20() || this.isChromosome21() || this.isChromosome22() || this.isChromosome23() || this.isChromosome24() || this.isChromosome25() || this.isChromosome26() || this.isChromosome27() || this.isChromosome28() || this.isChromosome32() || this.isChromosomeLGE22C19W28_E50C23() || this.isChromosomeLGE64() || this.isChromosomeW() || this.isChromosomeZ() ) ) {
+
+        	return true;
+        }
+        else {
+        	
+        	return false;
+        }
+    }
+
     
     /*
      * Is this Component the same as the Supplied Component?
@@ -484,16 +520,16 @@ public class SiftData {
     public boolean isSameAs(SiftData siftdata){
 
         if (
-        	    this.getSnpId().equals(this.getSnpId()) && 
-        	    this.getEnsemblGene().equals(this.getEnsemblGene()) && 
-        	    this.getEnsemblTranscript().equals(this.getEnsemblTranscript()) && 
-        	    this.getEnsemblAnnotation().equals(this.getEnsemblAnnotation()) && 
-        	    this.getAminoAcidSubs().equals(this.getAminoAcidSubs()) && 
-        	    this.getPredictionCategory().equals(this.getPredictionCategory()) && 
-        	    this.getScoreSift() == this.getScoreSift() && 
-        	    this.getScoreConservation() == this.getScoreConservation() && 
-        	    this.getProteinAlignNumber() == this.getProteinAlignNumber() && 
-        	    this.getTotalAlignSequenceNumber() == this.getTotalAlignSequenceNumber() 
+        	    this.getSnpId().equals(siftdata.getSnpId()) && 
+        	    this.getEnsemblGene().equals(siftdata.getEnsemblGene()) && 
+        	    this.getEnsemblTranscript().equals(siftdata.getEnsemblTranscript()) && 
+        	    this.getEnsemblAnnotation().equals(siftdata.getEnsemblAnnotation()) && 
+        	    this.getAminoAcidSubs().equals(siftdata.getAminoAcidSubs()) && 
+        	    this.getPredictionCategory().equals(siftdata.getPredictionCategory()) && 
+        	    this.getScoreSift() == siftdata.getScoreSift() && 
+        	    this.getScoreConservation() == siftdata.getScoreConservation() && 
+        	    this.getProteinAlignNumber() == siftdata.getProteinAlignNumber() && 
+        	    this.getTotalAlignSequenceNumber() == siftdata.getTotalAlignSequenceNumber() 
         	    ) {
 
         	return true;

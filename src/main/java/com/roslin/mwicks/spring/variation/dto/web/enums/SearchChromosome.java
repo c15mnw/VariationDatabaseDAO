@@ -18,6 +18,7 @@ package com.roslin.mwicks.spring.variation.dto.web.enums;
 public enum SearchChromosome {
 	CHROMOSOME_NONE,
 	CHROMOSOME_1,
+	CHROMOSOME_2,
 	CHROMOSOME_3,
 	CHROMOSOME_4,
 	CHROMOSOME_5,

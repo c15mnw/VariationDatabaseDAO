@@ -12,14 +12,14 @@ import com.roslin.mwicks.spring.variation.format.CustomDateToStringStyle;
 import com.roslin.mwicks.utility.ObjectConverter;
 
 /**
- * An entity class which contains the information of a single SNPChromosome17 Table Row.
+ * An entity class which contains the information of a single SNPChromosome02 Table Row.
  * @author Mike Wicks
  */
 @Entity
-@Table(name = "VSC_SNP_CHROMOSOME_17")
+@Table(name = "VSC_SNP_CHROMOSOME_02")
 @Transactional
 
-public class SNPChromosome17 {
+public class SNPChromosome02 {
     
     // Constants ----------------------------------------------------------------------------------
 	protected static final String STRING_NA = "N/A";
@@ -1176,7 +1176,7 @@ public class SNPChromosome17 {
     /*
      * Is this Component the same as the Supplied Component?
      */
-    public boolean isSameAs(SNPChromosome17 snpchromosome){
+    public boolean isSameAs(SNPChromosome02 snpchromosome){
 
         if (this.getOid() == snpchromosome.getOid() && 
         		this.getSnpId().equals(snpchromosome.getSnpId()) && 
@@ -1260,8 +1260,8 @@ public class SNPChromosome17 {
      */
     public boolean equals(Object other) {
     	
-        return (other instanceof SNPChromosome17) && (oid != null) 
-        		? oid.equals(((SNPChromosome17) other).oid) 
+        return (other instanceof SNPChromosome02) && (oid != null) 
+        		? oid.equals(((SNPChromosome02) other).oid) 
         		: (other == this);
     }
     
@@ -1421,9 +1421,9 @@ public class SNPChromosome17 {
         return ToStringBuilder.reflectionToString(this, new CustomDateToStringStyle());
     }
 
-    // SNPChromosome17 Builder ---------------------------------------------------------------------
+    // SNPChromosome02 Builder ---------------------------------------------------------------------
     /**
-     * Gets a builder which is used to create SNPChromosome17 objects.
+     * Gets a builder which is used to create SNPChromosome02 objects.
      * 
      * @param snpId The SNP ID
      * @param chromosomeId The Chromosome ID
@@ -1620,7 +1620,7 @@ public class SNPChromosome17 {
 
        		    snpchromosome.getStrainWAllele(),
        		    snpchromosome.getStrainWAlleleFixed(),
-       		    snpchromosome.getStrainWAlleleRatio(),
+       		    (long) snpchromosome.getStrainWAlleleRatio(),
     		    snpchromosome.getStrainWAlleleAlternativeCount(),
     		    snpchromosome.getStrainWAlleleReferenceCount(),
 
@@ -1666,11 +1666,11 @@ public class SNPChromosome17 {
     
 
     /**
-     * A Builder class used to create new SNPChromosome17 objects.
+     * A Builder class used to create new SNPChromosome02 objects.
      */
     public static class Builder {
     	
-        SNPChromosome17 built;
+        SNPChromosome02 built;
 
         /**
          * Creates a new Builder instance.
@@ -1783,7 +1783,7 @@ public class SNPChromosome17 {
         		double scoreProvean
         		) {
         	
-            built = new SNPChromosome17();
+            built = new SNPChromosome02();
             
         	built.snpId = snpId;
         	built.chromosomeId = chromosomeId;
@@ -1853,11 +1853,11 @@ public class SNPChromosome17 {
         }
 
         /**
-         * Builds the new SNPChromosome17 object.
+         * Builds the new SNPChromosome02 object.
          * 
-         * @return this. The created SNPChromosome17 object.
+         * @return this. The created SNPChromosome02 object.
          */
-        public SNPChromosome17 build() {
+        public SNPChromosome02 build() {
         	
             return built;
         }

@@ -107,6 +107,7 @@ public class DTODownload {
 			
 	protected static final String CHROMOSOME_NONE = "CHROMOSOME_NONE";
 	protected static final String CHROMOSOME_1 = "CHROMOSOME_1";
+	protected static final String CHROMOSOME_2 = "CHROMOSOME_2";
 	protected static final String CHROMOSOME_3 = "CHROMOSOME_3";
 	protected static final String CHROMOSOME_4 = "CHROMOSOME_4";
 	protected static final String CHROMOSOME_5 = "CHROMOSOME_5";
@@ -141,6 +142,7 @@ public class DTODownload {
 
 	protected static final String ONLY_NONE = "NONE";
 	protected static final String ONLY_1 = "1";
+	protected static final String ONLY_2 = "2";
 	protected static final String ONLY_3 = "3";
 	protected static final String ONLY_4 = "4";
 	protected static final String ONLY_5 = "5";
@@ -367,6 +369,9 @@ public class DTODownload {
     	}
     	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_1) ) {
             rtnString = ONLY_1;
+    	}
+    	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_2) ) {
+            rtnString = ONLY_2;
     	}
     	if ( this.downloadChromosome.equals(SearchChromosome.CHROMOSOME_3) ) {
             rtnString = ONLY_3;
@@ -767,6 +772,9 @@ public class DTODownload {
     	if ( downloadChromosome.equals(CHROMOSOME_1)) {
             this.downloadChromosome = SearchChromosome.CHROMOSOME_1;
     	}
+    	if ( downloadChromosome.equals(CHROMOSOME_2)) {
+            this.downloadChromosome = SearchChromosome.CHROMOSOME_2;
+    	}
     	if ( downloadChromosome.equals(CHROMOSOME_3)) {
             this.downloadChromosome = SearchChromosome.CHROMOSOME_3;
     	}
@@ -1118,6 +1126,14 @@ public class DTODownload {
     }
     public boolean isDownloadChromosome1() {
     	if ( this.downloadChromosome.name().equals(CHROMOSOME_1)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadChromosome2() {
+    	if ( this.downloadChromosome.name().equals(CHROMOSOME_2)) {
     		return true;
     	}
     	else {

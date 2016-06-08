@@ -8,10 +8,10 @@ import com.roslin.mwicks.spring.variation.exception.ExceptionSNPChromosomeNotFou
 import com.roslin.mwicks.spring.variation.model.other.PageSNPChromosome;
 
 import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome01;
-import com.roslin.mwicks.spring.variation.repository.snpchromosome.RepositorySNPChromosome01;
+import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome02;
+import com.roslin.mwicks.spring.variation.repository.snpchromosome.RepositorySNPChromosome02;
 
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome01;
+import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome02;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,9 +40,9 @@ import java.util.List;
  * @author Mike Wicks
  */
 @Service
-public class ServiceRepositorySNPChromosome01 implements ServiceSNPChromosome01 {
+public class ServiceRepositorySNPChromosome02 implements ServiceSNPChromosome02 {
     
-    private static final Logger LOGGER = LoggerFactory.getLogger(ServiceRepositorySNPChromosome01.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ServiceRepositorySNPChromosome02.class);
     
     private static final int NUMBER_OF_SNPCHROMOSOMES_PER_PAGE = 300000;
     
@@ -50,11 +50,11 @@ public class ServiceRepositorySNPChromosome01 implements ServiceSNPChromosome01 
     private EntityManager entityManager;
      
     @Resource
-    private RepositorySNPChromosome01 repositorysnpchromosome;
+    private RepositorySNPChromosome02 repositorysnpchromosome;
 
     
     @Transactional(readOnly = true)
-    public SNPChromosome01 findByOid(Long oid) {
+    public SNPChromosome02 findByOid(Long oid) {
     	
         LOGGER.debug("Finding SNPChromosome by oid: " + oid);
         
@@ -63,7 +63,7 @@ public class ServiceRepositorySNPChromosome01 implements ServiceSNPChromosome01 
 
     
     @Transactional
-    public <T extends SNPChromosome01> Collection<T> bulkSave(int intBatchSize, Collection<T> entities) {
+    public <T extends SNPChromosome02> Collection<T> bulkSave(int intBatchSize, Collection<T> entities) {
     	
     	final List<T> savedEntities = new ArrayList<T>(entities.size());
     	int i = 0;
@@ -87,7 +87,7 @@ public class ServiceRepositorySNPChromosome01 implements ServiceSNPChromosome01 
     }
     	 
     
-    /*private <T extends SNPChromosome01> T persistOrMerge(T t) {
+    /*private <T extends SNPChromosome02> T persistOrMerge(T t) {
     
     	if (t.getOid() == 0) {
     	
@@ -106,7 +106,7 @@ public class ServiceRepositorySNPChromosome01 implements ServiceSNPChromosome01 
         
     	LOGGER.debug("Downloading snpchromosomes with download criteria: " + dtoDownload);
     	
-    	List<SNPChromosome01> snpchromosome1s = null;
+    	List<SNPChromosome02> snpchromosome1s = null;
     	
         if (dtoDownload.isDownloadReference7() && dtoDownload.isDownloadAlternativeP()) {
             LOGGER.debug("Searching snpchromosome1s by using findByRangeANDStrain7NEStrainP");
@@ -342,11 +342,11 @@ public class ServiceRepositorySNPChromosome01 implements ServiceSNPChromosome01 
 
     	List<SNPChromosome> snpchromosomes = new ArrayList<SNPChromosome>();
     	
-        Iterator<SNPChromosome01> iteratorSNPChromosome01 = snpchromosome1s.iterator();
+        Iterator<SNPChromosome02> iteratorSNPChromosome02 = snpchromosome1s.iterator();
         
-     	while (iteratorSNPChromosome01.hasNext()) {
+     	while (iteratorSNPChromosome02.hasNext()) {
     		
-     		SNPChromosome01 snpchromosome1 = iteratorSNPChromosome01.next();
+     		SNPChromosome02 snpchromosome1 = iteratorSNPChromosome02.next();
      		
      		SNPChromosome snpchromosome = snpchromosome1.convert();
      		
@@ -362,7 +362,7 @@ public class ServiceRepositorySNPChromosome01 implements ServiceSNPChromosome01 
         
     	LOGGER.debug("Searching snpchromosomes with search criteria: " + dtoSearch);
 
-    	Page<SNPChromosome01> pagesnpchromosome1s = null;
+    	Page<SNPChromosome02> pagesnpchromosome1s = null;
 
     	PageRequest pageRequest = new PageRequest(pageNumber - 1, NUMBER_OF_SNPCHROMOSOMES_PER_PAGE, sortDirection, sortField);
 
@@ -598,14 +598,14 @@ public class ServiceRepositorySNPChromosome01 implements ServiceSNPChromosome01 
             pagesnpchromosome1s = repositorysnpchromosome.findByRangeANDStrain6NEStrainC(dtoSearch.getSearchLowRangeAsInt(), dtoSearch.getSearchHighRangeAsInt(), pageRequest);
         }
         
-    	List<SNPChromosome01> snpchromosome1s = pagesnpchromosome1s.getContent();
+    	List<SNPChromosome02> snpchromosome1s = pagesnpchromosome1s.getContent();
     	List<SNPChromosome> snpchromosomes = new ArrayList<SNPChromosome>();
     	
-        Iterator<SNPChromosome01> iteratorSNPChromosome01 = snpchromosome1s.iterator();
+        Iterator<SNPChromosome02> iteratorSNPChromosome02 = snpchromosome1s.iterator();
         
-     	while (iteratorSNPChromosome01.hasNext()) {
+     	while (iteratorSNPChromosome02.hasNext()) {
     		
-     		SNPChromosome01 snpchromosome1 = iteratorSNPChromosome01.next();
+     		SNPChromosome02 snpchromosome1 = iteratorSNPChromosome02.next();
      		
      		SNPChromosome snpchromosome = snpchromosome1.convert();
      		
@@ -625,17 +625,17 @@ public class ServiceRepositorySNPChromosome01 implements ServiceSNPChromosome01 
 
         PageRequest pageRequest = new PageRequest(pageNumber - 1, NUMBER_OF_SNPCHROMOSOMES_PER_PAGE, Sort.Direction.ASC, "position");
         
-        Page<SNPChromosome01> pagesnpchromosome1s = repositorysnpchromosome.findAll(pageRequest);
+        Page<SNPChromosome02> pagesnpchromosome1s = repositorysnpchromosome.findAll(pageRequest);
         
-    	List<SNPChromosome01> snpchromosome1s = pagesnpchromosome1s.getContent();
+    	List<SNPChromosome02> snpchromosome1s = pagesnpchromosome1s.getContent();
     	
     	List<SNPChromosome> snpchromosomes = new ArrayList<SNPChromosome>();
     	
-        Iterator<SNPChromosome01> iteratorSNPChromosome01 = snpchromosome1s.iterator();
+        Iterator<SNPChromosome02> iteratorSNPChromosome02 = snpchromosome1s.iterator();
         
-     	while (iteratorSNPChromosome01.hasNext()) {
+     	while (iteratorSNPChromosome02.hasNext()) {
     		
-     		SNPChromosome01 snpchromosome1 = iteratorSNPChromosome01.next();
+     		SNPChromosome02 snpchromosome1 = iteratorSNPChromosome02.next();
      		
      		SNPChromosome snpchromosome = snpchromosome1.convert();
      		
@@ -649,11 +649,11 @@ public class ServiceRepositorySNPChromosome01 implements ServiceSNPChromosome01 
     
 
     @Transactional
-    public SNPChromosome01 create(DTOSNPChromosome created) {
+    public SNPChromosome02 create(DTOSNPChromosome created) {
     	
         LOGGER.debug("Creating a new snpchromosome with information: " + created);
         
-        SNPChromosome01 snpchromosome = SNPChromosome01.getBuilder(
+        SNPChromosome02 snpchromosome = SNPChromosome02.getBuilder(
         		created.getSnpId(),
         		created.getChromosomeId(),
         		created.getPositionAsInteger(),
@@ -726,22 +726,22 @@ public class ServiceRepositorySNPChromosome01 implements ServiceSNPChromosome01 
 
     
     @Transactional(readOnly = true)
-    public List<SNPChromosome01> findBySnpId(String SnpId) {
+    public List<SNPChromosome02> findBySnpId(String SnpId) {
     	
         LOGGER.debug("Find a snpchromosome with SNP Id: " + SnpId);
         
-        List<SNPChromosome01> snpchromosomeList = repositorysnpchromosome.findBySnpId(SnpId);
+        List<SNPChromosome02> snpchromosomeList = repositorysnpchromosome.findBySnpId(SnpId);
         
         return snpchromosomeList;
     }
 
 
     @Transactional(rollbackFor = ExceptionSNPChromosomeNotFound.class)
-    public SNPChromosome01 delete(Long snpchromosomeId) throws ExceptionSNPChromosomeNotFound {
+    public SNPChromosome02 delete(Long snpchromosomeId) throws ExceptionSNPChromosomeNotFound {
     	
         LOGGER.debug("Deleting snpchromosome with id: " + snpchromosomeId);
         
-        SNPChromosome01 deleted = repositorysnpchromosome.findOne(snpchromosomeId);
+        SNPChromosome02 deleted = repositorysnpchromosome.findOne(snpchromosomeId);
         
         if (deleted == null) {
         	
@@ -756,11 +756,11 @@ public class ServiceRepositorySNPChromosome01 implements ServiceSNPChromosome01 
 
     
     @Transactional(rollbackFor = ExceptionSNPChromosomeNotFound.class)
-    public SNPChromosome01 update(SNPChromosome01 updated) throws ExceptionSNPChromosomeNotFound {
+    public SNPChromosome02 update(SNPChromosome02 updated) throws ExceptionSNPChromosomeNotFound {
     	
         LOGGER.debug("Updating snpchromosome with information: " + updated);
         
-        SNPChromosome01 snpchromosome = repositorysnpchromosome.findOne(updated.getOid());
+        SNPChromosome02 snpchromosome = repositorysnpchromosome.findOne(updated.getOid());
         
         if (snpchromosome == null) {
         	
@@ -845,7 +845,7 @@ public class ServiceRepositorySNPChromosome01 implements ServiceSNPChromosome01 
      * This setter method should be used only by unit tests.
      * @param repositorySNPChromosome
      */
-    protected void setRepositorySNPChromosome(RepositorySNPChromosome01 repositorysnpchromosome) {
+    protected void setRepositorySNPChromosome(RepositorySNPChromosome02 repositorysnpchromosome) {
     	
         this.repositorysnpchromosome = repositorysnpchromosome;
     }

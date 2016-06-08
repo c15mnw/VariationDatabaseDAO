@@ -67,10 +67,28 @@ public class DTOSNPChromosome {
     private String strain7AlleleFixed;
     
     @NotEmpty
+    private String strain7AlleleRatio;
+    
+    @NotEmpty
+    private String strain7AlleleAlternativeCount;
+    
+    @NotEmpty
+    private String strain7AlleleReferenceCount;
+    
+    @NotEmpty
     private String strainPAllele;
     
     @NotEmpty
     private String strainPAlleleFixed;
+    
+    @NotEmpty
+    private String strainPAlleleRatio;
+    
+    @NotEmpty
+    private String strainPAlleleAlternativeCount;
+    
+    @NotEmpty
+    private String strainPAlleleReferenceCount;
     
     @NotEmpty
     private String strainWAllele;
@@ -79,10 +97,28 @@ public class DTOSNPChromosome {
     private String strainWAlleleFixed;
     
     @NotEmpty
+    private String strainWAlleleRatio;
+    
+    @NotEmpty
+    private String strainWAlleleAlternativeCount;
+    
+    @NotEmpty
+    private String strainWAlleleReferenceCount;
+    
+    @NotEmpty
     private String strainNAllele;
     
     @NotEmpty
     private String strainNAlleleFixed;
+    
+    @NotEmpty
+    private String strainNAlleleRatio;
+    
+    @NotEmpty
+    private String strainNAlleleAlternativeCount;
+    
+    @NotEmpty
+    private String strainNAlleleReferenceCount;
     
     @NotEmpty
     private String strain15IAllele;
@@ -91,10 +127,28 @@ public class DTOSNPChromosome {
     private String strain15IAlleleFixed;
     
     @NotEmpty
+    private String strain15IAlleleRatio;
+    
+    @NotEmpty
+    private String strain15IAlleleAlternativeCount;
+    
+    @NotEmpty
+    private String strain15IAlleleReferenceCount;
+    
+    @NotEmpty
     private String strainZeroAllele;
     
     @NotEmpty
     private String strainZeroAlleleFixed;
+    
+    @NotEmpty
+    private String strainZeroAlleleRatio;
+    
+    @NotEmpty
+    private String strainZeroAlleleAlternativeCount;
+    
+    @NotEmpty
+    private String strainZeroAlleleReferenceCount;
     
     @NotEmpty
     private String strain6Allele;
@@ -103,10 +157,28 @@ public class DTOSNPChromosome {
     private String strain6AlleleFixed;
     
     @NotEmpty
+    private String strain6AlleleRatio;
+    
+    @NotEmpty
+    private String strain6AlleleAlternativeCount;
+    
+    @NotEmpty
+    private String strain6AlleleReferenceCount;
+    
+    @NotEmpty
     private String strainCAllele;
     
     @NotEmpty
     private String strainCAlleleFixed;
+    
+    @NotEmpty
+    private String strainCAlleleRatio;
+    
+    @NotEmpty
+    private String strainCAlleleAlternativeCount;
+    
+    @NotEmpty
+    private String strainCAlleleReferenceCount;
     
     @NotEmpty
     private Date creationTime;
@@ -175,52 +247,124 @@ public class DTOSNPChromosome {
     	return ensemblAnnotation;
     }
     public String getStrain7Allele() {
-    	return strain7Allele;
+    	return this.strain7Allele;
     }
     public String getStrain7AlleleFixed() {
-    	return strain7AlleleFixed;
+    	return this.strain7AlleleFixed;
+    }
+    public String getStrain7AlleleRatio() {
+    	return this.strain7AlleleRatio;
+    }
+    public String getStrain7AlleleAlternativeCount() {
+    	return this.strain7AlleleAlternativeCount;
+    }
+    public String getStrain7AlleleReferenceCount() {
+    	return this.strain7AlleleReferenceCount;
     }
     public String getStrainPAllele() {
-    	return strainPAllele;
+    	return this.strainPAllele;
     }
     public String getStrainPAlleleFixed() {
-    	return strainPAlleleFixed;
+    	return this.strainPAlleleFixed;
+    }
+    public String getStrainPAlleleRatio() {
+    	return this.strainPAlleleRatio;
+    }
+    public String getStrainPAlleleAlternativeCount() {
+    	return this.strainPAlleleAlternativeCount;
+    }
+    public String getStrainPAlleleReferenceCount() {
+    	return this.strainPAlleleReferenceCount;
     }
     public String getStrainWAllele() {
-    	return strainWAllele;
+    	return this.strainWAllele;
     }
     public String getStrainWAlleleFixed() {
-    	return strainWAlleleFixed;
+    	return this.strainWAlleleFixed;
+    }
+    public String getStrainWAlleleRatio() {
+    	return this.strainWAlleleRatio;
+    }
+    public String getStrainWAlleleAlternativeCount() {
+    	return this.strainWAlleleAlternativeCount	;
+    }
+    public String getStrainWAlleleReferenceCount() {
+    	return this.strainWAlleleReferenceCount;
     }
     public String getStrainNAllele() {
-    	return strainNAllele;
+    	return this.strainNAllele;
     }
     public String getStrainNAlleleFixed() {
-    	return strainNAlleleFixed;
+    	return this.strainNAlleleFixed;
+    }
+    public String getStrainNAlleleRatio() {
+    	return this.strainNAlleleRatio;
+    }
+    public String getStrainNAlleleAlternativeCount() {
+    	return this.strainNAlleleAlternativeCount;
+    }
+    public String getStrainNAlleleReferenceCount() {
+    	return this.strainNAlleleReferenceCount;
     }
     public String getStrain15IAllele() {
-    	return strain15IAllele;
+    	return this.strain15IAllele;
     }
     public String getStrain15IAlleleFixed() {
-    	return strain15IAlleleFixed;
+    	return this.strain15IAlleleFixed;
+    }
+    public String getStrain15IAlleleRatio() {
+    	return this.strain15IAlleleRatio;
+    }
+    public String getStrain15IAlleleAlternativeCount() {
+    	return this.strain15IAlleleAlternativeCount;
+    }
+    public String getStrain15IAlleleReferenceCount() {
+    	return this.strain15IAlleleReferenceCount;
     }
     public String getStrainZeroAllele() {
-    	return strainZeroAllele;
+    	return this.strainZeroAllele;
     }
     public String getStrainZeroAlleleFixed() {  
-    	return strainZeroAlleleFixed;
+    	return this.strainZeroAlleleFixed;
+    }
+    public String getStrainZeroAlleleRatio() {
+    	return this.strainZeroAlleleRatio;
+    }
+    public String getStrainZeroAlleleAlternativeCount() {
+    	return this.strainZeroAlleleAlternativeCount;
+    }
+    public String getStrainZeroAlleleReferenceCount() {
+    	return this.strainZeroAlleleReferenceCount;
     }
     public String getStrain6Allele() {
-    	return strain6Allele;
+    	return this.strain6Allele;
     }
     public String getStrain6AlleleFixed() {
-    	return strain6AlleleFixed;
+    	return this.strain6AlleleFixed;
+    }
+    public String getStrain6AlleleRatio() {
+    	return this.strain6AlleleRatio;
+    }
+    public String getStrain6AlleleAlternativeCount() {
+    	return this.strain6AlleleAlternativeCount;
+    }
+    public String getStrain6AlleleReferenceCount() {
+    	return this.strain6AlleleReferenceCount;
     }
     public String getStrainCAllele() {
-    	return strainCAllele;
+    	return this.strainCAllele;
     }
     public String getStrainCAlleleFixed() {
-    	return strainCAlleleFixed;
+    	return this.strainCAlleleFixed;
+    }
+    public String getStrainCAlleleRatio() {
+    	return this.strainCAlleleRatio;
+    }
+    public String getStrainCAlleleAlternativeCount() {
+    	return this.strainCAlleleAlternativeCount;
+    }
+    public String getStrainCAlleleReferenceCount() {
+    	return this.strainCAlleleReferenceCount;
     }
     public String getAminoAcidSubs() {
     	return this.aminoAcidSubs;
@@ -257,6 +401,80 @@ public class DTOSNPChromosome {
     public long getOidAsString() {
     	return ObjectConverter.convert(this.oid, Long.class);
     }
+    
+    public Double getStrain7AlleleRatioAsDouble() {
+        return ObjectConverter.convert(this.strain7AlleleRatio, Double.class);
+    }
+    public Long getStrain7AlleleAlternativeCountAsLong() {
+        return ObjectConverter.convert(this.strain7AlleleAlternativeCount, Long.class);
+    }
+    public Long getStrain7AlleleReferenceCountAsLong() {
+        return ObjectConverter.convert(this.strain7AlleleReferenceCount, Long.class);
+    }
+    public Double getStrainPAlleleRatioAsDouble() {
+        return ObjectConverter.convert(this.strainPAlleleRatio, Double.class);
+    }
+    public Long getStrainPAlleleAlternativeCountAsLong() {
+        return ObjectConverter.convert(this.strainPAlleleAlternativeCount, Long.class);
+    }
+    public Long getStrainPAlleleReferenceCountAsLong() {
+        return ObjectConverter.convert(this.strainPAlleleReferenceCount, Long.class);
+    }
+    public Double getStrainWAlleleRatioAsDouble() {
+        return ObjectConverter.convert(this.strainWAlleleRatio, Double.class);
+    }
+    public Long getStrainWAlleleAlternativeCountAsLong() {
+        return ObjectConverter.convert(this.strainWAlleleAlternativeCount, Long.class);
+    }
+    public Long getStrainWAlleleReferenceCountAsLong() {
+        return ObjectConverter.convert(this.strainWAlleleReferenceCount, Long.class);
+    }
+    public Double getStrainNAlleleRatioAsDouble() {
+        return ObjectConverter.convert(this.strainNAlleleRatio, Double.class);
+    }
+    public Long getStrainNAlleleAlternativeCountAsLong() {
+        return ObjectConverter.convert(this.strainNAlleleAlternativeCount, Long.class);
+    }
+    public Long getStrainNAlleleReferenceCountAsLong() {
+        return ObjectConverter.convert(this.strainNAlleleReferenceCount, Long.class);
+    }
+    public Double getStrain15IAlleleRatioAsDouble() {
+        return ObjectConverter.convert(this.strain15IAlleleRatio, Double.class);
+    }
+    public Long getStrain15IAlleleAlternativeCountAsLong() {
+        return ObjectConverter.convert(this.strain15IAlleleAlternativeCount, Long.class);
+    }
+    public Long getStrain15IAlleleReferenceCountAsLong() {
+        return ObjectConverter.convert(this.strain15IAlleleReferenceCount, Long.class);
+    }
+    public Double getStrainZeroAlleleRatioAsDouble() {
+        return ObjectConverter.convert(this.strainZeroAlleleRatio, Double.class);
+    }
+    public Long getStrainZeroAlleleAlternativeCountAsLong() {
+        return ObjectConverter.convert(this.strainZeroAlleleAlternativeCount, Long.class);
+    }
+    public Long getStrainZeroAlleleReferenceCountAsLong() {
+        return ObjectConverter.convert(this.strainZeroAlleleReferenceCount, Long.class);
+    }
+    public Double getStrain6AlleleRatioAsDouble() {
+        return ObjectConverter.convert(this.strain6AlleleRatio, Double.class);
+    }
+    public Long getStrain6AlleleAlternativeCountAsLong() {
+        return ObjectConverter.convert(this.strain6AlleleAlternativeCount, Long.class);
+    }
+    public Long getStrain6AlleleReferenceCountAsLong() {
+        return ObjectConverter.convert(this.strain6AlleleReferenceCount, Long.class);
+    }
+    public Double getStrainCAlleleRatioAsDouble() {
+        return ObjectConverter.convert(this.strainCAlleleRatio, Double.class);
+    }
+    public Long getStrainCAlleleAlternativeCountAsLong() {
+        return ObjectConverter.convert(this.strainCAlleleAlternativeCount, Long.class);
+    }
+    public Long getStrainCAlleleReferenceCountAsLong() {
+        return ObjectConverter.convert(this.strainCAlleleReferenceCount, Long.class);
+    }
+
     public int getPositionAsInteger() {
     	return ObjectConverter.convert(this.position, Integer.class);
     }
@@ -323,11 +541,29 @@ public class DTOSNPChromosome {
     public void setStrain7AlleleFixed(String strain7AlleleFixed) {
     	this.strain7AlleleFixed = strain7AlleleFixed;
     }
+    public void setStrain7AlleleRatio(String strain7AlleleRatio) {
+    	this.strain7AlleleRatio = strain7AlleleRatio;
+    }
+    public void setStrain7AlleleAlternativeCount(String strain7AlleleAlternativeCount) {
+    	this.strain7AlleleAlternativeCount = strain7AlleleAlternativeCount;
+    }
+    public void setStrain7AlleleReferenceCount(String strain7AlleleReferenceCount) {
+    	this.strain7AlleleReferenceCount = strain7AlleleReferenceCount;
+    }
     public void setStrainPAllele(String strainPAllele) {
     	this.strainPAllele = strainPAllele;
     }
     public void setStrainPAlleleFixed(String strainPAlleleFixed) {
     	this.strainPAlleleFixed = strainPAlleleFixed;
+    }
+    public void setStrainPAlleleRatio(String strainPAlleleRatio) {
+    	this.strainPAlleleRatio = strainPAlleleRatio;
+    }
+    public void setStrainPAlleleAlternativeCount(String strainPAlleleAlternativeCount) {
+    	this.strainPAlleleAlternativeCount = strainPAlleleAlternativeCount;
+    }
+    public void setStrainPAlleleReferenceCount(String strainPAlleleReferenceCount) {
+    	this.strainPAlleleReferenceCount = strainPAlleleReferenceCount;
     }
     public void setStrainWAllele(String strainWAllele) {
     	this.strainWAllele = strainWAllele;
@@ -335,11 +571,29 @@ public class DTOSNPChromosome {
     public void setStrainWAlleleFixed(String strainWAlleleFixed) {
     	this.strainWAlleleFixed = strainWAlleleFixed;
     }
+    public void setStrainWAlleleRatio(String strainWAlleleRatio) {
+    	this.strainWAlleleRatio = strainWAlleleRatio;
+    }
+    public void setStrainWAlleleAlternativeCount(String strainWAlleleAlternativeCount) {
+    	this.strainWAlleleAlternativeCount	= strainWAlleleAlternativeCount;
+    }
+    public void setStrainWAlleleReferenceCount(String strainWAlleleReferenceCount) {
+    	this.strainWAlleleReferenceCount = strainWAlleleReferenceCount;
+    }
     public void setStrainNAllele(String strainNAllele) {
     	this.strainNAllele = strainNAllele;
     }
     public void setStrainNAlleleFixed(String strainNAlleleFixed) {
     	this.strainNAlleleFixed = strainNAlleleFixed;
+    }
+    public void setStrainNAlleleRatio(String strainNAlleleRatio) {
+    	this.strainNAlleleRatio = strainNAlleleRatio;
+    }
+    public void setStrainNAlleleAlternativeCount(String strainNAlleleAlternativeCount) {
+    	this.strainNAlleleAlternativeCount = strainNAlleleAlternativeCount;
+    }
+    public void setStrainNAlleleReferenceCount(String strainNAlleleReferenceCount) {
+    	this.strainNAlleleReferenceCount = strainNAlleleReferenceCount;
     }
     public void setStrain15IAllele(String strain15IAllele) {
     	this.strain15IAllele = strain15IAllele;
@@ -347,11 +601,29 @@ public class DTOSNPChromosome {
     public void setStrain15IAlleleFixed(String strain15IAlleleFixed) {
     	this.strain15IAlleleFixed = strain15IAlleleFixed;
     }
+    public void setStrain15IAlleleRatio(String strain15IAlleleRatio) {
+    	this.strain15IAlleleRatio = strain15IAlleleRatio;
+    }
+    public void setStrain15IAlleleAlternativeCount(String strain15IAlleleAlternativeCount) {
+    	this.strain15IAlleleAlternativeCount = strain15IAlleleAlternativeCount;
+    }
+    public void setStrain15IAlleleReferenceCount(String strain15IAlleleReferenceCount) {
+    	this.strain15IAlleleReferenceCount = strain15IAlleleReferenceCount;
+    }
     public void setStrainZeroAllele(String strainZeroAllele) {
     	this.strainZeroAllele = strainZeroAllele;
     }
     public void setStrainZeroAlleleFixed(String strainZeroAlleleFixed) {  
     	this.strainZeroAlleleFixed = strainZeroAlleleFixed;
+    }
+    public void setStrainZeroAlleleRatio(String strainZeroAlleleRatio) {
+    	this.strainZeroAlleleRatio = strainZeroAlleleRatio;
+    }
+    public void setStrainZeroAlleleAlternativeCount(String strainZeroAlleleAlternativeCount) {
+    	this.strainZeroAlleleAlternativeCount = strainZeroAlleleAlternativeCount;
+    }
+    public void setStrainZeroAlleleReferenceCount(String strainZeroAlleleReferenceCount) {
+    	this.strainZeroAlleleReferenceCount = strainZeroAlleleReferenceCount;
     }
     public void setStrain6Allele(String strain6Allele) {
     	this.strain6Allele = strain6Allele;
@@ -359,11 +631,29 @@ public class DTOSNPChromosome {
     public void setStrain6AlleleFixed(String strain6AlleleFixed) {
     	this.strain6AlleleFixed = strain6AlleleFixed;
     }
+    public void setStrain6AlleleRatio(String strain6AlleleRatio) {
+    	this.strain6AlleleRatio = strain6AlleleRatio;
+    }
+    public void setStrain6AlleleAlternativeCount(String strain6AlleleAlternativeCount) {
+    	this.strain6AlleleAlternativeCount = strain6AlleleAlternativeCount;
+    }
+    public void setStrain6AlleleReferenceCount(String strain6AlleleReferenceCount) {
+    	this.strain6AlleleReferenceCount = strain6AlleleReferenceCount;
+    }
     public void setStrainCAllele(String strainCAllele) {
     	this.strainCAllele = strainCAllele;
     }
     public void setStrainCAlleleFixed(String strainCAlleleFixed) {
     	this.strainCAlleleFixed = strainCAlleleFixed;
+    }
+    public void setStrainCAlleleRatio(String strainCAlleleRatio) {
+    	this.strainCAlleleRatio = strainCAlleleRatio;
+    }
+    public void setStrainCAlleleAlternativeCount(String strainCAlleleAlternativeCount) {
+    	this.strainCAlleleAlternativeCount = strainCAlleleAlternativeCount;
+    }
+    public void setStrainCAlleleReferenceCount(String strainCAlleleReferenceCount) {
+    	this.strainCAlleleReferenceCount = strainCAlleleReferenceCount;
     }
     public void setAminoAcidSubs(String aminoAcidSubs) {
     	this.aminoAcidSubs = aminoAcidSubs;
@@ -523,6 +813,200 @@ public class DTOSNPChromosome {
     		return false;
     	}
     }
+
+    public boolean isStrain7AlleleRatioANumber() {
+        if ( StringUtility.isItNumericWithLeadingSignAndDecimalPoint(this.strain7AlleleRatio) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isStrain7AlleleAlternativeCountANumber() {
+        if ( StringUtility.isItNumeric(this.strain7AlleleAlternativeCount) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isStrain7AlleleReferenceCountANumber() {
+        if ( StringUtility.isItNumeric(this.strain7AlleleReferenceCount) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isStrainPAlleleRatioANumber() {
+        if ( StringUtility.isItNumericWithLeadingSignAndDecimalPoint(this.strainPAlleleRatio) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isStrainPAlleleAlternativeCountANumber() {
+        if ( StringUtility.isItNumeric(this.strainPAlleleAlternativeCount) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isStrainPAlleleReferenceCountANumber() {
+        if ( StringUtility.isItNumeric(this.strainPAlleleReferenceCount) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isStrainWAlleleRatioANumber() {
+        if ( StringUtility.isItNumericWithLeadingSignAndDecimalPoint(this.strainWAlleleRatio) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isStrainWAlleleAlternativeCountANumber() {
+        if ( StringUtility.isItNumeric(this.strainWAlleleAlternativeCount) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isStrainWAlleleReferenceCountANumber() {
+        if ( StringUtility.isItNumeric(this.strainWAlleleReferenceCount) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isStrainNAlleleRatioANumber() {
+        if ( StringUtility.isItNumericWithLeadingSignAndDecimalPoint(this.strainNAlleleRatio) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isStrainNAlleleAlternativeCountANumber() {
+        if ( StringUtility.isItNumeric(this.strainNAlleleAlternativeCount) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isStrainNAlleleReferenceCountANumber() {
+        if ( StringUtility.isItNumeric(this.strainNAlleleReferenceCount) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isStrain15IAlleleRatioANumber() {
+        if ( StringUtility.isItNumericWithLeadingSignAndDecimalPoint(this.strain15IAlleleRatio) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isStrain15IAlleleAlternativeCountANumber() {
+        if ( StringUtility.isItNumeric(this.strain15IAlleleAlternativeCount) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isStrain15IAlleleReferenceCountANumber() {
+        if ( StringUtility.isItNumeric(this.strain15IAlleleReferenceCount) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isStrainZeroAlleleRatioANumber() {
+        if ( StringUtility.isItNumericWithLeadingSignAndDecimalPoint(this.strainZeroAlleleRatio) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isStrainZeroAlleleAlternativeCountANumber() {
+        if ( StringUtility.isItNumeric(this.strainZeroAlleleAlternativeCount) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isStrainZeroAlleleReferenceCountANumber() {
+        if ( StringUtility.isItNumeric(this.strainZeroAlleleReferenceCount) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isStrain6AlleleRatioANumber() {
+        if ( StringUtility.isItNumericWithLeadingSignAndDecimalPoint(this.strain6AlleleRatio) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isStrain6AlleleAlternativeCountANumber() {
+        if ( StringUtility.isItNumeric(this.strain6AlleleAlternativeCount) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isStrain6AlleleReferenceCountANumber() {
+        if ( StringUtility.isItNumeric(this.strain6AlleleReferenceCount) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isStrainCAlleleRatioANumber() {
+        if ( StringUtility.isItNumericWithLeadingSignAndDecimalPoint(this.strainCAlleleRatio) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isStrainCAlleleAlternativeCountANumber() {
+        if ( StringUtility.isItNumeric(this.strainCAlleleAlternativeCount) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isStrainCAlleleReferenceCountANumber() {
+        if ( StringUtility.isItNumeric(this.strainCAlleleReferenceCount) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    
     public boolean isScoreSiftANumber() {
         
     	if ( StringUtility.isItNumeric(this.scoreSift) ) {
@@ -586,6 +1070,39 @@ public class DTOSNPChromosome {
         	    this.isStrainZeroAlleleFixedAValidValue() && 
         	    this.isStrain6AlleleFixedAValidValue() && 
         	    this.isStrainCAlleleFixedAValidValue() && 
+        	    
+        	    this.isStrain7AlleleRatioANumber() && 
+        	    this.isStrain7AlleleAlternativeCountANumber() && 
+        	    this.isStrain7AlleleReferenceCountANumber() && 
+
+        	    this.isStrainPAlleleRatioANumber() && 
+        	    this.isStrainPAlleleAlternativeCountANumber() && 
+        	    this.isStrainPAlleleReferenceCountANumber() && 
+        	    
+        	    this.isStrainWAlleleRatioANumber() && 
+        	    this.isStrainWAlleleAlternativeCountANumber() && 
+        	    this.isStrainWAlleleReferenceCountANumber() && 
+        	    
+        	    this.isStrainNAlleleRatioANumber() && 
+        	    this.isStrainNAlleleAlternativeCountANumber() && 
+        	    this.isStrainNAlleleReferenceCountANumber() && 
+        	    
+        	    this.isStrain15IAlleleRatioANumber() && 
+        	    this.isStrain15IAlleleAlternativeCountANumber() && 
+        	    this.isStrain15IAlleleReferenceCountANumber() && 
+        	    
+        	    this.isStrainZeroAlleleRatioANumber() && 
+        	    this.isStrainZeroAlleleAlternativeCountANumber() && 
+        	    this.isStrainZeroAlleleReferenceCountANumber() && 
+        	    
+        	    this.isStrain6AlleleRatioANumber() && 
+        	    this.isStrain6AlleleAlternativeCountANumber() && 
+        	    this.isStrain6AlleleReferenceCountANumber() && 
+        	    
+        	    this.isStrainCAlleleRatioANumber() && 
+        	    this.isStrainCAlleleAlternativeCountANumber() && 
+        	    this.isStrainCAlleleReferenceCountANumber() && 
+
         	    this.isPredictionCategoryAValidValue() && 
         	    this.isScoreSiftANumber() && 
         	    this.isScoreConservationANumber() && 
@@ -618,22 +1135,55 @@ public class DTOSNPChromosome {
         		this.getEnsemblGene(),
         		this.getEnsemblTranscript(),
         		this.getEnsemblAnnotation(),
-        		this.getStrain7Allele(),
-        		this.getStrain7AlleleFixed(),
-        		this.getStrainPAllele(),
-        		this.getStrainPAlleleFixed(),
-        		this.getStrainWAllele(),
-        		this.getStrainWAlleleFixed(),
-        		this.getStrainNAllele(),
-        		this.getStrainNAlleleFixed(),
-        		this.getStrain15IAllele(),
-        		this.getStrain15IAlleleFixed(),
-        		this.getStrainZeroAllele(),
-        		this.getStrainZeroAlleleFixed(),
-        		this.getStrain6Allele(),
-        		this.getStrain6AlleleFixed(),
-        		this.getStrainCAllele(),
-        		this.getStrainCAlleleFixed(),
+        		
+      		    this.getStrain7Allele(),
+       		    this.getStrain7AlleleFixed(),
+       		    this.getStrain7AlleleRatioAsDouble(),
+    		    this.getStrain7AlleleAlternativeCountAsLong(),
+    		    this.getStrain7AlleleReferenceCountAsLong(),
+
+       		    this.getStrainPAllele(),
+       		    this.getStrainPAlleleFixed(),
+       		    this.getStrainPAlleleRatioAsDouble(),
+    		    this.getStrainPAlleleAlternativeCountAsLong(),
+    		    this.getStrainPAlleleReferenceCountAsLong(),
+
+       		    this.getStrainWAllele(),
+       		    this.getStrainWAlleleFixed(),
+       		    this.getStrainWAlleleRatioAsDouble(),
+    		    this.getStrainWAlleleAlternativeCountAsLong(),
+    		    this.getStrainWAlleleReferenceCountAsLong(),
+
+       		    this.getStrainNAllele(),
+       		    this.getStrainNAlleleFixed(),
+       		    this.getStrainNAlleleRatioAsDouble(),
+    		    this.getStrainNAlleleAlternativeCountAsLong(),
+    		    this.getStrainNAlleleReferenceCountAsLong(),
+
+       		    this.getStrain15IAllele(),
+       		    this.getStrain15IAlleleFixed(),
+       		    this.getStrain15IAlleleRatioAsDouble(),
+    		    this.getStrain15IAlleleAlternativeCountAsLong(),
+    		    this.getStrain15IAlleleReferenceCountAsLong(),
+
+       		    this.getStrainZeroAllele(),
+       		    this.getStrainZeroAlleleFixed(),
+       		    this.getStrainZeroAlleleRatioAsDouble(),
+    		    this.getStrainZeroAlleleAlternativeCountAsLong(),
+    		    this.getStrainZeroAlleleReferenceCountAsLong(),
+
+       		    this.getStrain6Allele(),
+       		    this.getStrain6AlleleFixed(),
+       		    this.getStrain6AlleleRatioAsDouble(),
+    		    this.getStrain6AlleleAlternativeCountAsLong(),
+    		    this.getStrain6AlleleReferenceCountAsLong(),
+
+       		    this.getStrainCAllele(),
+       		    this.getStrainCAlleleFixed(),
+       		    this.getStrainCAlleleRatioAsDouble(),
+    		    this.getStrainCAlleleAlternativeCountAsLong(),
+    		    this.getStrainCAlleleReferenceCountAsLong(),
+
                 this.getAminoAcidSubs(),
                 this.getPredictionCategory(),
                 this.getScoreSiftAsDouble(),

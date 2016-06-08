@@ -3,9 +3,8 @@ package com.roslin.mwicks.spring.variation.model.other;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-import org.springframework.transaction.annotation.Transactional;
-
 import com.roslin.mwicks.spring.variation.format.CustomDateToStringStyle;
+
 import com.roslin.mwicks.utility.ObjectConverter;
 
 import javax.persistence.*;
@@ -17,7 +16,7 @@ import java.util.Date;
  * @author Mike Wicks
  */
 
-public class ProveanData {
+public class RatioData {
     
     // Constants ----------------------------------------------------------------------------------
 	protected static final String ONLY_NONE = "NONE";
@@ -55,18 +54,35 @@ public class ProveanData {
 	protected static final String ONLY_W = "W";
 	protected static final String ONLY_Z = "Z";
 
-	
+	protected static final String STRAIN_NONE = "STRAIN_NONE";
+	protected static final String STRAIN_7 = "STRAIN_7";
+	protected static final String STRAIN_P = "STRAIN_P";
+	protected static final String STRAIN_W = "STRAIN_W";
+	protected static final String STRAIN_N = "STRAIN_N";
+	protected static final String STRAIN_15I = "STRAIN_15I";
+	protected static final String STRAIN_ZERO = "STRAIN_ZERO";
+	protected static final String STRAIN_6 = "STRAIN_6";
+	protected static final String STRAIN_C = "STRAIN_C";
+			
+	protected static final String ONLY_STRAIN_NONE = "NONE";
+	protected static final String ONLY_STRAIN_7 = "7";
+	protected static final String ONLY_STRAIN_P = "P";
+	protected static final String ONLY_STRAIN_W = "W";
+	protected static final String ONLY_STRAIN_N = "N";
+	protected static final String ONLY_STRAIN_15I = "15I";
+	protected static final String ONLY_STRAIN_ZERO = "ZERO";
+	protected static final String ONLY_STRAIN_6 = "6";
+	protected static final String ONLY_STRAIN_C = "C";
+			
+
     // Properties  --------------------------------------------------------------------------------
     private String chromosomeId;
 
-    private String snpId;
-    private String ensemblGene;
-    private String ensemblTranscript;
-    private String ensemblAnnotation;
-    private String aminoAcidSubs;
-    private Double scoreProvean;
-    private Long proteinAlignNumber;
-    private Long totalAlignSequenceNumber;
+	private String snpId;
+    private String strain;
+    private Double strainAlleleRatio;
+    private Long strainAlleleAlternativeCount;
+    private Long strainAlleleReferenceCount;
     private Date creationTime;
     private Date modificationTime;
     private long version;
@@ -80,26 +96,17 @@ public class ProveanData {
     public String getSnpId() {
     	return this.snpId;
     }
-    public String getEnsemblGene() {
-    	return this.ensemblGene;
+    public String getStrain() {
+    	return this.strain;
     }
-    public String getEnsemblTranscript() {
-    	return this.ensemblTranscript;
+    public Double getStrainAlleleRatio() {
+    	return this.strainAlleleRatio;
     }
-    public String getEnsemblAnnotation() {
-    	return this.ensemblAnnotation;
+    public Long getStrainAlleleAlternativeCount() {
+    	return this.strainAlleleAlternativeCount;
     }
-    public String getAminoAcidSubs() {
-    	return this.aminoAcidSubs;
-    }
-    public Double getScoreProvean() {
-    	return this.scoreProvean;
-    }
-    public Long getProteinAlignNumber() {
-    	return this.proteinAlignNumber;
-    }
-    public Long getTotalAlignSequenceNumber() {
-    	return this.totalAlignSequenceNumber;
+    public Long getStrainAlleleReferenceCount() {
+    	return this.strainAlleleReferenceCount;
     }
     public Date getCreationTime() {
     	return this.creationTime;
@@ -120,26 +127,17 @@ public class ProveanData {
     public void setSnpId(String snpId) {
     	this.snpId = snpId;
     }
-    public void setEnsemblGene(String ensemblGene) {
-    	this.ensemblGene = ensemblGene;
+    public void setStrain(String strain) {
+    	this.strain = strain;
     }
-    public void setEnsemblTranscript(String ensemblTranscript) {
-    	this.ensemblTranscript = ensemblTranscript;
+    public void setStrainAlleleRatio(Double strainAlleleRatio) {
+    	this.strainAlleleRatio = strainAlleleRatio;
     }
-    public void setEnsemblAnnotation(String ensemblAnnotation) {
-    	this.ensemblAnnotation = ensemblAnnotation;
+    public void setStrainAlleleAlternativeCount(Long strainAlleleAlternativeCount) {
+    	this.strainAlleleAlternativeCount = strainAlleleAlternativeCount;
     }
-    public void setAminoAcidSubs(String aminoAcidSubs) {
-    	this.aminoAcidSubs = aminoAcidSubs;
-    }
-    public void setScoreProvean(Double scoreProvean) {
-    	this.scoreProvean = scoreProvean;
-    }
-    public void setProteinAlignNumber(Long proteinAlignNumber) {
-    	this.proteinAlignNumber = proteinAlignNumber;
-    }
-    public void setTotalAlignSequenceNumber(Long totalAlignSequenceNumber) {
-    	this.totalAlignSequenceNumber = totalAlignSequenceNumber;
+    public void setStrainAlleleReferenceCount(Long strainAlleleReferenceCount) {
+    	this.strainAlleleReferenceCount = strainAlleleReferenceCount;
     }
     public void setCreationTime(Date creationTime) {
     	this.creationTime = creationTime;
@@ -451,15 +449,113 @@ public class ProveanData {
     	}
     }
 
+    public boolean isStrainNone() {
+    	if ( this.strain.equals(STRAIN_NONE) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isStrain7() {
+    	if ( this.strain.equals(STRAIN_7) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isStrainP() {
+    	if ( this.strain.equals(STRAIN_P) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isStrainW() {
+    	if ( this.strain.equals(STRAIN_W) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isStrainN() {
+    	if ( this.strain.equals(STRAIN_N) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isStrain15I() {
+    	if ( this.strain.equals(STRAIN_15I) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isStrainZero() {
+    	if ( this.strain.equals(STRAIN_ZERO) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isStrain6() {
+    	if ( this.strain.equals(STRAIN_6) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isStrainC() {
+    	if ( this.strain.equals(STRAIN_C) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+
+    /*
+     * Is this Component the same as the Supplied Component?
+     */
+    public boolean isSameAs(RatioData ratiodata){
+
+        if (this.getSnpId().equals(ratiodata.getSnpId()) && 
+        		this.getStrain().equals(ratiodata.getStrain()) && 
+        	    this.getStrainAlleleRatio() == ratiodata.getStrainAlleleRatio() && 
+        	    this.getStrainAlleleAlternativeCount() == ratiodata.getStrainAlleleAlternativeCount() && 
+        	    this.getStrainAlleleReferenceCount() == ratiodata.getStrainAlleleReferenceCount() ) {
+
+        	return true;
+        }
+        else {
+
+        	return false;
+        }
+    }
 
     /*
      * Is this SiftData VALID?
      */
-    public boolean isThisAValidProveanData(){
+    public boolean isThisAValidRatioData(){
 
-        if ( ( this.isChromosome1() || this.isChromosome2() || this.isChromosome3() || this.isChromosome4() || this.isChromosome5() || this.isChromosome6() || this.isChromosome7() || this.isChromosome8() || this.isChromosome9() || this.isChromosome10() || this.isChromosome11() || this.isChromosome12() || this.isChromosome13() || this.isChromosome14() || this.isChromosome15() || this.isChromosome16() || this.isChromosome17() || this.isChromosome18() || this.isChromosome19() || this.isChromosome20() || this.isChromosome21() || this.isChromosome22() || this.isChromosome23() || this.isChromosome24() || this.isChromosome25() || this.isChromosome26() || this.isChromosome27() || this.isChromosome28() || this.isChromosome32() || this.isChromosomeLGE22C19W28_E50C23() || this.isChromosomeLGE64() || this.isChromosomeW() || this.isChromosomeZ() ) ) {
+        if ( this.isChromosome1() || this.isChromosome2() || this.isChromosome3() || this.isChromosome4() || this.isChromosome5() || this.isChromosome6() || this.isChromosome7() || this.isChromosome8() || this.isChromosome9() || this.isChromosome10() || this.isChromosome11() || this.isChromosome12() || this.isChromosome13() || this.isChromosome14() || this.isChromosome15() || this.isChromosome16() || this.isChromosome17() || this.isChromosome18() || this.isChromosome19() || this.isChromosome20() || this.isChromosome21() || this.isChromosome22() || this.isChromosome23() || this.isChromosome24() || this.isChromosome25() || this.isChromosome26() || this.isChromosome27() || this.isChromosome28() || this.isChromosome32() || this.isChromosomeLGE22C19W28_E50C23() || this.isChromosomeLGE64() || this.isChromosomeW() || this.isChromosomeZ() ) {
 
-        	return true;
+        	if ( this.isStrain7() || this.isStrainP() || this.isStrainW() || this.isStrainN() || this.isStrain15I() || this.isStrainZero() || this.isStrain6() || this.isStrainC()  ) {
+        		
+            	return true;
+        	}
+            else {
+            	
+            	return false;
+            }
         }
         else {
         	
@@ -467,51 +563,20 @@ public class ProveanData {
         }
     }
 
-    
-    /*
-     * Is this Component the same as the Supplied Component?
-     */
-    public boolean isSameAs(ProveanData proveandata){
-
-        if (
-        	    this.getSnpId().equals(proveandata.getSnpId()) && 
-        	    this.getEnsemblGene().equals(proveandata.getEnsemblGene()) && 
-        	    this.getEnsemblTranscript().equals(proveandata.getEnsemblTranscript()) && 
-        	    this.getEnsemblAnnotation().equals(proveandata.getEnsemblAnnotation()) && 
-        	    this.getAminoAcidSubs().equals(proveandata.getAminoAcidSubs()) && 
-        	    this.getScoreProvean() == proveandata.getScoreProvean() && 
-        	    this.getProteinAlignNumber() == proveandata.getProteinAlignNumber() && 
-        	    this.getTotalAlignSequenceNumber() == proveandata.getTotalAlignSequenceNumber() 
-        	    ) {
-
-        	return true;
-        }
-        else {
-
-        	return false;
-        }
-    }
-
 
     public void update(
     		String snpId,
-    		String ensemblGene,
-    		String ensemblTranscript,
-    		String ensemblAnnotation,
-    		String aminoAcidSubs,
-    		Double scoreProvean,
-    		Long proteinAlignNumber,
-    		Long totalAlignSequenceNumber
+    		String strain,
+    		Double strainAlleleRatio,
+    		Long strainAlleleAlternativeCount,
+    		Long strainAlleleReferenceCount
     		) {
 
     	this.snpId = snpId;
-    	this.ensemblGene = ensemblGene;
-    	this.ensemblTranscript = ensemblTranscript;
-    	this.ensemblAnnotation = ensemblAnnotation;
-    	this.aminoAcidSubs = aminoAcidSubs;
-    	this.scoreProvean = scoreProvean;
-    	this.proteinAlignNumber = proteinAlignNumber;
-    	this.totalAlignSequenceNumber = totalAlignSequenceNumber;
+    	this.strain = strain;
+    	this.strainAlleleRatio = strainAlleleRatio;
+    	this.strainAlleleAlternativeCount = strainAlleleAlternativeCount;
+    	this.strainAlleleReferenceCount = strainAlleleReferenceCount;
     }
 
     
@@ -537,31 +602,25 @@ public class ProveanData {
         return ToStringBuilder.reflectionToString(this, new CustomDateToStringStyle());
     }
 
-    // ProveanData Builder ---------------------------------------------------------------------
+    // RatioData Builder ---------------------------------------------------------------------
     /**
-     * Gets a builder which is used to create ProveanData objects.
+     * Gets a builder which is used to create RatioData objects.
      * @return  A new Builder instance.
      */
     public static Builder getBuilder(
     		String snpId,
-    		String ensemblGene,
-    		String ensemblTranscript,
-    		String ensemblAnnotation,
-    		String aminoAcidSubs,
-    		Double scoreProvean,
-    		Long proteinAlignNumber,
-    		Long totalAlignSequenceNumber
+    		String strain,
+    		Double strainAlleleRatio,
+    		Long strainAlleleAlternativeCount,
+    		Long strainAlleleReferenceCount
     		) {
     	
         return new Builder(
         		snpId,
-        		ensemblGene,
-        		ensemblTranscript,
-        		ensemblAnnotation,
-        		aminoAcidSubs,
-        		scoreProvean,
-        		proteinAlignNumber,
-        		totalAlignSequenceNumber
+        		strain,
+        		strainAlleleRatio,
+        		strainAlleleAlternativeCount,
+        		strainAlleleReferenceCount
         		);
     }
     
@@ -570,32 +629,32 @@ public class ProveanData {
      */
     public static class Builder {
     	
-    	ProveanData built;
+    	RatioData built;
 
         /**
          * Creates a new Builder instance.
+         * @param snpId The SNP ID
+         * @param chromosomeId The Chromosome ID
+         * @param position The SNP Position or coordinate
+         * @param reference The Reference or Expected Nucleobase
+         * @param alternative The Alternative Nucleobase as found
+         * @param region The Region
          */
         Builder(
         		String snpId,
-        		String ensemblGene,
-        		String ensemblTranscript,
-        		String ensemblAnnotation,
-        		String aminoAcidSubs,
-        		Double scoreProvean,
-        		Long proteinAlignNumber,
-        		Long totalAlignSequenceNumber
+        		String strain,
+        		Double strainAlleleRatio,
+        		Long strainAlleleAlternativeCount,
+        		Long strainAlleleReferenceCount
         		) {
         	
-            built = new ProveanData();
+            built = new RatioData();
             
         	built.snpId = snpId;
-        	built.ensemblGene = ensemblGene;
-        	built.ensemblTranscript = ensemblTranscript;
-        	built.ensemblAnnotation = ensemblAnnotation;
-        	built.aminoAcidSubs = aminoAcidSubs;
-        	built.scoreProvean = scoreProvean;
-        	built.proteinAlignNumber = proteinAlignNumber;
-        	built.totalAlignSequenceNumber = totalAlignSequenceNumber;
+        	built.strain = strain;
+        	built.strainAlleleRatio = strainAlleleRatio;
+        	built.strainAlleleAlternativeCount = strainAlleleAlternativeCount;
+        	built.strainAlleleReferenceCount = strainAlleleReferenceCount;
         }
 
         /**
@@ -603,7 +662,7 @@ public class ProveanData {
          * 
          * @return  The created SNPChromosome object.
          */
-        public ProveanData build() {
+        public RatioData build() {
         	
             return built;
         }

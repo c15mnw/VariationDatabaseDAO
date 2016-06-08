@@ -89,6 +89,7 @@ public class DTOSearch {
 			
 	protected static final String CHROMOSOME_NONE = "CHROMOSOME_NONE";
 	protected static final String CHROMOSOME_1 = "CHROMOSOME_1";
+	protected static final String CHROMOSOME_2 = "CHROMOSOME_2";
 	protected static final String CHROMOSOME_3 = "CHROMOSOME_3";
 	protected static final String CHROMOSOME_4 = "CHROMOSOME_4";
 	protected static final String CHROMOSOME_5 = "CHROMOSOME_5";
@@ -123,6 +124,7 @@ public class DTOSearch {
 
 	protected static final String ONLY_NONE = "NONE";
 	protected static final String ONLY_1 = "1";
+	protected static final String ONLY_2 = "2";
 	protected static final String ONLY_3 = "3";
 	protected static final String ONLY_4 = "4";
 	protected static final String ONLY_5 = "5";
@@ -347,6 +349,9 @@ public class DTOSearch {
     	}
     	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_1) ) {
             rtnString = ONLY_1;
+    	}
+    	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_2) ) {
+            rtnString = ONLY_2;
     	}
     	if ( this.searchChromosome.equals(SearchChromosome.CHROMOSOME_3) ) {
             rtnString = ONLY_3;
@@ -858,6 +863,9 @@ public class DTOSearch {
     	if ( searchChromosome.equals(CHROMOSOME_1)) {
             this.searchChromosome = SearchChromosome.CHROMOSOME_1;
     	}
+    	if ( searchChromosome.equals(CHROMOSOME_2)) {
+            this.searchChromosome = SearchChromosome.CHROMOSOME_2;
+    	}
     	if ( searchChromosome.equals(CHROMOSOME_3)) {
             this.searchChromosome = SearchChromosome.CHROMOSOME_3;
     	}
@@ -959,6 +967,9 @@ public class DTOSearch {
     	}
     	if ( searchChromosome.equals(ONLY_1)) {
             this.searchChromosome = SearchChromosome.CHROMOSOME_1;
+    	}
+    	if ( searchChromosome.equals(ONLY_2)) {
+            this.searchChromosome = SearchChromosome.CHROMOSOME_2;
     	}
     	if ( searchChromosome.equals(ONLY_3)) {
             this.searchChromosome = SearchChromosome.CHROMOSOME_3;
@@ -1303,6 +1314,14 @@ public class DTOSearch {
     }
     public boolean isSearchChromosome1() {
     	if ( this.searchChromosome.name().equals(CHROMOSOME_1)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchChromosome2() {
+    	if ( this.searchChromosome.name().equals(CHROMOSOME_2)) {
     		return true;
     	}
     	else {
