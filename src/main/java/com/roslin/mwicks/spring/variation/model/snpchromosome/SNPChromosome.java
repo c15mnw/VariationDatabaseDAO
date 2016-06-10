@@ -1,9 +1,11 @@
 package com.roslin.mwicks.spring.variation.model.snpchromosome;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 
+import java.util.Comparator;
 import java.util.Date;
 
 import com.roslin.mwicks.spring.variation.format.CustomDateToStringStyle;
@@ -16,7 +18,10 @@ import com.roslin.mwicks.utility.ObjectConverter;
  * @Transactional
  */
 
-public class SNPChromosome {
+@Entity
+@Table(name = "VSC_SNP_CHROMOSOME")
+@Transactional
+public class SNPChromosome implements Comparable<SNPChromosome>{
     
     // Constants ----------------------------------------------------------------------------------
 	protected static final String NUM_TRUE = "1";
@@ -63,83 +68,194 @@ public class SNPChromosome {
 	protected static final String ONLY_Z = "Z";
 
 	// Properties ---------------------------------------------------------------------------------
-	@Id
-    private Long oid;
 
-	private String snpId;
+	@EmbeddedId
+	private SNPChromosomePrimaryKey snpChromosomePrimaryKey;
+	
+    @Column(name = "VSS_SNP_ID", nullable = false)
+    private String snpId;
+    
+    @Column(name = "VSS_CHROMOSOME_ID", nullable = false)
     private String chromosomeId;
+    
+    @Column(name = "VSS_POSITION", nullable = false)
     private int position;
+    
+    @Column(name = "VSS_REFERENCE", nullable = false)
     private String reference;    
+    
+    @Column(name = "VSS_ALTERNATIVE", nullable = false)
     private String alternative;
+    
+    @Column(name = "VSS_REGION", nullable = false)
     private String region;
+    
+    @Column(name = "VSS_ENSEMBL_GENE", nullable = false)
     private String ensemblGene;
+    
+    @Column(name = "VSS_ENSEMBL_TRANSCRIPT", nullable = false)
     private String ensemblTranscript;
+    
+    @Column(name = "VSS_ENSEMBL_ANNOTATION", nullable = false)
     private String ensemblAnnotation;
     
+    @Column(name = "VSS_STRAIN_7_ALTERNATIVE_ALLELE", nullable = false)
     private String strain7Allele;
+    
+    @Column(name = "VSS_STRAIN_7_ALTERNATIVE_ALLELE_FIXED", nullable = false)
     private String strain7AlleleFixed;
+    
+    @Column(name = "VSS_STRAIN_7_ALTERNATIVE_ALLELE_RATIO", nullable = false)
     private double strain7AlleleRatio;
+    
+    @Column(name = "VSS_STRAIN_7_ALTERNATIVE_ALLELE_ALTERNATIVE_COUNT", nullable = false)
     private long strain7AlleleAlternativeCount;
+    
+    @Column(name = "VSS_STRAIN_7_ALTERNATIVE_ALLELE_REFERENCE_COUNT", nullable = false)
     private long strain7AlleleReferenceCount;
     
+    @Column(name = "VSS_STRAIN_P_ALTERNATIVE_ALLELE", nullable = false)
     private String strainPAllele;
+    
+    @Column(name = "VSS_STRAIN_P_ALTERNATIVE_ALLELE_FIXED", nullable = false)
     private String strainPAlleleFixed;
+    
+    @Column(name = "VSS_STRAIN_P_ALTERNATIVE_ALLELE_RATIO", nullable = false)
     private double strainPAlleleRatio;
+    
+    @Column(name = "VSS_STRAIN_P_ALTERNATIVE_ALLELE_ALTERNATIVE_COUNT", nullable = false)
     private long strainPAlleleAlternativeCount;
+    
+    @Column(name = "VSS_STRAIN_P_ALTERNATIVE_ALLELE_REFERENCE_COUNT", nullable = false)
     private long strainPAlleleReferenceCount;
     
+    @Column(name = "VSS_STRAIN_W_ALTERNATIVE_ALLELE", nullable = false)
     private String strainWAllele;
+    
+    @Column(name = "VSS_STRAIN_W_ALTERNATIVE_ALLELE_FIXED", nullable = false)
     private String strainWAlleleFixed;
+    
+    @Column(name = "VSS_STRAIN_W_ALTERNATIVE_ALLELE_RATIO", nullable = false)
     private double strainWAlleleRatio;
+    
+    @Column(name = "VSS_STRAIN_W_ALTERNATIVE_ALLELE_ALTERNATIVE_COUNT", nullable = false)
     private long strainWAlleleAlternativeCount;
+    
+    @Column(name = "VSS_STRAIN_W_ALTERNATIVE_ALLELE_REFERENCE_COUNT", nullable = false)
     private long strainWAlleleReferenceCount;
     
+    @Column(name = "VSS_STRAIN_N_ALTERNATIVE_ALLELE", nullable = false)
     private String strainNAllele;
+    
+    @Column(name = "VSS_STRAIN_N_ALTERNATIVE_ALLELE_FIXED", nullable = false)
     private String strainNAlleleFixed;
+    
+    @Column(name = "VSS_STRAIN_N_ALTERNATIVE_ALLELE_RATIO", nullable = false)
     private double strainNAlleleRatio;
+    
+    @Column(name = "VSS_STRAIN_N_ALTERNATIVE_ALLELE_ALTERNATIVE_COUNT", nullable = false)
     private long strainNAlleleAlternativeCount;
+    
+    @Column(name = "VSS_STRAIN_N_ALTERNATIVE_ALLELE_REFERENCE_COUNT", nullable = false)
     private long strainNAlleleReferenceCount;
     
+    @Column(name = "VSS_STRAIN_15I_ALTERNATIVE_ALLELE", nullable = false)
     private String strain15IAllele;
+    
+    @Column(name = "VSS_STRAIN_15I_ALTERNATIVE_ALLELE_FIXED", nullable = false)
     private String strain15IAlleleFixed;
+    
+    @Column(name = "VSS_STRAIN_15I_ALTERNATIVE_ALLELE_RATIO", nullable = false)
     private double strain15IAlleleRatio;
+    
+    @Column(name = "VSS_STRAIN_15I_ALTERNATIVE_ALLELE_ALTERNATIVE_COUNT", nullable = false)
     private long strain15IAlleleAlternativeCount;
+    
+    @Column(name = "VSS_STRAIN_15I_ALTERNATIVE_ALLELE_REFERENCE_COUNT", nullable = false)
     private long strain15IAlleleReferenceCount;
     
+    @Column(name = "VSS_STRAIN_ZERO_ALTERNATIVE_ALLELE", nullable = false)
     private String strainZeroAllele;
+    
+    @Column(name = "VSS_STRAIN_ZERO_ALTERNATIVE_ALLELE_FIXED", nullable = false)
     private String strainZeroAlleleFixed;
+    
+    @Column(name = "VSS_STRAIN_ZERO_ALTERNATIVE_ALLELE_RATIO", nullable = false)
     private double strainZeroAlleleRatio;
+    
+    @Column(name = "VSS_STRAIN_ZERO_ALTERNATIVE_ALLELE_ALTERNATIVE_COUNT", nullable = false)
     private long strainZeroAlleleAlternativeCount;
+    
+    @Column(name = "VSS_STRAIN_ZERO_ALTERNATIVE_ALLELE_REFERENCE_COUNT", nullable = false)
     private long strainZeroAlleleReferenceCount;
     
+    @Column(name = "VSS_STRAIN_6_ALTERNATIVE_ALLELE", nullable = false)
     private String strain6Allele;
+    
+    @Column(name = "VSS_STRAIN_6_ALTERNATIVE_ALLELE_FIXED", nullable = false)
     private String strain6AlleleFixed;
+    
+    @Column(name = "VSS_STRAIN_6_ALTERNATIVE_ALLELE_RATIO", nullable = false)
     private double strain6AlleleRatio;
+    
+    @Column(name = "VSS_STRAIN_6_ALTERNATIVE_ALLELE_ALTERNATIVE_COUNT", nullable = false)
     private long strain6AlleleAlternativeCount;
+    
+    @Column(name = "VSS_STRAIN_6_ALTERNATIVE_ALLELE_REFERENCE_COUNT", nullable = false)
     private long strain6AlleleReferenceCount;
     
+    @Column(name = "VSS_STRAIN_C_ALTERNATIVE_ALLELE", nullable = false)
     private String strainCAllele;
+    
+    @Column(name = "VSS_STRAIN_C_ALTERNATIVE_ALLELE_FIXED", nullable = false)
     private String strainCAlleleFixed;
+    
+    @Column(name = "VSS_STRAIN_C_ALTERNATIVE_ALLELE_RATIO", nullable = false)
     private double strainCAlleleRatio;
+    
+    @Column(name = "VSS_STRAIN_C_ALTERNATIVE_ALLELE_ALTERNATIVE_COUNT", nullable = false)
     private long strainCAlleleAlternativeCount;
+    
+    @Column(name = "VSS_STRAIN_C_ALTERNATIVE_ALLELE_REFERENCE_COUNT", nullable = false)
     private long strainCAlleleReferenceCount;
-
+    
+    @Column(name = "VSS_AMINO_ACID_SUBSITUTION", nullable = false)
     private String aminoAcidSubs;
+
+    @Column(name = "VSS_PREDICTION_CATEGORY", nullable = false)
     private String predictionCategory;
+    
+    @Column(name = "VSS_SIFT_SCORE", nullable = false)
     private double scoreSift;
+    
+    @Column(name = "VSS_SIFT_SCORE_CONSERVATION", nullable = false)
     private double scoreConservation;
+    
+    @Column(name = "VSS_PROTEIN_ALIGNMENT_NUMBER", nullable = false)
     private long proteinAlignNumber;
+    
+    @Column(name = "VSS_TOTAL_SEQUENCE_ALIGNMENT_NUMBER", nullable = false)
     private long totalAlignSequenceNumber;
+
+    @Column(name = "VSS_PROVEAN_SCORE", nullable = false)
     private double scoreProvean;
+
+    @Column(name = "VSS_CREATION_TIME", nullable = false)
     private Date creationTime;
+    
+    @Column(name = "VSS_MODIFICATION_TIME", nullable = true)
     private Date modificationTime;
+    
+    @Version
+    @Column(name = "VSS_VERSION", nullable = false)
     private long version;
     
 
     // Getters ------------------------------------------------------------------------------------
-    public long getOid() {
-    	return this.oid;
+    public SNPChromosomePrimaryKey getSnpChromosomePrimaryKey() {
+    	return this.snpChromosomePrimaryKey;
     }
+    
     public String getSnpId() {
     	return this.snpId;
     }
@@ -347,7 +463,7 @@ public class SNPChromosome {
     
     // Getters As Strings -------------------------------------------------------------------------
     public String getOidAsString() {
-    	return ObjectConverter.convert(this.oid, String.class);
+    	return ObjectConverter.convert(this.snpChromosomePrimaryKey.getPartitionId(), String.class) + ", " + ObjectConverter.convert(this.snpChromosomePrimaryKey.getOid(), String.class);
     }
     public String getPositionAsString() {
     	return ObjectConverter.convert(this.position, String.class);
@@ -451,7 +567,8 @@ public class SNPChromosome {
 
     // Getters As Strings Enclosed in Quotes ------------------------------------------------------
     public String getOidAsStringQuoted() {
-    	return '\"' + ObjectConverter.convert(this.oid, String.class) + '\"';
+    	return '\"' + ObjectConverter.convert(this.snpChromosomePrimaryKey.getPartitionId(), String.class) + ", " + ObjectConverter.convert(this.snpChromosomePrimaryKey.getOid(), String.class) + '\"';
+
     }
     public String getPositionAsStringQuoted() {
     	return '\"' + ObjectConverter.convert(this.position, String.class) + '\"';
@@ -630,9 +747,10 @@ public class SNPChromosome {
 
     
     // Setters ------------------------------------------------------------------------------------
-    public void setOid(long oid) {
-    	this.oid = oid;
+    public void setSnpChromosomePrimaryKey(SNPChromosomePrimaryKey snpChromosomePrimaryKey) {
+    	this.snpChromosomePrimaryKey = snpChromosomePrimaryKey;
     }
+    
     public void setSnpId(String snpId) {
     	this.snpId = snpId;
     }
@@ -1373,7 +1491,7 @@ public class SNPChromosome {
      */
     public boolean isSameAs(SNPChromosome snpchromosome){
 
-        if (this.getOid() == snpchromosome.getOid() && 
+        if (this.getSnpChromosomePrimaryKey() == snpchromosome.getSnpChromosomePrimaryKey() && 
         		this.getSnpId().equals(snpchromosome.getSnpId()) && 
         		this.getChromosomeId().equals(snpchromosome.getChromosomeId()) && 
         		this.getPosition() == snpchromosome.getPosition() &&
@@ -1456,8 +1574,8 @@ public class SNPChromosome {
      */
     public boolean equals(Object other) {
     	
-        return (other instanceof SNPChromosome) && (oid != null) 
-        		? oid.equals(((SNPChromosome) other).oid) 
+        return (other instanceof SNPChromosome) && (this.getSnpChromosomePrimaryKey() != null) 
+        		? this.getSnpChromosomePrimaryKey().equals(((SNPChromosome) other).getSnpChromosomePrimaryKey()) 
         		: (other == this);
     }
     
@@ -2280,7 +2398,7 @@ public class SNPChromosome {
     	return snpchromosome32;
     }
 
-    public SNPChromosome28 convertTo28() {
+    public SNPChromosome28 convertTsnpchromosome_o28() {
     	
     	SNPChromosome28 snpchromosome28 = new SNPChromosome28();
     	
@@ -2344,7 +2462,7 @@ public class SNPChromosome {
     	return snpchromosome28;
     }
 
-    public SNPChromosome27 convertTo27() {
+    public SNPChromosome27 convertTsnpchromosome_o27() {
     	
     	SNPChromosome27 snpchromosome27 = new SNPChromosome27();
     	
@@ -2408,7 +2526,7 @@ public class SNPChromosome {
     	return snpchromosome27;
     }
 
-    public SNPChromosome26 convertTo26() {
+    public SNPChromosome26 convertTsnpchromosome_o26() {
     	
     	SNPChromosome26 snpchromosome26 = new SNPChromosome26();
     	
@@ -2472,7 +2590,7 @@ public class SNPChromosome {
     	return snpchromosome26;
     }
 
-    public SNPChromosome25 convertTo25() {
+    public SNPChromosome25 convertTsnpchromosome_o25() {
     	
     	SNPChromosome25 snpchromosome25 = new SNPChromosome25();
     	
@@ -2536,7 +2654,7 @@ public class SNPChromosome {
     	return snpchromosome25;
     }
 
-    public SNPChromosome24 convertTo24() {
+    public SNPChromosome24 convertTsnpchromosome_o24() {
     	
     	SNPChromosome24 snpchromosome24 = new SNPChromosome24();
     	
@@ -2600,7 +2718,7 @@ public class SNPChromosome {
     	return snpchromosome24;
     }
 
-    public SNPChromosome23 convertTo23() {
+    public SNPChromosome23 convertTsnpchromosome_o23() {
     	
     	SNPChromosome23 snpchromosome23 = new SNPChromosome23();
     	
@@ -2664,7 +2782,7 @@ public class SNPChromosome {
     	return snpchromosome23;
     }
     
-    public SNPChromosome22 convertTo22() {
+    public SNPChromosome22 convertTsnpchromosome_o22() {
     	
     	SNPChromosome22 snpchromosome22 = new SNPChromosome22();
     	
@@ -2728,7 +2846,7 @@ public class SNPChromosome {
     	return snpchromosome22;
     }
 
-    public SNPChromosome21 convertTo21() {
+    public SNPChromosome21 convertTsnpchromosome_o21() {
     	
     	SNPChromosome21 snpchromosome21 = new SNPChromosome21();
     	
@@ -2792,7 +2910,7 @@ public class SNPChromosome {
     	return snpchromosome21;
     }
 
-    public SNPChromosome20 convertTo20() {
+    public SNPChromosome20 convertTsnpchromosome_o20() {
     	
     	SNPChromosome20 snpchromosome20 = new SNPChromosome20();
     	
@@ -2856,7 +2974,7 @@ public class SNPChromosome {
     	return snpchromosome20;
     }
 
-    public SNPChromosome19 convertTo19() {
+    public SNPChromosome19 convertTsnpchromosome_o19() {
     	
     	SNPChromosome19 snpchromosome19 = new SNPChromosome19();
     	
@@ -2920,7 +3038,7 @@ public class SNPChromosome {
     	return snpchromosome19;
     }
 
-    public SNPChromosome18 convertTo18() {
+    public SNPChromosome18 convertTsnpchromosome_o18() {
     	
     	SNPChromosome18 snpchromosome18 = new SNPChromosome18();
     	
@@ -2984,7 +3102,7 @@ public class SNPChromosome {
     	return snpchromosome18;
     }
 
-    public SNPChromosome17 convertTo17() {
+    public SNPChromosome17 convertTsnpchromosome_o17() {
     	
     	SNPChromosome17 snpchromosome17 = new SNPChromosome17();
     	
@@ -3048,7 +3166,7 @@ public class SNPChromosome {
     	return snpchromosome17;
     }
 
-    public SNPChromosome16 convertTo16() {
+    public SNPChromosome16 convertTsnpchromosome_o16() {
     	
     	SNPChromosome16 snpchromosome16 = new SNPChromosome16();
     	
@@ -3112,7 +3230,7 @@ public class SNPChromosome {
     	return snpchromosome16;
     }
 
-    public SNPChromosome15 convertTo15() {
+    public SNPChromosome15 convertTsnpchromosome_o15() {
     	
     	SNPChromosome15 snpchromosome15 = new SNPChromosome15();
     	
@@ -3176,7 +3294,7 @@ public class SNPChromosome {
     	return snpchromosome15;
     }
 
-    public SNPChromosome14 convertTo14() {
+    public SNPChromosome14 convertTsnpchromosome_o14() {
     	
     	SNPChromosome14 snpchromosome14 = new SNPChromosome14();
     	
@@ -3240,7 +3358,7 @@ public class SNPChromosome {
     	return snpchromosome14;
     }
 
-    public SNPChromosome13 convertTo13() {
+    public SNPChromosome13 convertTsnpchromosome_o13() {
     	
     	SNPChromosome13 snpchromosome13 = new SNPChromosome13();
     	
@@ -3304,7 +3422,7 @@ public class SNPChromosome {
     	return snpchromosome13;
     }
     
-    public SNPChromosome12 convertTo12() {
+    public SNPChromosome12 convertTsnpchromosome_o12() {
     	
     	SNPChromosome12 snpchromosome12 = new SNPChromosome12();
     	
@@ -3368,7 +3486,7 @@ public class SNPChromosome {
     	return snpchromosome12;
     }
 
-    public SNPChromosome11 convertTo11() {
+    public SNPChromosome11 convertTsnpchromosome_o11() {
     	
     	SNPChromosome11 snpchromosome11 = new SNPChromosome11();
     	
@@ -3432,7 +3550,7 @@ public class SNPChromosome {
     	return snpchromosome11;
     }
 
-    public SNPChromosome10 convertTo10() {
+    public SNPChromosome10 convertTsnpchromosome_o10() {
     	
     	SNPChromosome10 snpchromosome10 = new SNPChromosome10();
     	
@@ -3944,7 +4062,7 @@ public class SNPChromosome {
     	return snpchromosome3;
     }
 
-    public SNPChromosome02 convertTo2() {
+    public SNPChromosome02 convertTsnpchromosome_o2() {
     	
     	SNPChromosome02 snpchromosome2 = new SNPChromosome02();
     	
@@ -4008,7 +4126,7 @@ public class SNPChromosome {
     	return snpchromosome2;
     }
 
-    public SNPChromosome01 convertTo1() {
+    public SNPChromosome01 convertTsnpchromosome_o1() {
     	
     	SNPChromosome01 snpchromosome1 = new SNPChromosome01();
     	
@@ -4072,11 +4190,235 @@ public class SNPChromosome {
     	return snpchromosome1;
     }
 
-    /**
-     * This setter method should only be used by unit tests.
-     * @param oid
-     */
-    protected void setId(long oid) {
-        this.oid = oid;
+    public int compareTo(SNPChromosome o) {
+        return this.snpChromosomePrimaryKey.getOid() > o.snpChromosomePrimaryKey.getOid() ? 1 : (this.snpChromosomePrimaryKey.getOid() < o.snpChromosomePrimaryKey.getOid() ? -1 : 0);
     }
+
+
+    public static class OrderByPositionAsc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o1.position > snpchromosome_o2.position ? 1 : (snpchromosome_o1.position < snpchromosome_o2.position ? -1 : 0);
+        }
+    }
+
+    public static class OrderByReferenceAsc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o1.reference.compareTo(snpchromosome_o2.reference);
+        }
+    }
+
+    public static class OrderByAlternativeAsc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o1.alternative.compareTo(snpchromosome_o2.alternative);
+        }
+    }
+
+    public static class OrderByRegionAsc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o1.region.compareTo(snpchromosome_o2.region);
+        }
+    }
+
+    public static class OrderByEnsemblGeneAsc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o1.ensemblGene.compareTo(snpchromosome_o2.ensemblGene);
+        }
+    }
+
+    public static class OrderByEnsemblTranscriptAsc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o1.ensemblTranscript.compareTo(snpchromosome_o2.ensemblTranscript);
+        }
+    }
+
+    public static class OrderByEnsemblAnnotationAsc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o1.ensemblAnnotation.compareTo(snpchromosome_o2.ensemblAnnotation);
+        }
+    }
+
+    public static class OrderByAminoAcidSubsAsc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o1.aminoAcidSubs.compareTo(snpchromosome_o2.aminoAcidSubs);
+        }
+    }
+
+    public static class OrderByPredictionCategoryAsc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o1.predictionCategory.compareTo(snpchromosome_o2.predictionCategory);
+        }
+    }
+
+    public static class OrderByScoreSiftAsc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o1.scoreSift > snpchromosome_o2.scoreSift ? 1 : (snpchromosome_o1.scoreSift < snpchromosome_o2.scoreSift ? -1 : 0);
+        }
+    }
+
+    public static class OrderByScoreConservationAsc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o1.scoreConservation > snpchromosome_o2.scoreConservation ? 1 : (snpchromosome_o1.scoreConservation < snpchromosome_o2.scoreConservation ? -1 : 0);
+        }
+    }
+
+    public static class OrderByProteinAlignNumberAsc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o1.proteinAlignNumber > snpchromosome_o2.proteinAlignNumber ? 1 : (snpchromosome_o1.proteinAlignNumber < snpchromosome_o2.proteinAlignNumber ? -1 : 0);
+        }
+    }
+
+    public static class OrderByTotalAlignSequenceNumberAsc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o1.totalAlignSequenceNumber > snpchromosome_o2.totalAlignSequenceNumber ? 1 : (snpchromosome_o1.totalAlignSequenceNumber < snpchromosome_o2.totalAlignSequenceNumber ? -1 : 0);
+        }
+    }
+
+    public static class OrderByScoreProveanAsc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o1.scoreProvean > snpchromosome_o2.scoreProvean ? 1 : (snpchromosome_o1.scoreProvean < snpchromosome_o2.scoreProvean ? -1 : 0);
+        }
+    }
+
+    public static class OrderByPositionDesc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o1.position > snpchromosome_o2.position ? -1 : (snpchromosome_o1.position < snpchromosome_o2.position ? 1 : 0);
+        }
+    }
+
+    public static class OrderByReferenceDesc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o2.reference.compareTo(snpchromosome_o1.reference);
+        }
+    }
+
+    public static class OrderByAlternativeDesc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o2.alternative.compareTo(snpchromosome_o1.alternative);
+        }
+    }
+
+    public static class OrderByRegionDesc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o2.region.compareTo(snpchromosome_o1.region);
+        }
+    }
+
+    public static class OrderByEnsemblGeneDesc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o2.ensemblGene.compareTo(snpchromosome_o1.ensemblGene);
+        }
+    }
+
+    public static class OrderByEnsemblTranscriptDesc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o2.ensemblTranscript.compareTo(snpchromosome_o1.ensemblTranscript);
+        }
+    }
+
+    public static class OrderByEnsemblAnnotationDesc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o2.ensemblAnnotation.compareTo(snpchromosome_o1.ensemblAnnotation);
+        }
+    }
+
+    public static class OrderByAminoAcidSubsDesc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o2.aminoAcidSubs.compareTo(snpchromosome_o1.aminoAcidSubs);
+        }
+    }
+
+    public static class OrderByPredictionCategoryDesc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o2.predictionCategory.compareTo(snpchromosome_o1.predictionCategory);
+        }
+    }
+
+    public static class OrderByScoreSiftDesc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o1.scoreSift > snpchromosome_o2.scoreSift ? 1 : (snpchromosome_o1.scoreSift < snpchromosome_o2.scoreSift ? -1 : 0);
+        }
+    }
+
+    public static class OrderByScoreConservationDesc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o1.scoreConservation > snpchromosome_o2.scoreConservation ? 1 : (snpchromosome_o1.scoreConservation < snpchromosome_o2.scoreConservation ? -1 : 0);
+        }
+    }
+
+    public static class OrderByProteinAlignNumberDesc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o1.proteinAlignNumber > snpchromosome_o2.proteinAlignNumber ? 1 : (snpchromosome_o1.proteinAlignNumber < snpchromosome_o2.proteinAlignNumber ? -1 : 0);
+        }
+    }
+
+    public static class OrderByTotalAlignSequenceNumberDesc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o1.totalAlignSequenceNumber > snpchromosome_o2.totalAlignSequenceNumber ? 1 : (snpchromosome_o1.totalAlignSequenceNumber < snpchromosome_o2.totalAlignSequenceNumber ? -1 : 0);
+        }
+    }
+
+    public static class OrderByScoreProveanDesc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o1.scoreProvean > snpchromosome_o2.scoreProvean ? 1 : (snpchromosome_o1.scoreProvean < snpchromosome_o2.scoreProvean ? -1 : 0);
+        }
+    }
+
+
+	
 }

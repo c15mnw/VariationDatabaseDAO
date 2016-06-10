@@ -1577,6 +1577,47 @@ public class DTOSearch {
     	}
     }
     
+    public boolean isSearchFilterSiftScoreValueZero() {
+        if ( this.searchFilterSiftScoreValue.equals("0") ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchFilterSiftConservationScoreValueZero() {
+    	if ( this.searchFilterSiftConservationScoreValue.equals("0") ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchFilterProteinAlignNumberValueZero() {
+    	if ( this.searchFilterProteinAlignNumberValue.equals("0") ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchFilterTotalNumberSeqAlignedValueZero() {
+    	if ( this.searchFilterTotalNumberSeqAlignedValue.equals("0") ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchFilterProveanScoreValueZero() {
+    	if ( this.searchFilterProveanScoreValue.equals("0") ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+
     public boolean isSearchFilterSiftScoreNone() {
     	if ( this.searchFilterSiftScore.name().equals(SIFT_SCORE_NONE)) {
     		return true;
