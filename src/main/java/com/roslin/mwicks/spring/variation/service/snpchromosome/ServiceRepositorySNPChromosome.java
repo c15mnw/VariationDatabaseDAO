@@ -415,7 +415,6 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
     }
 
     
-    @SuppressWarnings("null")
 	@Transactional(readOnly = true)
     public PageSNPChromosome search(DTOSearch dtoSearch, int pageNumber, String sortField, String sortDirection) {
         
@@ -759,7 +758,7 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
         
         if ( snpchromosomes.size() != 0 ) {
         	
-         	System.out.println("snpchromosomes.size() : " + snpchromosomes.size() );
+         	//System.out.println("snpchromosomes.size() : " + snpchromosomes.size() );
 
          	Iterator<SNPChromosome> iteratorSNPChromosomes = snpchromosomes.iterator();
             
@@ -769,19 +768,31 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
 
          		boolean addRow = false;
          		
+         		//System.out.println("dtoSearch.getSearchFilterSiftScoreValueAsDouble() : " + dtoSearch.getSearchFilterSiftScoreValueAsDouble() );
+         		//System.out.println("dtoSearch.getSearchFilterSiftConservationScoreValueAsDouble() : " + dtoSearch.getSearchFilterSiftConservationScoreValueAsDouble() );
+         		//System.out.println("dtoSearch.getSearchFilterProteinAlignNumberValueAsLong() : " + dtoSearch.getSearchFilterProteinAlignNumberValueAsLong() );
+         		//System.out.println("dtoSearch.getSearchFilterTotalNumberSeqAlignedValueAsLong() : " + dtoSearch.getSearchFilterTotalNumberSeqAlignedValueAsLong() );
+         		//System.out.println("dtoSearch.getSearchFilterProveanScoreValueAsDouble() : " + dtoSearch.getSearchFilterProveanScoreValueAsDouble() );
+
          		// Are there any Filters set?
-         		if ( dtoSearch.isSearchFilterSiftScoreValueZero() && 
-         				dtoSearch.isSearchFilterSiftConservationScoreValueZero() && 
-         				dtoSearch.isSearchFilterProteinAlignNumberValueZero() && 
-         				dtoSearch.isSearchFilterTotalNumberSeqAlignedValueZero() && 
-         				dtoSearch.isSearchFilterProveanScoreValueZero() ) {
+         		if ( dtoSearch.getSearchFilterSiftScoreValueAsDouble() == 0 &&
+         				dtoSearch.getSearchFilterSiftConservationScoreValueAsDouble() == 0 &&
+         				dtoSearch.getSearchFilterProteinAlignNumberValueAsLong() == 0 &&
+         				dtoSearch.getSearchFilterTotalNumberSeqAlignedValueAsLong() == 0 &&
+         				dtoSearch.getSearchFilterProveanScoreValueAsDouble()  == 0 ) {
 
          			// No - All Zeroes, therefore cannot filter, pass through in list to out list
          			addRow = true;
         		}
          		// Yes - Filter values set
          		else {
-         			// Does the input row have any Provean/Sift data
+             		//System.out.println("snpchromosome.getScoreSift() : " + snpchromosome.getScoreSift() );
+             		//System.out.println("snpchromosome.getScoreConservation() : " + snpchromosome.getScoreConservation() );
+             		//System.out.println("snpchromosome.getProteinAlignNumber() : " + snpchromosome.getProteinAlignNumber() );
+             		//System.out.println("snpchromosome.getTotalAlignSequenceNumber() : " + snpchromosome.getTotalAlignSequenceNumber() );
+             		//System.out.println("snpchromosome.getScoreProvean() : " + snpchromosome.getScoreProvean() );
+
+             		// Does the input row have any Provean/Sift data
          			if ( snpchromosome.getScoreSift() == 0 &&
          					snpchromosome.getScoreConservation() == 0 &&
          					snpchromosome.getProteinAlignNumber() == 0 &&
@@ -873,6 +884,7 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
 
          		// Have we found a row to add; that matches our filter criteria?
          		if ( addRow ) {
+         			
          			snpchromosomesFiltered.add(snpchromosome);
          		}
          	}
@@ -897,10 +909,10 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
         		intStop = ObjectConverter.convert(snpchromosomesFiltered.size(), Integer.class);
         	}
         	
-         	System.out.println("snpchromosomesFiltered.size() : " + snpchromosomesFiltered.size());
-            System.out.println("intStart : " + intStart);
-            System.out.println("intStop : " + intStop);
-            System.out.println("intTotalPages : " + intTotalPages);
+         	//System.out.println("snpchromosomesFiltered.size() : " + snpchromosomesFiltered.size());
+            //System.out.println("intStart : " + intStart);
+            //System.out.println("intStop : " + intStop);
+            //System.out.println("intTotalPages : " + intTotalPages);
         			
             snpchromosomesCutdown = snpchromosomesFiltered.subList(intStart - 1, intStop - 1);
             

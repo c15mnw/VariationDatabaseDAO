@@ -461,8 +461,6 @@ public class FilteredSNPChromosome {
     	
     	this.totalPages = this.filteredSNPChromosomes.size() / this.pageSize;
 
-        System.out.println("this.totalElements : " + this.totalElements);
-
     	int remainder = this.filteredSNPChromosomes.size() % this.pageSize;
     	
     	if ( remainder > 0 ) {
@@ -470,14 +468,9 @@ public class FilteredSNPChromosome {
         	this.totalPages++;
     	}
 
-    	System.out.println("this.totalPages : " + this.totalPages);
-    	
         int startIndex = ( this.pageSize * ( this.pageNumber - 1 ) );
     	int endIndex = ( this.pageSize * this.pageNumber ) - 1;
     	
-        System.out.println("startIndex : " + startIndex);
-        System.out.println("endIndex : " + endIndex);
-
     	if ( endIndex > this.filteredSNPChromosomes.size() ) {
     		
     		endIndex = this.filteredSNPChromosomes.size() - 1;

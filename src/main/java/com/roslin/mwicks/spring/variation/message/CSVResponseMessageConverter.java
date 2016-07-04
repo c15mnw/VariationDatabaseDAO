@@ -87,7 +87,6 @@ public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CS
     	
     	String filename = "download_" + now;
 
-
         // Create CSV.
         List<List<String>> csvList = new ArrayList<List<String>>();
         
@@ -133,7 +132,6 @@ public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CS
             
             headerList8.add(HDR_8);
             csvList.add(headerList8);
-
             
             for (SNPChromosome snpchromosome : csvResponse) {
             	
@@ -351,18 +349,17 @@ public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CS
 
                 csvList.add(outputList);
             }
-
         }
         else {
         
         	if ( csvResponse.isDownloadFormatTSV() ) {
-                output.getHeaders().set("Content-Disposition", "attachment; filename=\" " + filename + ".tsv" + "\"");
-                //output.getHeaders().set("Content-Disposition", "attachment; filename=\" download.tsv \"");
+
+        		output.getHeaders().set("Content-Disposition", "attachment; filename=\" " + filename + ".tsv" + "\"");
             	separator = tab;
             }
             if ( csvResponse.isDownloadFormatCSV() ) {
-                output.getHeaders().set("Content-Disposition", "attachment; filename=\" " + filename + ".csv" + "\"");
-                //output.getHeaders().set("Content-Disposition", "attachment; filename=\" download.csv \"");
+
+            	output.getHeaders().set("Content-Disposition", "attachment; filename=\" " + filename + ".csv" + "\"");
             	separator = comma;
             }
 
@@ -382,34 +379,58 @@ public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CS
             	if ( csvResponse.isDownloadReference7() || csvResponse.isDownloadAlternative7() ) {
             		headerList.add("Strain 7 Allele");
                 	headerList.add("Strain 7 Allele Fixed?");
+                	headerList.add("Strain 7 Allele Ratio");
+                	headerList.add("Strain 7 Allele Reference Count");
+                	headerList.add("Strain 7 Allele Alternative Count");
             	}
             	if ( csvResponse.isDownloadReferenceP() || csvResponse.isDownloadAlternativeP() ) {
             		headerList.add("Strain P Allele");
                 	headerList.add("Strain P Allele Fixed?");
+                	headerList.add("Strain P Allele Ratio");
+                	headerList.add("Strain P Allele Reference Count");
+                	headerList.add("Strain P Allele Alternative Count");
             	}
             	if ( csvResponse.isDownloadReferenceW() || csvResponse.isDownloadAlternativeW() ) {
             		headerList.add("Strain W Allele");
                 	headerList.add("Strain W Allele Fixed?");
+                	headerList.add("Strain W Allele Ratio");
+                	headerList.add("Strain W Allele Reference Count");
+                	headerList.add("Strain W Allele Alternative Count");
             	}
             	if ( csvResponse.isDownloadReferenceN() || csvResponse.isDownloadAlternativeN() ) {
             		headerList.add("Strain N Allele");
                 	headerList.add("Strain N Allele Fixed?");
+                	headerList.add("Strain N Allele Ratio");
+                	headerList.add("Strain N Allele Reference Count");
+                	headerList.add("Strain N Allele Alternative Count");
             	}
             	if ( csvResponse.isDownloadReference15I() || csvResponse.isDownloadAlternative15I() ) {
             		headerList.add("Strain 15I Allele");
                 	headerList.add("Strain 15I Allele Fixed?");
+                	headerList.add("Strain 15I Allele Ratio");
+                	headerList.add("Strain 15I Allele Reference Count");
+                	headerList.add("Strain 15I Allele Alternative Count");
             	}
             	if ( csvResponse.isDownloadReferenceZero() || csvResponse.isDownloadAlternativeZero() ) {
             		headerList.add("Strain Zero Allele");
                 	headerList.add("Strain Zero Allele Fixed?");
+                	headerList.add("Strain Zero Allele Ratio");
+                	headerList.add("Strain Zero Allele Reference Count");
+                	headerList.add("Strain Zero Allele Alternative Count");
             	}
             	if ( csvResponse.isDownloadReference6() || csvResponse.isDownloadAlternative6() ) {
             		headerList.add("Strain 6 Allele");
                 	headerList.add("Strain 6 Allele Fixed?");
+                	headerList.add("Strain 6 Allele Ratio");
+                	headerList.add("Strain 6 Allele Reference Count");
+                	headerList.add("Strain 6 Allele Alternative Count");
             	}
             	if ( csvResponse.isDownloadReferenceC() || csvResponse.isDownloadAlternativeC() ) {
             		headerList.add("Strain C Allele");
                 	headerList.add("Strain C Allele Fixed?");
+                	headerList.add("Strain C Allele Ratio");
+                	headerList.add("Strain C Allele Reference Count");
+                	headerList.add("Strain C Allele Alternative Count");
             	}
 
             	headerList.add("Amino Acid Substitution Information");
@@ -437,34 +458,58 @@ public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CS
             	if ( csvResponse.isDownloadReference7() || csvResponse.isDownloadAlternative7() ) {
             		headerList.add("\"Strain 7 Allele\"");
                 	headerList.add("\"Strain 7 Allele Fixed?\"");
+                	headerList.add("\"Strain 7 Allele Ratio\"");
+                	headerList.add("\"Strain 7 Allele Reference Count\"");
+                	headerList.add("\"Strain 7 Allele Alternative Count\"");
             	}
             	if ( csvResponse.isDownloadReferenceP() || csvResponse.isDownloadAlternativeP() ) {
             		headerList.add("\"Strain P Allele\"");
                 	headerList.add("\"Strain P Allele Fixed?\"");
+                	headerList.add("\"Strain P Allele Ratio\"");
+                	headerList.add("\"Strain P Allele Reference Count\"");
+                	headerList.add("\"Strain P Allele Alternative Count\"");
             	}
             	if ( csvResponse.isDownloadReferenceW() || csvResponse.isDownloadAlternativeW() ) {
             		headerList.add("\"Strain W Allele\"");
                 	headerList.add("\"Strain W Allele Fixed?\"");
+                	headerList.add("\"Strain W Allele Ratio\"");
+                	headerList.add("\"Strain W Allele Reference Count\"");
+                	headerList.add("\"Strain W Allele Alternative Count\"");
             	}
             	if ( csvResponse.isDownloadReferenceN() || csvResponse.isDownloadAlternativeN() ) {
             		headerList.add("\"Strain N Allele\"");
                 	headerList.add("\"Strain N Allele Fixed?\"");
+                	headerList.add("\"Strain N Allele Ratio\"");
+                	headerList.add("\"Strain N Allele Reference Count\"");
+                	headerList.add("\"Strain N Allele Alternative Count\"");
             	}
             	if ( csvResponse.isDownloadReference15I() || csvResponse.isDownloadAlternative15I() ) {
             		headerList.add("\"Strain 15I Allele\"");
                 	headerList.add("\"Strain 15I Allele Fixed?\"");
+                	headerList.add("\"Strain 15I Allele Ratio\"");
+                	headerList.add("\"Strain 15I Allele Reference Count\"");
+                	headerList.add("\"Strain 15I Allele Alternative Count\"");
             	}
             	if ( csvResponse.isDownloadReferenceZero() || csvResponse.isDownloadAlternativeZero() ) {
             		headerList.add("\"Strain Zero Allele\"");
                 	headerList.add("\"Strain Zero Allele Fixed?\"");
+                	headerList.add("\"Strain Zero Allele Ratio\"");
+                	headerList.add("\"Strain Zero Allele Reference Count\"");
+                	headerList.add("\"Strain Zero Allele Alternative Count\"");
             	}
             	if ( csvResponse.isDownloadReference6() || csvResponse.isDownloadAlternative6() ) {
             		headerList.add("\"Strain 6 Allele\"");
                 	headerList.add("\"Strain 6 Allele Fixed?\"");
+                	headerList.add("\"Strain 6 Allele Ratio\"");
+                	headerList.add("\"Strain 6 Allele Reference Count\"");
+                	headerList.add("\"Strain 6 Allele Alternative Count\"");
             	}
             	if ( csvResponse.isDownloadReferenceC() || csvResponse.isDownloadAlternativeC() ) {
             		headerList.add("\"Strain C Allele\"");
                 	headerList.add("\"Strain C Allele Fixed?\"");
+                	headerList.add("\"Strain C Allele Ratio\"");
+                	headerList.add("\"Strain C Allele Reference Count\"");
+                	headerList.add("\"Strain C Allele Alternative Count\"");
             	}
             	
             	headerList.add("\"Amino Acid Substitution Information\"");
@@ -496,34 +541,58 @@ public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CS
                 	if ( csvResponse.isDownloadReference7() || csvResponse.isDownloadAlternative7() ) {
                 		outputList.add(snpchromosome.getStrain7AlleleQuoted());
                     	outputList.add(snpchromosome.getStrain7AlleleFixedQuoted());
+                    	outputList.add(snpchromosome.getStrain7AlleleRatioQuoted());
+                    	outputList.add(snpchromosome.getStrain7AlleleReferenceCountQuoted());
+                    	outputList.add(snpchromosome.getStrain7AlleleAlternativeCountQuoted());
                 	}
                 	if ( csvResponse.isDownloadReferenceP() || csvResponse.isDownloadAlternativeP() ) {
                 		outputList.add(snpchromosome.getStrainPAlleleQuoted());
                     	outputList.add(snpchromosome.getStrainPAlleleFixedQuoted());
+                    	outputList.add(snpchromosome.getStrainPAlleleRatioQuoted());
+                    	outputList.add(snpchromosome.getStrainPAlleleReferenceCountQuoted());
+                    	outputList.add(snpchromosome.getStrainPAlleleAlternativeCountQuoted());
                 	}
                 	if ( csvResponse.isDownloadReferenceW() || csvResponse.isDownloadAlternativeW() ) {
                 		outputList.add(snpchromosome.getStrainWAlleleQuoted());
                     	outputList.add(snpchromosome.getStrainWAlleleFixedQuoted());
+                    	outputList.add(snpchromosome.getStrainWAlleleRatioQuoted());
+                    	outputList.add(snpchromosome.getStrainWAlleleReferenceCountQuoted());
+                    	outputList.add(snpchromosome.getStrainWAlleleAlternativeCountQuoted());
                 	}
                 	if ( csvResponse.isDownloadReferenceN() || csvResponse.isDownloadAlternativeN() ) {
                 		outputList.add(snpchromosome.getStrainNAlleleQuoted());
                     	outputList.add(snpchromosome.getStrainNAlleleFixedQuoted());
+                    	outputList.add(snpchromosome.getStrainNAlleleRatioQuoted());
+                    	outputList.add(snpchromosome.getStrainNAlleleReferenceCountQuoted());
+                    	outputList.add(snpchromosome.getStrainNAlleleAlternativeCountQuoted());
                 	}
                 	if ( csvResponse.isDownloadReference15I() || csvResponse.isDownloadAlternative15I() ) {
                 		outputList.add(snpchromosome.getStrain15IAlleleQuoted());
                     	outputList.add(snpchromosome.getStrain15IAlleleFixedQuoted());
+                    	outputList.add(snpchromosome.getStrain15IAlleleRatioQuoted());
+                    	outputList.add(snpchromosome.getStrain15IAlleleReferenceCountQuoted());
+                    	outputList.add(snpchromosome.getStrain15IAlleleAlternativeCountQuoted());
                 	}
                 	if ( csvResponse.isDownloadReferenceZero() || csvResponse.isDownloadAlternativeZero() ) {
                 		outputList.add(snpchromosome.getStrainZeroAlleleQuoted());
                     	outputList.add(snpchromosome.getStrainZeroAlleleFixedQuoted());
+                    	outputList.add(snpchromosome.getStrainZeroAlleleRatioQuoted());
+                    	outputList.add(snpchromosome.getStrainZeroAlleleReferenceCountQuoted());
+                    	outputList.add(snpchromosome.getStrainZeroAlleleAlternativeCountQuoted());
                 	}
                 	if ( csvResponse.isDownloadReference6() || csvResponse.isDownloadAlternative6() ) {
                 		outputList.add(snpchromosome.getStrain6AlleleQuoted());
                     	outputList.add(snpchromosome.getStrain6AlleleFixedQuoted());
+                    	outputList.add(snpchromosome.getStrain6AlleleRatioQuoted());
+                    	outputList.add(snpchromosome.getStrain6AlleleReferenceCountQuoted());
+                    	outputList.add(snpchromosome.getStrain6AlleleAlternativeCountQuoted());
                 	}
                 	if ( csvResponse.isDownloadReferenceC() || csvResponse.isDownloadAlternativeC() ) {
                 		outputList.add(snpchromosome.getStrainCAlleleQuoted());
                     	outputList.add(snpchromosome.getStrainCAlleleFixedQuoted());
+                    	outputList.add(snpchromosome.getStrainCAlleleRatioQuoted());
+                    	outputList.add(snpchromosome.getStrainCAlleleReferenceCountQuoted());
+                    	outputList.add(snpchromosome.getStrainCAlleleAlternativeCountQuoted());
                 	}
                 		
                 	outputList.add(snpchromosome.getAminoAcidSubsQuoted());
@@ -556,34 +625,58 @@ public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CS
                 	if ( csvResponse.isDownloadReference7() || csvResponse.isDownloadAlternative7() ) {
                 		outputList.add(snpchromosome.getStrain7Allele());
                     	outputList.add(snpchromosome.getStrain7AlleleFixed());
+                    	outputList.add(snpchromosome.getStrain7AlleleRatioAsString());
+                    	outputList.add(snpchromosome.getStrain7AlleleReferenceCountAsString());
+                    	outputList.add(snpchromosome.getStrain7AlleleAlternativeCountAsString());
                 	}
                 	if ( csvResponse.isDownloadReferenceP() || csvResponse.isDownloadAlternativeP() ) {
                 		outputList.add(snpchromosome.getStrainPAllele());
                     	outputList.add(snpchromosome.getStrainPAlleleFixed());
+                    	outputList.add(snpchromosome.getStrainPAlleleRatioAsString());
+                    	outputList.add(snpchromosome.getStrainPAlleleReferenceCountAsString());
+                    	outputList.add(snpchromosome.getStrainPAlleleAlternativeCountAsString());
                 	}
                 	if ( csvResponse.isDownloadReferenceW() || csvResponse.isDownloadAlternativeW() ) {
                 		outputList.add(snpchromosome.getStrainWAllele());
                     	outputList.add(snpchromosome.getStrainWAlleleFixed());
+                    	outputList.add(snpchromosome.getStrainWAlleleRatioAsString());
+                    	outputList.add(snpchromosome.getStrainWAlleleReferenceCountAsString());
+                    	outputList.add(snpchromosome.getStrainWAlleleAlternativeCountAsString());
                 	}
                 	if ( csvResponse.isDownloadReferenceN() || csvResponse.isDownloadAlternativeN() ) {
                 		outputList.add(snpchromosome.getStrainNAllele());
                     	outputList.add(snpchromosome.getStrainNAlleleFixed());
+                    	outputList.add(snpchromosome.getStrainNAlleleRatioAsString());
+                    	outputList.add(snpchromosome.getStrainNAlleleReferenceCountAsString());
+                    	outputList.add(snpchromosome.getStrainNAlleleAlternativeCountAsString());
                 	}
                 	if ( csvResponse.isDownloadReference15I() || csvResponse.isDownloadAlternative15I() ) {
                 		outputList.add(snpchromosome.getStrain15IAllele());
                     	outputList.add(snpchromosome.getStrain15IAlleleFixed());
+                    	outputList.add(snpchromosome.getStrain15IAlleleRatioAsString());
+                    	outputList.add(snpchromosome.getStrain15IAlleleReferenceCountAsString());
+                    	outputList.add(snpchromosome.getStrain15IAlleleAlternativeCountAsString());
                 	}
                 	if ( csvResponse.isDownloadReferenceZero() || csvResponse.isDownloadAlternativeZero() ) {
                 		outputList.add(snpchromosome.getStrainZeroAllele());
                     	outputList.add(snpchromosome.getStrainZeroAlleleFixed());
+                    	outputList.add(snpchromosome.getStrainZeroAlleleRatioAsString());
+                    	outputList.add(snpchromosome.getStrainZeroAlleleReferenceCountAsString());
+                    	outputList.add(snpchromosome.getStrainZeroAlleleAlternativeCountAsString());
                 	}
                 	if ( csvResponse.isDownloadReference6() || csvResponse.isDownloadAlternative6() ) {
                 		outputList.add(snpchromosome.getStrain6Allele());
                     	outputList.add(snpchromosome.getStrain6AlleleFixed());
+                    	outputList.add(snpchromosome.getStrain6AlleleRatioAsString());
+                    	outputList.add(snpchromosome.getStrain6AlleleReferenceCountAsString());
+                    	outputList.add(snpchromosome.getStrain6AlleleAlternativeCountAsString());
                 	}
                 	if ( csvResponse.isDownloadReferenceC() || csvResponse.isDownloadAlternativeC() ) {
                 		outputList.add(snpchromosome.getStrainCAllele());
                     	outputList.add(snpchromosome.getStrainCAlleleFixed());
+                    	outputList.add(snpchromosome.getStrainCAlleleRatioAsString());
+                    	outputList.add(snpchromosome.getStrainCAlleleReferenceCountAsString());
+                    	outputList.add(snpchromosome.getStrainCAlleleAlternativeCountAsString());
                 	}
                 	
                 	outputList.add(snpchromosome.getAminoAcidSubs());
@@ -598,7 +691,6 @@ public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CS
                 }
             }
         }
-                
         
         InputStream csvInput = CsvUtil.formatCsvWithQuotes(csvList, separator);
 

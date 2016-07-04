@@ -573,30 +573,111 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     public String getPositionAsStringQuoted() {
     	return '\"' + ObjectConverter.convert(this.position, String.class) + '\"';
     }
+
     public String getStrain7AlleleFixedQuoted() {
     	return '\"' + this.strain7AlleleFixed + '\"';
     }
+    public String getStrain7AlleleRatioQuoted() {
+    	return '\"' + ObjectConverter.convert(this.strain7AlleleRatio, String.class) + '\"';
+    }
+    public String getStrain7AlleleReferenceCountQuoted() {
+    	return '\"' + ObjectConverter.convert(this.strain7AlleleReferenceCount, String.class) + '\"';
+    }
+    public String getStrain7AlleleAlternativeCountQuoted() {
+    	return '\"' + ObjectConverter.convert(this.strain7AlleleAlternativeCount, String.class) + '\"';
+    }
+
     public String getStrainPAlleleFixedQuoted() {
     	return '\"' + this.strainPAlleleFixed + '\"';
     }
+    public String getStrainPAlleleRatioQuoted() {
+    	return '\"' + ObjectConverter.convert(this.strainPAlleleRatio, String.class) + '\"';
+    }
+    public String getStrainPAlleleReferenceCountQuoted() {
+    	return '\"' + ObjectConverter.convert(this.strainPAlleleReferenceCount, String.class) + '\"';
+    }
+    public String getStrainPAlleleAlternativeCountQuoted() {
+    	return '\"' + ObjectConverter.convert(this.strainPAlleleAlternativeCount, String.class) + '\"';
+    }
+    
     public String getStrainWAlleleFixedQuoted() {
     	return '\"' + this.strainWAlleleFixed + '\"';
     }
+    public String getStrainWAlleleRatioQuoted() {
+    	return '\"' + ObjectConverter.convert(this.strainWAlleleRatio, String.class) + '\"';
+    }
+    public String getStrainWAlleleReferenceCountQuoted() {
+    	return '\"' + ObjectConverter.convert(this.strainWAlleleReferenceCount, String.class) + '\"';
+    }
+    public String getStrainWAlleleAlternativeCountQuoted() {
+    	return '\"' + ObjectConverter.convert(this.strainWAlleleAlternativeCount, String.class) + '\"';
+    }
+
     public String getStrainNAlleleFixedQuoted() {
     	return '\"' + this.strainNAlleleFixed + '\"';
     }
+    public String getStrainNAlleleRatioQuoted() {
+    	return '\"' + ObjectConverter.convert(this.strainNAlleleRatio, String.class) + '\"';
+    }
+    public String getStrainNAlleleReferenceCountQuoted() {
+    	return '\"' + ObjectConverter.convert(this.strainNAlleleReferenceCount, String.class) + '\"';
+    }
+    public String getStrainNAlleleAlternativeCountQuoted() {
+    	return '\"' + ObjectConverter.convert(this.strainNAlleleAlternativeCount, String.class) + '\"';
+    }
+
     public String getStrain15IAlleleFixedQuoted() {
     	return '\"' + this.strain15IAlleleFixed + '\"';
     }
+    public String getStrain15IAlleleRatioQuoted() {
+    	return '\"' + ObjectConverter.convert(this.strain15IAlleleRatio, String.class) + '\"';
+    }
+    public String getStrain15IAlleleReferenceCountQuoted() {
+    	return '\"' + ObjectConverter.convert(this.strain15IAlleleReferenceCount, String.class) + '\"';
+    }
+    public String getStrain15IAlleleAlternativeCountQuoted() {
+    	return '\"' + ObjectConverter.convert(this.strain15IAlleleAlternativeCount, String.class) + '\"';
+    }
+    
     public String getStrainZeroAlleleFixedQuoted() {  
     	return '\"' + this.strainZeroAlleleFixed + '\"';
     }
+    public String getStrainZeroAlleleRatioQuoted() {
+    	return '\"' + ObjectConverter.convert(this.strainZeroAlleleRatio, String.class) + '\"';
+    }
+    public String getStrainZeroAlleleReferenceCountQuoted() {
+    	return '\"' + ObjectConverter.convert(this.strainZeroAlleleReferenceCount, String.class) + '\"';
+    }
+    public String getStrainZeroAlleleAlternativeCountQuoted() {
+    	return '\"' + ObjectConverter.convert(this.strainZeroAlleleAlternativeCount, String.class) + '\"';
+    }
+    
     public String getStrain6AlleleFixedQuoted() {
     	return '\"' + this.strain6AlleleFixed + '\"';
     }
+    public String getStrain6AlleleRatioQuoted() {
+    	return '\"' + ObjectConverter.convert(this.strain6AlleleRatio, String.class) + '\"';
+    }
+    public String getStrain6AlleleReferenceCountQuoted() {
+    	return '\"' + ObjectConverter.convert(this.strain6AlleleReferenceCount, String.class) + '\"';
+    }
+    public String getStrain6AlleleAlternativeCountQuoted() {
+    	return '\"' + ObjectConverter.convert(this.strain6AlleleAlternativeCount, String.class) + '\"';
+    }
+    
     public String getStrainCAlleleFixedQuoted() {
     	return '\"' + this.strainCAlleleFixed + '\"';
     }
+    public String getStrainCAlleleRatioQuoted() {
+    	return '\"' + ObjectConverter.convert(this.strainCAlleleRatio, String.class) + '\"';
+    }
+    public String getStrainCAlleleReferenceCountQuoted() {
+    	return '\"' + ObjectConverter.convert(this.strainCAlleleReferenceCount, String.class) + '\"';
+    }
+    public String getStrainCAlleleAlternativeCountQuoted() {
+    	return '\"' + ObjectConverter.convert(this.strainCAlleleAlternativeCount, String.class) + '\"';
+    }
+    
     public String getCreationTimeAsStringQuoted() {
     	return '\"' + ObjectConverter.convert(this.creationTime, String.class) + '\"';
     }
