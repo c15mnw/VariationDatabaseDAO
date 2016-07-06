@@ -2,7 +2,7 @@ package com.roslin.mwicks.spring.variation.service.snpchromosome;
 
 import com.roslin.mwicks.spring.variation.dto.web.objects.DTODownload;
 import com.roslin.mwicks.spring.variation.dto.web.objects.DTOSearch;
-
+import com.roslin.mwicks.spring.variation.exception.ExceptionSNPChromosomeNotFound;
 import com.roslin.mwicks.spring.variation.model.other.PageSNPChromosome;
 
 import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome;
@@ -25,6 +25,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
@@ -76,6 +77,30 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
         return repositorysnpchromosome.findOne(oid);
     }
     
+    @Transactional
+    public <T extends SNPChromosome> Collection<T> bulkSave(int intBatchSize, Collection<T> entities) {
+    	
+    	final List<T> savedEntities = new ArrayList<T>(entities.size());
+    	int i = 0;
+
+    	for (T t : entities) {
+    	    
+    		//savedEntities.add(persistOrMerge(t));
+    		entityManager.persist(t);
+
+    		i++;
+    	    
+    		if (i % intBatchSize == 0) {
+
+    			// Flush a batch of inserts and release memory.
+    			entityManager.flush();
+    			entityManager.clear();
+    		}
+    	}
+    	
+    	return savedEntities;
+    }
+    	 
     
     @Transactional(readOnly = true)
     public List<SNPChromosome> download(DTODownload dtoDownload) {
@@ -1037,6 +1062,105 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
     }
 
     
+    @Transactional(readOnly = true)
+    public SNPChromosome findByOidAndPartitionId( long oid, long partitionId ) {
+    	
+        LOGGER.debug("Find a snpchromosome with Oid : " + oid + " with partitionId : " + partitionId);
+        
+        SNPChromosome snpchromosome = repositorysnpchromosome.findByOidAndPartitionId( oid, partitionId );
+        
+        return snpchromosome;
+    }
+
+    
+    @Transactional(rollbackFor = ExceptionSNPChromosomeNotFound.class)
+    public SNPChromosome update(SNPChromosome updated) throws ExceptionSNPChromosomeNotFound {
+    	
+        LOGGER.debug("Updating snpchromosome with information: " + updated);
+        
+        SNPChromosome snpchromosome = repositorysnpchromosome.findByOidAndPartitionId( updated.getSnpChromosomePrimaryKey().getOid(), updated.getSnpChromosomePrimaryKey().getPartitionId() );
+        
+        if (snpchromosome == null) {
+        	
+            LOGGER.debug("No snpchromosome found with id: " + updated.getSnpChromosomePrimaryKey().getOid());
+            
+            throw new ExceptionSNPChromosomeNotFound("No snpchromosome found with id: " + updated.getSnpChromosomePrimaryKey().getOid());
+        }
+        
+        snpchromosome.update(
+        		updated.getSnpChromosomePrimaryKey().getOid(),
+        		updated.getSnpChromosomePrimaryKey().getPartitionId(),
+        		
+        		updated.getSnpId(),
+        		updated.getChromosomeId(),
+        		updated.getPosition(),
+        		updated.getReference(),    
+        		updated.getAlternative(),
+        		updated.getRegion(),
+        		updated.getEnsemblGene(),
+        		updated.getEnsemblTranscript(),
+        		updated.getEnsemblAnnotation(),
+        		
+      		    updated.getStrain7Allele(),
+       		    updated.getStrain7AlleleFixed(),
+       		    updated.getStrain7AlleleRatio(),
+    		    updated.getStrain7AlleleAlternativeCount(),
+    		    updated.getStrain7AlleleReferenceCount(),
+
+       		    updated.getStrainPAllele(),
+       		    updated.getStrainPAlleleFixed(),
+       		    updated.getStrainPAlleleRatio(),
+    		    updated.getStrainPAlleleAlternativeCount(),
+    		    updated.getStrainPAlleleReferenceCount(),
+
+       		    updated.getStrainWAllele(),
+       		    updated.getStrainWAlleleFixed(),
+       		    updated.getStrainWAlleleRatio(),
+    		    updated.getStrainWAlleleAlternativeCount(),
+    		    updated.getStrainWAlleleReferenceCount(),
+
+       		    updated.getStrainNAllele(),
+       		    updated.getStrainNAlleleFixed(),
+       		    updated.getStrainNAlleleRatio(),
+    		    updated.getStrainNAlleleAlternativeCount(),
+    		    updated.getStrainNAlleleReferenceCount(),
+
+       		    updated.getStrain15IAllele(),
+       		    updated.getStrain15IAlleleFixed(),
+       		    updated.getStrain15IAlleleRatio(),
+    		    updated.getStrain15IAlleleAlternativeCount(),
+    		    updated.getStrain15IAlleleReferenceCount(),
+
+       		    updated.getStrainZeroAllele(),
+       		    updated.getStrainZeroAlleleFixed(),
+       		    updated.getStrainZeroAlleleRatio(),
+    		    updated.getStrainZeroAlleleAlternativeCount(),
+    		    updated.getStrainZeroAlleleReferenceCount(),
+
+       		    updated.getStrain6Allele(),
+       		    updated.getStrain6AlleleFixed(),
+       		    updated.getStrain6AlleleRatio(),
+    		    updated.getStrain6AlleleAlternativeCount(),
+    		    updated.getStrain6AlleleReferenceCount(),
+
+       		    updated.getStrainCAllele(),
+       		    updated.getStrainCAlleleFixed(),
+       		    updated.getStrainCAlleleRatio(),
+    		    updated.getStrainCAlleleAlternativeCount(),
+    		    updated.getStrainCAlleleReferenceCount(),
+
+                updated.getAminoAcidSubs(),
+                updated.getPredictionCategory(),
+                updated.getScoreSift(),
+                updated.getScoreConservation(),
+                updated.getProteinAlignNumber(),
+                updated.getTotalAlignSequenceNumber(),
+                updated.getScoreProvean()
+        		);
+
+        return snpchromosome;
+    }
+
     /**
      * This setter method should be used only by unit tests.
      * @param repositorySNPChromosome

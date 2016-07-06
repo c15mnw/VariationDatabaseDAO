@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome;
+import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosomePrimaryKey;
 
 import java.util.List;
 
@@ -116,5 +117,11 @@ public interface RepositorySNPChromosome extends JpaRepository<SNPChromosome, Lo
 	
 	@Query("Select p from SNPChromosome p where p.snpChromosomePrimaryKey.partitionId = :longPartition and p.position > :intLowRange and p.position < :intHighRange and not ( p.strain6Allele = p.strainCAllele )" )
     public List<SNPChromosome> findByRangeANDStrain6NEStrainC(@Param("longPartition") long longPartition, @Param("intLowRange") int intLowRange, @Param("intHighRange") int intHighRange );
+
+
+	@Query("Select p from SNPChromosome p where p.snpChromosomePrimaryKey.oid = :longOid and p.snpChromosomePrimaryKey.partitionId = :longPartition " )
+	public SNPChromosome findByOidAndPartitionId(@Param("longOid") long longOid, @Param("longPartition") long longPartition );
+
+
 	
 }

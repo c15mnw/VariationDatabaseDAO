@@ -3,17 +3,15 @@ package com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome;
 import java.util.Collection;
 import java.util.List;
 
-import org.springframework.data.domain.Sort;
-
-import com.roslin.mwicks.spring.variation.dto.offline.DTOSNPChromosome;
-
 import com.roslin.mwicks.spring.variation.dto.web.objects.DTODownload;
 import com.roslin.mwicks.spring.variation.dto.web.objects.DTOSearch;
 
+import com.roslin.mwicks.spring.variation.model.other.PageSNPChromosome;
+
+import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome;
+
 import com.roslin.mwicks.spring.variation.exception.ExceptionSNPChromosomeNotFound;
 
-import com.roslin.mwicks.spring.variation.model.other.PageSNPChromosome;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome;
 
 /**
  * Declares methods used to obtain and modify SNPChromosome information.
@@ -22,6 +20,14 @@ import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome;
 public interface ServiceSNPChromosome {
 	
     /**
+     * Saves a List of SNPChromosome01
+     * @param created   The information of the created snpchromosome.
+     * @return  The created snpchromosome.
+     */
+	public <T extends SNPChromosome> Collection<T> bulkSave(int intBatchSize, Collection<T> entities);
+
+	
+	/**
      * Searches SNPChromosomes by using the search criteria given as a parameter.
      * @param searchCriteria
      * @param pageIndex
@@ -49,12 +55,28 @@ public interface ServiceSNPChromosome {
 
 
     /**
+     * Finds ensemblgene by id.
+     * @param oid    The oid of the wanted ensemblgene.
+     * @return  The found ensemblgene. If no ensemblgene is found, this method returns null.
+     */
+    public SNPChromosome findByOidAndPartitionId(long oid, long partitionId);
+
+
+    /**
      * Finds SNPChromosome by SNPId.
      * @param SnpId    The SNPId of the wanted SNPChromosome.
      * @return  The found SNPChromosome. If no SNPChromosome is found, this method returns null.
      */
     public List<SNPChromosome> findBySnpId(String SnpId);
 
+
+    /**
+     * Updates the information of a snpchromosome.
+     * @param updated   The information of the updated snpchromosome.
+     * @return  The updated snpchromosome.
+     * @throws SNPChromosomeZNotFoundException  if no snpchromosome is found with given id.
+     */
+    public SNPChromosome update(SNPChromosome updated) throws ExceptionSNPChromosomeNotFound;
 
     /**
      * Finds all snpchromosome.

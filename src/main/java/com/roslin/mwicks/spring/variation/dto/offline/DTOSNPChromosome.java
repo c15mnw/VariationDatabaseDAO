@@ -7,6 +7,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome;
+import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosomePrimaryKey;
 import com.roslin.mwicks.spring.variation.format.CustomDateToStringStyle;
 
 import com.roslin.mwicks.utility.ObjectConverter;
@@ -30,7 +31,42 @@ public class DTOSNPChromosome {
 	protected static final String STRING_DELETERIOUS = "DELETERIOUS";
 	protected static final String STRING_BLANK = "";
 	
-    // Properties ---------------------------------------------------------------------------------
+	protected static final String ONLY_NONE = "NONE";
+	protected static final String ONLY_1 = "1";
+	protected static final String ONLY_2 = "2";
+	protected static final String ONLY_3 = "3";
+	protected static final String ONLY_4 = "4";
+	protected static final String ONLY_5 = "5";
+	protected static final String ONLY_6 = "6";
+	protected static final String ONLY_7 = "7";
+	protected static final String ONLY_8 = "8";
+	protected static final String ONLY_9 = "9";
+	protected static final String ONLY_10 = "10";
+	protected static final String ONLY_11 = "11";
+	protected static final String ONLY_12 = "12";
+	protected static final String ONLY_13 = "13";
+	protected static final String ONLY_14 = "14";
+	protected static final String ONLY_15 = "15";
+	protected static final String ONLY_16 = "16";
+	protected static final String ONLY_17 = "17";
+	protected static final String ONLY_18 = "18";
+	protected static final String ONLY_19 = "19";
+	protected static final String ONLY_20 = "20";
+	protected static final String ONLY_21 = "21";
+	protected static final String ONLY_22 = "22";
+	protected static final String ONLY_23 = "23";
+	protected static final String ONLY_24 = "24";
+	protected static final String ONLY_25 = "25";
+	protected static final String ONLY_26 = "26";
+	protected static final String ONLY_27 = "27";
+	protected static final String ONLY_28 = "28";
+	protected static final String ONLY_32 = "32";
+	protected static final String ONLY_LGE22C19W28_E50C23 = "LGE22C19W28_E50C23";
+	protected static final String ONLY_LGE64 = "LGE64";
+	protected static final String ONLY_W = "W";
+	protected static final String ONLY_Z = "Z";
+
+	// Properties ---------------------------------------------------------------------------------
 	private Long oid;
     
     @NotEmpty
@@ -1053,6 +1089,278 @@ public class DTOSNPChromosome {
     	}
     }
     
+    public boolean isDTOChromosomeNone() {
+    	if ( this.chromosomeId.equals(ONLY_NONE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosome1() {
+    	if ( this.chromosomeId.equals(ONLY_1)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosome2() {
+    	if ( this.chromosomeId.equals(ONLY_2)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosome3() {
+    	if ( this.chromosomeId.equals(ONLY_3)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosome4() {
+    	if ( this.chromosomeId.equals(ONLY_4)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosome5() {
+    	if ( this.chromosomeId.equals(ONLY_5)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosome6() {
+    	if ( this.chromosomeId.equals(ONLY_6)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosome7() {
+    	if ( this.chromosomeId.equals(ONLY_7)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosome8() {
+    	if ( this.chromosomeId.equals(ONLY_8)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosome9() {
+    	if ( this.chromosomeId.equals(ONLY_9)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosome10() {
+    	if ( this.chromosomeId.equals(ONLY_10)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosome11() {
+    	if ( this.chromosomeId.equals(ONLY_11)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosome12() {
+    	if ( this.chromosomeId.equals(ONLY_12)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosome13() {
+    	if ( this.chromosomeId.equals(ONLY_13)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosome14() {
+    	if ( this.chromosomeId.equals(ONLY_14)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosome15() {
+    	if ( this.chromosomeId.equals(ONLY_15)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosome16() {
+    	if ( this.chromosomeId.equals(ONLY_16)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosome17() {
+    	if ( this.chromosomeId.equals(ONLY_17)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosome18() {
+    	if ( this.chromosomeId.equals(ONLY_18)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosome19() {
+    	if ( this.chromosomeId.equals(ONLY_19)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosome20() {
+    	if ( this.chromosomeId.equals(ONLY_20)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosome21() {
+    	if ( this.chromosomeId.equals(ONLY_21)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosome22() {
+    	if ( this.chromosomeId.equals(ONLY_22)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosome23() {
+    	if ( this.chromosomeId.equals(ONLY_23)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosome24() {
+    	if ( this.chromosomeId.equals(ONLY_24)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosome25() {
+    	if ( this.chromosomeId.equals(ONLY_25)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosome26() {
+    	if ( this.chromosomeId.equals(ONLY_26)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosome27() {
+    	if ( this.chromosomeId.equals(ONLY_27)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosome28() {
+    	if ( this.chromosomeId.equals(ONLY_28)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosome32() {
+    	if ( this.chromosomeId.equals(ONLY_32)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosomeLGE22C19W28_E50C23() {
+    	if ( this.chromosomeId.equals(ONLY_LGE22C19W28_E50C23)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosomeLGE64() {
+    	if ( this.chromosomeId.equals(ONLY_LGE64)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosomeW() {
+    	if ( this.chromosomeId.equals(ONLY_W)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDTOChromosomeZ() {
+    	if ( this.chromosomeId.equals(ONLY_Z)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
 
 
     // Helpers ------------------------------------------------------------------------------------    
@@ -1060,6 +1368,50 @@ public class DTOSNPChromosome {
      * Is this SNPChromosome VALID?
      */
     public boolean isThisAValidSNPChromosome(){
+
+    	/*
+ 		System.out.println("isThisAValidSNPChromosome");
+
+ 		System.out.println("1 : " + this.isPositionAnInteger() );
+	    System.out.println("2 : " + this.isStrain7AlleleFixedAValidValue() );
+	    System.out.println("3 : " + this.isStrainPAlleleFixedAValidValue() );
+	    System.out.println("4 : " + this.isStrainWAlleleFixedAValidValue() );
+	    System.out.println("5 : " + this.isStrainNAlleleFixedAValidValue() );
+	    System.out.println("6 : " + this.isStrain15IAlleleFixedAValidValue() );
+	    System.out.println("7 : " + this.isStrainZeroAlleleFixedAValidValue() );
+	    System.out.println("8 : " + this.isStrain6AlleleFixedAValidValue() );
+	    System.out.println("9 : " + this.isStrainCAlleleFixedAValidValue() );
+	    System.out.println("10 : " + this.isStrain7AlleleRatioANumber() );
+	    System.out.println("11 : " + this.isStrain7AlleleAlternativeCountANumber() );
+	    System.out.println("12 : " + this.isStrain7AlleleReferenceCountANumber() );
+	    System.out.println("13 : " + this.isStrainPAlleleRatioANumber() );
+	    System.out.println("14 : " + this.isStrainPAlleleAlternativeCountANumber() );
+	    System.out.println("15 : " + this.isStrainPAlleleReferenceCountANumber() );
+	    System.out.println("16 : " + this.isStrainWAlleleRatioANumber() );
+	    System.out.println("17 : " + this.isStrainWAlleleAlternativeCountANumber() );
+	    System.out.println("18 : " + this.isStrainWAlleleReferenceCountANumber() );
+	    System.out.println("19 : " + this.isStrainNAlleleRatioANumber() );
+	    System.out.println("20 : " + this.isStrainNAlleleAlternativeCountANumber() );
+	    System.out.println("21 : " + this.isStrainNAlleleReferenceCountANumber() );
+	    System.out.println("22 : " + this.isStrain15IAlleleRatioANumber() );
+	    System.out.println("23 : " + this.isStrain15IAlleleAlternativeCountANumber() );
+	    System.out.println("24 : " + this.isStrain15IAlleleReferenceCountANumber() );
+	    System.out.println("25 : " + this.isStrainZeroAlleleRatioANumber() );
+	    System.out.println("26 : " + this.isStrainZeroAlleleAlternativeCountANumber() );
+	    System.out.println("27 : " + this.isStrainZeroAlleleReferenceCountANumber() );
+	    System.out.println("28 : " + this.isStrain6AlleleRatioANumber() );
+	    System.out.println("29 : " + this.isStrain6AlleleAlternativeCountANumber() );
+	    System.out.println("30 : " + this.isStrain6AlleleReferenceCountANumber() );
+	    System.out.println("31 : " + this.isStrainCAlleleRatioANumber() );
+	    System.out.println("32 : " + this.isStrainCAlleleAlternativeCountANumber() );
+	    System.out.println("33 : " + this.isStrainCAlleleReferenceCountANumber() );
+	    System.out.println("34 : " + this.isPredictionCategoryAValidValue() );
+	    System.out.println("35 : " + this.isScoreSiftANumber() );
+	    System.out.println("36 : " + this.isScoreConservationANumber() );
+	    System.out.println("37 : " + this.isProteinAlignNumbertANumber() );
+	    System.out.println("38 : " + this.isTotalAlignSequenceNumberANumber() );
+	    System.out.println("39 : " + this.isScoreProveanANumber() );
+    	 */
 
         if (this.isPositionAnInteger() && 
         	    this.isStrain7AlleleFixedAValidValue() && 
@@ -1124,6 +1476,110 @@ public class DTOSNPChromosome {
      * Convert a DTOSNPChromosome Object to an SNPChromosome Object
      */
     public SNPChromosome convertToSNPChromosome(){
+
+    	SNPChromosomePrimaryKey snpChromosomePrimaryKey = new SNPChromosomePrimaryKey();
+    	
+ 		if ( this.isDTOChromosome1() ){
+ 			snpChromosomePrimaryKey.setPartitionId(1);
+ 		}
+ 		if ( this.isDTOChromosome2() ){
+ 			snpChromosomePrimaryKey.setPartitionId(2);
+ 		}
+ 		if ( this.isDTOChromosome3() ){
+ 			snpChromosomePrimaryKey.setPartitionId(3);
+ 		}
+ 		if ( this.isDTOChromosome4() ){
+ 			snpChromosomePrimaryKey.setPartitionId(4);
+ 		}
+ 		if ( this.isDTOChromosome5() ){
+ 			snpChromosomePrimaryKey.setPartitionId(5);
+ 		}
+ 		if ( this.isDTOChromosome6() ){
+ 			snpChromosomePrimaryKey.setPartitionId(6);
+ 		}
+ 		if ( this.isDTOChromosome7() ){
+ 			snpChromosomePrimaryKey.setPartitionId(7);
+ 		}
+ 		if ( this.isDTOChromosome8() ){
+ 			snpChromosomePrimaryKey.setPartitionId(8);
+ 		}
+ 		if ( this.isDTOChromosome9() ){
+ 			snpChromosomePrimaryKey.setPartitionId(9);
+ 		}
+ 		if ( this.isDTOChromosome10() ){
+ 			snpChromosomePrimaryKey.setPartitionId(10);
+ 		}
+ 		if ( this.isDTOChromosome11() ){
+ 			snpChromosomePrimaryKey.setPartitionId(11);
+ 		}
+ 		if ( this.isDTOChromosome12() ){
+ 			snpChromosomePrimaryKey.setPartitionId(12);
+ 		}
+ 		if ( this.isDTOChromosome13() ){
+ 			snpChromosomePrimaryKey.setPartitionId(13);
+ 		}
+ 		if ( this.isDTOChromosome14() ){
+ 			snpChromosomePrimaryKey.setPartitionId(14);
+ 		}
+ 		if ( this.isDTOChromosome15() ){
+ 			snpChromosomePrimaryKey.setPartitionId(15);
+ 		}
+ 		if ( this.isDTOChromosome16() ){
+ 			snpChromosomePrimaryKey.setPartitionId(16);
+ 		}
+ 		if ( this.isDTOChromosome17() ){
+ 			snpChromosomePrimaryKey.setPartitionId(17);
+ 		}
+ 		if ( this.isDTOChromosome18() ){
+ 			snpChromosomePrimaryKey.setPartitionId(18);
+ 		}
+ 		if ( this.isDTOChromosome19() ){
+ 			snpChromosomePrimaryKey.setPartitionId(19);
+ 		}
+ 		if ( this.isDTOChromosome20() ){
+ 			snpChromosomePrimaryKey.setPartitionId(20);
+ 		}
+ 		if ( this.isDTOChromosome21() ){
+ 			snpChromosomePrimaryKey.setPartitionId(21);
+ 		}
+ 		if ( this.isDTOChromosome22() ){
+ 			snpChromosomePrimaryKey.setPartitionId(22);
+ 		}
+ 		if ( this.isDTOChromosome23() ){
+ 			snpChromosomePrimaryKey.setPartitionId(23);
+ 		}
+ 		if ( this.isDTOChromosome24() ){
+ 			snpChromosomePrimaryKey.setPartitionId(24);
+ 		}
+ 		if ( this.isDTOChromosome25() ){
+ 			snpChromosomePrimaryKey.setPartitionId(25);
+ 		}
+ 		if ( this.isDTOChromosome26() ){
+ 			snpChromosomePrimaryKey.setPartitionId(26);
+ 		}
+ 		if ( this.isDTOChromosome27() ){
+ 			snpChromosomePrimaryKey.setPartitionId(27);
+ 		}
+ 		if ( this.isDTOChromosome28() ){
+ 			snpChromosomePrimaryKey.setPartitionId(28);
+ 		}
+ 		if ( this.isDTOChromosomeLGE22C19W28_E50C23() ){
+ 			snpChromosomePrimaryKey.setPartitionId(29);
+ 		}
+ 		if ( this.isDTOChromosomeLGE64() ){
+ 			snpChromosomePrimaryKey.setPartitionId(30);
+ 		}
+ 		if ( this.isDTOChromosomeW() ){
+ 			snpChromosomePrimaryKey.setPartitionId(31);
+ 		}
+ 		if ( this.isDTOChromosome32() ){
+ 			snpChromosomePrimaryKey.setPartitionId(32);
+ 		}
+ 		if ( this.isDTOChromosomeZ() ){
+ 			snpChromosomePrimaryKey.setPartitionId(33);
+ 		}
+ 		
+ 		snpChromosomePrimaryKey.setOid(this.getOid());
 
     	SNPChromosome snpchromosome = SNPChromosome.getBuilder(
         		this.getSnpId(),
@@ -1193,6 +1649,8 @@ public class DTOSNPChromosome {
                 this.getScoreProveanAsDouble()
         		).build();
         
+    	snpchromosome.setSnpChromosomePrimaryKey( snpChromosomePrimaryKey );
+    	
         return snpchromosome;
     }
 
