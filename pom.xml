@@ -219,9 +219,7 @@
                 <executions>
                     <execution>
                         <id>install-jar-lib</id>
-                        <goals>
                             <goal>install-file</goal>
-                        <goals>
                         <phase>validate</validate>                    
                     </execution>
                 </executions>
