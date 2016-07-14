@@ -210,7 +210,7 @@
                 <artifactId>maven-install-plugin</artifactId>
                 <version>2.5.2</version>
                 <configuration>
-                    <file>${basedir}/lib/UsefulJavaRoslin-1.0.0.jar</file>
+                    <file>${basedir}/lib/UsefulJavaRoslin-${UsefulJavaRoslin.version}.jar</file>
                     <groupId>UsefulJavaRoslin</groupId>
                     <artifactId>UsefulJavaRoslin</artifactId>
                     <version>${UsefulJavaRoslin.version}</version>
