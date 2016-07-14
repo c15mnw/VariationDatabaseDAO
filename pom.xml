@@ -30,7 +30,7 @@
         <javax.el-api.version>3.0.0</javax.el-api.version>
     </properties>
   
-      <dependencies>
+    <dependencies>
     
         <dependency>
             <groupId>javax.el</groupId>
@@ -202,4 +202,34 @@
 
     </dependencies>
   
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>2.5.2</version>
+                <executions>
+                    <execution>
+                        <id>install-external</id>
+                        <phase>clean</phase>
+                        <configuration>
+                            <file>${basedir}/lib/UsefulJavaRoslin-1.0.0.jar</file>
+                            <repositoryLayout>default</repositoryLayout>
+                            <groupId>UsefulJavaRoslin</groupId>
+                            <artifactId>UsefulJavaRoslin</artifactId>
+                            <version>${UsefulJavaRoslin.version}</version>
+                            <packaging>jar</packaging>
+                            <generatePom>true</generatePom>
+                        </configuration>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+        
 </project>
