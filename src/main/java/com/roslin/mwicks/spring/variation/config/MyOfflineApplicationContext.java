@@ -35,6 +35,7 @@ import java.util.Properties;
 @PropertySource("classpath:offline_application.properties")
 public class MyOfflineApplicationContext {
 
+	
     private static final String PROPERTY_NAME_DATABASE_DRIVER = "db.driver";
     private static final String PROPERTY_NAME_DATABASE_PASSWORD = "db.password";
     private static final String PROPERTY_NAME_DATABASE_URL = "db.url";
