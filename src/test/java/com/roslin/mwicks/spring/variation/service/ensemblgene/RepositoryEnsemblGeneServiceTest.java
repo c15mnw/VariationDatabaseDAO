@@ -4,13 +4,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchSortField;
-
+import com.roslin.mwicks.spring.variation.exception.ensemblgene.ExceptionEnsemblGeneNotFound;
 import com.roslin.mwicks.spring.variation.model.ensemblgene.EnsemblGene;
 import com.roslin.mwicks.spring.variation.model.ensemblgene.EnsemblGeneTestUtil;
 
 import com.roslin.mwicks.spring.variation.repository.ensemblgene.RepositoryEnsemblGene;
 import com.roslin.mwicks.spring.variation.dto.offline.DTOEnsemblGene;
-import com.roslin.mwicks.spring.variation.exception.ExceptionEnsemblGeneNotFound;
 
 import org.junit.Before;
 import org.junit.Test;

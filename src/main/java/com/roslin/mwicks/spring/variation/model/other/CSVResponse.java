@@ -3,7 +3,7 @@ package com.roslin.mwicks.spring.variation.model.other;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import com.roslin.mwicks.spring.variation.dto.web.objects.DTODownload;
+import com.roslin.mwicks.spring.variation.dto.web.objects.snpchromosome.DTODownloadSNPChromosome;
 import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome;
 
 
@@ -14,14 +14,14 @@ public class CSVResponse extends ArrayList<SNPChromosome> {
 
 	
 	// Properties ---------------------------------------------------------------------------------
-    private DTODownload dtoDownload;
+    private DTODownloadSNPChromosome dtoDownload;
 
     
     // Constructor --------------------------------------------------------------------------------
 	public CSVResponse() {
     }
 
-    public CSVResponse(DTODownload dtoDownload, Collection<? extends SNPChromosome> c) {
+    public CSVResponse(DTODownloadSNPChromosome dtoDownload, Collection<? extends SNPChromosome> c) {
      
     	super(c);
 
@@ -30,13 +30,13 @@ public class CSVResponse extends ArrayList<SNPChromosome> {
 
     
     // Getters ------------------------------------------------------------------------------------
-    public DTODownload getDTODownload() {
+    public DTODownloadSNPChromosome getDTODownloadSNPChromosome() {
         return this.dtoDownload;
     }
 
     
     // Setters ------------------------------------------------------------------------------------
-    public void setDTODownload(DTODownload dtoDownload) {
+    public void setDTODownloadSNPChromosome(DTODownloadSNPChromosome dtoDownload) {
         this.dtoDownload = dtoDownload;
     }
 

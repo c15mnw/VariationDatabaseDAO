@@ -1009,6 +1009,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     public void setScoreProvean(double scoreProvean) {
     	this.scoreProvean = scoreProvean;
     }
+
     public void setCreationTime(Date creationTime) {
     	this.creationTime = creationTime;
     }

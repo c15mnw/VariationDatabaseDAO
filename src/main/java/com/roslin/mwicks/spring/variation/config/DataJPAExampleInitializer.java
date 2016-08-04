@@ -22,6 +22,8 @@ public class DataJPAExampleInitializer implements WebApplicationInitializer {
     	
         AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
         rootContext.register(MyWebApplicationContext.class);
+        
+        System.out.println("rootContext.toString() : " + rootContext.toString());
 
         ServletRegistration.Dynamic dispatcher = servletContext.addServlet(DISPATCHER_SERVLET_NAME, new DispatcherServlet(rootContext));
         dispatcher.setLoadOnStartup(1);

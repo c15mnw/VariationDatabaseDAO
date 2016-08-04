@@ -29,7 +29,8 @@ import java.util.Properties;
  */
 @Configuration
 @ComponentScan(basePackages = {"com.roslin.mwicks.spring.variation.service.snpchromosome," +
-                               "com.roslin.mwicks.spring.variation.service.ensemblgene"})
+                               "com.roslin.mwicks.spring.variation.service.ensemblgene," +
+                               "com.roslin.mwicks.spring.variation.service.snpinsertiondeletion"})
 @EnableTransactionManagement
 @ImportResource("classpath:applicationContext.xml")
 @PropertySource("classpath:offline_application.properties")

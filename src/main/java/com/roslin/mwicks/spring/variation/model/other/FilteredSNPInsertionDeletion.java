@@ -4,21 +4,23 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/*
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterProteinAlignNumber;
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterProveanScore;
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterSiftConservationScore;
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterSiftScore;
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterTotalNumberSeqAligned;
+ */
 
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome;
+import com.roslin.mwicks.spring.variation.model.snpinsertiondeletion.SNPInsertionDeletion;
 
 /**
- * An entity class which contains the information of a single SNPChromosome1 Table Row.
+ * An entity class which contains the information of a single SNPInsertionDeletion1 Table Row.
  * @author Mike Wicks
  */
 
 @SuppressWarnings("serial")
-public class FilteredSNPChromosome {
+public class FilteredSNPInsertionDeletion {
     
     // Constants ----------------------------------------------------------------------------------	
 	protected static final String SIFT_SCORE_ABOVE = "SIFT_SCORE_ABOVE";
@@ -42,33 +44,38 @@ public class FilteredSNPChromosome {
     private int totalPages;
     private long totalElements;
 
+    /*
     private double searchFilterSiftScoreValue;
     private double searchFilterSiftConservationScoreValue;
     private long searchFilterProteinAlignNumberValue;
     private long searchFilterTotalNumberSeqAlignedValue;
     private double searchFilterProveanScoreValue;
+     */
 
+    /*
     private SearchFilterSiftScore searchFilterSiftScore;
     private SearchFilterSiftConservationScore searchFilterSiftConservationScore;
     private SearchFilterProteinAlignNumber searchFilterProteinAlignNumber;
     private SearchFilterTotalNumberSeqAligned searchFilterTotalNumberSeqAligned;
     private SearchFilterProveanScore searchFilterProveanScore;
+     */
     
-    private List<SNPChromosome> inputSNPChromosomes = new ArrayList<SNPChromosome>();
-    private List<SNPChromosome> filteredSNPChromosomes = new ArrayList<SNPChromosome>();
-    private List<SNPChromosome> pagedSNPChromosomes = new ArrayList<SNPChromosome>();
+    private List<SNPInsertionDeletion> inputSNPInsertionDeletions = new ArrayList<SNPInsertionDeletion>();
+    private List<SNPInsertionDeletion> filteredSNPInsertionDeletions = new ArrayList<SNPInsertionDeletion>();
+    private List<SNPInsertionDeletion> pagedSNPInsertionDeletions = new ArrayList<SNPInsertionDeletion>();
 
 
     
     // Constructors --------------------------------------------------------------------------------
-	public FilteredSNPChromosome() {
+	public FilteredSNPInsertionDeletion() {
     }
 
-    public FilteredSNPChromosome(
+    public FilteredSNPInsertionDeletion(
     		int pageNumber, 
     		int pageSize, 
     		int totalPages, 
     		long totalElements, 
+    		/*
     		double searchFilterSiftScoreValue, 
     		double searchFilterSiftConservationScoreValue, 
     		long searchFilterProteinAlignNumberValue, 
@@ -79,15 +86,17 @@ public class FilteredSNPChromosome {
     	    SearchFilterProteinAlignNumber searchFilterProteinAlignNumber,
     	    SearchFilterTotalNumberSeqAligned searchFilterTotalNumberSeqAligned,
     	    SearchFilterProveanScore searchFilterProveanScore,
-    	    List<SNPChromosome> inputSNPChromosomes) {
+    		 */
+    	    List<SNPInsertionDeletion> inputSNPInsertionDeletions) {
         	
-    	this.inputSNPChromosomes = inputSNPChromosomes;
+    	this.inputSNPInsertionDeletions = inputSNPInsertionDeletions;
     	
     	this.pageNumber = pageNumber;
     	this.pageSize = pageSize;
     	this.totalPages = totalPages;
     	this.totalElements = totalElements;
 
+    	/*
     	this.searchFilterSiftScoreValue = searchFilterSiftScoreValue;
     	this.searchFilterSiftConservationScoreValue = searchFilterSiftConservationScoreValue;
     	this.searchFilterProteinAlignNumberValue = searchFilterProteinAlignNumberValue;
@@ -99,9 +108,10 @@ public class FilteredSNPChromosome {
     	this.searchFilterProteinAlignNumber = searchFilterProteinAlignNumber;
     	this.searchFilterTotalNumberSeqAligned = searchFilterTotalNumberSeqAligned;
     	this.searchFilterProveanScore = searchFilterProveanScore;
+    	 */
     	
-    	this.filteredSNPChromosomes = new ArrayList<SNPChromosome>();
-    	this.pagedSNPChromosomes = new ArrayList<SNPChromosome>();
+    	this.filteredSNPInsertionDeletions = new ArrayList<SNPInsertionDeletion>();
+    	this.pagedSNPInsertionDeletions = new ArrayList<SNPInsertionDeletion>();
     	
     	filterSNPChromsomes();
 
@@ -122,6 +132,7 @@ public class FilteredSNPChromosome {
     public long getTotalElements() {
         return this.totalElements;
     }
+    /*
     public double getSearchFilterSiftScoreValue() {
         return this.searchFilterSiftScoreValue;
     }
@@ -152,13 +163,15 @@ public class FilteredSNPChromosome {
     public SearchFilterProveanScore getSearchFilterProveanScore() {
         return this.searchFilterProveanScore;
     }
-    public List<SNPChromosome> getFilteredSNPChromosomes() {
-        return this.filteredSNPChromosomes;
+     */
+    public List<SNPInsertionDeletion> getFilteredSNPInsertionDeletions() {
+        return this.filteredSNPInsertionDeletions;
     }
-    public List<SNPChromosome> getPagedSNPChromosomes() {
-        return this.pagedSNPChromosomes;
+    public List<SNPInsertionDeletion> getPagedSNPInsertionDeletions() {
+        return this.pagedSNPInsertionDeletions;
     }
-    
+
+    /*
     public boolean isSearchFilterSiftScoreValueZero() {
         if ( this.searchFilterSiftScoreValue == 0) {
     		return true;
@@ -284,6 +297,7 @@ public class FilteredSNPChromosome {
     		return false;
     	}
     }
+     */
 
     // Setters ------------------------------------------------------------------------------------
     public void setPageNumber(int pageNumber) {
@@ -298,6 +312,7 @@ public class FilteredSNPChromosome {
     public void geTotalElements(long totalElements) {
     	this.totalElements = totalElements;
     }
+    /*
     public void setSearchFilterSiftScoreValue(double searchFilterSiftScoreValue) {
     	this.searchFilterSiftScoreValue = searchFilterSiftScoreValue;
     }
@@ -328,24 +343,28 @@ public class FilteredSNPChromosome {
     public void setSearchFilterProveanScore(SearchFilterProveanScore searchFilterProveanScore) {
         this.searchFilterProveanScore = searchFilterProveanScore;
     }
-    public void setFilteredSNPChromosomes(ArrayList<SNPChromosome> filteredSNPChromosomes) {
-        this.filteredSNPChromosomes = filteredSNPChromosomes;
+     */
+    public void setFilteredSNPInsertionDeletions(ArrayList<SNPInsertionDeletion> filteredSNPInsertionDeletions) {
+        this.filteredSNPInsertionDeletions = filteredSNPInsertionDeletions;
     }
-    public void setPagedSNPChromosomes(ArrayList<SNPChromosome> pagedSNPChromosomes) {
-        this.pagedSNPChromosomes = pagedSNPChromosomes;
+    public void setPagedSNPInsertionDeletions(ArrayList<SNPInsertionDeletion> pagedSNPInsertionDeletions) {
+        this.pagedSNPInsertionDeletions = pagedSNPInsertionDeletions;
     }
 
     // Helpers ------------------------------------------------------------------------------------
     public void filterSNPChromsomes() {
 
-        Iterator<SNPChromosome> iteratorInputSNPChromosomes = this.inputSNPChromosomes.iterator();
+        Iterator<SNPInsertionDeletion> iteratorInputSNPInsertionDeletions = this.inputSNPInsertionDeletions.iterator();
         
-     	while (iteratorInputSNPChromosomes.hasNext()) {
+     	while (iteratorInputSNPInsertionDeletions.hasNext()) {
     		
-     		SNPChromosome snpchromosome = iteratorInputSNPChromosomes.next();
+     		SNPInsertionDeletion snpinsertiondeletion = iteratorInputSNPInsertionDeletions.next();
 
-     		boolean addRow = false;
+     		boolean addRow = true;
      		
+     		//boolean addRow = false;
+     		
+     		/*
      		// Are there any Filters set?
      		if ( this.isSearchFilterSiftScoreValueZero() && 
      				this.isSearchFilterSiftConservationScoreValueZero() && 
@@ -359,11 +378,11 @@ public class FilteredSNPChromosome {
      		// Yes - Filter values set
      		else {
      			// Does the input row have any Provean/Sift data
-     			if ( snpchromosome.getScoreSift() == 0 &&
-     					snpchromosome.getScoreConservation() == 0 &&
-     					snpchromosome.getProteinAlignNumber() == 0 &&
-     					snpchromosome.getTotalAlignSequenceNumber() == 0 && 
-     					snpchromosome.getScoreProvean() == 0 ) {
+     			if ( snpinsertiondeletion.getScoreSift() == 0 &&
+     					snpinsertiondeletion.getScoreConservation() == 0 &&
+     					snpinsertiondeletion.getProteinAlignNumber() == 0 &&
+     					snpinsertiondeletion.getTotalAlignSequenceNumber() == 0 && 
+     					snpinsertiondeletion.getScoreProvean() == 0 ) {
      				
      				// No data on the row - Therefore IGNORE
      				addRow = false;
@@ -373,14 +392,14 @@ public class FilteredSNPChromosome {
      				// searchFilterProveanScoreValue;
     				if ( this.isSearchFilterProveanScoreAbove() ) {
     					if ( !this.isSearchFilterProveanScoreValueZero() ) {
-    						if ( snpchromosome.getScoreProvean() > this.searchFilterProveanScoreValue ) {
+    						if ( snpinsertiondeletion.getScoreProvean() > this.searchFilterProveanScoreValue ) {
     							addRow = true;
     						}
     					}
     				}
     				else {
     					if ( !this.isSearchFilterProveanScoreValueZero() ) {
-    						if ( snpchromosome.getScoreProvean() < this.searchFilterProveanScoreValue ) {
+    						if ( snpinsertiondeletion.getScoreProvean() < this.searchFilterProveanScoreValue ) {
       							addRow = true;
     						}
     					}
@@ -388,14 +407,14 @@ public class FilteredSNPChromosome {
      				// searchFilterSiftScoreValue;
      				if ( this.isSearchFilterSiftScoreAbove()) {
      				    if ( !this.isSearchFilterSiftScoreValueZero() ) {
-     				        if ( snpchromosome.getScoreSift() > this.searchFilterSiftScoreValue ) {
+     				        if ( snpinsertiondeletion.getScoreSift() > this.searchFilterSiftScoreValue ) {
      				        	addRow = true;
      				        }
      				    }
      				}
      				else {
      					if ( !this.isSearchFilterSiftScoreValueZero() ) {
-     						if ( snpchromosome.getScoreSift() < this.searchFilterSiftScoreValue ) {
+     						if ( snpinsertiondeletion.getScoreSift() < this.searchFilterSiftScoreValue ) {
      							addRow = true;
      						}
      					}
@@ -403,14 +422,14 @@ public class FilteredSNPChromosome {
      				// searchFilterSiftConservationScoreValue
      				if ( this.isSearchFilterSiftConservationScoreAbove() ) {
      					if ( !this.isSearchFilterSiftConservationScoreValueZero() ) {
-     						if ( snpchromosome.getScoreConservation() > this.searchFilterSiftConservationScoreValue ) {
+     						if ( snpinsertiondeletion.getScoreConservation() > this.searchFilterSiftConservationScoreValue ) {
      							addRow = true;
      						}
      					}
      				}
      				else {
      					if ( !this.isSearchFilterSiftConservationScoreValueZero() ) {
-     						if ( snpchromosome.getScoreConservation() < this.searchFilterSiftConservationScoreValue ) {
+     						if ( snpinsertiondeletion.getScoreConservation() < this.searchFilterSiftConservationScoreValue ) {
      							addRow = true;
      						}
      					}
@@ -418,14 +437,14 @@ public class FilteredSNPChromosome {
      				// searchFilterProteinAlignNumberValue
      				if ( this.isSearchFilterProteinAlignNumberAbove() ) {
      					if ( !this.isSearchFilterProteinAlignNumberValueZero() ) {
-     						if ( snpchromosome.getProteinAlignNumber() > this.searchFilterProteinAlignNumberValue ) {
+     						if ( snpinsertiondeletion.getProteinAlignNumber() > this.searchFilterProteinAlignNumberValue ) {
      							addRow = true;
     						}
      					}
      				}
      				else {
      					if ( !this.isSearchFilterProteinAlignNumberValueZero() ) {
-     						if ( snpchromosome.getProteinAlignNumber() < this.searchFilterProteinAlignNumberValue ) {
+     						if ( snpinsertiondeletion.getProteinAlignNumber() < this.searchFilterProteinAlignNumberValue ) {
      							addRow = true;
      						}
      					}
@@ -433,35 +452,36 @@ public class FilteredSNPChromosome {
      				// searchFilterTotalNumberSeqAlignedValue
      				if ( this.isSearchFilterTotalNumberSeqAlignedAbove() ) {
      					if ( !this.isSearchFilterTotalNumberSeqAlignedValueZero() ) {
-     						if ( snpchromosome.getTotalAlignSequenceNumber() > this.searchFilterTotalNumberSeqAlignedValue ) {
+     						if ( snpinsertiondeletion.getTotalAlignSequenceNumber() > this.searchFilterTotalNumberSeqAlignedValue ) {
      							addRow = true;
      						}
      					}
      				}
      				else {
      					if ( !this.isSearchFilterTotalNumberSeqAlignedValueZero() ) {
-     						if ( snpchromosome.getTotalAlignSequenceNumber() < this.searchFilterTotalNumberSeqAlignedValue ) {
+     						if ( snpinsertiondeletion.getTotalAlignSequenceNumber() < this.searchFilterTotalNumberSeqAlignedValue ) {
      							addRow = true;
      						}
      					}
      				}
      			}
      		}
+     		 */
 
      		// Have we found a row to add; that matches our filter criteria?
      		if ( addRow ) {
-         		this.filteredSNPChromosomes.add(snpchromosome);
+         		this.filteredSNPInsertionDeletions.add(snpinsertiondeletion);
      		}
      	}
     }
     
     public void pageSNPChromsomes() {
 
-    	this.totalElements = this.filteredSNPChromosomes.size();
+    	this.totalElements = this.filteredSNPInsertionDeletions.size();
     	
-    	this.totalPages = this.filteredSNPChromosomes.size() / this.pageSize;
+    	this.totalPages = this.filteredSNPInsertionDeletions.size() / this.pageSize;
 
-    	int remainder = this.filteredSNPChromosomes.size() % this.pageSize;
+    	int remainder = this.filteredSNPInsertionDeletions.size() % this.pageSize;
     	
     	if ( remainder > 0 ) {
     		
@@ -471,14 +491,14 @@ public class FilteredSNPChromosome {
         int startIndex = ( this.pageSize * ( this.pageNumber - 1 ) );
     	int endIndex = ( this.pageSize * this.pageNumber ) - 1;
     	
-    	if ( endIndex > this.filteredSNPChromosomes.size() ) {
+    	if ( endIndex > this.filteredSNPInsertionDeletions.size() ) {
     		
-    		endIndex = this.filteredSNPChromosomes.size() - 1;
+    		endIndex = this.filteredSNPInsertionDeletions.size() - 1;
     	}
 
     	for (int i = startIndex; i <= endIndex; i++) {
     		
-    		this.pagedSNPChromosomes.add(this.filteredSNPChromosomes.get(i));
+    		this.pagedSNPInsertionDeletions.add(this.filteredSNPInsertionDeletions.get(i));
     	}
     }
 

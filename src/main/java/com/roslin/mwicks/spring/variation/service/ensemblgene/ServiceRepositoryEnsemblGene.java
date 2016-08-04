@@ -1,8 +1,7 @@
 package com.roslin.mwicks.spring.variation.service.ensemblgene;
 
 import com.roslin.mwicks.spring.variation.dto.offline.DTOEnsemblGene;
-import com.roslin.mwicks.spring.variation.exception.ExceptionEnsemblGeneNotFound;
-
+import com.roslin.mwicks.spring.variation.exception.ensemblgene.ExceptionEnsemblGeneNotFound;
 import com.roslin.mwicks.spring.variation.model.ensemblgene.EnsemblGene;
 
 import com.roslin.mwicks.spring.variation.repository.ensemblgene.RepositoryEnsemblGene;

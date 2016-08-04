@@ -1,8 +1,10 @@
 package com.roslin.mwicks.spring.variation.service.snpchromosome;
 
-import com.roslin.mwicks.spring.variation.dto.web.objects.DTODownload;
-import com.roslin.mwicks.spring.variation.dto.web.objects.DTOSearch;
-import com.roslin.mwicks.spring.variation.exception.ExceptionSNPChromosomeNotFound;
+import com.roslin.mwicks.spring.variation.dto.web.objects.snpchromosome.DTODownloadSNPChromosome;
+import com.roslin.mwicks.spring.variation.dto.web.objects.snpchromosome.DTOSearchSNPChromosome;
+
+import com.roslin.mwicks.spring.variation.exception.snpchromosome.ExceptionSNPChromosomeNotFound;
+
 import com.roslin.mwicks.spring.variation.model.other.PageSNPChromosome;
 
 import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome;
@@ -103,7 +105,7 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
     	 
     
     @Transactional(readOnly = true)
-    public List<SNPChromosome> download(DTODownload dtoDownload) {
+    public List<SNPChromosome> download(DTODownloadSNPChromosome dtoDownload) {
         
     	LOGGER.debug("Downloading snpchromosomes with download criteria: " + dtoDownload);
     	
@@ -441,7 +443,7 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
 
     
 	@Transactional(readOnly = true)
-    public PageSNPChromosome search(DTOSearch dtoSearch, int pageNumber, String sortField, String sortDirection) {
+    public PageSNPChromosome search(DTOSearchSNPChromosome dtoSearch, int pageNumber, String sortField, String sortDirection) {
         
     	LOGGER.debug("Searching snpchromosomes with search criteria: " + dtoSearch);
 

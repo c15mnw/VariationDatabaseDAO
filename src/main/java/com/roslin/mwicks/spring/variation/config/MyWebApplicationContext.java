@@ -40,14 +40,20 @@ import java.util.Properties;
  *
  * @author Petri Kainulainen
  */
+/*
+@ComponentScan(basePackages = {"com.roslin.mwicks.spring.variation.controller.snpinsertiondeletion," +
+                               "com.roslin.mwicks.spring.variation.service.snpinsertiondeletion," +
+                               "com.roslin.mwicks.spring.variation.service.ensemblgene"})
+ */
 @Configuration
-@ComponentScan(basePackages = {"com.roslin.mwicks.spring.variation.controller",
-                               "com.roslin.mwicks.spring.variation.service.snpchromosome",
+@ComponentScan(basePackages = {"com.roslin.mwicks.spring.variation.controller.snpchromosome," +
+                               "com.roslin.mwicks.spring.variation.controller.snpinsertiondeletion," +
+                               "com.roslin.mwicks.spring.variation.service.snpchromosome," +
+                               "com.roslin.mwicks.spring.variation.service.snpinsertiondeletion," +
                                "com.roslin.mwicks.spring.variation.service.ensemblgene"})
 @EnableTransactionManagement
 @EnableWebMvc
-@ImportResource({"classpath:applicationContext.xml", 
-		         "classpath:spring-security.xml"})
+@ImportResource("classpath:applicationContext.xml")
 @PropertySource("classpath:application.properties")
 public class MyWebApplicationContext extends WebMvcConfigurerAdapter {
 
@@ -113,6 +119,8 @@ public class MyWebApplicationContext extends WebMvcConfigurerAdapter {
         entityManagerFactoryBean.setDataSource(dataSource());
         entityManagerFactoryBean.setPackagesToScan(environment.getRequiredProperty(PROPERTY_NAME_ENTITYMANAGER_PACKAGES_TO_SCAN));
         entityManagerFactoryBean.setPersistenceProviderClass(HibernatePersistence.class);
+
+        System.out.println("entityManagerFactoryBean.toString() : " + entityManagerFactoryBean.toString());
 
         Properties jpaProterties = new Properties();
         jpaProterties.put(PROPERTY_NAME_HIBERNATE_DIALECT, environment.getRequiredProperty(PROPERTY_NAME_HIBERNATE_DIALECT));

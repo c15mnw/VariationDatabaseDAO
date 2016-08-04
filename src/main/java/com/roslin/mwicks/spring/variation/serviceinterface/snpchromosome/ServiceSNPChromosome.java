@@ -3,14 +3,14 @@ package com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome;
 import java.util.Collection;
 import java.util.List;
 
-import com.roslin.mwicks.spring.variation.dto.web.objects.DTODownload;
-import com.roslin.mwicks.spring.variation.dto.web.objects.DTOSearch;
+import com.roslin.mwicks.spring.variation.dto.web.objects.snpchromosome.DTODownloadSNPChromosome;
+import com.roslin.mwicks.spring.variation.dto.web.objects.snpchromosome.DTOSearchSNPChromosome;
+
+import com.roslin.mwicks.spring.variation.exception.snpchromosome.ExceptionSNPChromosomeNotFound;
 
 import com.roslin.mwicks.spring.variation.model.other.PageSNPChromosome;
 
 import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome;
-
-import com.roslin.mwicks.spring.variation.exception.ExceptionSNPChromosomeNotFound;
 
 
 /**
@@ -34,7 +34,7 @@ public interface ServiceSNPChromosome {
      * @return  A Page of SNPChromosomes matching with the search criteria. 
      *          If no SNPChromosomes is found, this method returns an empty list.
      */
-    public PageSNPChromosome search(DTOSearch searchCriteria, int pageNumber, String sortField, String sortDirection);
+    public PageSNPChromosome search(DTOSearchSNPChromosome searchCriteria, int pageNumber, String sortField, String sortDirection);
 
     
     /**
@@ -43,7 +43,7 @@ public interface ServiceSNPChromosome {
      * @return  A list of SNPChromosomes matching with the search criteria. 
      *          If no SNPChromosomes is found, this method returns an empty list.
      */
-    public List<SNPChromosome> download(DTODownload dtoDownload);
+    public List<SNPChromosome> download(DTODownloadSNPChromosome dtoDownload);
 
     
     /**

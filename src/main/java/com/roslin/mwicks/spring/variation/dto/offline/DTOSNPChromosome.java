@@ -217,9 +217,6 @@ public class DTOSNPChromosome {
     private String strainCAlleleReferenceCount;
     
     @NotEmpty
-    private Date creationTime;
-    
-    @NotEmpty
     private String aminoAcidSubs;
     
     @NotEmpty
@@ -239,6 +236,9 @@ public class DTOSNPChromosome {
     
     @NotEmpty
     private String scoreProvean;
+    
+    @NotEmpty
+    private Date creationTime;
     
     @NotEmpty
     private Date modificationTime;

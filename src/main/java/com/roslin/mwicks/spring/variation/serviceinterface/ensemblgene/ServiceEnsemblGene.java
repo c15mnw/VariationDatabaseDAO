@@ -7,8 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import com.roslin.mwicks.spring.variation.dto.offline.DTOEnsemblGene;
-import com.roslin.mwicks.spring.variation.exception.ExceptionEnsemblGeneNotFound;
-
+import com.roslin.mwicks.spring.variation.exception.ensemblgene.ExceptionEnsemblGeneNotFound;
 import com.roslin.mwicks.spring.variation.model.ensemblgene.EnsemblGene;
 
 /**
