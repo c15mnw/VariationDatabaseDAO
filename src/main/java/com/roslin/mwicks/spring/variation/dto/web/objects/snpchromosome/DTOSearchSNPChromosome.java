@@ -11,8 +11,8 @@ import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterSiftScore;
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterSiftConservationScore;
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterProteinAlignNumber;
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterTotalNumberSeqAligned;
-import com.roslin.mwicks.spring.variation.dto.web.enums.SearchSortField;
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchSortDirection;
+import com.roslin.mwicks.spring.variation.dto.web.enums.snpchromosome.SearchSortField;
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterProveanScore;
 
 import com.roslin.mwicks.spring.variation.format.CustomDateToStringStyle;

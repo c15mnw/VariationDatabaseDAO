@@ -1,35 +1,32 @@
 package com.roslin.mwicks.spring.variation.config;
 
-import com.jolbox.bonecp.BoneCPDataSource;
+import java.util.List;
+import java.util.Properties;
 
-import com.roslin.mwicks.spring.variation.message.CSVResponseMessageConverter;
+import javax.annotation.Resource;
+import javax.sql.DataSource;
 
 import org.hibernate.ejb.HibernatePersistence;
-
 import org.springframework.context.MessageSource;
-import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ResourceBundleMessageSource;
-
 import org.springframework.core.env.Environment;
+import org.springframework.http.MediaType;
+import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
-
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
-import org.springframework.http.MediaType;
-import org.springframework.http.converter.HttpMessageConverter;
 
-import javax.annotation.Resource;
-
-import javax.sql.DataSource;
-
-import java.util.List;
-import java.util.Properties;
+import com.jolbox.bonecp.BoneCPDataSource;
 
 /**
  * An application context Java configuration class. The usage of Java configuration
@@ -82,7 +79,8 @@ public class MyWebApplicationContext extends WebMvcConfigurerAdapter {
     
     public void configureMessageConverters(List<HttpMessageConverter<?>> httpMessageConverters) {
     	
-        httpMessageConverters.add(new CSVResponseMessageConverter(new MediaType("text", "csv")));
+        httpMessageConverters.add(new com.roslin.mwicks.spring.variation.message.snpchromosome.CSVResponseMessageConverter(new MediaType("text", "csv")));
+        httpMessageConverters.add(new com.roslin.mwicks.spring.variation.message.snpinsertiondeletion.CSVResponseMessageConverter(new MediaType("text", "csv")));
     }
 
     

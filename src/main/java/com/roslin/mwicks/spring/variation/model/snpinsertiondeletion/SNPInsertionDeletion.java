@@ -74,8 +74,11 @@ public class SNPInsertionDeletion implements Comparable<SNPInsertionDeletion> {
     @Column(name = "VSI_CHROMOSOME_ID", nullable = false)
     private String chromosomeId;
 
-    @Column(name = "VSI_POSITION", nullable = false)
-    private int position;
+    @Column(name = "VSI_POSITION_START", nullable = false)
+    private int positionStart;
+
+    @Column(name = "VSI_POSITION_END", nullable = false)
+    private int positionEnd;
 
     @Column(name = "VSI_INSERTION_DELETION_ID", nullable = false)
 	private String insertionDeletionId;
@@ -155,8 +158,11 @@ public class SNPInsertionDeletion implements Comparable<SNPInsertionDeletion> {
     public String getInsertionDeletionId() {
     	return this.insertionDeletionId;
     }
-    public int getPosition() {
-    	return this.position;
+    public int getPositionStart() {
+    	return this.positionStart;
+    }
+    public int getPositionEnd() {
+    	return this.positionEnd;
     }
     public String getReference() {
     	return this.reference;
@@ -224,6 +230,122 @@ public class SNPInsertionDeletion implements Comparable<SNPInsertionDeletion> {
         return this.version;
     }
     
+    // Getters As Strings -------------------------------------------------------------------------
+    public String getOidAsString() {
+    	return ObjectConverter.convert(this.oid, String.class);
+    }
+    public String getPositionStartAsString() {
+    	return ObjectConverter.convert(this.positionStart, String.class);
+    }
+    public String getPositionEndAsString() {
+    	return ObjectConverter.convert(this.positionEnd, String.class);
+    }
+    public String getScoreSiftAsString() {
+    	return String.valueOf(this.scoreSift);
+    }
+    public String getScoreConservationAsString() {
+    	return String.valueOf(this.scoreConservation);
+    }
+    public String getProteinAlignNumberAsString() {
+    	return ObjectConverter.convert(this.proteinAlignNumber, String.class);
+    }
+    public String getTotalAlignSequenceNumberAsString() {
+    	return ObjectConverter.convert(this.totalAlignSequenceNumber, String.class);
+    }
+    public String getScoreProveanAsString() {
+    	return String.valueOf(this.scoreProvean);
+    }
+    public String getCreationTimeAsString() {
+    	return ObjectConverter.convert(this.creationTime, String.class);
+    }
+    public String getModificationTimeAsString() {
+    	return ObjectConverter.convert(this.modificationTime, String.class);
+    }
+    public String getVersionAsString() {
+    	return ObjectConverter.convert(this.version, String.class);
+    }
+
+    // Getters As Strings Enclosed in Quotes ------------------------------------------------------
+    public String getOidAsStringQuoted() {
+    	return '\"' + ObjectConverter.convert(this.oid, String.class) + '\"';
+
+    }
+    public String getPositionStartAsStringQuoted() {
+    	return '\"' + ObjectConverter.convert(this.positionStart, String.class) + '\"';
+    }
+    public String getPositionEndAsStringQuoted() {
+    	return '\"' + ObjectConverter.convert(this.positionEnd, String.class) + '\"';
+    }
+    
+    public String getCreationTimeAsStringQuoted() {
+    	return '\"' + ObjectConverter.convert(this.creationTime, String.class) + '\"';
+    }
+    public String getModificationTimeAsStringQuoted() {
+    	return '\"' + ObjectConverter.convert(this.modificationTime, String.class) + '\"';
+    }
+    public String getVersionAsStringQuoted() {
+    	return '\"' + ObjectConverter.convert(this.version, String.class) + '\"';
+    }
+    
+    public String getChromosomeIdQuoted() {
+    	return '\"' + this.chromosomeId + '\"';
+    }
+    public String getReferenceQuoted() {
+    	return '\"' + this.reference + '\"';    
+    }
+    public String getAlternativeQuoted() {
+    	return '\"' + this.alternative + '\"';
+    }
+    
+    public String getQualityQuoted() {
+    	return '\"' + this.quality + '\"';
+    }
+    public String getFilterQuoted() {
+    	return '\"' + this.filter + '\"';
+    }
+    public String getInformationQuoted() {
+    	return '\"' + this.information + '\"';
+    }
+    public String getBreedAllelesIQuoted() {
+    	return '\"' + this.breedAllelesI + '\"';
+    }
+    public String getBreedAllelesJQuoted() {
+    	return '\"' + this.breedAllelesJ + '\"';
+    }
+    public String getBreedAllelesLQuoted() {
+    	return '\"' + this.breedAllelesL + '\"';
+    }
+    public String getBreedAllelesNQuoted() {
+    	return '\"' + this.breedAllelesN + '\"';
+    }
+    public String getBreedAllelesWQuoted() {
+    	return '\"' + this.breedAllelesW + '\"';
+    }
+    public String getBreedAllelesZQuoted() {
+    	return '\"' + this.breedAllelesZ + '\"';
+    }
+
+    public String getAminoAcidSubsQuoted() {
+    	return '\"' + this.aminoAcidSubs + '\"';
+    }
+    public String getPredictionCategoryQuoted() {
+    	return '\"' + this.predictionCategory + '\"';
+    }
+    public String getScoreSiftAsStringQuoted() {
+    	return '\"' + String.valueOf(this.scoreSift) + '\"';
+    }
+    public String getScoreConservationAsStringQuoted() {
+    	return '\"' + String.valueOf(this.scoreConservation) + '\"';
+    }
+    public String getProteinAlignNumberAsStringQuoted() {
+    	return '\"' + ObjectConverter.convert(this.proteinAlignNumber, String.class) + '\"';
+    }
+    public String getTotalAlignSequenceNumberAsStringQuoted() {
+    	return '\"' + ObjectConverter.convert(this.totalAlignSequenceNumber, String.class) + '\"';
+    }
+    public String getScoreProveanAsStringQuoted() {
+    	return '\"' + String.valueOf(this.scoreProvean) + '\"';
+    }
 
     // Setters ------------------------------------------------------------------------------------
     public void setOid(long oid) {
@@ -235,8 +357,11 @@ public class SNPInsertionDeletion implements Comparable<SNPInsertionDeletion> {
     public void setInsertionDeletionId(String insertionDeletionId) {
     	this.insertionDeletionId = insertionDeletionId;
     }
-    public void setPosition(int position) {
-    	this.position = position;
+    public void setPositionStart(int positionStart) {
+    	this.positionStart = positionStart;
+    }
+    public void setPositionEnd(int positionEnd) {
+    	this.positionEnd = positionEnd;
     }
     public void setReference(String reference) {
     	this.reference = reference;
@@ -670,7 +795,8 @@ public class SNPInsertionDeletion implements Comparable<SNPInsertionDeletion> {
 
         if (
         	    this.getChromosomeId().equals(snpinsertiondeletion.getChromosomeId()) && 
-        	    this.getPosition() == snpinsertiondeletion.getPosition() && 
+        	    this.getPositionStart() == snpinsertiondeletion.getPositionStart() && 
+                this.getPositionEnd() == snpinsertiondeletion.getPositionEnd() && 
         	    this.getInsertionDeletionId().equals(snpinsertiondeletion.getInsertionDeletionId()) && 
         	    this.getReference().equals(snpinsertiondeletion.getReference()) && 
         	    this.getAlternative().equals(snpinsertiondeletion.getAlternative()) && 
@@ -697,7 +823,8 @@ public class SNPInsertionDeletion implements Comparable<SNPInsertionDeletion> {
 
     public void update(
     		String chromosomeId,
-    		int position,
+    		int positionStart,
+    		int positionEnd,
     		String insertionDeletionId,
     		String reference,
     		String alternative,
@@ -720,7 +847,8 @@ public class SNPInsertionDeletion implements Comparable<SNPInsertionDeletion> {
     		) {
 
     	this.chromosomeId = chromosomeId;
-    	this.position = position;
+    	this.positionStart = positionStart;
+    	this.positionEnd = positionEnd;
     	this.insertionDeletionId = insertionDeletionId;
     	this.reference = reference;
     	this.alternative = alternative;
@@ -772,7 +900,8 @@ public class SNPInsertionDeletion implements Comparable<SNPInsertionDeletion> {
      */
     public static Builder getBuilder(
     		String chromosomeId,
-    		int position,
+    		int positionStart,
+    		int positionEnd,
     		String insertionDeletionId,
     		String reference,
     		String alternative,
@@ -796,7 +925,8 @@ public class SNPInsertionDeletion implements Comparable<SNPInsertionDeletion> {
     	
         return new Builder(
         		chromosomeId,
-        		position,
+        		positionStart,
+        		positionEnd,
         		insertionDeletionId,
         		reference,
         		alternative,
@@ -837,7 +967,8 @@ public class SNPInsertionDeletion implements Comparable<SNPInsertionDeletion> {
          */
         Builder(
         		String chromosomeId,
-        		int position,
+        		int positionStart,
+        		int positionEnd,
         		String insertionDeletionId,
         		String reference,
         		String alternative,
@@ -862,7 +993,8 @@ public class SNPInsertionDeletion implements Comparable<SNPInsertionDeletion> {
             built = new SNPInsertionDeletion();
             
         	built.chromosomeId = chromosomeId;
-        	built.position = position;
+        	built.positionStart = positionStart;
+        	built.positionEnd = positionEnd;
         	built.insertionDeletionId = insertionDeletionId;
         	built.reference = reference;
         	built.alternative = alternative;
@@ -900,11 +1032,19 @@ public class SNPInsertionDeletion implements Comparable<SNPInsertionDeletion> {
     }
 
 
-    public static class OrderByPositionAsc implements Comparator<SNPInsertionDeletion> {
+    public static class OrderByPositionStartAsc implements Comparator<SNPInsertionDeletion> {
 
         public int compare(SNPInsertionDeletion snpinsertiondeletion_o1, SNPInsertionDeletion snpinsertiondeletion_o2) {
 
-        	return snpinsertiondeletion_o1.position > snpinsertiondeletion_o2.position ? 1 : (snpinsertiondeletion_o1.position < snpinsertiondeletion_o2.position ? -1 : 0);
+        	return snpinsertiondeletion_o1.positionStart > snpinsertiondeletion_o2.positionStart ? 1 : (snpinsertiondeletion_o1.positionStart < snpinsertiondeletion_o2.positionStart ? -1 : 0);
+        }
+    }
+
+    public static class OrderByPositionEndAsc implements Comparator<SNPInsertionDeletion> {
+
+        public int compare(SNPInsertionDeletion snpinsertiondeletion_o1, SNPInsertionDeletion snpinsertiondeletion_o2) {
+
+        	return snpinsertiondeletion_o1.positionEnd > snpinsertiondeletion_o2.positionEnd ? 1 : (snpinsertiondeletion_o1.positionEnd < snpinsertiondeletion_o2.positionEnd ? -1 : 0);
         }
     }
 
@@ -1014,11 +1154,19 @@ public class SNPInsertionDeletion implements Comparable<SNPInsertionDeletion> {
         }
     }
 
-    public static class OrderByPositionDesc implements Comparator<SNPInsertionDeletion> {
+    public static class OrderByPositionStartDesc implements Comparator<SNPInsertionDeletion> {
 
         public int compare(SNPInsertionDeletion snpinsertiondeletion_o1, SNPInsertionDeletion snpinsertiondeletion_o2) {
 
-        	return snpinsertiondeletion_o1.position > snpinsertiondeletion_o2.position ? -1 : (snpinsertiondeletion_o1.position < snpinsertiondeletion_o2.position ? 1 : 0);
+        	return snpinsertiondeletion_o1.positionStart > snpinsertiondeletion_o2.positionStart ? -1 : (snpinsertiondeletion_o1.positionStart < snpinsertiondeletion_o2.positionStart ? 1 : 0);
+        }
+    }
+
+    public static class OrderByPositionEndDesc implements Comparator<SNPInsertionDeletion> {
+
+        public int compare(SNPInsertionDeletion snpinsertiondeletion_o1, SNPInsertionDeletion snpinsertiondeletion_o2) {
+
+        	return snpinsertiondeletion_o1.positionEnd > snpinsertiondeletion_o2.positionEnd ? -1 : (snpinsertiondeletion_o1.positionEnd < snpinsertiondeletion_o2.positionEnd ? 1 : 0);
         }
     }
 

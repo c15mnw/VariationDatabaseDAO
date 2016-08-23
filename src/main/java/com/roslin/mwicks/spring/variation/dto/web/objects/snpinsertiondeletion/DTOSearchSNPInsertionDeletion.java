@@ -11,8 +11,8 @@ import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterSiftScore;
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterSiftConservationScore;
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterProteinAlignNumber;
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterTotalNumberSeqAligned;
-import com.roslin.mwicks.spring.variation.dto.web.enums.SearchSortField;
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchSortDirection;
+import com.roslin.mwicks.spring.variation.dto.web.enums.snpinsertiondeletion.SearchSortField;
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterProveanScore;
 
 import com.roslin.mwicks.spring.variation.format.CustomDateToStringStyle;
@@ -28,52 +28,34 @@ public class DTOSearchSNPInsertionDeletion {
 
     // Constants ----------------------------------------------------------------------------------
 	protected static final String SORT_FIELD_NONE = "SORT_FIELD_NONE";
-	protected static final String SORT_FIELD_POSITION = "SORT_FIELD_POSITION";
+	protected static final String SORT_FIELD_POSITION_START = "SORT_FIELD_POSITION_START";
+	protected static final String SORT_FIELD_POSITION_END = "SORT_FIELD_POSITION_END";
 	protected static final String SORT_FIELD_REFERENCE = "SORT_FIELD_REFERENCE";
 	protected static final String SORT_FIELD_ALTERNATIVE = "SORT_FIELD_ALTERNATIVE";
-	protected static final String SORT_FIELD_QUALITY = "SORT_FIELD_QUALITY";
-	protected static final String SORT_FIELD_FILTER = "SORT_FIELD_FILTER";
-	protected static final String SORT_FIELD_INFORMATION = "SORT_FIELD_INFORMATION";
-
-	/*
-	protected static final String SORT_FIELD_REGION = "SORT_FIELD_REGION";
-	protected static final String SORT_FIELD_ENSEMBL_GENE = "SORT_FIELD_ENSEMBL_GENE";
-	protected static final String SORT_FIELD_ENSEMBLE_TRANSCRIPT = "SORT_FIELD_ENSEMBLE_TRANSCRIPT";
-	protected static final String SORT_FIELD_ENSEMBLE_ANNOTATION = "SORT_FIELD_ENSEMBLE_ANNOTATION";
-	 */
-	protected static final String SORT_FIELD_AMINO_ACID_SUBS = "SORT_FIELD_AMINO_ACID_SUBS";
+	protected static final String SORT_FIELD_AMINO_ACID_SUBSITUTION = "SORT_FIELD_AMINO_ACID_SUBSITUTION";
 	protected static final String SORT_FIELD_PREDICTION_CATEGORY = "SORT_FIELD_PREDICTION_CATEGORY";
-	protected static final String SORT_FIELD_SCORE_SIFT = "SORT_FIELD_SCORE_SIFT";
-	protected static final String SORT_FIELD_SCORE_CONSERV = "SORT_FIELD_SCORE_CONSERV";
-	protected static final String SORT_FIELD_PROTEIN_ALIGN_NO = "SORT_FIELD_PROTEIN_ALIGN_NO";
-	protected static final String SORT_FIELD_TOT_ALIGN_SEQ_NO = "SORT_FIELD_TOT_ALIGN_SEQ_NO";
-	protected static final String SORT_FIELD_SCORE_PROVEAN = "SORT_FIELD_SCORE_PROVEAN";
+	protected static final String SORT_FIELD_SIFT_SCORE = "SORT_FIELD_SIFT_SCORE";
+	protected static final String SORT_FIELD_SIFT_SCORE_CONSERVATION = "SORT_FIELD_SIFT_SCORE_CONSERVATION";
+	protected static final String SORT_FIELD_PROTEIN_ALIGNMENT_NUMBER = "SORT_FIELD_PROTEIN_ALIGNMENT_NUMBER";
+	protected static final String SORT_FIELD_TOTAL_SEQUENCE_ALIGNMENT_NUMBER = "SORT_FIELD_TOTAL_SEQUENCE_ALIGNMENT_NUMBER";
+	protected static final String SORT_FIELD_PROVEAN_SCORE = "SORT_FIELD_PROVEAN_SCORE";
 
 	protected static final String SORT_DIRECTION_NONE = "SORT_DIRECTION_NONE";
 	protected static final String SORT_DIRECTION_ASCENDING = "SORT_DIRECTION_ASCENDING";
 	protected static final String SORT_DIRECTION_DESCENDING = "SORT_DIRECTION_DESCENDING";
 			
-	protected static final String ONLY_SORT_FIELD_NONE = "position";
-	protected static final String ONLY_SORT_FIELD_POSITION = "position";
+	protected static final String ONLY_SORT_FIELD_NONE = "positionStart";
+	protected static final String ONLY_SORT_FIELD_POSITION_START = "positionStart";
+	protected static final String ONLY_SORT_FIELD_POSITION_END = "positionEnd";
 	protected static final String ONLY_SORT_FIELD_REFERENCE = "reference";
 	protected static final String ONLY_SORT_FIELD_ALTERNATIVE = "alternative";
-	protected static final String ONLY_SORT_FIELD_QUALITY = "quality";
-	protected static final String ONLY_SORT_FIELD_FILTER = "filter";
-	protected static final String ONLY_SORT_FIELD_INFORMATION = "information";
-
-	/*
-	protected static final String ONLY_SORT_FIELD_REGION = "region";
-	protected static final String ONLY_SORT_FIELD_ENSEMBL_GENE = "ensemblGene";
-	protected static final String ONLY_SORT_FIELD_ENSEMBLE_TRANSCRIPT = "ensemblTranscript";
-	protected static final String ONLY_SORT_FIELD_ENSEMBLE_ANNOTATION = "ensemblAnnotation";
-	 */
-	protected static final String ONLY_SORT_FIELD_AMINO_ACID_SUBS = "aminoAcidSubs";
+	protected static final String ONLY_SORT_FIELD_AMINO_ACID_SUBSITUTION = "aminoAcidSubs";
 	protected static final String ONLY_SORT_FIELD_PREDICTION_CATEGORY = "predictionCategory";
-	protected static final String ONLY_SORT_FIELD_SCORE_SIFT = "scoreSift";
-	protected static final String ONLY_SORT_FIELD_SCORE_CONSERV = "scoreConservation";
-	protected static final String ONLY_SORT_FIELD_PROTEIN_ALIGN_NO = "proteinAlignNumber";
-	protected static final String ONLY_SORT_FIELD_TOT_ALIGN_SEQ_NO = "totalAlignSequenceNumber";
-	protected static final String ONLY_SORT_FIELD_SCORE_PROVEAN = "scoreProvean";
+	protected static final String ONLY_SORT_FIELD_SIFT_SCORE = "scoreSift";
+	protected static final String ONLY_SORT_FIELD_SIFT_SCORE_CONSERVATION = "scoreConservation";
+	protected static final String ONLY_SORT_FIELD_PROTEIN_ALIGNMENT_NUMBER = "proteinAlignNumber";
+	protected static final String ONLY_SORT_FIELD_TOTAL_SEQUENCE_ALIGNMENT_NUMBER = "totalAlignSequenceNumber";
+	protected static final String ONLY_SORT_FIELD_PROVEAN_SCORE = "scoreProvean";
 
 	protected static final String ONLY_SORT_DIRECTION_NONE = "asc";
 	protected static final String ONLY_SORT_DIRECTION_ASCENDING = "asc";
@@ -246,7 +228,7 @@ public class DTOSearchSNPInsertionDeletion {
         this.searchFilterTotalNumberSeqAligned = SearchFilterTotalNumberSeqAligned.TOTAL_NUMBER_SEQ_ALIGNED_ABOVE;
         this.searchFilterProveanScore = SearchFilterProveanScore.PROVEAN_SCORE_ABOVE;
 
-        this.searchSortField = SearchSortField.SORT_FIELD_POSITION;
+        this.searchSortField = SearchSortField.SORT_FIELD_POSITION_START;
         this.searchSortDirection = SearchSortDirection.SORT_DIRECTION_ASCENDING;
     }
     
@@ -516,8 +498,11 @@ public class DTOSearchSNPInsertionDeletion {
     	if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_NONE) ) {
     		strReturn = ONLY_SORT_FIELD_NONE;
         }
-    	if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_POSITION) ) {
-    		strReturn = ONLY_SORT_FIELD_POSITION;
+    	if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_POSITION_START) ) {
+    		strReturn = ONLY_SORT_FIELD_POSITION_START;
+        }
+    	if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_POSITION_END) ) {
+    		strReturn = ONLY_SORT_FIELD_POSITION_END;
         }
         if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_REFERENCE) ) {
         	strReturn = ONLY_SORT_FIELD_REFERENCE;
@@ -525,40 +510,26 @@ public class DTOSearchSNPInsertionDeletion {
     	if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_ALTERNATIVE) ) {
     		strReturn = ONLY_SORT_FIELD_ALTERNATIVE;
         }
-    	/*
-    	if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_REGION) ) {
-    		strReturn = ONLY_SORT_FIELD_REGION;
-        }
-        if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_ENSEMBL_GENE) ) {
-        	strReturn = ONLY_SORT_FIELD_ENSEMBL_GENE;
-        }
-    	if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_ENSEMBLE_TRANSCRIPT) ) {
-    		strReturn = ONLY_SORT_FIELD_ENSEMBLE_TRANSCRIPT;
-        }
-    	if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_ENSEMBLE_ANNOTATION) ) {
-    		strReturn = ONLY_SORT_FIELD_ENSEMBLE_ANNOTATION;
-        }
-         */
-    	if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_AMINO_ACID_SUBS) ) {
-        	strReturn = ONLY_SORT_FIELD_AMINO_ACID_SUBS;
+    	if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_AMINO_ACID_SUBSITUTION) ) {
+        	strReturn = ONLY_SORT_FIELD_AMINO_ACID_SUBSITUTION;
         }
     	if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_PREDICTION_CATEGORY) ) {
     		strReturn = ONLY_SORT_FIELD_PREDICTION_CATEGORY;
         }
-    	if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_SCORE_SIFT) ) {
-    		strReturn = ONLY_SORT_FIELD_SCORE_SIFT;
+    	if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_SIFT_SCORE) ) {
+    		strReturn = ONLY_SORT_FIELD_SIFT_SCORE;
         }
-        if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_SCORE_CONSERV) ) {
-        	strReturn = ONLY_SORT_FIELD_SCORE_CONSERV;
+        if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_SIFT_SCORE_CONSERVATION) ) {
+        	strReturn = ONLY_SORT_FIELD_SIFT_SCORE_CONSERVATION;
         }
-    	if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_PROTEIN_ALIGN_NO) ) {
-    		strReturn = ONLY_SORT_FIELD_PROTEIN_ALIGN_NO;
+    	if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_PROTEIN_ALIGNMENT_NUMBER) ) {
+    		strReturn = ONLY_SORT_FIELD_PROTEIN_ALIGNMENT_NUMBER;
         }
-    	if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_TOT_ALIGN_SEQ_NO) ) {
-    		strReturn = ONLY_SORT_FIELD_TOT_ALIGN_SEQ_NO;
+    	if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_TOTAL_SEQUENCE_ALIGNMENT_NUMBER) ) {
+    		strReturn = ONLY_SORT_FIELD_TOTAL_SEQUENCE_ALIGNMENT_NUMBER;
         }
-        if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_SCORE_PROVEAN) ) {
-        	strReturn = ONLY_SORT_FIELD_SCORE_PROVEAN;
+        if ( this.searchSortField.equals(SearchSortField.SORT_FIELD_PROVEAN_SCORE) ) {
+        	strReturn = ONLY_SORT_FIELD_PROVEAN_SCORE;
         }
 
         return strReturn;
@@ -636,8 +607,11 @@ public class DTOSearchSNPInsertionDeletion {
     	if ( searchSortField.equals(SORT_FIELD_NONE)) {
             this.searchSortField = SearchSortField.SORT_FIELD_NONE;
     	}
-    	if ( searchSortField.equals(SORT_FIELD_POSITION)) {
-            this.searchSortField = SearchSortField.SORT_FIELD_POSITION;
+    	if ( searchSortField.equals(SORT_FIELD_POSITION_START)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_POSITION_START;
+    	}
+    	if ( searchSortField.equals(SORT_FIELD_POSITION_END)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_POSITION_END;
     	}
     	if ( searchSortField.equals(SORT_FIELD_REFERENCE)) {
             this.searchSortField = SearchSortField.SORT_FIELD_REFERENCE;
@@ -645,47 +619,36 @@ public class DTOSearchSNPInsertionDeletion {
     	if ( searchSortField.equals(SORT_FIELD_ALTERNATIVE)) {
             this.searchSortField = SearchSortField.SORT_FIELD_ALTERNATIVE;
     	}
-    	/*
-    	if ( searchSortField.equals(SORT_FIELD_REGION)) {
-            this.searchSortField = SearchSortField.SORT_FIELD_REGION;
-    	}
-    	if ( searchSortField.equals(SORT_FIELD_ENSEMBL_GENE)) {
-            this.searchSortField = SearchSortField.SORT_FIELD_ENSEMBL_GENE;
-    	}
-    	if ( searchSortField.equals(SORT_FIELD_ENSEMBLE_TRANSCRIPT)) {
-            this.searchSortField = SearchSortField.SORT_FIELD_ENSEMBLE_TRANSCRIPT;
-    	}
-    	if ( searchSortField.equals(SORT_FIELD_ENSEMBLE_ANNOTATION)) {
-            this.searchSortField = SearchSortField.SORT_FIELD_ENSEMBLE_ANNOTATION;
-    	}
-    	 */
-    	if ( searchSortField.equals(SORT_FIELD_AMINO_ACID_SUBS)) {
-            this.searchSortField = SearchSortField.SORT_FIELD_AMINO_ACID_SUBS;
+    	if ( searchSortField.equals(SORT_FIELD_AMINO_ACID_SUBSITUTION)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_AMINO_ACID_SUBSITUTION;
     	}
     	if ( searchSortField.equals(SORT_FIELD_PREDICTION_CATEGORY)) {
             this.searchSortField = SearchSortField.SORT_FIELD_PREDICTION_CATEGORY;
     	}
-    	if ( searchSortField.equals(SORT_FIELD_SCORE_SIFT)) {
-            this.searchSortField = SearchSortField.SORT_FIELD_SCORE_SIFT;
+    	if ( searchSortField.equals(SORT_FIELD_SIFT_SCORE)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_SIFT_SCORE;
     	}
-    	if ( searchSortField.equals(SORT_FIELD_SCORE_CONSERV)) {
-            this.searchSortField = SearchSortField.SORT_FIELD_SCORE_CONSERV;
+    	if ( searchSortField.equals(SORT_FIELD_SIFT_SCORE_CONSERVATION)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_SIFT_SCORE_CONSERVATION;
     	}
-    	if ( searchSortField.equals(SORT_FIELD_PROTEIN_ALIGN_NO)) {
-            this.searchSortField = SearchSortField.SORT_FIELD_PROTEIN_ALIGN_NO;
+    	if ( searchSortField.equals(SORT_FIELD_PROTEIN_ALIGNMENT_NUMBER)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_PROTEIN_ALIGNMENT_NUMBER;
     	}
-    	if ( searchSortField.equals(SORT_FIELD_TOT_ALIGN_SEQ_NO)) {
-            this.searchSortField = SearchSortField.SORT_FIELD_TOT_ALIGN_SEQ_NO;
+    	if ( searchSortField.equals(SORT_FIELD_TOTAL_SEQUENCE_ALIGNMENT_NUMBER)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_TOTAL_SEQUENCE_ALIGNMENT_NUMBER;
     	}
-    	if ( searchSortField.equals(SORT_FIELD_SCORE_PROVEAN)) {
-            this.searchSortField = SearchSortField.SORT_FIELD_SCORE_PROVEAN;
+    	if ( searchSortField.equals(SORT_FIELD_PROVEAN_SCORE)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_PROVEAN_SCORE;
     	}
 
     	if ( searchSortField.equals(ONLY_SORT_FIELD_NONE)) {
-            this.searchSortField = SearchSortField.SORT_FIELD_POSITION;
+            this.searchSortField = SearchSortField.SORT_FIELD_POSITION_START;
     	}
-    	if ( searchSortField.equals(ONLY_SORT_FIELD_POSITION)) {
-            this.searchSortField = SearchSortField.SORT_FIELD_POSITION;
+    	if ( searchSortField.equals(ONLY_SORT_FIELD_POSITION_START)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_POSITION_START;
+    	}
+    	if ( searchSortField.equals(ONLY_SORT_FIELD_POSITION_END)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_POSITION_END;
     	}
     	if ( searchSortField.equals(ONLY_SORT_FIELD_REFERENCE)) {
             this.searchSortField = SearchSortField.SORT_FIELD_REFERENCE;
@@ -693,40 +656,26 @@ public class DTOSearchSNPInsertionDeletion {
     	if ( searchSortField.equals(ONLY_SORT_FIELD_ALTERNATIVE)) {
             this.searchSortField = SearchSortField.SORT_FIELD_ALTERNATIVE;
     	}
-    	/*
-    	if ( searchSortField.equals(ONLY_SORT_FIELD_REGION)) {
-            this.searchSortField = SearchSortField.SORT_FIELD_REGION;
-    	}
-    	if ( searchSortField.equals(ONLY_SORT_FIELD_ENSEMBL_GENE)) {
-            this.searchSortField = SearchSortField.SORT_FIELD_ENSEMBL_GENE;
-    	}
-    	if ( searchSortField.equals(ONLY_SORT_FIELD_ENSEMBLE_TRANSCRIPT)) {
-            this.searchSortField = SearchSortField.SORT_FIELD_ENSEMBLE_TRANSCRIPT;
-    	}
-    	if ( searchSortField.equals(ONLY_SORT_FIELD_ENSEMBLE_ANNOTATION)) {
-            this.searchSortField = SearchSortField.SORT_FIELD_ENSEMBLE_ANNOTATION;
-    	}
-    	 */
-    	if ( searchSortField.equals(ONLY_SORT_FIELD_AMINO_ACID_SUBS)) {
-            this.searchSortField = SearchSortField.SORT_FIELD_AMINO_ACID_SUBS;
+    	if ( searchSortField.equals(ONLY_SORT_FIELD_AMINO_ACID_SUBSITUTION)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_AMINO_ACID_SUBSITUTION;
     	}
     	if ( searchSortField.equals(ONLY_SORT_FIELD_PREDICTION_CATEGORY)) {
             this.searchSortField = SearchSortField.SORT_FIELD_PREDICTION_CATEGORY;
     	}
-    	if ( searchSortField.equals(ONLY_SORT_FIELD_SCORE_SIFT)) {
-            this.searchSortField = SearchSortField.SORT_FIELD_SCORE_SIFT;
+    	if ( searchSortField.equals(ONLY_SORT_FIELD_SIFT_SCORE)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_SIFT_SCORE;
     	}
-    	if ( searchSortField.equals(ONLY_SORT_FIELD_SCORE_CONSERV)) {
-            this.searchSortField = SearchSortField.SORT_FIELD_SCORE_CONSERV;
+    	if ( searchSortField.equals(ONLY_SORT_FIELD_SIFT_SCORE_CONSERVATION)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_SIFT_SCORE_CONSERVATION;
     	}
-    	if ( searchSortField.equals(ONLY_SORT_FIELD_PROTEIN_ALIGN_NO)) {
-            this.searchSortField = SearchSortField.SORT_FIELD_PROTEIN_ALIGN_NO;
+    	if ( searchSortField.equals(ONLY_SORT_FIELD_PROTEIN_ALIGNMENT_NUMBER)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_PROTEIN_ALIGNMENT_NUMBER;
     	}
-    	if ( searchSortField.equals(ONLY_SORT_FIELD_TOT_ALIGN_SEQ_NO)) {
-            this.searchSortField = SearchSortField.SORT_FIELD_TOT_ALIGN_SEQ_NO;
+    	if ( searchSortField.equals(ONLY_SORT_FIELD_TOTAL_SEQUENCE_ALIGNMENT_NUMBER)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_TOTAL_SEQUENCE_ALIGNMENT_NUMBER;
     	}
-    	if ( searchSortField.equals(ONLY_SORT_FIELD_SCORE_PROVEAN)) {
-            this.searchSortField = SearchSortField.SORT_FIELD_SCORE_PROVEAN;
+    	if ( searchSortField.equals(ONLY_SORT_FIELD_PROVEAN_SCORE)) {
+            this.searchSortField = SearchSortField.SORT_FIELD_PROVEAN_SCORE;
     	}
     }
     public void setSearchSortDirection(String searchSortDirection) {
@@ -1829,8 +1778,16 @@ public class DTOSearchSNPInsertionDeletion {
     		return false;
     	}
     }
-    public boolean isSearchSortFieldPosition() {
-    	if ( this.searchSortField.name().equals(SORT_FIELD_POSITION)) {
+    public boolean isSearchSortFieldPositionStart() {
+    	if ( this.searchSortField.name().equals(SORT_FIELD_POSITION_START)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchSortFieldPositionEnd() {
+    	if ( this.searchSortField.name().equals(SORT_FIELD_POSITION_END)) {
     		return true;
     	}
     	else {
@@ -1853,42 +1810,8 @@ public class DTOSearchSNPInsertionDeletion {
     		return false;
     	}
     }
-    /*
-    public boolean isSearchSortFieldRegion() {
-    	if ( this.searchSortField.name().equals(SORT_FIELD_REGION)) {
-    		return true;
-    	}
-    	else {
-    		return false;
-    	}
-    }
-    public boolean isSearchSortFieldEnsemblGene() {
-    	if ( this.searchSortField.name().equals(SORT_FIELD_ENSEMBL_GENE)) {
-    		return true;
-    	}
-    	else {
-    		return false;
-    	}
-    }
-    public boolean isSearchSortFieldEnsemblTranscript() {
-    	if ( this.searchSortField.name().equals(SORT_FIELD_ENSEMBLE_TRANSCRIPT)) {
-    		return true;
-    	}
-    	else {
-    		return false;
-    	}
-    }
-    public boolean isSearchSortFieldEnsemblAnnotation() {
-    	if ( this.searchSortField.name().equals(SORT_FIELD_ENSEMBLE_ANNOTATION)) {
-    		return true;
-    	}
-    	else {
-    		return false;
-    	}
-    }
-     */
     public boolean isSearchSortFieldAminoAcidSubs() {
-    	if ( this.searchSortField.name().equals(SORT_FIELD_AMINO_ACID_SUBS)) {
+    	if ( this.searchSortField.name().equals(SORT_FIELD_AMINO_ACID_SUBSITUTION)) {
     		return true;
     	}
     	else {
@@ -1904,7 +1827,7 @@ public class DTOSearchSNPInsertionDeletion {
     	}
     }
     public boolean isSearchSortFieldScoreSift() {
-    	if ( this.searchSortField.name().equals(SORT_FIELD_SCORE_SIFT)) {
+    	if ( this.searchSortField.name().equals(SORT_FIELD_SIFT_SCORE)) {
     		return true;
     	}
     	else {
@@ -1912,7 +1835,7 @@ public class DTOSearchSNPInsertionDeletion {
     	}
     }
     public boolean isSearchSortFieldScoreConservation() {
-    	if ( this.searchSortField.name().equals(SORT_FIELD_SCORE_CONSERV)) {
+    	if ( this.searchSortField.name().equals(SORT_FIELD_SIFT_SCORE_CONSERVATION)) {
     		return true;
     	}
     	else {
@@ -1920,7 +1843,7 @@ public class DTOSearchSNPInsertionDeletion {
     	}
     }
     public boolean isSearchSortFieldProteinAlignNumber() {
-    	if ( this.searchSortField.name().equals(SORT_FIELD_PROTEIN_ALIGN_NO)) {
+    	if ( this.searchSortField.name().equals(SORT_FIELD_PROTEIN_ALIGNMENT_NUMBER)) {
     		return true;
     	}
     	else {
@@ -1928,7 +1851,7 @@ public class DTOSearchSNPInsertionDeletion {
     	}
     }
     public boolean isSearchSortFieldTotalAlignSequenceNumber() {
-    	if ( this.searchSortField.name().equals(SORT_FIELD_TOT_ALIGN_SEQ_NO)) {
+    	if ( this.searchSortField.name().equals(SORT_FIELD_TOTAL_SEQUENCE_ALIGNMENT_NUMBER)) {
     		return true;
     	}
     	else {
@@ -1936,7 +1859,7 @@ public class DTOSearchSNPInsertionDeletion {
     	}
     }
     public boolean isSearchSortFieldScoreProvean() {
-    	if ( this.searchSortField.name().equals(SORT_FIELD_SCORE_PROVEAN)) {
+    	if ( this.searchSortField.name().equals(SORT_FIELD_PROVEAN_SCORE)) {
     		return true;
     	}
     	else {

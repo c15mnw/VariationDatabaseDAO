@@ -1,4 +1,4 @@
-package com.roslin.mwicks.spring.variation.dto.web.enums;
+package com.roslin.mwicks.spring.variation.dto.web.enums.snpchromosome;
 
 /**
  * Describes the search type of the search. Legal values are:
@@ -18,6 +18,8 @@ package com.roslin.mwicks.spring.variation.dto.web.enums;
 public enum SearchSortField {
 	SORT_FIELD_NONE,
 	SORT_FIELD_POSITION,
+	SORT_FIELD_POSITION_START,
+	SORT_FIELD_POSITION_END,
 	SORT_FIELD_REFERENCE,
 	SORT_FIELD_ALTERNATIVE,
 	SORT_FIELD_REGION,

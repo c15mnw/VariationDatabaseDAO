@@ -8,7 +8,7 @@ import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome;
 
 
 @SuppressWarnings("serial")
-public class CSVResponse extends ArrayList<SNPChromosome> {
+public class CSVResponseSNPChromosome extends ArrayList<SNPChromosome> {
 
     // Constants ----------------------------------------------------------------------------------
 
@@ -18,10 +18,10 @@ public class CSVResponse extends ArrayList<SNPChromosome> {
 
     
     // Constructor --------------------------------------------------------------------------------
-	public CSVResponse() {
+	public CSVResponseSNPChromosome() {
     }
 
-    public CSVResponse(DTODownloadSNPChromosome dtoDownload, Collection<? extends SNPChromosome> c) {
+    public CSVResponseSNPChromosome(DTODownloadSNPChromosome dtoDownload, Collection<? extends SNPChromosome> c) {
      
     	super(c);
 

@@ -85,7 +85,10 @@ public class DTOInsertionDeletion {
     private String chromosomeId;
     
     @NotEmpty
-    private String position;
+    private String positionStart;
+    
+    @NotEmpty
+    private String positionEnd;
     
     @NotEmpty
 	private String inDelId;
@@ -169,8 +172,11 @@ public class DTOInsertionDeletion {
     public String getInDelId() {
     	return this.inDelId;
     }
-    public String getPosition() {
-    	return this.position;
+    public String getPositionStart() {
+    	return this.positionStart;
+    }
+    public String getPositionEnd() {
+    	return this.positionEnd;
     }
     public String getReference() {
     	return this.reference;
@@ -239,8 +245,11 @@ public class DTOInsertionDeletion {
     
 
     // Getters As Required DataTypes --------------------------------------------------------------
-    public int getPositionAsInteger() {
-    	return ObjectConverter.convert(this.position, Integer.class);
+    public int getPositionStartAsInteger() {
+    	return ObjectConverter.convert(this.positionStart, Integer.class);
+    }
+    public int getPositionEndAsInteger() {
+    	return ObjectConverter.convert(this.positionEnd, Integer.class);
     }
     public double getScoreSiftAsDouble() {
     	return ObjectConverter.convert(this.scoreSift, Double.class);
@@ -269,8 +278,11 @@ public class DTOInsertionDeletion {
     public void setInDelId(String inDelId) {
     	this.inDelId = inDelId;
     }
-    public void setPosition(String position) {
-    	this.position = position;
+    public void setPositionStart(String positionStart) {
+    	this.positionStart = positionStart;
+    }
+    public void setPositionEnd(String positionEnd) {
+    	this.positionEnd = positionEnd;
     }
     public void setReference(String reference) {
     	this.reference = reference;
@@ -346,9 +358,19 @@ public class DTOInsertionDeletion {
     }
 
     // Check for Required DataTypes ---------------------------------------------------------------
-    public boolean isPositionAnInteger() {
+    public boolean isPositionStartAnInteger() {
          
-    	if ( StringUtility.isItNumeric(this.position) ) {
+    	if ( StringUtility.isItNumeric(this.positionStart) ) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    
+    public boolean isPositionEndAnInteger() {
+        
+    	if ( StringUtility.isItNumeric(this.positionEnd) ) {
     		return true;
     	}
     	else {
@@ -793,7 +815,8 @@ public class DTOInsertionDeletion {
      */
     public boolean isThisAValidInsertionDeletion(){
 
-        if (this.isPositionAnInteger() && 
+        if (this.isPositionStartAnInteger() && 
+        		this.isPositionEndAnInteger() && 
         	    this.isPredictionCategoryAValidValue() && 
         	    this.isScoreSiftANumber() && 
         	    this.isScoreConservationANumber() && 
@@ -845,7 +868,8 @@ public class DTOInsertionDeletion {
 
     	SNPInsertionDeletion snpinsertiondeletion = SNPInsertionDeletion.getBuilder(
  				this.getChromosomeId(),
- 				this.getPositionAsInteger(),
+ 				this.getPositionStartAsInteger(),
+ 				this.getPositionEndAsInteger(),
  				this.getInDelId(),
  				this.getReference(),
  				this.getAlternative(),

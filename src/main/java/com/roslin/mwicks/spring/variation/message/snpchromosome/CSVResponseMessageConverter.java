@@ -1,4 +1,4 @@
-package com.roslin.mwicks.spring.variation.message;
+package com.roslin.mwicks.spring.variation.message.snpchromosome;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,13 +18,14 @@ import org.springframework.http.converter.AbstractHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.http.converter.HttpMessageNotWritableException;
 
-import com.roslin.mwicks.spring.variation.model.other.CSVResponse;
+import com.roslin.mwicks.spring.variation.model.other.CSVResponseSNPChromosome;
+
 import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome;
 
 import com.roslin.mwicks.utility.CsvUtil;
 
 
-public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CSVResponse> {
+public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CSVResponseSNPChromosome> {
 	
     // Constants ----------------------------------------------------------------------------------
 	protected static final String DOT = ".";
@@ -63,19 +64,19 @@ public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CS
 	@Override
 	protected boolean supports(Class<?> clazz) {
 	
-		return CSVResponse.class.equals(clazz);
+		return CSVResponseSNPChromosome.class.equals(clazz);
 	}
 
-    protected CSVResponse readInternal(Class<? extends CSVResponse> clazz, HttpInputMessage inputMessage) throws IOException, HttpMessageNotReadableException {
+    protected CSVResponseSNPChromosome readInternal(Class<? extends CSVResponseSNPChromosome> clazz, HttpInputMessage inputMessage) throws IOException, HttpMessageNotReadableException {
         
-        CSVResponse csvResponse = new CSVResponse();
+    	CSVResponseSNPChromosome csvResponse = new CSVResponseSNPChromosome();
 
         //System.out.println("CSVResponse readInternal : " + csvResponse);
 
         return csvResponse;
     }
 
-	protected void writeInternal(CSVResponse csvResponse, HttpOutputMessage output) throws IOException, HttpMessageNotWritableException {
+	protected void writeInternal(CSVResponseSNPChromosome csvResponse, HttpOutputMessage output) throws IOException, HttpMessageNotWritableException {
 	
         char separator = ',';
         char tab = '\t';

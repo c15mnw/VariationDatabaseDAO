@@ -10,7 +10,7 @@ import com.roslin.mwicks.spring.variation.dto.web.enums.DownloadQuotes;
 
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchReference;
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchSortDirection;
-import com.roslin.mwicks.spring.variation.dto.web.enums.SearchSortField;
+import com.roslin.mwicks.spring.variation.dto.web.enums.snpchromosome.SearchSortField;
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchAlternative;
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchChromosome;
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterSiftScore;

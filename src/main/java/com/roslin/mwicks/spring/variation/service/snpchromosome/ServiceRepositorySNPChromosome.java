@@ -937,12 +937,15 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
         	}
         	
          	//System.out.println("snpchromosomesFiltered.size() : " + snpchromosomesFiltered.size());
-            //System.out.println("intStart : " + intStart);
+            
+         	//System.out.println("intStart : " + intStart);
             //System.out.println("intStop : " + intStop);
             //System.out.println("intTotalPages : " + intTotalPages);
         			
-            snpchromosomesCutdown = snpchromosomesFiltered.subList(intStart - 1, intStop - 1);
+            snpchromosomesCutdown = snpchromosomesFiltered.subList(intStart - 1, intStop);
             
+         	//System.out.println("snpchromosomesCutdown.size() : " + snpchromosomesCutdown.size());
+
             if ( strColumn.equals(FIELD_POSITION) && strDirection.equals(SORT_ASC) ) {
                 Collections.sort(snpchromosomesCutdown, new SNPChromosome.OrderByPositionAsc());
             }
