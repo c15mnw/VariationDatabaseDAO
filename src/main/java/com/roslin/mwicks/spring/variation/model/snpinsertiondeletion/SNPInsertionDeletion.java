@@ -1,4 +1,4 @@
-package com.roslin.mwicks.spring.variation.model.snpinsertiondeletion;
+	package com.roslin.mwicks.spring.variation.model.snpinsertiondeletion;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 
@@ -438,6 +438,42 @@ public class SNPInsertionDeletion implements Comparable<SNPInsertionDeletion> {
     }
 
     // Helpers ------------------------------------------------------------------------------------
+    public boolean isStrainWAllele() {
+    	if ( this.breedAllelesW.equals(this.alternative)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    
+    public boolean isStrainNAllele() {
+    	if ( this.breedAllelesN.equals(this.alternative)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    
+    public boolean isStrainIAllele() {
+    	if ( this.breedAllelesI.equals(this.alternative)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    
+    public boolean isStrainZAllele() {
+    	if ( this.breedAllelesZ.equals(this.alternative)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+
     public boolean isChromosomeNone() {
     	if ( this.chromosomeId.equals(ONLY_NONE)) {
     		return true;

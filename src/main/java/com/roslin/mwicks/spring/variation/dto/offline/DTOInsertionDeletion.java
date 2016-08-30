@@ -850,20 +850,43 @@ public class DTOInsertionDeletion {
     	if ( this.isDTObreedI() ) {
     		breedAllelesI = this.getAlternative();
     	}
+    	else {
+    		breedAllelesI = this.getReference();
+    	}
+    	
     	if ( this.isDTObreedJ() ) {
     		breedAllelesJ = this.getAlternative();
     	}
+    	else {
+    		breedAllelesJ = this.getReference();
+    	}
+    	
     	if ( this.isDTObreedL() ) {
     		breedAllelesL = this.getAlternative();
     	}
+    	else {
+    		breedAllelesL = this.getReference();
+    	}
+    	
     	if ( this.isDTObreedN() ) {
     		breedAllelesN = this.getAlternative();
     	}
+    	else {
+    		breedAllelesN = this.getReference();
+    	}
+    	
     	if ( this.isDTObreedW() ) {
     		breedAllelesW = this.getAlternative();
     	}
+    	else {
+    		breedAllelesW = this.getReference();
+    	}
+    	
     	if ( this.isDTObreedZ() ) {
     		breedAllelesZ = this.getAlternative();
+    	}
+    	else {
+    		breedAllelesZ = this.getReference();
     	}
 
     	SNPInsertionDeletion snpinsertiondeletion = SNPInsertionDeletion.getBuilder(

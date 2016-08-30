@@ -36,9 +36,8 @@ public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CS
 	protected static final String HDR_3 = "##handle=DWBURT";
 	protected static final String HDR_4 = "##batch=15m_snps";
 	protected static final String HDR_5 = "##reference=GCF_000002315.3";
-	protected static final String HDR_6 = "##INFO=<ID=VRT,Number=1,Type=Integer,Description=\"Variation type, 1 - SNV: single nucleotide variation\">";
-	protected static final String HDR_7 = "##INFO=<ID=BD,Number=1,Type=String,Description=\"Breed where this variation has been identified separated by commas. Possible population categories with their abbreviations are: 7 - Inbred Line-7, P - Inbred P-Line, W - Inbred Wellcome-Line, N - Inbred N-Line, I - Inbred Line-15I, Z - Inbred Zero-Line, 6 - Inbred Line-6, C - Inbred C-Line.\">";
-	protected static final String HDR_8 = "##INFO=<ID=FIX,Number=1,Type=String,Description=\"Breed where this variation has been identified as FIXED separated by commas. Possible population categories with their abbreviations are: 7 - Inbred Line-7, P - Inbred P-Line, W - Inbred Wellcome-Line, N - Inbred N-Line, I - Inbred Line-15I, Z - Inbred Zero-Line, 6 - Inbred Line-6, C - Inbred C-Line.\">";
+	protected static final String HDR_6 = "##INFO=<ID=VRT,Number=1,Type=Integer,Description=\"Variation type, 2 - DIV: deletion/insertion variation\">";
+	protected static final String HDR_7 = "##INFO=<ID=BD,Number=1,Type=String,Description=\"Breed where this variation has been identified separated by commas. Possible population categories with their abbreviations are: W - Inbred Wellcome-Line, N - Inbred N-Line, I - Inbred Line-15I, Z - Inbred Zero-Line.\">";
 
 	public static final MediaType MEDIA_TYPE = new MediaType("text", "csv", Charset.forName("utf-8"));
 	
@@ -131,9 +130,6 @@ public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CS
             headerList7.add(HDR_7);
             csvList.add(headerList7);
             
-            headerList8.add(HDR_8);
-            csvList.add(headerList8);
-            
             for (SNPInsertionDeletion snpchromosome : csvResponse) {
             	
                 List<String> outputList = new ArrayList<String>();
@@ -148,71 +144,8 @@ public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CS
             	String column8 = "";
             	String column8vrt = "VRT=1;";
             	String column8bd = "BD=";
-            	String column8fix = "FIX=";
             	
-            	/*
-            	if ( snpchromosome.isStrain7AlleleFixed() ) {
-            		
-            		if ( column8fix.equals("FIX=")) {
-            			
-                		column8fix = column8fix + "7";
-            		}
-            		else {
-            			
-                		column8fix = column8fix + ",7";
-            		}
-            	}
-            	if ( snpchromosome.isStrain7AlleleFixed() || 
-            			snpchromosome.isStrain7AlleleNotFixed() ) {
-            		
-            		if ( column8bd.equals("BD=")) {
-            			
-            			column8bd = column8bd + "7";
-            		}
-            		else {
-            			
-            			column8bd = column8bd + ",7";
-            		}
-            	}
-            	
-            	if ( snpchromosome.isStrainPAlleleFixed() ) {
-            		
-            		if ( column8fix.equals("FIX=")) {
-            			
-                		column8fix = column8fix + "P";
-            		}
-            		else {
-            			
-                		column8fix = column8fix + ",P";
-            		}
-            	}
-            	if ( snpchromosome.isStrainPAlleleFixed() || 
-            			snpchromosome.isStrainPAlleleNotFixed() ) {
-            		
-            		if ( column8bd.equals("BD=")) {
-            			
-            			column8bd = column8bd + "P";
-            		}
-            		else {
-            			
-            			column8bd = column8bd + ",P";
-            		}
-            	}
-            	
-            	if ( snpchromosome.isStrainWAlleleFixed() ) {
-            		
-            		if ( column8fix.equals("FIX=")) {
-            			
-                		column8fix = column8fix + "W";
-            		}
-            		else {
-            			
-                		column8fix = column8fix + ",W";
-            		}
-            	}
-            	if ( snpchromosome.isStrainWAlleleFixed() || 
-            			snpchromosome.isStrainWAlleleNotFixed() ) {
-            		
+            	if ( snpchromosome.isStrainWAllele() ) {
             		if ( column8bd.equals("BD=")) {
             			
             			column8bd = column8bd + "W";
@@ -223,20 +156,7 @@ public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CS
             		}
             	}
             	
-            	if ( snpchromosome.isStrainNAlleleFixed() ) {
-            		
-            		if ( column8fix.equals("FIX=")) {
-            			
-                		column8fix = column8fix + "N";
-            		}
-            		else {
-            			
-                		column8fix = column8fix + ",N";
-            		}
-            	}
-            	if ( snpchromosome.isStrainNAlleleFixed() || 
-            			snpchromosome.isStrainNAlleleNotFixed() ) {
-            		
+            	if ( snpchromosome.isStrainNAllele() ) {
             		if ( column8bd.equals("BD=")) {
             			
             			column8bd = column8bd + "N";
@@ -247,20 +167,7 @@ public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CS
             		}
             	}
             	
-            	if ( snpchromosome.isStrain15IAlleleFixed() ) {
-            		
-            		if ( column8fix.equals("FIX=")) {
-            			
-                		column8fix = column8fix + "I";
-            		}
-            		else {
-            			
-                		column8fix = column8fix + ",I";
-            		}
-            	}
-            	if ( snpchromosome.isStrain15IAlleleFixed() || 
-            			snpchromosome.isStrain15IAlleleNotFixed() ) {
-            		
+            	if ( snpchromosome.isStrainIAllele() ) {
             		if ( column8bd.equals("BD=")) {
             			
             			column8bd = column8bd + "I";
@@ -271,20 +178,7 @@ public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CS
             		}
             	}
             	
-            	if ( snpchromosome.isStrainZeroAlleleFixed() ) {
-            		
-            		if ( column8fix.equals("FIX=")) {
-            			
-                		column8fix = column8fix + "Z";
-            		}
-            		else {
-            			
-                		column8fix = column8fix + ",Z";
-            		}
-            	}
-            	if ( snpchromosome.isStrainZeroAlleleFixed() || 
-            			snpchromosome.isStrainZeroAlleleNotFixed() ) {
-            		
+            	if ( snpchromosome.isStrainZAllele() ) {
             		if ( column8bd.equals("BD=")) {
             			
             			column8bd = column8bd + "Z";
@@ -295,58 +189,9 @@ public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CS
             		}
             	}
 
-            	if ( snpchromosome.isStrain6AlleleFixed() ) {
-            		
-            		if ( column8fix.equals("FIX=")) {
-            			
-                		column8fix = column8fix + "6";
-            		}
-            		else {
-            			
-                		column8fix = column8fix + ",6";
-            		}
-            	}
-            	if ( snpchromosome.isStrain6AlleleFixed() || 
-            			snpchromosome.isStrain6AlleleNotFixed() ) {
-            		
-            		if ( column8bd.equals("BD=")) {
-            			
-            			column8bd = column8bd + "6";
-            		}
-            		else {
-            			
-            			column8bd = column8bd + ",6";
-            		}
-            	}
-            	
-            	if ( snpchromosome.isStrainCAlleleFixed() ) {
-            		
-            		if ( column8fix.equals("FIX=")) {
-            			
-                		column8fix = column8fix + "C";
-            		}
-            		else {
-            			
-                		column8fix = column8fix + ",C";
-            		}
-            	}
-            	if ( snpchromosome.isStrainCAlleleFixed() || 
-            			snpchromosome.isStrainCAlleleNotFixed() ) {
-            		
-            		if ( column8bd.equals("BD=")) {
-            			
-            			column8bd = column8bd + "C";
-            		}
-            		else {
-            			
-            			column8bd = column8bd + ",C";
-            		}
-            	}
-            	 */
-
     			column8bd = column8bd + ";";
 
-            	column8 = column8vrt + column8bd + column8fix;
+            	column8 = column8vrt + column8bd;
 
             	outputList.add(column8);
 
