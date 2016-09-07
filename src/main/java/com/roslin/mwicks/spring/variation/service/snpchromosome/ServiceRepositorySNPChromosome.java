@@ -213,6 +213,38 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
 
     	List<SNPChromosome> snpchromosomes = null;
     	
+        if (dtoDownload.isDownloadReferenceReference() && dtoDownload.isDownloadAlternativeP()) {
+            LOGGER.debug("Searching snpchromosomes by using findByRangeANDReferenceNEStrainP");
+            snpchromosomes = repositorysnpchromosome.findByRangeANDReferenceNEStrainP(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+        }
+        if (dtoDownload.isDownloadReferenceReference() && dtoDownload.isDownloadAlternativeW()) {
+            LOGGER.debug("Searching snpchromosomes by using findByRangeANDReferenceNEStrainW");
+            snpchromosomes = repositorysnpchromosome.findByRangeANDReferenceNEStrainW(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+        }
+        if (dtoDownload.isDownloadReferenceReference() && dtoDownload.isDownloadAlternativeN()) {
+            LOGGER.debug("Searching snpchromosomes by using findByRangeANDReferenceNEStrainN");
+            snpchromosomes = repositorysnpchromosome.findByRangeANDReferenceNEStrainN(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+        }
+        if (dtoDownload.isDownloadReferenceReference() && dtoDownload.isDownloadAlternative15I()) {
+            LOGGER.debug("Searching snpchromosomes by using findByRangeANDReferenceNEStrain15I");
+            snpchromosomes = repositorysnpchromosome.findByRangeANDReferenceNEStrain15I(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+        }
+        if (dtoDownload.isDownloadReferenceReference() && dtoDownload.isDownloadAlternativeZero()) {
+            LOGGER.debug("Searching snpchromosomes by using findByRangeANDReferenceNEstrainZero");
+            snpchromosomes = repositorysnpchromosome.findByRangeANDReferenceNEstrainZero(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+        }
+        if (dtoDownload.isDownloadReferenceReference() && dtoDownload.isDownloadAlternative6()) {
+            LOGGER.debug("Searching snpchromosomes by using findByRangeANDReferenceNEStrain6");
+            snpchromosomes = repositorysnpchromosome.findByRangeANDReferenceNEStrain6(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+        }
+        if (dtoDownload.isDownloadReferenceReference() && dtoDownload.isDownloadAlternativeC()) {
+            LOGGER.debug("Searching snpchromosomes by using findByRangeANDReferenceNEStrainC");
+            snpchromosomes = repositorysnpchromosome.findByRangeANDReferenceNEStrainC(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+        }
+        if (dtoDownload.isDownloadReferenceReference() && dtoDownload.isDownloadAlternative7()) {
+            LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainPNEStrain&");
+            snpchromosomes = repositorysnpchromosome.findByRangeANDReferenceNEStrainP(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+        }
         if (dtoDownload.isDownloadReference7() && dtoDownload.isDownloadAlternativeP()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrain7NEStrainP");
             snpchromosomes = repositorysnpchromosome.findByRangeANDStrain7NEStrainP(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
@@ -558,6 +590,38 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
     		longPartition = 33;
     	}
     	
+        if (dtoSearch.isSearchReferenceReference() && dtoSearch.isSearchAlternativeP()) {
+            LOGGER.debug("Searching snpchromosomes by using findByRangeANDReferenceNEStrainP");
+            snpchromosomes = repositorysnpchromosome.findByRangeANDReferenceNEStrainP(longPartition, dtoSearch.getSearchLowRangeAsInt(), dtoSearch.getSearchHighRangeAsInt() );
+        }
+        if (dtoSearch.isSearchReferenceReference() && dtoSearch.isSearchAlternativeW()) {
+            LOGGER.debug("Searching snpchromosomes by using findByRangeANDReferenceNEStrainW");
+            snpchromosomes = repositorysnpchromosome.findByRangeANDReferenceNEStrainW(longPartition, dtoSearch.getSearchLowRangeAsInt(), dtoSearch.getSearchHighRangeAsInt() );
+        }
+        if (dtoSearch.isSearchReferenceReference() && dtoSearch.isSearchAlternativeN()) {
+            LOGGER.debug("Searching snpchromosomes by using findByRangeANDReferenceNEStrainN");
+            snpchromosomes = repositorysnpchromosome.findByRangeANDReferenceNEStrainN(longPartition, dtoSearch.getSearchLowRangeAsInt(), dtoSearch.getSearchHighRangeAsInt() );
+        }
+        if (dtoSearch.isSearchReferenceReference() && dtoSearch.isSearchAlternative15I()) {
+            LOGGER.debug("Searching snpchromosomes by using findByRangeANDReferenceNEStrain15I");
+            snpchromosomes = repositorysnpchromosome.findByRangeANDReferenceNEStrain15I(longPartition, dtoSearch.getSearchLowRangeAsInt(), dtoSearch.getSearchHighRangeAsInt() );
+        }
+        if (dtoSearch.isSearchReferenceReference() && dtoSearch.isSearchAlternativeZero()) {
+            LOGGER.debug("Searching snpchromosomes by using findByRangeANDReferenceNEstrainZero");
+            snpchromosomes = repositorysnpchromosome.findByRangeANDReferenceNEstrainZero(longPartition, dtoSearch.getSearchLowRangeAsInt(), dtoSearch.getSearchHighRangeAsInt() );
+        }
+        if (dtoSearch.isSearchReferenceReference() && dtoSearch.isSearchAlternative6()) {
+            LOGGER.debug("Searching snpchromosomes by using findByRangeANDReferenceNEStrain6");
+            snpchromosomes = repositorysnpchromosome.findByRangeANDReferenceNEStrain6(longPartition, dtoSearch.getSearchLowRangeAsInt(), dtoSearch.getSearchHighRangeAsInt() );
+        }
+        if (dtoSearch.isSearchReferenceReference() && dtoSearch.isSearchAlternativeC()) {
+            LOGGER.debug("Searching snpchromosomes by using findByRangeANDReferenceNEStrainC");
+            snpchromosomes = repositorysnpchromosome.findByRangeANDReferenceNEStrainC(longPartition, dtoSearch.getSearchLowRangeAsInt(), dtoSearch.getSearchHighRangeAsInt() );
+        }
+        if (dtoSearch.isSearchReferenceReference() && dtoSearch.isSearchAlternativeC()) {
+            LOGGER.debug("Searching snpchromosomes by using findByRangeANDReferenceNEStrain7");
+            snpchromosomes = repositorysnpchromosome.findByRangeANDReferenceNEStrainC(longPartition, dtoSearch.getSearchLowRangeAsInt(), dtoSearch.getSearchHighRangeAsInt() );
+        }
         if (dtoSearch.isSearchReference7() && dtoSearch.isSearchAlternativeP()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrain7NEStrainP");
             snpchromosomes = repositorysnpchromosome.findByRangeANDStrain7NEStrainP(longPartition, dtoSearch.getSearchLowRangeAsInt(), dtoSearch.getSearchHighRangeAsInt() );

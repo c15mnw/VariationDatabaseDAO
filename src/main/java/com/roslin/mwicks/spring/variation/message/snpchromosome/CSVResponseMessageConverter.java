@@ -1,4 +1,4 @@
-package com.roslin.mwicks.spring.variation.message.snpchromosome;
+	package com.roslin.mwicks.spring.variation.message.snpchromosome;
 
 import java.io.IOException;
 import java.io.InputStream;

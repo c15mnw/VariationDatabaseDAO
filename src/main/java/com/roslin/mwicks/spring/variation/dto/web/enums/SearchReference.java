@@ -17,6 +17,7 @@ package com.roslin.mwicks.spring.variation.dto.web.enums;
  */
 public enum SearchReference {
 	STRAIN_NONE,
+	STRAIN_REFERENCE,
 	STRAIN_7,
 	STRAIN_P,
 	STRAIN_W,

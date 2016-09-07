@@ -86,6 +86,7 @@ public class DTODownloadSNPChromosome {
 	protected static final String ONLY_SORT_DIRECTION_DESCENDING = "desc";
 
 	protected static final String STRAIN_NONE = "STRAIN_NONE";
+	protected static final String STRAIN_REFERENCE = "STRAIN_REFERENCE";
 	protected static final String STRAIN_7 = "STRAIN_7";
 	protected static final String STRAIN_P = "STRAIN_P";
 	protected static final String STRAIN_W = "STRAIN_W";
@@ -96,6 +97,7 @@ public class DTODownloadSNPChromosome {
 	protected static final String STRAIN_C = "STRAIN_C";
 			
 	protected static final String ONLY_STRAIN_NONE = "NONE";
+	protected static final String ONLY_STRAIN_REFERENCE = "REFERENCE";
 	protected static final String ONLY_STRAIN_7 = "7";
 	protected static final String ONLY_STRAIN_P = "P";
 	protected static final String ONLY_STRAIN_W = "W";
@@ -283,6 +285,9 @@ public class DTODownloadSNPChromosome {
         
     	if ( this.downloadReference.equals(SearchReference.STRAIN_NONE)) {
             rtnString = ONLY_STRAIN_NONE;
+    	}
+    	if ( this.downloadReference.equals(SearchReference.STRAIN_REFERENCE)) {
+            rtnString = ONLY_STRAIN_REFERENCE;
     	}
     	if ( this.downloadReference.equals(SearchReference.STRAIN_7)) {
             rtnString = ONLY_STRAIN_7;
@@ -972,6 +977,14 @@ public class DTODownloadSNPChromosome {
 
     public boolean isDownloadReferenceNone() {
     	if ( this.downloadReference.name().equals(STRAIN_NONE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadReferenceReference() {
+    	if ( this.downloadReference.name().equals(STRAIN_REFERENCE)) {
     		return true;
     	}
     	else {

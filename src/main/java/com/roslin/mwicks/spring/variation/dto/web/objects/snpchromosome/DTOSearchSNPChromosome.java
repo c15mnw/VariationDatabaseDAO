@@ -68,6 +68,7 @@ public class DTOSearchSNPChromosome {
 	protected static final String ONLY_SORT_DIRECTION_DESCENDING = "desc";
 
 	protected static final String STRAIN_NONE = "STRAIN_NONE";
+	protected static final String STRAIN_REFERENCE = "STRAIN_REFERENCE";
 	protected static final String STRAIN_7 = "STRAIN_7";
 	protected static final String STRAIN_P = "STRAIN_P";
 	protected static final String STRAIN_W = "STRAIN_W";
@@ -78,6 +79,7 @@ public class DTOSearchSNPChromosome {
 	protected static final String STRAIN_C = "STRAIN_C";
 			
 	protected static final String ONLY_STRAIN_NONE = "NONE";
+	protected static final String ONLY_STRAIN_REFERENCE = "REFERENCE";
 	protected static final String ONLY_STRAIN_7 = "7";
 	protected static final String ONLY_STRAIN_P = "P";
 	protected static final String ONLY_STRAIN_W = "W";
@@ -272,6 +274,9 @@ public class DTOSearchSNPChromosome {
         
     	if ( this.searchReference.equals(SearchReference.STRAIN_NONE)) {
             rtnString = ONLY_STRAIN_NONE;
+    	}
+    	if ( this.searchReference.equals(SearchReference.STRAIN_REFERENCE)) {
+            rtnString = ONLY_STRAIN_REFERENCE;
     	}
     	if ( this.searchReference.equals(SearchReference.STRAIN_7)) {
             rtnString = ONLY_STRAIN_7;
@@ -803,6 +808,9 @@ public class DTOSearchSNPChromosome {
     	if ( searchReference.equals(STRAIN_NONE)) {
             this.searchReference = SearchReference.STRAIN_NONE;
     	}
+    	if ( searchReference.equals(STRAIN_REFERENCE)) {
+            this.searchReference = SearchReference.STRAIN_REFERENCE;
+    	}
     	if ( searchReference.equals(STRAIN_7)) {
             this.searchReference = SearchReference.STRAIN_7;
     	}
@@ -829,6 +837,9 @@ public class DTOSearchSNPChromosome {
     	}
     	if ( searchReference.equals(ONLY_STRAIN_NONE)) {
             this.searchReference = SearchReference.STRAIN_NONE;
+    	}
+    	if ( searchReference.equals(ONLY_STRAIN_REFERENCE)) {
+            this.searchReference = SearchReference.STRAIN_REFERENCE;
     	}
     	if ( searchReference.equals(ONLY_STRAIN_7)) {
             this.searchReference = SearchReference.STRAIN_7;
@@ -1160,6 +1171,14 @@ public class DTOSearchSNPChromosome {
 
     public boolean isSearchReferenceNone() {
     	if ( this.searchReference.name().equals(STRAIN_NONE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isSearchReferenceReference() {
+    	if ( this.searchReference.name().equals(STRAIN_REFERENCE)) {
     		return true;
     	}
     	else {

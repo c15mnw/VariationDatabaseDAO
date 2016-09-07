@@ -119,6 +119,31 @@ public interface RepositorySNPChromosome extends JpaRepository<SNPChromosome, Lo
     public List<SNPChromosome> findByRangeANDStrain6NEStrainC(@Param("longPartition") long longPartition, @Param("intLowRange") int intLowRange, @Param("intHighRange") int intHighRange );
 
 
+	@Query("Select p from SNPChromosome p where p.snpChromosomePrimaryKey.partitionId = :longPartition and p.position > :intLowRange and p.position < :intHighRange and not ( p.reference = p.strainPAllele )" )
+	public List<SNPChromosome> findByRangeANDReferenceNEStrainP(@Param("longPartition") long longPartition, @Param("intLowRange") int intLowRange, @Param("intHighRange") int intHighRange );
+
+	@Query("Select p from SNPChromosome p where p.snpChromosomePrimaryKey.partitionId = :longPartition and p.position > :intLowRange and p.position < :intHighRange and not ( p.reference = p.strainWAllele )" )
+    public List<SNPChromosome> findByRangeANDReferenceNEStrainW(@Param("longPartition") long longPartition, @Param("intLowRange") int intLowRange, @Param("intHighRange") int intHighRange );
+
+	@Query("Select p from SNPChromosome p where p.snpChromosomePrimaryKey.partitionId = :longPartition and p.position > :intLowRange and p.position < :intHighRange and not ( p.reference = p.strainNAllele )" )
+    public List<SNPChromosome> findByRangeANDReferenceNEStrainN(@Param("longPartition") long longPartition, @Param("intLowRange") int intLowRange, @Param("intHighRange") int intHighRange );
+
+	@Query("Select p from SNPChromosome p where p.snpChromosomePrimaryKey.partitionId = :longPartition and p.position > :intLowRange and p.position < :intHighRange and not ( p.reference = p.strain15IAllele )" )
+    public List<SNPChromosome> findByRangeANDReferenceNEStrain15I(@Param("longPartition") long longPartition, @Param("intLowRange") int intLowRange, @Param("intHighRange") int intHighRange );
+
+	@Query("Select p from SNPChromosome p where p.snpChromosomePrimaryKey.partitionId = :longPartition and p.position > :intLowRange and p.position < :intHighRange and not ( p.reference = p.strainZeroAllele )" )
+    public List<SNPChromosome> findByRangeANDReferenceNEstrainZero(@Param("longPartition") long longPartition, @Param("intLowRange") int intLowRange, @Param("intHighRange") int intHighRange );
+
+	@Query("Select p from SNPChromosome p where p.snpChromosomePrimaryKey.partitionId = :longPartition and p.position > :intLowRange and p.position < :intHighRange and not ( p.reference = p.strain6Allele )" )
+    public List<SNPChromosome> findByRangeANDReferenceNEStrain6(@Param("longPartition") long longPartition, @Param("intLowRange") int intLowRange, @Param("intHighRange") int intHighRange );
+
+	@Query("Select p from SNPChromosome p where p.snpChromosomePrimaryKey.partitionId = :longPartition and p.position > :intLowRange and p.position < :intHighRange and not ( p.reference = p.strainCAllele )" )
+    public List<SNPChromosome> findByRangeANDReferenceNEStrainC(@Param("longPartition") long longPartition, @Param("intLowRange") int intLowRange, @Param("intHighRange") int intHighRange );
+
+	@Query("Select p from SNPChromosome p where p.snpChromosomePrimaryKey.partitionId = :longPartition and p.position > :intLowRange and p.position < :intHighRange and not ( p.reference = p.strain7Allele )" )
+    public List<SNPChromosome> findByRangeANDReferenceNEStrain7(@Param("longPartition") long longPartition, @Param("intLowRange") int intLowRange, @Param("intHighRange") int intHighRange );
+
+
 	@Query("Select p from SNPChromosome p where p.snpChromosomePrimaryKey.oid = :longOid and p.snpChromosomePrimaryKey.partitionId = :longPartition " )
 	public SNPChromosome findByOidAndPartitionId(@Param("longOid") long longOid, @Param("longPartition") long longPartition );
 
