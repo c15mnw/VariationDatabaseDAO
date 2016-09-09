@@ -9,14 +9,17 @@ import com.roslin.mwicks.spring.variation.dto.web.enums.DownloadHeaders;
 import com.roslin.mwicks.spring.variation.dto.web.enums.DownloadQuotes;
 
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchReference;
+import com.roslin.mwicks.spring.variation.dto.web.enums.SearchRegion;
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchSortDirection;
 import com.roslin.mwicks.spring.variation.dto.web.enums.snpchromosome.SearchSortField;
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchAlternative;
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchChromosome;
+import com.roslin.mwicks.spring.variation.dto.web.enums.SearchEnsemblTranscript;
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterSiftScore;
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterSiftConservationScore;
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterProteinAlignNumber;
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterTotalNumberSeqAligned;
+import com.roslin.mwicks.spring.variation.dto.web.enums.SearchPredictionCategory;
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterProveanScore;
 
 import com.roslin.mwicks.spring.variation.format.CustomDateToStringStyle;
@@ -197,7 +200,66 @@ public class DTODownloadSNPChromosome {
 	protected static final String PROVEAN_SCORE_ABOVE = "PROVEAN_SCORE_ABOVE";
 	protected static final String PROVEAN_SCORE_BELOW = "PROVEAN_SCORE_BELOW";
 
+	protected static final String REGION_NONE = "REGION_NONE";
+	protected static final String REGION_DOWNSTREAM = "REGION_DOWNSTREAM";
+	protected static final String REGION_EXONIC_SPLICING = "REGION_EXONIC_SPLICING";
+	protected static final String REGION_EXONIC = "REGION_EXONIC";
+	protected static final String REGION_INTERGENIC = "REGION_INTERGENIC";
+	protected static final String REGION_INTRONIC = "REGION_INTRONIC";
+	protected static final String REGION_NC_RNA_EXONIC = "REGION_NC_RNA_EXONIC";
+	protected static final String REGION_NC_RNA_INTRONIC = "REGION_NC_RNA_INTRONIC";
+	protected static final String REGION_NC_RNA_SPLICING = "REGION_NC_RNA_SPLICING";
+	protected static final String REGION_SPLICING = "REGION_SPLICING";
+	protected static final String REGION_UPSTREAM_DOWNSTREAM = "REGION_UPSTREAM_DOWNSTREAM";
+	protected static final String REGION_UPSTREAM = "REGION_UPSTREAM";
+	protected static final String REGION_UTR3 = "REGION_UTR3";
+	protected static final String REGION_UTR5_UTR3 = "REGION_UTR5_UTR3";
+	protected static final String REGION_UTR5 = "REGION_UTR5";
 	
+	protected static final String ONLY_REGION_NONE = "NONE";
+	protected static final String ONLY_REGION_DOWNSTREAM = "DOWNSTREAM";
+	protected static final String ONLY_REGION_EXONIC_SPLICING = "EXONIC_SPLICING";
+	protected static final String ONLY_REGION_EXONIC = "EXONIC";
+	protected static final String ONLY_REGION_INTERGENIC = "INTERGENIC";
+	protected static final String ONLY_REGION_INTRONIC = "INTRONIC";
+	protected static final String ONLY_REGION_NC_RNA_EXONIC = "NC_RNA_EXONIC";
+	protected static final String ONLY_REGION_NC_RNA_INTRONIC = "NC_RNA_INTRONIC";
+	protected static final String ONLY_REGION_NC_RNA_SPLICING = "NC_RNA_SPLICING";
+	protected static final String ONLY_REGION_SPLICING = "SPLICING";
+	protected static final String ONLY_REGION_UPSTREAM_DOWNSTREAM = "UPSTREAM_DOWNSTREAM";
+	protected static final String ONLY_REGION_UPSTREAM = "UPSTREAM";
+	protected static final String ONLY_REGION_UTR3 = "UTR3";
+	protected static final String ONLY_REGION_UTR5_UTR3 = "UTR5_UTR3";
+	protected static final String ONLY_REGION_UTR5 = "UTR5";
+
+	protected static final String TRANSCRIPT_NONE = "TRANSCRIPT_NONE";
+	protected static final String TRANSCRIPT_NA = "TRANSCRIPT_NA";
+	protected static final String TRANSCRIPT_NONSYNONYMOUS_SNV = "TRANSCRIPT_NONSYNONYMOUS_SNV";
+	protected static final String TRANSCRIPT_STOPGAIN_SNV = "TRANSCRIPT_STOPGAIN_SNV";
+	protected static final String TRANSCRIPT_STOPLOSS_SNV = "TRANSCRIPT_STOPLOSS_SNV";
+	protected static final String TRANSCRIPT_SYNONYMOUS_SNV = "TRANSCRIPT_SYNONYMOUS_SNV";
+	protected static final String TRANSCRIPT_UNKNOWN = "TRANSCRIPT_UNKNOWN";
+
+	protected static final String ONLY_TRANSCRIPT_NONE = "NONE";
+	protected static final String ONLY_TRANSCRIPT_NA = "NA";
+	protected static final String ONLY_TRANSCRIPT_NONSYNONYMOUS_SNV = "NONSYNONYMOUS_SNV";
+	protected static final String ONLY_TRANSCRIPT_STOPGAIN_SNV = "STOPGAIN_SNV";
+	protected static final String ONLY_TRANSCRIPT_STOPLOSS_SNV = "STOPLOSS_SNV";
+	protected static final String ONLY_TRANSCRIPT_SYNONYMOUS_SNV = "SYNONYMOUS_SNV";
+	protected static final String ONLY_TRANSCRIPT_UNKNOWN = "UNKNOWN";
+
+	protected static final String PREDCAT_NONE = "PREDCAT_NONE";
+	protected static final String PREDCAT_BLANK = "PREDCAT_BLANK";
+	protected static final String PREDCAT_DELETERIOUS = "PREDCAT_DELETERIOUS";
+	protected static final String PREDCAT_NOT_SCORED = "PREDCAT_NOT_SCORED";
+	protected static final String PREDCAT_TOLERATED = "PREDCAT_TOLERATED";
+	
+	protected static final String ONLY_PREDCAT_NONE = "NONE";
+	protected static final String ONLY_PREDCAT_BLANK = "BLANK";
+	protected static final String ONLY_PREDCAT_DELETERIOUS = "DELETERIOUS";
+	protected static final String ONLY_PREDCAT_NOT_SCORED = "NOT_SCORED";
+	protected static final String ONLY_PREDCAT_TOLERATED = "TOLERATED";
+
     // Properties ---------------------------------------------------------------------------------
 	private String downloadLowRange;
     private String downloadHighRange;
@@ -228,6 +290,10 @@ public class DTODownloadSNPChromosome {
 
     private SearchSortField downloadSortField;
     private SearchSortDirection downloadSortDirection;
+
+    private SearchRegion downloadRegion;
+    private SearchPredictionCategory downloadPredictionCategory;
+    private SearchEnsemblTranscript downloadEnsemblTranscript;
 
     // Constructor --------------------------------------------------------------------------------
     public DTODownloadSNPChromosome() {
@@ -261,6 +327,10 @@ public class DTODownloadSNPChromosome {
 
         this.downloadSortField = SearchSortField.SORT_FIELD_POSITION;
         this.downloadSortDirection = SearchSortDirection.SORT_DIRECTION_ASCENDING;
+        
+        this.downloadRegion = SearchRegion.REGION_NONE; 
+        this.downloadPredictionCategory = SearchPredictionCategory.PREDCAT_NONE; 
+        this.downloadEnsemblTranscript = SearchEnsemblTranscript.TRANSCRIPT_NONE; 
     }
 
     // Getters ------------------------------------------------------------------------------------
@@ -589,6 +659,115 @@ public class DTODownloadSNPChromosome {
         return strReturn;
     }
 
+    public SearchRegion getDownloadRegion() {
+        return this.downloadRegion;
+    }
+    public String getDownloadRegionAsString() {
+
+        String rtnString = "";
+        
+    	if ( this.downloadRegion.equals(SearchRegion.REGION_NONE)) {
+            rtnString = ONLY_REGION_NONE;
+    	}
+    	if ( this.downloadRegion.equals(SearchRegion.REGION_DOWNSTREAM)) {
+            rtnString = ONLY_REGION_DOWNSTREAM;
+    	}
+    	if ( this.downloadRegion.equals(SearchRegion.REGION_EXONIC_SPLICING)) {
+            rtnString = ONLY_REGION_EXONIC_SPLICING;
+    	}
+    	if ( this.downloadRegion.equals(SearchRegion.REGION_EXONIC)) {
+            rtnString = ONLY_REGION_EXONIC;
+    	}
+    	if ( this.downloadRegion.equals(SearchRegion.REGION_INTERGENIC)) {
+            rtnString = ONLY_REGION_INTERGENIC;
+    	}
+    	if ( this.downloadRegion.equals(SearchRegion.REGION_INTRONIC)) {
+            rtnString = ONLY_REGION_INTRONIC;
+    	}
+    	if ( this.downloadRegion.equals(SearchRegion.REGION_NC_RNA_EXONIC)) {
+            rtnString = ONLY_REGION_NC_RNA_EXONIC;
+    	}
+    	if ( this.downloadRegion.equals(SearchRegion.REGION_NC_RNA_INTRONIC)) {
+            rtnString = ONLY_REGION_NC_RNA_INTRONIC;
+    	}
+    	if ( this.downloadRegion.equals(SearchRegion.REGION_NC_RNA_SPLICING)) {
+            rtnString = ONLY_REGION_NC_RNA_SPLICING;
+    	}
+    	if ( this.downloadRegion.equals(SearchRegion.REGION_UPSTREAM_DOWNSTREAM)) {
+            rtnString = ONLY_REGION_UPSTREAM_DOWNSTREAM;
+    	}
+    	if ( this.downloadRegion.equals(SearchRegion.REGION_UPSTREAM)) {
+            rtnString = ONLY_REGION_UPSTREAM;
+    	}
+    	if ( this.downloadRegion.equals(SearchRegion.REGION_UTR3)) {
+            rtnString = ONLY_REGION_UTR3;
+    	}
+    	if ( this.downloadRegion.equals(SearchRegion.REGION_UTR5_UTR3)) {
+            rtnString = ONLY_REGION_UTR5_UTR3;
+    	}
+    	if ( this.downloadRegion.equals(SearchRegion.REGION_UTR5)) {
+            rtnString = ONLY_REGION_UTR5;
+    	}
+    	
+    	return rtnString;
+    }
+    public SearchEnsemblTranscript getDownloadEnsemblTranscript() {
+        return this.downloadEnsemblTranscript;
+    }
+    public String getDownloadEnsemblTranscriptAsString() {
+
+        String rtnString = "";
+        
+    	if ( this.downloadEnsemblTranscript.equals(SearchEnsemblTranscript.TRANSCRIPT_NONE)) {
+            rtnString = ONLY_TRANSCRIPT_NONE;
+    	}
+    	if ( this.downloadEnsemblTranscript.equals(SearchEnsemblTranscript.TRANSCRIPT_NA)) {
+            rtnString = ONLY_TRANSCRIPT_NA;
+    	}
+    	if ( this.downloadEnsemblTranscript.equals(SearchEnsemblTranscript.TRANSCRIPT_NONSYNONYMOUS_SNV)) {
+            rtnString = ONLY_TRANSCRIPT_NONSYNONYMOUS_SNV;
+    	}
+    	if ( this.downloadEnsemblTranscript.equals(SearchEnsemblTranscript.TRANSCRIPT_STOPGAIN_SNV)) {
+            rtnString = ONLY_TRANSCRIPT_STOPGAIN_SNV;
+    	}
+    	if ( this.downloadEnsemblTranscript.equals(SearchEnsemblTranscript.TRANSCRIPT_STOPLOSS_SNV)) {
+            rtnString = ONLY_TRANSCRIPT_STOPLOSS_SNV;
+    	}
+    	if ( this.downloadEnsemblTranscript.equals(SearchEnsemblTranscript.TRANSCRIPT_SYNONYMOUS_SNV)) {
+            rtnString = ONLY_TRANSCRIPT_SYNONYMOUS_SNV;
+    	}
+    	if ( this.downloadEnsemblTranscript.equals(SearchEnsemblTranscript.TRANSCRIPT_UNKNOWN)) {
+            rtnString = ONLY_TRANSCRIPT_UNKNOWN;
+    	}
+    	
+    	return rtnString;
+    }
+    public SearchPredictionCategory getDownloadPredictionCategory() {
+        return this.downloadPredictionCategory;
+    }
+    public String getDownloadPredictionCategoryAsString() {
+
+        String rtnString = "";
+        
+    	if ( this.downloadPredictionCategory.equals(SearchPredictionCategory.PREDCAT_NONE)) {
+            rtnString = ONLY_PREDCAT_NONE;
+    	}
+    	if ( this.downloadPredictionCategory.equals(SearchPredictionCategory.PREDCAT_BLANK)) {
+            rtnString = ONLY_PREDCAT_BLANK;
+    	}
+    	if ( this.downloadPredictionCategory.equals(SearchPredictionCategory.PREDCAT_DELETERIOUS)) {
+            rtnString = ONLY_PREDCAT_DELETERIOUS;
+    	}
+    	if ( this.downloadPredictionCategory.equals(SearchPredictionCategory.PREDCAT_NOT_SCORED)) {
+            rtnString = ONLY_PREDCAT_NOT_SCORED;
+    	}
+    	if ( this.downloadPredictionCategory.equals(SearchPredictionCategory.PREDCAT_TOLERATED)) {
+            rtnString = ONLY_PREDCAT_TOLERATED;
+    	}
+    	
+    	return rtnString;
+    }
+
     // Setters ------------------------------------------------------------------------------------
     public void setDownloadDownStream(String downloadDownStream) {
     	this.downloadDownStream = downloadDownStream;
@@ -655,6 +834,16 @@ public class DTODownloadSNPChromosome {
     }
     public void setDownloadSortDirection(SearchSortDirection downloadSortDirection) {
         this.downloadSortDirection = downloadSortDirection;
+    }
+
+    public void setDownloadRegion(SearchRegion downloadRegion) {
+        this.downloadRegion = downloadRegion;
+    }
+    public void setDownloadEnsemblTranscript(SearchEnsemblTranscript downloadEnsemblTranscript) {
+        this.downloadEnsemblTranscript = downloadEnsemblTranscript;
+    }
+    public void setDownloadPredictionCategory(SearchPredictionCategory downloadPredictionCategory) {
+        this.downloadPredictionCategory = downloadPredictionCategory;
     }
     
     // Helpers ------------------------------------------------------------------------------------
@@ -877,7 +1066,178 @@ public class DTODownloadSNPChromosome {
             this.downloadChromosome = SearchChromosome.CHROMOSOME_LGE64;
     	}
     }
-    
+
+    public void setDownloadRegion(String downloadRegion) {
+
+    	if ( downloadRegion.equals(REGION_NONE)) {
+            this.downloadRegion = SearchRegion.REGION_NONE;
+    	}
+    	if ( downloadRegion.equals(REGION_DOWNSTREAM)) {
+            this.downloadRegion = SearchRegion.REGION_DOWNSTREAM;
+    	}
+    	if ( downloadRegion.equals(REGION_EXONIC_SPLICING)) {
+            this.downloadRegion = SearchRegion.REGION_EXONIC_SPLICING;
+    	}
+    	if ( downloadRegion.equals(REGION_EXONIC)) {
+            this.downloadRegion = SearchRegion.REGION_EXONIC;
+    	}
+    	if ( downloadRegion.equals(REGION_INTERGENIC)) {
+            this.downloadRegion = SearchRegion.REGION_INTERGENIC;
+    	}
+    	if ( downloadRegion.equals(REGION_INTRONIC)) {
+            this.downloadRegion = SearchRegion.REGION_INTRONIC;
+    	}
+    	if ( downloadRegion.equals(REGION_NC_RNA_EXONIC)) {
+            this.downloadRegion = SearchRegion.REGION_NC_RNA_EXONIC;
+    	}
+    	if ( downloadRegion.equals(REGION_NC_RNA_INTRONIC)) {
+            this.downloadRegion = SearchRegion.REGION_NC_RNA_INTRONIC;
+    	}
+    	if ( downloadRegion.equals(REGION_NC_RNA_SPLICING)) {
+            this.downloadRegion = SearchRegion.REGION_NC_RNA_SPLICING;
+    	}
+    	if ( downloadRegion.equals(REGION_UPSTREAM_DOWNSTREAM)) {
+            this.downloadRegion = SearchRegion.REGION_UPSTREAM_DOWNSTREAM;
+    	}
+    	if ( downloadRegion.equals(REGION_UPSTREAM)) {
+            this.downloadRegion = SearchRegion.REGION_UPSTREAM;
+    	}
+    	if ( downloadRegion.equals(REGION_UTR3)) {
+            this.downloadRegion = SearchRegion.REGION_UTR3;
+    	}
+    	if ( downloadRegion.equals(REGION_UTR5_UTR3)) {
+            this.downloadRegion = SearchRegion.REGION_UTR5_UTR3;
+    	}
+    	if ( downloadRegion.equals(REGION_UTR5)) {
+            this.downloadRegion = SearchRegion.REGION_UTR5;
+    	}
+    	
+    	if ( downloadRegion.equals(ONLY_REGION_NONE)) {
+            this.downloadRegion = SearchRegion.REGION_NONE;
+    	}
+    	if ( downloadRegion.equals(ONLY_REGION_DOWNSTREAM)) {
+            this.downloadRegion = SearchRegion.REGION_DOWNSTREAM;
+    	}
+    	if ( downloadRegion.equals(ONLY_REGION_EXONIC_SPLICING)) {
+            this.downloadRegion = SearchRegion.REGION_EXONIC_SPLICING;
+    	}
+    	if ( downloadRegion.equals(ONLY_REGION_EXONIC)) {
+            this.downloadRegion = SearchRegion.REGION_EXONIC;
+    	}
+    	if ( downloadRegion.equals(ONLY_REGION_INTERGENIC)) {
+            this.downloadRegion = SearchRegion.REGION_INTERGENIC;
+    	}
+    	if ( downloadRegion.equals(ONLY_REGION_INTRONIC)) {
+            this.downloadRegion = SearchRegion.REGION_INTRONIC;
+    	}
+    	if ( downloadRegion.equals(ONLY_REGION_NC_RNA_EXONIC)) {
+            this.downloadRegion = SearchRegion.REGION_NC_RNA_EXONIC;
+    	}
+    	if ( downloadRegion.equals(ONLY_REGION_NC_RNA_INTRONIC)) {
+            this.downloadRegion = SearchRegion.REGION_NC_RNA_INTRONIC;
+    	}
+    	if ( downloadRegion.equals(ONLY_REGION_NC_RNA_SPLICING)) {
+            this.downloadRegion = SearchRegion.REGION_NC_RNA_SPLICING;
+    	}
+    	if ( downloadRegion.equals(ONLY_REGION_UPSTREAM_DOWNSTREAM)) {
+            this.downloadRegion = SearchRegion.REGION_UPSTREAM_DOWNSTREAM;
+    	}
+    	if ( downloadRegion.equals(ONLY_REGION_UPSTREAM)) {
+            this.downloadRegion = SearchRegion.REGION_UPSTREAM;
+    	}
+    	if ( downloadRegion.equals(ONLY_REGION_UTR3)) {
+            this.downloadRegion = SearchRegion.REGION_UTR3;
+    	}
+    	if ( downloadRegion.equals(ONLY_REGION_UTR5_UTR3)) {
+            this.downloadRegion = SearchRegion.REGION_UTR5_UTR3;
+    	}
+    	if ( downloadRegion.equals(ONLY_REGION_UTR5)) {
+            this.downloadRegion = SearchRegion.REGION_UTR5;
+    	}
+    }
+
+    public void setDownloadEnsemblTranscript(String downloadEnsemblTranscript) {
+
+    	if ( downloadEnsemblTranscript.equals(TRANSCRIPT_NONE)) {
+            this.downloadEnsemblTranscript = SearchEnsemblTranscript.TRANSCRIPT_NONE;
+    	}
+    	if ( downloadEnsemblTranscript.equals(TRANSCRIPT_NA)) {
+            this.downloadEnsemblTranscript = SearchEnsemblTranscript.TRANSCRIPT_NA;
+    	}
+    	if ( downloadEnsemblTranscript.equals(TRANSCRIPT_NONSYNONYMOUS_SNV)) {
+            this.downloadEnsemblTranscript = SearchEnsemblTranscript.TRANSCRIPT_NONSYNONYMOUS_SNV;
+    	}
+    	if ( downloadEnsemblTranscript.equals(TRANSCRIPT_STOPGAIN_SNV)) {
+            this.downloadEnsemblTranscript = SearchEnsemblTranscript.TRANSCRIPT_STOPGAIN_SNV;
+    	}
+    	if ( downloadEnsemblTranscript.equals(TRANSCRIPT_STOPLOSS_SNV)) {
+            this.downloadEnsemblTranscript = SearchEnsemblTranscript.TRANSCRIPT_STOPLOSS_SNV;
+    	}
+    	if ( downloadEnsemblTranscript.equals(TRANSCRIPT_SYNONYMOUS_SNV)) {
+            this.downloadEnsemblTranscript = SearchEnsemblTranscript.TRANSCRIPT_SYNONYMOUS_SNV;
+    	}
+    	if ( downloadEnsemblTranscript.equals(TRANSCRIPT_UNKNOWN)) {
+            this.downloadEnsemblTranscript = SearchEnsemblTranscript.TRANSCRIPT_UNKNOWN;
+    	}
+
+    	if ( downloadEnsemblTranscript.equals(ONLY_TRANSCRIPT_NONE)) {
+            this.downloadEnsemblTranscript = SearchEnsemblTranscript.TRANSCRIPT_NONE;
+    	}
+    	if ( downloadEnsemblTranscript.equals(ONLY_TRANSCRIPT_NA)) {
+            this.downloadEnsemblTranscript = SearchEnsemblTranscript.TRANSCRIPT_NA;
+    	}
+    	if ( downloadEnsemblTranscript.equals(ONLY_TRANSCRIPT_NONSYNONYMOUS_SNV)) {
+            this.downloadEnsemblTranscript = SearchEnsemblTranscript.TRANSCRIPT_NONSYNONYMOUS_SNV;
+    	}
+    	if ( downloadEnsemblTranscript.equals(ONLY_TRANSCRIPT_STOPGAIN_SNV)) {
+            this.downloadEnsemblTranscript = SearchEnsemblTranscript.TRANSCRIPT_STOPGAIN_SNV;
+    	}
+    	if ( downloadEnsemblTranscript.equals(ONLY_TRANSCRIPT_STOPLOSS_SNV)) {
+            this.downloadEnsemblTranscript = SearchEnsemblTranscript.TRANSCRIPT_STOPLOSS_SNV;
+    	}
+    	if ( downloadEnsemblTranscript.equals(ONLY_TRANSCRIPT_SYNONYMOUS_SNV)) {
+            this.downloadEnsemblTranscript = SearchEnsemblTranscript.TRANSCRIPT_SYNONYMOUS_SNV;
+    	}
+    	if ( downloadEnsemblTranscript.equals(ONLY_TRANSCRIPT_UNKNOWN)) {
+            this.downloadEnsemblTranscript = SearchEnsemblTranscript.TRANSCRIPT_UNKNOWN;
+    	}
+    }
+
+    public void setDownloadPredictionCategory(String downloadPredictionCategory) {
+
+    	if ( downloadPredictionCategory.equals(PREDCAT_NONE)) {
+            this.downloadPredictionCategory = SearchPredictionCategory.PREDCAT_NONE;
+    	}
+    	if ( downloadPredictionCategory.equals(PREDCAT_BLANK)) {
+            this.downloadPredictionCategory = SearchPredictionCategory.PREDCAT_BLANK;
+    	}
+    	if ( downloadPredictionCategory.equals(PREDCAT_DELETERIOUS)) {
+            this.downloadPredictionCategory = SearchPredictionCategory.PREDCAT_DELETERIOUS;
+    	}
+    	if ( downloadPredictionCategory.equals(PREDCAT_NOT_SCORED)) {
+            this.downloadPredictionCategory = SearchPredictionCategory.PREDCAT_NOT_SCORED;
+    	}
+    	if ( downloadPredictionCategory.equals(PREDCAT_TOLERATED)) {
+            this.downloadPredictionCategory = SearchPredictionCategory.PREDCAT_TOLERATED;
+    	}
+
+    	if ( downloadPredictionCategory.equals(ONLY_PREDCAT_NONE)) {
+            this.downloadPredictionCategory = SearchPredictionCategory.PREDCAT_NONE;
+    	}
+    	if ( downloadPredictionCategory.equals(ONLY_PREDCAT_BLANK)) {
+            this.downloadPredictionCategory = SearchPredictionCategory.PREDCAT_BLANK;
+    	}
+    	if ( downloadPredictionCategory.equals(ONLY_PREDCAT_DELETERIOUS)) {
+            this.downloadPredictionCategory = SearchPredictionCategory.PREDCAT_DELETERIOUS;
+    	}
+    	if ( downloadPredictionCategory.equals(ONLY_PREDCAT_NOT_SCORED)) {
+            this.downloadPredictionCategory = SearchPredictionCategory.PREDCAT_NOT_SCORED;
+    	}
+    	if ( downloadPredictionCategory.equals(ONLY_PREDCAT_TOLERATED)) {
+            this.downloadPredictionCategory = SearchPredictionCategory.PREDCAT_TOLERATED;
+    	}
+    }
+
     public int getDownloadDownStreamAsInt(){
         return ObjectConverter.convert(this.downloadDownStream, Integer.class);
     }
@@ -1800,6 +2160,225 @@ public class DTODownloadSNPChromosome {
     	}
     }
     
+    public boolean isDownloadRegionNone() {
+    	if ( this.downloadRegion.name().equals(REGION_NONE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadRegionDownstream() {
+    	if ( this.downloadRegion.name().equals(REGION_DOWNSTREAM)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadRegionExonicSplicing() {
+    	if ( this.downloadRegion.name().equals(REGION_EXONIC_SPLICING)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadRegionExonic() {
+    	if ( this.downloadRegion.name().equals(REGION_EXONIC)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadRegionIntergenic() {
+    	if ( this.downloadRegion.name().equals(REGION_INTERGENIC)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadRegionIntronic() {
+    	if ( this.downloadRegion.name().equals(REGION_INTRONIC)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadRegionNcRNAExonic() {
+    	if ( this.downloadRegion.name().equals(REGION_NC_RNA_EXONIC)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadRegionNcRNAIntronic() {
+    	if ( this.downloadRegion.name().equals(REGION_NC_RNA_INTRONIC)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadRegionNcRNASplicing() {
+    	if ( this.downloadRegion.name().equals(REGION_NC_RNA_SPLICING)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadRegionSplicing() {
+    	if ( this.downloadRegion.name().equals(REGION_SPLICING)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadRegionUpstreamDownstream() {
+    	if ( this.downloadRegion.name().equals(REGION_UPSTREAM_DOWNSTREAM)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadRegionUpstream() {
+    	if ( this.downloadRegion.name().equals(REGION_UPSTREAM)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadRegionUTR3() {
+    	if ( this.downloadRegion.name().equals(REGION_UTR3)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadRegionUTR5UTR3() {
+    	if ( this.downloadRegion.name().equals(REGION_UTR5_UTR3)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadRegionUTR5() {
+    	if ( this.downloadRegion.name().equals(REGION_UTR5)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+
+    public boolean isDownloadEnsemblTranscriptNone() {
+    	if ( this.downloadEnsemblTranscript.name().equals(TRANSCRIPT_NONE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadEnsemblTranscriptNotAvailable() {
+    	if ( this.downloadEnsemblTranscript.name().equals(TRANSCRIPT_NA)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadEnsemblTranscriptNonSynonymousSNV() {
+    	if ( this.downloadEnsemblTranscript.name().equals(TRANSCRIPT_NONSYNONYMOUS_SNV)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadEnsemblTranscriptStopGainSNV() {
+    	if ( this.downloadEnsemblTranscript.name().equals(TRANSCRIPT_STOPGAIN_SNV)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadEnsemblTranscriptStopLossSNV() {
+    	if ( this.downloadEnsemblTranscript.name().equals(TRANSCRIPT_STOPLOSS_SNV)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadEnsemblTranscriptSynonymousSNV() {
+    	if ( this.downloadEnsemblTranscript.name().equals(TRANSCRIPT_SYNONYMOUS_SNV)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadEnsemblTranscriptUnknown() {
+    	if ( this.downloadEnsemblTranscript.name().equals(TRANSCRIPT_UNKNOWN)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+
+    public boolean isDownloadPredictionCategoryNone() {
+    	if ( this.downloadPredictionCategory.name().equals(PREDCAT_NONE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadPredictionCategoryBlank() {
+    	if ( this.downloadPredictionCategory.name().equals(PREDCAT_BLANK)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadPredictionCategoryDeleterious() {
+    	if ( this.downloadPredictionCategory.name().equals(PREDCAT_DELETERIOUS)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadPredictionCategoryNotScored() {
+    	if ( this.downloadPredictionCategory.name().equals(PREDCAT_NOT_SCORED)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isDownloadPredictionCategoryTolerated() {
+    	if ( this.downloadPredictionCategory.name().equals(PREDCAT_TOLERATED)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+
     public String toString() {
         return ToStringBuilder.reflectionToString(this, new CustomDateToStringStyle());
     }

@@ -67,6 +67,36 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
 	protected static final String ONLY_W = "W";
 	protected static final String ONLY_Z = "Z";
 
+	protected static final String ONLY_REGION_NONE = "";
+	protected static final String ONLY_REGION_DOWNSTREAM = "downstream";
+	protected static final String ONLY_REGION_EXONIC_SPLICING = "exonic;splicing";
+	protected static final String ONLY_REGION_EXONIC = "exonic";
+	protected static final String ONLY_REGION_INTERGENIC = "intergenic";
+	protected static final String ONLY_REGION_INTRONIC = "intronic";
+	protected static final String ONLY_REGION_NC_RNA_EXONIC = "ncRNA_exonic";
+	protected static final String ONLY_REGION_NC_RNA_INTRONIC = "ncRNA_intronic";
+	protected static final String ONLY_REGION_NC_RNA_SPLICING = "ncRNA_splicing";
+	protected static final String ONLY_REGION_SPLICING = "splicing";
+	protected static final String ONLY_REGION_UPSTREAM_DOWNSTREAM = "upstream;downstream";
+	protected static final String ONLY_REGION_UPSTREAM = "upstream";
+	protected static final String ONLY_REGION_UTR3 = "UTR3";
+	protected static final String ONLY_REGION_UTR5_UTR3 = "UTR5;UTR3";
+	protected static final String ONLY_REGION_UTR5 = "UTR5";
+
+	protected static final String ONLY_TRANSCRIPT_NONE = "";
+	protected static final String ONLY_TRANSCRIPT_NA = "NA";
+	protected static final String ONLY_TRANSCRIPT_NONSYNONYMOUS_SNV = "nonsynonymous SNV";
+	protected static final String ONLY_TRANSCRIPT_STOPGAIN_SNV = "stopgain SNV";
+	protected static final String ONLY_TRANSCRIPT_STOPLOSS_SNV = "stoploss SNV";
+	protected static final String ONLY_TRANSCRIPT_SYNONYMOUS_SNV = "synonymous SNV";
+	protected static final String ONLY_TRANSCRIPT_UNKNOWN = "unknown";
+
+	protected static final String ONLY_PREDCAT_NONE = "";
+	protected static final String ONLY_PREDCAT_BLANK = "";
+	protected static final String ONLY_PREDCAT_DELETERIOUS = "DELETERIOUS";
+	protected static final String ONLY_PREDCAT_NOT_SCORED = "NOT SCORED";
+	protected static final String ONLY_PREDCAT_TOLERATED = "TOLERATED";
+
 	// Properties ---------------------------------------------------------------------------------
 
 	@EmbeddedId
@@ -1295,7 +1325,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     	}
     }
 
-    public boolean isSearchChromosomeNone() {
+    public boolean isChromosomeNone() {
     	if ( this.chromosomeId.equals(ONLY_NONE)) {
     		return true;
     	}
@@ -1303,7 +1333,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosome1() {
+    public boolean isChromosome1() {
     	if ( this.chromosomeId.equals(ONLY_1)) {
     		return true;
     	}
@@ -1311,7 +1341,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosome2() {
+    public boolean isChromosome2() {
     	if ( this.chromosomeId.equals(ONLY_2)) {
     		return true;
     	}
@@ -1319,7 +1349,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosome3() {
+    public boolean isChromosome3() {
     	if ( this.chromosomeId.equals(ONLY_3)) {
     		return true;
     	}
@@ -1327,7 +1357,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosome4() {
+    public boolean isChromosome4() {
     	if ( this.chromosomeId.equals(ONLY_4)) {
     		return true;
     	}
@@ -1335,7 +1365,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosome5() {
+    public boolean isChromosome5() {
     	if ( this.chromosomeId.equals(ONLY_5)) {
     		return true;
     	}
@@ -1343,7 +1373,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosome6() {
+    public boolean isChromosome6() {
     	if ( this.chromosomeId.equals(ONLY_6)) {
     		return true;
     	}
@@ -1351,7 +1381,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosome7() {
+    public boolean isChromosome7() {
     	if ( this.chromosomeId.equals(ONLY_7)) {
     		return true;
     	}
@@ -1359,7 +1389,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosome8() {
+    public boolean isChromosome8() {
     	if ( this.chromosomeId.equals(ONLY_8)) {
     		return true;
     	}
@@ -1367,7 +1397,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosome9() {
+    public boolean isChromosome9() {
     	if ( this.chromosomeId.equals(ONLY_9)) {
     		return true;
     	}
@@ -1375,7 +1405,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosome10() {
+    public boolean isChromosome10() {
     	if ( this.chromosomeId.equals(ONLY_10)) {
     		return true;
     	}
@@ -1383,7 +1413,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosome11() {
+    public boolean isChromosome11() {
     	if ( this.chromosomeId.equals(ONLY_11)) {
     		return true;
     	}
@@ -1391,7 +1421,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosome12() {
+    public boolean isChromosome12() {
     	if ( this.chromosomeId.equals(ONLY_12)) {
     		return true;
     	}
@@ -1399,7 +1429,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosome13() {
+    public boolean isChromosome13() {
     	if ( this.chromosomeId.equals(ONLY_13)) {
     		return true;
     	}
@@ -1407,7 +1437,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosome14() {
+    public boolean isChromosome14() {
     	if ( this.chromosomeId.equals(ONLY_14)) {
     		return true;
     	}
@@ -1415,7 +1445,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosome15() {
+    public boolean isChromosome15() {
     	if ( this.chromosomeId.equals(ONLY_15)) {
     		return true;
     	}
@@ -1423,7 +1453,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosome16() {
+    public boolean isChromosome16() {
     	if ( this.chromosomeId.equals(ONLY_16)) {
     		return true;
     	}
@@ -1431,7 +1461,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosome17() {
+    public boolean isChromosome17() {
     	if ( this.chromosomeId.equals(ONLY_17)) {
     		return true;
     	}
@@ -1439,7 +1469,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosome18() {
+    public boolean isChromosome18() {
     	if ( this.chromosomeId.equals(ONLY_18)) {
     		return true;
     	}
@@ -1447,7 +1477,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosome19() {
+    public boolean isChromosome19() {
     	if ( this.chromosomeId.equals(ONLY_19)) {
     		return true;
     	}
@@ -1455,7 +1485,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosome20() {
+    public boolean isChromosome20() {
     	if ( this.chromosomeId.equals(ONLY_20)) {
     		return true;
     	}
@@ -1463,7 +1493,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosome21() {
+    public boolean isChromosome21() {
     	if ( this.chromosomeId.equals(ONLY_21)) {
     		return true;
     	}
@@ -1471,7 +1501,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosome22() {
+    public boolean isChromosome22() {
     	if ( this.chromosomeId.equals(ONLY_22)) {
     		return true;
     	}
@@ -1479,7 +1509,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosome23() {
+    public boolean isChromosome23() {
     	if ( this.chromosomeId.equals(ONLY_23)) {
     		return true;
     	}
@@ -1487,7 +1517,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosome24() {
+    public boolean isChromosome24() {
     	if ( this.chromosomeId.equals(ONLY_24)) {
     		return true;
     	}
@@ -1495,7 +1525,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosome25() {
+    public boolean isChromosome25() {
     	if ( this.chromosomeId.equals(ONLY_25)) {
     		return true;
     	}
@@ -1503,7 +1533,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosome26() {
+    public boolean isChromosome26() {
     	if ( this.chromosomeId.equals(ONLY_26)) {
     		return true;
     	}
@@ -1511,7 +1541,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosome27() {
+    public boolean isChromosome27() {
     	if ( this.chromosomeId.equals(ONLY_27)) {
     		return true;
     	}
@@ -1519,7 +1549,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosome28() {
+    public boolean isChromosome28() {
     	if ( this.chromosomeId.equals(ONLY_28)) {
     		return true;
     	}
@@ -1527,7 +1557,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosome32() {
+    public boolean isChromosome32() {
     	if ( this.chromosomeId.equals(ONLY_32)) {
     		return true;
     	}
@@ -1535,7 +1565,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosomeLGE22C19W28_E50C23() {
+    public boolean isChromosomeLGE22C19W28_E50C23() {
     	if ( this.chromosomeId.equals(ONLY_LGE22C19W28_E50C23)) {
     		return true;
     	}
@@ -1543,7 +1573,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosomeLGE64() {
+    public boolean isChromosomeLGE64() {
     	if ( this.chromosomeId.equals(ONLY_LGE64)) {
     		return true;
     	}
@@ -1551,7 +1581,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosomeW() {
+    public boolean isChromosomeW() {
     	if ( this.chromosomeId.equals(ONLY_W)) {
     		return true;
     	}
@@ -1559,7 +1589,7 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     		return false;
     	}
     }
-    public boolean isSearchChromosomeZ() {
+    public boolean isChromosomeZ() {
     	if ( this.chromosomeId.equals(ONLY_Z)) {
     		return true;
     	}
@@ -1568,6 +1598,224 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
     	}
     }
 
+    public boolean isRegionNone() {
+    	if ( this.region.equals(ONLY_REGION_NONE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isRegionDownstream() {
+    	if ( this.region.equals(ONLY_REGION_DOWNSTREAM)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isRegionExonicSplicing() {
+    	if ( this.region.equals(ONLY_REGION_EXONIC_SPLICING)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isRegionExonic() {
+    	if ( this.region.equals(ONLY_REGION_EXONIC)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isRegionIntergenic() {
+    	if ( this.region.equals(ONLY_REGION_INTERGENIC)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isRegionIntronic() {
+    	if ( this.region.equals(ONLY_REGION_INTRONIC)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isRegionNcRNAExonic() {
+    	if ( this.region.equals(ONLY_REGION_NC_RNA_EXONIC)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isRegionNcRNAIntronic() {
+    	if ( this.region.equals(ONLY_REGION_NC_RNA_INTRONIC)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isRegionNcRNASplicing() {
+    	if ( this.region.equals(ONLY_REGION_NC_RNA_SPLICING)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isRegionSplicing() {
+    	if ( this.region.equals(ONLY_REGION_SPLICING)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isRegionUpstreamDownstream() {
+    	if ( this.region.equals(ONLY_REGION_UPSTREAM_DOWNSTREAM)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isRegionUpstream() {
+    	if ( this.region.equals(ONLY_REGION_UPSTREAM)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isRegionUTR3() {
+    	if ( this.region.equals(ONLY_REGION_UTR3)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isRegionUTR5UTR3() {
+    	if ( this.region.equals(ONLY_REGION_UTR5_UTR3)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isRegionUTR5() {
+    	if ( this.region.equals(ONLY_REGION_UTR5)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+
+    public boolean isEnsemblTranscriptNone() {
+    	if ( this.ensemblTranscript.equals(ONLY_TRANSCRIPT_NONE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isEnsemblTranscriptNotAvailable() {
+    	if ( this.ensemblTranscript.equals(ONLY_TRANSCRIPT_NA)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isEnsemblTranscriptNonSynonymousSNV() {
+    	if ( this.ensemblTranscript.equals(ONLY_TRANSCRIPT_NONSYNONYMOUS_SNV)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isEnsemblTranscriptStopGainSNV() {
+    	if ( this.ensemblTranscript.equals(ONLY_TRANSCRIPT_STOPGAIN_SNV)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isEnsemblTranscriptStopLossSNV() {
+    	if ( this.ensemblTranscript.equals(ONLY_TRANSCRIPT_STOPLOSS_SNV)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isEnsemblTranscriptSynonymousSNV() {
+    	if ( this.ensemblTranscript.equals(ONLY_TRANSCRIPT_SYNONYMOUS_SNV)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isEnsemblTranscriptUnknown() {
+    	if ( this.ensemblTranscript.equals(ONLY_TRANSCRIPT_UNKNOWN)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+
+    public boolean isPredictionCategoryNone() {
+    	if ( this.predictionCategory.equals(ONLY_PREDCAT_NONE)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isPredictionCategoryBlank() {
+    	if ( this.predictionCategory.equals(ONLY_PREDCAT_BLANK)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isPredictionCategoryDeleterious() {
+    	if ( this.predictionCategory.equals(ONLY_PREDCAT_DELETERIOUS)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isPredictionCategoryNotScored() {
+    	if ( this.predictionCategory.equals(ONLY_PREDCAT_NOT_SCORED)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    public boolean isPredictionCategoryTolerated() {
+    	if ( this.predictionCategory.equals(ONLY_PREDCAT_TOLERATED)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
     /*
      * Is this Component the same as the Supplied Component?
      */
