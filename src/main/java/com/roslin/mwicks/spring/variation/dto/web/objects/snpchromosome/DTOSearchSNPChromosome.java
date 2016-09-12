@@ -166,21 +166,41 @@ public class DTOSearchSNPChromosome {
 	protected static final String SIFT_SCORE_ABOVE = "SIFT_SCORE_ABOVE";
 	protected static final String SIFT_SCORE_BELOW = "SIFT_SCORE_BELOW";
 
+	protected static final String ONLY_SIFT_SCORE_NONE = "NONE";
+	protected static final String ONLY_SIFT_SCORE_ABOVE = "ABOVE";
+	protected static final String ONLY_SIFT_SCORE_BELOW = "BELOW";
+
 	protected static final String SIFT_CONSERVATION_SCORE_NONE = "SIFT_CONSERVATION_SCORE_NONE";
 	protected static final String SIFT_CONSERVATION_SCORE_ABOVE = "SIFT_CONSERVATION_SCORE_ABOVE";
 	protected static final String SIFT_CONSERVATION_SCORE_BELOW = "SIFT_CONSERVATION_SCORE_BELOW";
+
+	protected static final String ONLY_SIFT_CONSERVATION_SCORE_NONE = "NONE";
+	protected static final String ONLY_SIFT_CONSERVATION_SCORE_ABOVE = "ABOVE";
+	protected static final String ONLY_SIFT_CONSERVATION_SCORE_BELOW = "BELOW";
 
 	protected static final String PROTEIN_ALIGN_NUMBER_NONE = "PROTEIN_ALIGN_NUMBER_NONE";
 	protected static final String PROTEIN_ALIGN_NUMBER_ABOVE = "PROTEIN_ALIGN_NUMBER_ABOVE";
 	protected static final String PROTEIN_ALIGN_NUMBER_BELOW = "PROTEIN_ALIGN_NUMBER_BELOW";
 
+	protected static final String ONLY_PROTEIN_ALIGN_NUMBER_NONE = "NONE";
+	protected static final String ONLY_PROTEIN_ALIGN_NUMBER_ABOVE = "ABOVE";
+	protected static final String ONLY_PROTEIN_ALIGN_NUMBER_BELOW = "BELOW";
+
 	protected static final String TOTAL_NUMBER_SEQ_ALIGNED_NONE = "TOTAL_NUMBER_SEQ_ALIGNED_NONE";
 	protected static final String TOTAL_NUMBER_SEQ_ALIGNED_ABOVE = "TOTAL_NUMBER_SEQ_ALIGNED_ABOVE";
 	protected static final String TOTAL_NUMBER_SEQ_ALIGNED_BELOW = "TOTAL_NUMBER_SEQ_ALIGNED_BELOW";
 
+	protected static final String ONLY_TOTAL_NUMBER_SEQ_ALIGNED_NONE = "NONE";
+	protected static final String ONLY_TOTAL_NUMBER_SEQ_ALIGNED_ABOVE = "ABOVE";
+	protected static final String ONLY_TOTAL_NUMBER_SEQ_ALIGNED_BELOW = "BELOW";
+
 	protected static final String PROVEAN_SCORE_NONE = "PROVEAN_SCORE_NONE";
 	protected static final String PROVEAN_SCORE_ABOVE = "PROVEAN_SCORE_ABOVE";
 	protected static final String PROVEAN_SCORE_BELOW = "PROVEAN_SCORE_BELOW";
+
+	protected static final String ONLY_PROVEAN_SCORE_NONE = "NONE";
+	protected static final String ONLY_PROVEAN_SCORE_ABOVE = "ABOVE";
+	protected static final String ONLY_PROVEAN_SCORE_BELOW = "BELOW";
 
 	protected static final String REGION_NONE = "REGION_NONE";
 	protected static final String REGION_DOWNSTREAM = "REGION_DOWNSTREAM";
@@ -2613,6 +2633,181 @@ public class DTOSearchSNPChromosome {
     	}
     }
 
+    public void setSearchFilterSiftScore(String searchFilterSiftScore) {
+    	if ( searchFilterSiftScore.equals(SIFT_SCORE_NONE)) {
+            this.searchFilterSiftScore = SearchFilterSiftScore.SIFT_SCORE_ABOVE;
+    	}
+    	if ( searchFilterSiftScore.equals(SIFT_SCORE_ABOVE)) {
+            this.searchFilterSiftScore = SearchFilterSiftScore.SIFT_SCORE_ABOVE;
+    	}
+    	if ( searchFilterSiftScore.equals(SIFT_SCORE_BELOW)) {
+            this.searchFilterSiftScore = SearchFilterSiftScore.SIFT_SCORE_BELOW;
+    	}
+    	if ( searchFilterSiftScore.equals(ONLY_SIFT_SCORE_NONE)) {
+            this.searchFilterSiftScore = SearchFilterSiftScore.SIFT_SCORE_ABOVE;
+    	}
+    	if ( searchFilterSiftScore.equals(ONLY_SIFT_SCORE_ABOVE)) {
+            this.searchFilterSiftScore = SearchFilterSiftScore.SIFT_SCORE_ABOVE;
+    	}
+    	if ( searchFilterSiftScore.equals(ONLY_SIFT_SCORE_BELOW)) {
+            this.searchFilterSiftScore = SearchFilterSiftScore.SIFT_SCORE_BELOW;
+    	}
+    }
+
+    public void setSearchFilterSiftConservationScore(String searchFilterSiftConservationScore) {
+    	if ( searchFilterSiftConservationScore.equals(SIFT_CONSERVATION_SCORE_NONE)) {
+            this.searchFilterSiftConservationScore = SearchFilterSiftConservationScore.SIFT_CONSERVATION_SCORE_ABOVE;
+    	}
+    	if ( searchFilterSiftConservationScore.equals(SIFT_CONSERVATION_SCORE_ABOVE)) {
+            this.searchFilterSiftConservationScore = SearchFilterSiftConservationScore.SIFT_CONSERVATION_SCORE_ABOVE;
+    	}
+    	if ( searchFilterSiftConservationScore.equals(SIFT_CONSERVATION_SCORE_BELOW)) {
+            this.searchFilterSiftConservationScore = SearchFilterSiftConservationScore.SIFT_CONSERVATION_SCORE_BELOW;
+    	}
+    	if ( searchFilterSiftConservationScore.equals(ONLY_SIFT_CONSERVATION_SCORE_NONE)) {
+            this.searchFilterSiftConservationScore = SearchFilterSiftConservationScore.SIFT_CONSERVATION_SCORE_ABOVE;
+    	}
+    	if ( searchFilterSiftConservationScore.equals(ONLY_SIFT_CONSERVATION_SCORE_ABOVE)) {
+            this.searchFilterSiftConservationScore = SearchFilterSiftConservationScore.SIFT_CONSERVATION_SCORE_ABOVE;
+    	}
+    	if ( searchFilterSiftConservationScore.equals(ONLY_SIFT_CONSERVATION_SCORE_BELOW)) {
+            this.searchFilterSiftConservationScore = SearchFilterSiftConservationScore.SIFT_CONSERVATION_SCORE_BELOW;
+    	}
+    }
+
+    public void setSearchFilterProteinAlignNumber(String searchFilterProteinAlignNumber) {
+    	if ( searchFilterProteinAlignNumber.equals(PROTEIN_ALIGN_NUMBER_NONE)) {
+            this.searchFilterProteinAlignNumber = SearchFilterProteinAlignNumber.PROTEIN_ALIGN_NUMBER_ABOVE;
+    	}
+    	if ( searchFilterProteinAlignNumber.equals(PROTEIN_ALIGN_NUMBER_ABOVE)) {
+            this.searchFilterProteinAlignNumber = SearchFilterProteinAlignNumber.PROTEIN_ALIGN_NUMBER_ABOVE;
+    	}
+    	if ( searchFilterProteinAlignNumber.equals(PROTEIN_ALIGN_NUMBER_BELOW)) {
+            this.searchFilterProteinAlignNumber = SearchFilterProteinAlignNumber.PROTEIN_ALIGN_NUMBER_BELOW;
+    	}
+    	if ( searchFilterProteinAlignNumber.equals(ONLY_PROTEIN_ALIGN_NUMBER_NONE)) {
+            this.searchFilterProteinAlignNumber = SearchFilterProteinAlignNumber.PROTEIN_ALIGN_NUMBER_ABOVE;
+    	}
+    	if ( searchFilterProteinAlignNumber.equals(ONLY_PROTEIN_ALIGN_NUMBER_ABOVE)) {
+            this.searchFilterProteinAlignNumber = SearchFilterProteinAlignNumber.PROTEIN_ALIGN_NUMBER_ABOVE;
+    	}
+    	if ( searchFilterProteinAlignNumber.equals(ONLY_PROTEIN_ALIGN_NUMBER_BELOW)) {
+            this.searchFilterProteinAlignNumber = SearchFilterProteinAlignNumber.PROTEIN_ALIGN_NUMBER_BELOW;
+    	}
+    }
+
+    public void setSearchFilterTotalNumberSeqAligned(String searchFilterTotalNumberSeqAligned) {
+    	if ( searchFilterTotalNumberSeqAligned.equals(TOTAL_NUMBER_SEQ_ALIGNED_NONE)) {
+            this.searchFilterTotalNumberSeqAligned = SearchFilterTotalNumberSeqAligned.TOTAL_NUMBER_SEQ_ALIGNED_ABOVE;
+    	}
+    	if ( searchFilterTotalNumberSeqAligned.equals(TOTAL_NUMBER_SEQ_ALIGNED_ABOVE)) {
+            this.searchFilterTotalNumberSeqAligned = SearchFilterTotalNumberSeqAligned.TOTAL_NUMBER_SEQ_ALIGNED_ABOVE;
+    	}
+    	if ( searchFilterTotalNumberSeqAligned.equals(TOTAL_NUMBER_SEQ_ALIGNED_BELOW)) {
+            this.searchFilterTotalNumberSeqAligned = SearchFilterTotalNumberSeqAligned.TOTAL_NUMBER_SEQ_ALIGNED_BELOW;
+    	}
+    	if ( searchFilterTotalNumberSeqAligned.equals(ONLY_TOTAL_NUMBER_SEQ_ALIGNED_NONE)) {
+            this.searchFilterTotalNumberSeqAligned = SearchFilterTotalNumberSeqAligned.TOTAL_NUMBER_SEQ_ALIGNED_ABOVE;
+    	}
+    	if ( searchFilterTotalNumberSeqAligned.equals(ONLY_TOTAL_NUMBER_SEQ_ALIGNED_ABOVE)) {
+            this.searchFilterTotalNumberSeqAligned = SearchFilterTotalNumberSeqAligned.TOTAL_NUMBER_SEQ_ALIGNED_ABOVE;
+    	}
+    	if ( searchFilterTotalNumberSeqAligned.equals(ONLY_TOTAL_NUMBER_SEQ_ALIGNED_BELOW)) {
+            this.searchFilterTotalNumberSeqAligned = SearchFilterTotalNumberSeqAligned.TOTAL_NUMBER_SEQ_ALIGNED_BELOW;
+    	}
+    }
+
+    public void setSearchFilterProveanScore(String searchFilterProveanScore) {
+    	if ( searchFilterProveanScore.equals(PROVEAN_SCORE_NONE)) {
+            this.searchFilterProveanScore = SearchFilterProveanScore.PROVEAN_SCORE_ABOVE;
+    	}
+    	if ( searchFilterProveanScore.equals(PROVEAN_SCORE_ABOVE)) {
+            this.searchFilterProveanScore = SearchFilterProveanScore.PROVEAN_SCORE_ABOVE;
+    	}
+    	if ( searchFilterProveanScore.equals(PROVEAN_SCORE_BELOW)) {
+            this.searchFilterProveanScore = SearchFilterProveanScore.PROVEAN_SCORE_BELOW;
+    	}
+    	if ( searchFilterProveanScore.equals(ONLY_PROVEAN_SCORE_NONE)) {
+            this.searchFilterProveanScore = SearchFilterProveanScore.PROVEAN_SCORE_ABOVE;
+    	}
+    	if ( searchFilterProveanScore.equals(ONLY_PROVEAN_SCORE_ABOVE)) {
+            this.searchFilterProveanScore = SearchFilterProveanScore.PROVEAN_SCORE_ABOVE;
+    	}
+    	if ( searchFilterProveanScore.equals(ONLY_PROVEAN_SCORE_BELOW)) {
+            this.searchFilterProveanScore = SearchFilterProveanScore.PROVEAN_SCORE_BELOW;
+    	}
+    }
+
+    public String getSearchFilterSiftScoreAsString() {
+    	String strReturn = "";
+    	if ( this.searchFilterSiftScore.equals(SearchFilterSiftScore.SIFT_SCORE_NONE) ) {
+    		strReturn = ONLY_SIFT_SCORE_NONE;
+        }
+    	if ( this.searchFilterSiftScore.equals(SearchFilterSiftScore.SIFT_SCORE_ABOVE) ) {
+    		strReturn = ONLY_SIFT_SCORE_ABOVE;
+        }
+        if ( this.searchFilterSiftScore.equals(SearchFilterSiftScore.SIFT_SCORE_BELOW) ) {
+        	strReturn = ONLY_SIFT_SCORE_BELOW;
+        }
+        return strReturn;
+    }
+    
+    public String getSearchFilterSiftConservationScoreAsString() {
+    	String strReturn = "";
+    	if ( this.searchFilterSiftConservationScore.equals(SearchFilterSiftConservationScore.SIFT_CONSERVATION_SCORE_NONE) ) {
+    		strReturn = ONLY_SIFT_CONSERVATION_SCORE_NONE;
+        }
+    	if ( this.searchFilterSiftConservationScore.equals(SearchFilterSiftConservationScore.SIFT_CONSERVATION_SCORE_ABOVE) ) {
+    		strReturn = ONLY_SIFT_CONSERVATION_SCORE_ABOVE;
+        }
+        if ( this.searchFilterSiftConservationScore.equals(SearchFilterSiftConservationScore.SIFT_CONSERVATION_SCORE_BELOW) ) {
+        	strReturn = ONLY_SIFT_CONSERVATION_SCORE_BELOW;
+        }
+        return strReturn;
+    }
+    
+    public String getSearchFilterProteinAlignNumberAsString() {
+    	String strReturn = "";
+    	if ( this.searchFilterProteinAlignNumber.equals(SearchFilterProteinAlignNumber.PROTEIN_ALIGN_NUMBER_NONE) ) {
+    		strReturn = ONLY_PROTEIN_ALIGN_NUMBER_NONE;
+        }
+    	if ( this.searchFilterProteinAlignNumber.equals(SearchFilterProteinAlignNumber.PROTEIN_ALIGN_NUMBER_ABOVE) ) {
+    		strReturn = ONLY_PROTEIN_ALIGN_NUMBER_ABOVE;
+        }
+        if ( this.searchFilterProteinAlignNumber.equals(SearchFilterProteinAlignNumber.PROTEIN_ALIGN_NUMBER_BELOW) ) {
+        	strReturn = ONLY_PROTEIN_ALIGN_NUMBER_BELOW;
+        }
+        return strReturn;
+    }
+    
+    public String getSearchFilterTotalNumberSeqAlignedAsString() {
+    	String strReturn = "";
+    	if ( this.searchFilterTotalNumberSeqAligned.equals(SearchFilterTotalNumberSeqAligned.TOTAL_NUMBER_SEQ_ALIGNED_NONE) ) {
+    		strReturn = ONLY_TOTAL_NUMBER_SEQ_ALIGNED_NONE;
+        }
+    	if ( this.searchFilterTotalNumberSeqAligned.equals(SearchFilterTotalNumberSeqAligned.TOTAL_NUMBER_SEQ_ALIGNED_ABOVE) ) {
+    		strReturn = ONLY_TOTAL_NUMBER_SEQ_ALIGNED_ABOVE;
+        }
+        if ( this.searchFilterTotalNumberSeqAligned.equals(SearchFilterTotalNumberSeqAligned.TOTAL_NUMBER_SEQ_ALIGNED_BELOW) ) {
+        	strReturn = ONLY_TOTAL_NUMBER_SEQ_ALIGNED_BELOW;
+        }
+        return strReturn;
+    }
+    
+    public String getSearchFilterProveanScoreAsString() {
+    	String strReturn = "";
+    	if ( this.searchFilterProveanScore.equals(SearchFilterProveanScore.PROVEAN_SCORE_NONE) ) {
+    		strReturn = ONLY_PROVEAN_SCORE_NONE;
+        }
+    	if ( this.searchFilterProveanScore.equals(SearchFilterProveanScore.PROVEAN_SCORE_ABOVE) ) {
+    		strReturn = ONLY_PROVEAN_SCORE_ABOVE;
+        }
+        if ( this.searchFilterProveanScore.equals(SearchFilterProveanScore.PROVEAN_SCORE_BELOW) ) {
+        	strReturn = ONLY_PROVEAN_SCORE_BELOW;
+        }
+        return strReturn;
+    }
+    
     public String toString() {
         return ToStringBuilder.reflectionToString(this, new CustomDateToStringStyle());
     }

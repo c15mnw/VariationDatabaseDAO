@@ -2425,12 +2425,26 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
         	return snpchromosome_o1.position > snpchromosome_o2.position ? 1 : (snpchromosome_o1.position < snpchromosome_o2.position ? -1 : 0);
         }
     }
+    public static class OrderByPositionDesc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o1.position > snpchromosome_o2.position ? -1 : (snpchromosome_o1.position < snpchromosome_o2.position ? 1 : 0);
+        }
+    }
 
     public static class OrderByReferenceAsc implements Comparator<SNPChromosome> {
 
         public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
 
         	return snpchromosome_o1.reference.compareTo(snpchromosome_o2.reference);
+        }
+    }
+    public static class OrderByReferenceDesc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o2.reference.compareTo(snpchromosome_o1.reference);
         }
     }
 
@@ -2441,12 +2455,26 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
         	return snpchromosome_o1.alternative.compareTo(snpchromosome_o2.alternative);
         }
     }
+    public static class OrderByAlternativeDesc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o2.alternative.compareTo(snpchromosome_o1.alternative);
+        }
+    }
 
     public static class OrderByRegionAsc implements Comparator<SNPChromosome> {
 
         public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
 
         	return snpchromosome_o1.region.compareTo(snpchromosome_o2.region);
+        }
+    }
+    public static class OrderByRegionDesc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o2.region.compareTo(snpchromosome_o1.region);
         }
     }
 
@@ -2457,12 +2485,26 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
         	return snpchromosome_o1.ensemblGene.compareTo(snpchromosome_o2.ensemblGene);
         }
     }
+    public static class OrderByEnsemblGeneDesc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o2.ensemblGene.compareTo(snpchromosome_o1.ensemblGene);
+        }
+    }
 
     public static class OrderByEnsemblTranscriptAsc implements Comparator<SNPChromosome> {
 
         public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
 
         	return snpchromosome_o1.ensemblTranscript.compareTo(snpchromosome_o2.ensemblTranscript);
+        }
+    }
+    public static class OrderByEnsemblTranscriptDesc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o2.ensemblTranscript.compareTo(snpchromosome_o1.ensemblTranscript);
         }
     }
 
@@ -2473,12 +2515,11 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
         	return snpchromosome_o1.ensemblAnnotation.compareTo(snpchromosome_o2.ensemblAnnotation);
         }
     }
-
-    public static class OrderByAminoAcidSubsAsc implements Comparator<SNPChromosome> {
+    public static class OrderByEnsemblAnnotationDesc implements Comparator<SNPChromosome> {
 
         public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
 
-        	return snpchromosome_o1.aminoAcidSubs.compareTo(snpchromosome_o2.aminoAcidSubs);
+        	return snpchromosome_o2.ensemblAnnotation.compareTo(snpchromosome_o1.ensemblAnnotation);
         }
     }
 
@@ -2489,12 +2530,41 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
         	return snpchromosome_o1.predictionCategory.compareTo(snpchromosome_o2.predictionCategory);
         }
     }
+    public static class OrderByPredictionCategoryDesc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o2.predictionCategory.compareTo(snpchromosome_o1.predictionCategory);
+        }
+    }
+
+    public static class OrderByAminoAcidSubsAsc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o1.aminoAcidSubs.compareTo(snpchromosome_o2.aminoAcidSubs);
+        }
+    }
+    public static class OrderByAminoAcidSubsDesc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o2.aminoAcidSubs.compareTo(snpchromosome_o1.aminoAcidSubs);
+        }
+    }
 
     public static class OrderByScoreSiftAsc implements Comparator<SNPChromosome> {
 
         public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
 
         	return snpchromosome_o1.scoreSift > snpchromosome_o2.scoreSift ? 1 : (snpchromosome_o1.scoreSift < snpchromosome_o2.scoreSift ? -1 : 0);
+        }
+    }
+    public static class OrderByScoreSiftDesc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o1.scoreSift > snpchromosome_o2.scoreSift ? -1 : (snpchromosome_o1.scoreSift < snpchromosome_o2.scoreSift ? 1 : 0);
         }
     }
 
@@ -2505,12 +2575,26 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
         	return snpchromosome_o1.scoreConservation > snpchromosome_o2.scoreConservation ? 1 : (snpchromosome_o1.scoreConservation < snpchromosome_o2.scoreConservation ? -1 : 0);
         }
     }
+    public static class OrderByScoreConservationDesc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o1.scoreConservation > snpchromosome_o2.scoreConservation ? -1 : (snpchromosome_o1.scoreConservation < snpchromosome_o2.scoreConservation ? 1 : 0);
+        }
+    }
 
     public static class OrderByProteinAlignNumberAsc implements Comparator<SNPChromosome> {
 
         public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
 
         	return snpchromosome_o1.proteinAlignNumber > snpchromosome_o2.proteinAlignNumber ? 1 : (snpchromosome_o1.proteinAlignNumber < snpchromosome_o2.proteinAlignNumber ? -1 : 0);
+        }
+    }
+    public static class OrderByProteinAlignNumberDesc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o1.proteinAlignNumber > snpchromosome_o2.proteinAlignNumber ? -1 : (snpchromosome_o1.proteinAlignNumber < snpchromosome_o2.proteinAlignNumber ? 1 : 0);
         }
     }
 
@@ -2521,6 +2605,13 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
         	return snpchromosome_o1.totalAlignSequenceNumber > snpchromosome_o2.totalAlignSequenceNumber ? 1 : (snpchromosome_o1.totalAlignSequenceNumber < snpchromosome_o2.totalAlignSequenceNumber ? -1 : 0);
         }
     }
+    public static class OrderByTotalAlignSequenceNumberDesc implements Comparator<SNPChromosome> {
+
+        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
+
+        	return snpchromosome_o1.totalAlignSequenceNumber > snpchromosome_o2.totalAlignSequenceNumber ? -1 : (snpchromosome_o1.totalAlignSequenceNumber < snpchromosome_o2.totalAlignSequenceNumber ? 1 : 0);
+        }
+    }
 
     public static class OrderByScoreProveanAsc implements Comparator<SNPChromosome> {
 
@@ -2529,118 +2620,14 @@ public class SNPChromosome implements Comparable<SNPChromosome>{
         	return snpchromosome_o1.scoreProvean > snpchromosome_o2.scoreProvean ? 1 : (snpchromosome_o1.scoreProvean < snpchromosome_o2.scoreProvean ? -1 : 0);
         }
     }
-
-    public static class OrderByPositionDesc implements Comparator<SNPChromosome> {
-
-        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
-
-        	return snpchromosome_o1.position > snpchromosome_o2.position ? -1 : (snpchromosome_o1.position < snpchromosome_o2.position ? 1 : 0);
-        }
-    }
-
-    public static class OrderByReferenceDesc implements Comparator<SNPChromosome> {
-
-        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
-
-        	return snpchromosome_o2.reference.compareTo(snpchromosome_o1.reference);
-        }
-    }
-
-    public static class OrderByAlternativeDesc implements Comparator<SNPChromosome> {
-
-        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
-
-        	return snpchromosome_o2.alternative.compareTo(snpchromosome_o1.alternative);
-        }
-    }
-
-    public static class OrderByRegionDesc implements Comparator<SNPChromosome> {
-
-        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
-
-        	return snpchromosome_o2.region.compareTo(snpchromosome_o1.region);
-        }
-    }
-
-    public static class OrderByEnsemblGeneDesc implements Comparator<SNPChromosome> {
-
-        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
-
-        	return snpchromosome_o2.ensemblGene.compareTo(snpchromosome_o1.ensemblGene);
-        }
-    }
-
-    public static class OrderByEnsemblTranscriptDesc implements Comparator<SNPChromosome> {
-
-        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
-
-        	return snpchromosome_o2.ensemblTranscript.compareTo(snpchromosome_o1.ensemblTranscript);
-        }
-    }
-
-    public static class OrderByEnsemblAnnotationDesc implements Comparator<SNPChromosome> {
-
-        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
-
-        	return snpchromosome_o2.ensemblAnnotation.compareTo(snpchromosome_o1.ensemblAnnotation);
-        }
-    }
-
-    public static class OrderByAminoAcidSubsDesc implements Comparator<SNPChromosome> {
-
-        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
-
-        	return snpchromosome_o2.aminoAcidSubs.compareTo(snpchromosome_o1.aminoAcidSubs);
-        }
-    }
-
-    public static class OrderByPredictionCategoryDesc implements Comparator<SNPChromosome> {
-
-        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
-
-        	return snpchromosome_o2.predictionCategory.compareTo(snpchromosome_o1.predictionCategory);
-        }
-    }
-
-    public static class OrderByScoreSiftDesc implements Comparator<SNPChromosome> {
-
-        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
-
-        	return snpchromosome_o1.scoreSift > snpchromosome_o2.scoreSift ? 1 : (snpchromosome_o1.scoreSift < snpchromosome_o2.scoreSift ? -1 : 0);
-        }
-    }
-
-    public static class OrderByScoreConservationDesc implements Comparator<SNPChromosome> {
-
-        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
-
-        	return snpchromosome_o1.scoreConservation > snpchromosome_o2.scoreConservation ? 1 : (snpchromosome_o1.scoreConservation < snpchromosome_o2.scoreConservation ? -1 : 0);
-        }
-    }
-
-    public static class OrderByProteinAlignNumberDesc implements Comparator<SNPChromosome> {
-
-        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
-
-        	return snpchromosome_o1.proteinAlignNumber > snpchromosome_o2.proteinAlignNumber ? 1 : (snpchromosome_o1.proteinAlignNumber < snpchromosome_o2.proteinAlignNumber ? -1 : 0);
-        }
-    }
-
-    public static class OrderByTotalAlignSequenceNumberDesc implements Comparator<SNPChromosome> {
-
-        public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
-
-        	return snpchromosome_o1.totalAlignSequenceNumber > snpchromosome_o2.totalAlignSequenceNumber ? 1 : (snpchromosome_o1.totalAlignSequenceNumber < snpchromosome_o2.totalAlignSequenceNumber ? -1 : 0);
-        }
-    }
-
     public static class OrderByScoreProveanDesc implements Comparator<SNPChromosome> {
 
         public int compare(SNPChromosome snpchromosome_o1, SNPChromosome snpchromosome_o2) {
 
-        	return snpchromosome_o1.scoreProvean > snpchromosome_o2.scoreProvean ? 1 : (snpchromosome_o1.scoreProvean < snpchromosome_o2.scoreProvean ? -1 : 0);
+        	return snpchromosome_o1.scoreProvean > snpchromosome_o2.scoreProvean ? -1 : (snpchromosome_o1.scoreProvean < snpchromosome_o2.scoreProvean ? 1 : 0);
         }
     }
+
 
 
 	

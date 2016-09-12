@@ -711,7 +711,7 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
 
     	List<SNPChromosome> snpchromosomesAll = new ArrayList<SNPChromosome>();
     	List<SNPChromosome> snpchromosomesFiltered = new ArrayList<SNPChromosome>();;
-    	List<SNPChromosome> snpchromosomesPaged = new ArrayList<SNPChromosome>();
+    	List<SNPChromosome> snpchromosomesSorted = new ArrayList<SNPChromosome>();
 
     	String strColumn = sortField;
     	String strDirection = sortDirection;
@@ -1331,97 +1331,98 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
             //System.out.println("intStop : " + intStop);
             //System.out.println("intTotalPages : " + intTotalPages);
         			
-            snpchromosomesPaged = snpchromosomesFiltered.subList(intStart - 1, intStop);
-            
-         	//System.out.println("snpchromosomesPaged.size() : " + snpchromosomesPaged.size());
-
             if ( strColumn.equals(FIELD_POSITION) && strDirection.equals(SORT_ASC) ) {
-                Collections.sort(snpchromosomesPaged, new SNPChromosome.OrderByPositionAsc());
+                Collections.sort(snpchromosomesFiltered, new SNPChromosome.OrderByPositionAsc());
             }
             if ( strColumn.equals(FIELD_POSITION) && strDirection.equals(SORT_DESC) ) {
-                Collections.sort(snpchromosomesPaged, new SNPChromosome.OrderByPositionDesc());
+                Collections.sort(snpchromosomesFiltered, new SNPChromosome.OrderByPositionDesc());
             }
             if ( strColumn.equals(FIELD_REFERENCE) && strDirection.equals(SORT_ASC) ) {
-                Collections.sort(snpchromosomesPaged, new SNPChromosome.OrderByReferenceAsc());
+                Collections.sort(snpchromosomesFiltered, new SNPChromosome.OrderByReferenceAsc());
             }
             if ( strColumn.equals(FIELD_REFERENCE) && strDirection.equals(SORT_DESC) ) {
-                Collections.sort(snpchromosomesPaged, new SNPChromosome.OrderByReferenceDesc());
+                Collections.sort(snpchromosomesFiltered, new SNPChromosome.OrderByReferenceDesc());
             }
             if ( strColumn.equals(FIELD_ALTERNATIVE) && strDirection.equals(SORT_ASC) ) {
-                Collections.sort(snpchromosomesPaged, new SNPChromosome.OrderByAlternativeAsc());
+                Collections.sort(snpchromosomesFiltered, new SNPChromosome.OrderByAlternativeAsc());
             }
             if ( strColumn.equals(FIELD_ALTERNATIVE) && strDirection.equals(SORT_DESC) ) {
-                Collections.sort(snpchromosomesPaged, new SNPChromosome.OrderByAlternativeDesc());
+                Collections.sort(snpchromosomesFiltered, new SNPChromosome.OrderByAlternativeDesc());
             }
             if ( strColumn.equals(FIELD_REGION) && strDirection.equals(SORT_ASC) ) {
-                Collections.sort(snpchromosomesPaged, new SNPChromosome.OrderByRegionAsc());
+                Collections.sort(snpchromosomesFiltered, new SNPChromosome.OrderByRegionAsc());
             }
             if ( strColumn.equals(FIELD_REGION) && strDirection.equals(SORT_DESC) ) {
-                Collections.sort(snpchromosomesPaged, new SNPChromosome.OrderByRegionDesc());
+                Collections.sort(snpchromosomesFiltered, new SNPChromosome.OrderByRegionDesc());
             }
             if ( strColumn.equals(FIELD_ENSEMBL_GENE) && strDirection.equals(SORT_ASC) ) {
-                Collections.sort(snpchromosomesPaged, new SNPChromosome.OrderByEnsemblGeneAsc());
+                Collections.sort(snpchromosomesFiltered, new SNPChromosome.OrderByEnsemblGeneAsc());
             }
             if ( strColumn.equals(FIELD_ENSEMBL_GENE) && strDirection.equals(SORT_DESC) ) {
-                Collections.sort(snpchromosomesPaged, new SNPChromosome.OrderByEnsemblGeneDesc());
+                Collections.sort(snpchromosomesFiltered, new SNPChromosome.OrderByEnsemblGeneDesc());
             }
             if ( strColumn.equals(FIELD_ENSEMBL_TRANSCRIPT) && strDirection.equals(SORT_ASC) ) {
-                Collections.sort(snpchromosomesPaged, new SNPChromosome.OrderByEnsemblTranscriptAsc());
+                Collections.sort(snpchromosomesFiltered, new SNPChromosome.OrderByEnsemblTranscriptAsc());
             }
             if ( strColumn.equals(FIELD_ENSEMBL_TRANSCRIPT) && strDirection.equals(SORT_DESC) ) {
-                Collections.sort(snpchromosomesPaged, new SNPChromosome.OrderByEnsemblTranscriptDesc());
+                Collections.sort(snpchromosomesFiltered, new SNPChromosome.OrderByEnsemblTranscriptDesc());
             }
             if ( strColumn.equals(FIELD_ENSEMBL_ANNOTATION) && strDirection.equals(SORT_ASC) ) {
-                Collections.sort(snpchromosomesPaged, new SNPChromosome.OrderByEnsemblAnnotationAsc());
+                Collections.sort(snpchromosomesFiltered, new SNPChromosome.OrderByEnsemblAnnotationAsc());
             }
             if ( strColumn.equals(FIELD_ENSEMBL_ANNOTATION) && strDirection.equals(SORT_DESC) ) {
-                Collections.sort(snpchromosomesPaged, new SNPChromosome.OrderByEnsemblAnnotationDesc());
+                Collections.sort(snpchromosomesFiltered, new SNPChromosome.OrderByEnsemblAnnotationDesc());
             }
             if ( strColumn.equals(FIELD_AMINO_ACID_SUBSITUTION) && strDirection.equals(SORT_ASC) ) {
-                Collections.sort(snpchromosomesPaged, new SNPChromosome.OrderByAminoAcidSubsAsc());
+                Collections.sort(snpchromosomesFiltered, new SNPChromosome.OrderByAminoAcidSubsAsc());
             }
             if ( strColumn.equals(FIELD_AMINO_ACID_SUBSITUTION) && strDirection.equals(SORT_DESC) ) {
-                Collections.sort(snpchromosomesPaged, new SNPChromosome.OrderByAminoAcidSubsDesc());
+                Collections.sort(snpchromosomesFiltered, new SNPChromosome.OrderByAminoAcidSubsDesc());
             }
             if ( strColumn.equals(FIELD_PREDICTION_CATEGORY) && strDirection.equals(SORT_ASC) ) {
-                Collections.sort(snpchromosomesPaged, new SNPChromosome.OrderByPredictionCategoryAsc());
+                Collections.sort(snpchromosomesFiltered, new SNPChromosome.OrderByPredictionCategoryAsc());
             }
             if ( strColumn.equals(FIELD_PREDICTION_CATEGORY) && strDirection.equals(SORT_DESC) ) {
-                Collections.sort(snpchromosomesPaged, new SNPChromosome.OrderByPredictionCategoryDesc());
+                Collections.sort(snpchromosomesFiltered, new SNPChromosome.OrderByPredictionCategoryDesc());
             }
             if ( strColumn.equals(FIELD_SIFT_SCORE) && strDirection.equals(SORT_ASC) ) {
-                Collections.sort(snpchromosomesPaged, new SNPChromosome.OrderByScoreSiftAsc());
+                Collections.sort(snpchromosomesFiltered, new SNPChromosome.OrderByScoreSiftAsc());
             }
             if ( strColumn.equals(FIELD_SIFT_SCORE) && strDirection.equals(SORT_DESC) ) {
-                Collections.sort(snpchromosomesPaged, new SNPChromosome.OrderByScoreSiftDesc());
+                Collections.sort(snpchromosomesFiltered, new SNPChromosome.OrderByScoreSiftDesc());
             }
             if ( strColumn.equals(FIELD_SIFT_SCORE_CONSERVATION) && strDirection.equals(SORT_ASC) ) {
-                Collections.sort(snpchromosomesPaged, new SNPChromosome.OrderByScoreConservationAsc());
+                Collections.sort(snpchromosomesFiltered, new SNPChromosome.OrderByScoreConservationAsc());
             }
             if ( strColumn.equals(FIELD_SIFT_SCORE_CONSERVATION) && strDirection.equals(SORT_DESC) ) {
-                Collections.sort(snpchromosomesPaged, new SNPChromosome.OrderByScoreConservationDesc());
+                Collections.sort(snpchromosomesFiltered, new SNPChromosome.OrderByScoreConservationDesc());
             }
             if ( strColumn.equals(FIELD_PROTEIN_ALIGNMENT_NUMBER) && strDirection.equals(SORT_ASC) ) {
-                Collections.sort(snpchromosomesPaged, new SNPChromosome.OrderByProteinAlignNumberAsc());
+                Collections.sort(snpchromosomesFiltered, new SNPChromosome.OrderByProteinAlignNumberAsc());
             }
             if ( strColumn.equals(FIELD_PROTEIN_ALIGNMENT_NUMBER) && strDirection.equals(SORT_DESC) ) {
-                Collections.sort(snpchromosomesPaged, new SNPChromosome.OrderByProteinAlignNumberDesc());
+                Collections.sort(snpchromosomesFiltered, new SNPChromosome.OrderByProteinAlignNumberDesc());
             }
             if ( strColumn.equals(FIELD_TOTAL_SEQUENCE_ALIGNMENT_NUMBER) && strDirection.equals(SORT_ASC) ) {
-                Collections.sort(snpchromosomesPaged, new SNPChromosome.OrderByTotalAlignSequenceNumberAsc());
+                Collections.sort(snpchromosomesFiltered, new SNPChromosome.OrderByTotalAlignSequenceNumberAsc());
             }
             if ( strColumn.equals(FIELD_TOTAL_SEQUENCE_ALIGNMENT_NUMBER) && strDirection.equals(SORT_DESC) ) {
-                Collections.sort(snpchromosomesPaged, new SNPChromosome.OrderByTotalAlignSequenceNumberDesc());
+                Collections.sort(snpchromosomesFiltered, new SNPChromosome.OrderByTotalAlignSequenceNumberDesc());
             }
             if ( strColumn.equals(FIELD_PROVEAN_SCORE) && strDirection.equals(SORT_ASC) ) {
-                Collections.sort(snpchromosomesPaged, new SNPChromosome.OrderByScoreProveanAsc());
+                Collections.sort(snpchromosomesFiltered, new SNPChromosome.OrderByScoreProveanAsc());
             }
             if ( strColumn.equals(FIELD_PROVEAN_SCORE) && strDirection.equals(SORT_DESC) ) {
-                Collections.sort(snpchromosomesPaged, new SNPChromosome.OrderByScoreProveanDesc());
+                Collections.sort(snpchromosomesFiltered, new SNPChromosome.OrderByScoreProveanDesc());
             }
+            
+            snpchromosomesSorted = snpchromosomesFiltered.subList(intStart - 1, intStop);
+            
+         	//System.out.println("snpchromosomesSorted.size() : " + snpchromosomesSorted.size());
+
         }
         
-        PageSNPChromosome pagesnpchromosome = new PageSNPChromosome(pageNumber, intTotalPages, snpchromosomesFiltered.size(), snpchromosomesPaged);
+        PageSNPChromosome pagesnpchromosome = new PageSNPChromosome(pageNumber, intTotalPages, snpchromosomesFiltered.size(), snpchromosomesSorted);
 
         return pagesnpchromosome;
     }
