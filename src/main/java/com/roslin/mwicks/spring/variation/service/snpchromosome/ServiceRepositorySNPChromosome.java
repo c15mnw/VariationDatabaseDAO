@@ -62,7 +62,7 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
 	
     private static final Logger LOGGER = LoggerFactory.getLogger(ServiceRepositorySNPChromosome.class);
     
-    private static final int NUMBER_OF_SNPCHROMOSOMES_PER_PAGE = 30;
+    private static final int NUMBER_OF_SNPCHROMOSOMES_PER_PAGE = 5000;
     
     @PersistenceContext
     private EntityManager entityManager;
