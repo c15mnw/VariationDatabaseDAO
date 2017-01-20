@@ -253,6 +253,55 @@ public class DTODownloadSNPInsertionDeletion {
         this.downloadSortDirection = SearchSortDirection.SORT_DIRECTION_ASCENDING;
     }
 
+    public DTODownloadSNPInsertionDeletion(
+    		String downloadDownStream,
+    		String downloadUpStream,
+    		String downloadLowRange,
+    		String downloadHighRange,
+    		SearchReferenceBreed downloadReferenceBreed,
+    		SearchAlternativeBreed downloadAlternativeBreed,
+    		DownloadFormat downloadFormat,
+    		DownloadQuotes downloadQuotes,
+    		DownloadHeaders downloadHeaders,
+    		SearchChromosome downloadChromosome,
+    		String downloadFilterSiftScoreValue,
+    		String downloadFilterSiftConservationScoreValue,
+    		String downloadFilterProteinAlignNumberValue,
+    		String downloadFilterTotalNumberSeqAlignedValue,
+    		String downloadFilterProveanScoreValue,
+    		SearchFilterSiftScore downloadFilterSiftScore,
+    		SearchFilterSiftConservationScore downloadFilterSiftConservationScore,
+    		SearchFilterProteinAlignNumber downloadFilterProteinAlignNumber,
+    		SearchFilterTotalNumberSeqAligned downloadFilterTotalNumberSeqAligned,
+    		SearchFilterProveanScore downloadFilterProveanScore,
+    		SearchSortField downloadSortField,
+    		SearchSortDirection downloadSortDirection) {
+
+    	this.downloadDownStream = downloadDownStream;
+    	this.downloadUpStream = downloadUpStream;
+    	this.downloadLowRange = downloadLowRange;
+    	this.downloadHighRange = downloadHighRange;
+    	this.downloadReferenceBreed = downloadReferenceBreed;
+    	this.downloadAlternativeBreed = downloadAlternativeBreed;
+    	this.downloadFormat = downloadFormat;
+    	this.downloadQuotes = downloadQuotes;
+    	this.downloadHeaders = downloadHeaders;
+    	this.downloadChromosome = downloadChromosome;
+    	this.downloadFilterSiftScoreValue = downloadFilterSiftScoreValue;
+    	this.downloadFilterSiftConservationScoreValue =downloadFilterSiftConservationScoreValue;
+    	this.downloadFilterProteinAlignNumberValue = downloadFilterProteinAlignNumberValue;
+    	this.downloadFilterTotalNumberSeqAlignedValue = downloadFilterTotalNumberSeqAlignedValue;
+    	this.downloadFilterProveanScoreValue = downloadFilterProveanScoreValue;
+    	this.downloadFilterSiftScore = downloadFilterSiftScore;
+    	this.downloadFilterSiftConservationScore = downloadFilterSiftConservationScore;
+    	this.downloadFilterProteinAlignNumber = downloadFilterProteinAlignNumber;
+    	this.downloadFilterTotalNumberSeqAligned = downloadFilterTotalNumberSeqAligned;
+    	this.downloadFilterProveanScore = downloadFilterProveanScore;
+    	this.downloadSortField = downloadSortField;
+    	this.downloadSortDirection = downloadSortDirection;
+    }
+
+
     // Getters ------------------------------------------------------------------------------------
     public String getDownloadDownStream() {
         return this.downloadDownStream;

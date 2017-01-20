@@ -5,8 +5,6 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.persistence.Column;
-
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 import org.hibernate.validator.constraints.NotEmpty;

@@ -333,6 +333,59 @@ public class DTODownloadSNPChromosome {
         this.downloadEnsemblTranscript = SearchEnsemblTranscript.TRANSCRIPT_NONE; 
     }
 
+    public DTODownloadSNPChromosome(
+    		String downloadDownStream,
+    		String downloadUpStream,
+    		String downloadLowRange,
+    		String downloadHighRange,
+    		SearchReference downloadReference,
+    		SearchAlternative downloadAlternative,
+    		SearchChromosome downloadChromosome,
+    		String downloadFilterSiftScoreValue,
+    		String downloadFilterSiftConservationScoreValue,
+    		String downloadFilterProteinAlignNumberValue,
+    		String downloadFilterTotalNumberSeqAlignedValue,
+    		String downloadFilterProveanScoreValue,
+    		SearchFilterSiftScore downloadFilterSiftScore,
+    		SearchFilterSiftConservationScore downloadFilterSiftConservationScore,
+    		SearchFilterProteinAlignNumber downloadFilterProteinAlignNumber,
+    		SearchFilterTotalNumberSeqAligned downloadFilterTotalNumberSeqAligned,
+    		SearchFilterProveanScore downloadFilterProveanScore,
+    		SearchSortField downloadSortField,
+    		SearchSortDirection downloadSortDirection,
+    		SearchRegion downloadRegion,
+    		SearchPredictionCategory downloadPredictionCategory,
+    		SearchEnsemblTranscript downloadEnsemblTranscript ) {
+
+    	this.downloadDownStream = downloadDownStream;
+    	this.downloadUpStream = downloadUpStream;
+    	this.downloadLowRange = downloadLowRange;
+    	this.downloadHighRange = downloadHighRange;
+    	this.downloadReference = downloadReference;
+    	this.downloadAlternative = downloadAlternative;
+    	this.downloadChromosome = downloadChromosome;
+    	this.downloadFilterSiftScoreValue = downloadFilterSiftScoreValue;
+    	this.downloadFilterSiftConservationScoreValue = downloadFilterSiftConservationScoreValue;
+    	this.downloadFilterProteinAlignNumberValue = downloadFilterProteinAlignNumberValue;
+    	this.downloadFilterTotalNumberSeqAlignedValue = downloadFilterTotalNumberSeqAlignedValue;
+    	this.downloadFilterProveanScoreValue = downloadFilterProveanScoreValue;
+    	this.downloadFilterSiftScore = downloadFilterSiftScore;
+    	this.downloadFilterSiftConservationScore = downloadFilterSiftConservationScore;
+    	this.downloadFilterProteinAlignNumber = downloadFilterProteinAlignNumber;
+    	this.downloadFilterTotalNumberSeqAligned = downloadFilterTotalNumberSeqAligned;
+    	this.downloadFilterProveanScore = downloadFilterProveanScore;
+    	this.downloadSortField = downloadSortField;
+    	this.downloadSortDirection = downloadSortDirection;
+        this.downloadRegion = downloadRegion;
+        this.downloadPredictionCategory = downloadPredictionCategory;
+        this.downloadEnsemblTranscript = downloadEnsemblTranscript;
+
+        this.downloadFormat = DownloadFormat.FORMAT_CSV;
+        this.downloadQuotes = DownloadQuotes.QUOTES_NO;
+        this.downloadHeaders = DownloadHeaders.HEADERS_NO;
+
+    }
+
     // Getters ------------------------------------------------------------------------------------
     public String getDownloadDownStream() {
         return this.downloadDownStream;

@@ -19,7 +19,6 @@ import com.roslin.mwicks.spring.variation.model.snpinsertiondeletion.SNPInsertio
  * @author Mike Wicks
  */
 
-@SuppressWarnings("serial")
 public class FilteredSNPInsertionDeletion {
     
     // Constants ----------------------------------------------------------------------------------	

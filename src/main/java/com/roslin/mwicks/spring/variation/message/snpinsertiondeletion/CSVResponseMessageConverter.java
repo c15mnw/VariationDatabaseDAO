@@ -104,7 +104,7 @@ public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CS
             List<String> headerList5 = new ArrayList<String>();
             List<String> headerList6 = new ArrayList<String>();
             List<String> headerList7 = new ArrayList<String>();
-            List<String> headerList8 = new ArrayList<String>();
+            //List<String> headerList8 = new ArrayList<String>();
 
             headerList1.add(HDR_1);
             csvList.add(headerList1);

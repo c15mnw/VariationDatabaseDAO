@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosomePrimaryKey;
 
 import java.util.List;
 

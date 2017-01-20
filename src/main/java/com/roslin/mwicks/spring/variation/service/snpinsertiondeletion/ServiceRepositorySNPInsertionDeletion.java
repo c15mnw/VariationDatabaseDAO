@@ -1,20 +1,5 @@
 package com.roslin.mwicks.spring.variation.service.snpinsertiondeletion;
 
-import com.roslin.mwicks.spring.variation.dto.web.objects.snpinsertiondeletion.DTODownloadSNPInsertionDeletion;
-import com.roslin.mwicks.spring.variation.dto.web.objects.snpinsertiondeletion.DTOSearchSNPInsertionDeletion;
-
-import com.roslin.mwicks.spring.variation.exception.snpinsertiondeletion.ExceptionSNPInsertionDeletionNotFound;
-
-import com.roslin.mwicks.spring.variation.model.other.PageSNPInsertionDeletion;
-
-import com.roslin.mwicks.spring.variation.model.snpinsertiondeletion.SNPInsertionDeletion;
-
-import com.roslin.mwicks.spring.variation.repository.snpinsertiondeletion.RepositorySNPInsertionDeletion;
-
-import com.roslin.mwicks.spring.variation.serviceinterface.snpinsertiondeletion.ServiceSNPInsertionDeletion;
-
-import com.roslin.mwicks.utility.ObjectConverter;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,9 +15,23 @@ import javax.persistence.PersistenceContext;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+
+import com.roslin.mwicks.spring.variation.dto.web.objects.snpinsertiondeletion.DTODownloadSNPInsertionDeletion;
+import com.roslin.mwicks.spring.variation.dto.web.objects.snpinsertiondeletion.DTOSearchSNPInsertionDeletion;
+
+import com.roslin.mwicks.spring.variation.exception.snpinsertiondeletion.ExceptionSNPInsertionDeletionNotFound;
+
+import com.roslin.mwicks.spring.variation.model.other.PageSNPInsertionDeletion;
+
+import com.roslin.mwicks.spring.variation.model.snpinsertiondeletion.SNPInsertionDeletion;
+
+import com.roslin.mwicks.spring.variation.repository.snpinsertiondeletion.RepositorySNPInsertionDeletion;
+
+import com.roslin.mwicks.spring.variation.serviceinterface.snpinsertiondeletion.ServiceSNPInsertionDeletion;
+
+import com.roslin.mwicks.utility.ObjectConverter;
 
 
 /**

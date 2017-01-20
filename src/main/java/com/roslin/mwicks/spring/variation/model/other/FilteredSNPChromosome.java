@@ -17,7 +17,6 @@ import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome;
  * @author Mike Wicks
  */
 
-@SuppressWarnings("serial")
 public class FilteredSNPChromosome {
     
     // Constants ----------------------------------------------------------------------------------	

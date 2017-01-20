@@ -3,9 +3,8 @@ package com.roslin.mwicks.spring.variation.model.other;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-import org.springframework.transaction.annotation.Transactional;
-
 import com.roslin.mwicks.spring.variation.format.CustomDateToStringStyle;
+
 import com.roslin.mwicks.utility.ObjectConverter;
 
 import javax.persistence.*;

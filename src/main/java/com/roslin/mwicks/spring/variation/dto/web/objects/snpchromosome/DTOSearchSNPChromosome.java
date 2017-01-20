@@ -4,6 +4,10 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 
 import org.springframework.data.domain.Sort;
 
+import java.text.NumberFormat;
+import java.util.List;
+import java.util.Locale;
+
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchReference;
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchRegion;
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchAlternative;
@@ -19,8 +23,37 @@ import com.roslin.mwicks.spring.variation.dto.web.enums.snpchromosome.SearchSort
 import com.roslin.mwicks.spring.variation.dto.web.enums.SearchFilterProveanScore;
 
 import com.roslin.mwicks.spring.variation.format.CustomDateToStringStyle;
+import com.roslin.mwicks.spring.variation.model.ensemblgene.EnsemblGene;
+import com.roslin.mwicks.spring.variation.serviceinterface.ensemblgene.ServiceEnsemblGene;
+
 import com.roslin.mwicks.utility.ObjectConverter;
 import com.roslin.mwicks.utility.StringUtility;
+
+import com.roslin.mwicks.spring.variation.exception.ensemblgene.ExceptionEnsemblGeneDownStreamNotNumeric;
+import com.roslin.mwicks.spring.variation.exception.ensemblgene.ExceptionEnsemblGeneDownStreamSearchRangeGreaterThanTenThousand;
+import com.roslin.mwicks.spring.variation.exception.ensemblgene.ExceptionEnsemblGeneMultiplesFound;
+import com.roslin.mwicks.spring.variation.exception.ensemblgene.ExceptionEnsemblGeneNotFound;
+import com.roslin.mwicks.spring.variation.exception.ensemblgene.ExceptionEnsemblGeneSearchRangeLessThanZero;
+import com.roslin.mwicks.spring.variation.exception.ensemblgene.ExceptionEnsemblGeneUpStreamNotNumeric;
+import com.roslin.mwicks.spring.variation.exception.ensemblgene.ExceptionEnsemblGeneUpStreamSearchRangeGreaterThanTenThousand;
+
+import com.roslin.mwicks.spring.variation.exception.snpchromosome.ExceptionSNPChromosomeAlternativeAlleleNotSupplied;
+import com.roslin.mwicks.spring.variation.exception.snpchromosome.ExceptionSNPChromosomeHighCoordinateNotNumeric;
+import com.roslin.mwicks.spring.variation.exception.snpchromosome.ExceptionSNPChromosomeHighCoordinateNotSupplied;
+import com.roslin.mwicks.spring.variation.exception.snpchromosome.ExceptionSNPChromosomeLowCoordinateNotSupplied;
+import com.roslin.mwicks.spring.variation.exception.snpchromosome.ExceptionSNPChromosomeLowCoordinateGreaterThanHighCoordinate;
+import com.roslin.mwicks.spring.variation.exception.snpchromosome.ExceptionSNPChromosomeLowCoordinateNotNumeric;
+import com.roslin.mwicks.spring.variation.exception.snpchromosome.ExceptionSNPChromosomeNotSelected;
+import com.roslin.mwicks.spring.variation.exception.snpchromosome.ExceptionSNPChromosomeReferenceAlleleEqualsAlternativeAllele;
+import com.roslin.mwicks.spring.variation.exception.snpchromosome.ExceptionSNPChromosomeReferenceAlleleNotSupplied;
+import com.roslin.mwicks.spring.variation.exception.snpchromosome.ExceptionSNPChromosomeSearchFilterProteinAlignNumberValueNotNumeric;
+import com.roslin.mwicks.spring.variation.exception.snpchromosome.ExceptionSNPChromosomeSearchFilterProveanScoreValueNotNumeric;
+import com.roslin.mwicks.spring.variation.exception.snpchromosome.ExceptionSNPChromosomeSearchFilterSiftConservationScoreValueNotNumeric;
+import com.roslin.mwicks.spring.variation.exception.snpchromosome.ExceptionSNPChromosomeSearchFilterSiftScoreValueNotNumeric;
+import com.roslin.mwicks.spring.variation.exception.snpchromosome.ExceptionSNPChromosomeSearchFilterTotalNumberSeqAlignedValueNotNumeric;
+import com.roslin.mwicks.spring.variation.exception.snpchromosome.ExceptionSNPChromosomeSearchRangeGreaterThanOneMillion;
+import com.roslin.mwicks.spring.variation.exception.snpchromosome.ExceptionSNPChromosomeSelectedWithGeneName;
+
 
 
 /**
@@ -261,6 +294,10 @@ public class DTOSearchSNPChromosome {
 	protected static final String ONLY_PREDCAT_DELETERIOUS = "DELETERIOUS";
 	protected static final String ONLY_PREDCAT_NOT_SCORED = "NOT_SCORED";
 	protected static final String ONLY_PREDCAT_TOLERATED = "TOLERATED";
+	
+    protected static final int ONE_MILLION = 1000000;
+    protected static final int TEN_THOUSAND = 10000;
+
 
     // Properties ---------------------------------------------------------------------------------
     private int pageIndex;
@@ -299,6 +336,7 @@ public class DTOSearchSNPChromosome {
 
     
     // Constructor --------------------------------------------------------------------------------
+    // 0 Attributes (NONE)
     public DTOSearchSNPChromosome() {
 
     	this.pageIndex = 0;
@@ -333,9 +371,285 @@ public class DTOSearchSNPChromosome {
         this.searchRegion = SearchRegion.REGION_NONE; 
         this.searchPredictionCategory = SearchPredictionCategory.PREDCAT_NONE; 
         this.searchEnsemblTranscript = SearchEnsemblTranscript.TRANSCRIPT_NONE; 
-
     }
     
+    // 24 Attributes (ALL)
+    public DTOSearchSNPChromosome(
+    		int pageIndex,
+            String searchGeneName,
+            String searchDownStream,
+            String searchUpStream,
+            String searchLowRange,
+            String searchHighRange,
+            SearchReference searchReference,
+            SearchAlternative searchAlternative,
+            SearchChromosome searchChromosome,
+            String searchFilterSiftScoreValue,
+            String searchFilterSiftConservationScoreValue,
+            String searchFilterProteinAlignNumberValue,
+            String searchFilterTotalNumberSeqAlignedValue,
+            String searchFilterProveanScoreValue,
+            SearchFilterSiftScore searchFilterSiftScore,
+            SearchFilterSiftConservationScore searchFilterSiftConservationScore,
+            SearchFilterProteinAlignNumber searchFilterProteinAlignNumber,
+            SearchFilterTotalNumberSeqAligned searchFilterTotalNumberSeqAligned,
+            SearchFilterProveanScore searchFilterProveanScore,
+            SearchSortField searchSortField,
+            SearchSortDirection searchSortDirection,
+            SearchRegion searchRegion,
+            SearchPredictionCategory searchPredictionCategory,
+            SearchEnsemblTranscript searchEnsemblTranscript ) {
+    	
+    	this( pageIndex,
+    			searchGeneName,
+    			searchDownStream,
+    			searchUpStream,
+    			searchLowRange,
+    			searchHighRange,
+    			searchReference,
+    			searchAlternative,
+    			searchChromosome);
+    	
+        this.searchFilterSiftScoreValue = searchFilterSiftScoreValue;
+        this.searchFilterSiftConservationScoreValue = searchFilterSiftConservationScoreValue;
+        this.searchFilterProteinAlignNumberValue = searchFilterProteinAlignNumberValue;
+        this.searchFilterTotalNumberSeqAlignedValue = searchFilterTotalNumberSeqAlignedValue;
+        this.searchFilterProveanScoreValue = searchFilterProveanScoreValue;
+        
+        this.searchFilterSiftConservationScore = searchFilterSiftConservationScore;
+        this.searchFilterProteinAlignNumber = searchFilterProteinAlignNumber;
+        this.searchFilterTotalNumberSeqAligned = searchFilterTotalNumberSeqAligned;
+        this.searchFilterProveanScore = searchFilterProveanScore;
+        
+        this.searchSortField = searchSortField;
+        this.searchSortDirection = searchSortDirection;
+        
+        this.searchRegion = searchRegion;
+        this.searchPredictionCategory = searchPredictionCategory;
+        this.searchEnsemblTranscript = searchEnsemblTranscript;
+    }
+    
+    // 24 Attributes (ALL) - Strings
+    public DTOSearchSNPChromosome(
+    		int pageIndex,
+            String searchGeneName,
+            String searchDownStream,
+            String searchUpStream,
+            String searchLowRange,
+            String searchHighRange,
+            String searchReference,
+            String searchAlternative,
+            String searchChromosome,
+            String searchFilterSiftScoreValue,
+            String searchFilterSiftConservationScoreValue,
+            String searchFilterProteinAlignNumberValue,
+            String searchFilterTotalNumberSeqAlignedValue,
+            String searchFilterProveanScoreValue,
+            String searchFilterSiftScore,
+            String searchFilterSiftConservationScore,
+            String searchFilterProteinAlignNumber,
+            String searchFilterTotalNumberSeqAligned,
+            String searchFilterProveanScore,
+            String searchSortField,
+            String searchSortDirection,
+            String searchRegion,
+            String searchPredictionCategory,
+            String searchEnsemblTranscript ) {
+    	
+    	this( pageIndex,
+    			searchGeneName,
+    			searchDownStream,
+    			searchUpStream,
+    			searchLowRange,
+    			searchHighRange,
+    			searchReference,
+    			searchAlternative,
+    			searchChromosome);
+    	
+        this.searchFilterSiftScoreValue = searchFilterSiftScoreValue;
+        this.searchFilterSiftConservationScoreValue = searchFilterSiftConservationScoreValue;
+        this.searchFilterProteinAlignNumberValue = searchFilterProteinAlignNumberValue;
+        this.searchFilterTotalNumberSeqAlignedValue = searchFilterTotalNumberSeqAlignedValue;
+        this.searchFilterProveanScoreValue = searchFilterProveanScoreValue;
+        
+        this.setSearchFilterSiftConservationScore( searchFilterSiftConservationScore );
+        this.setSearchFilterProteinAlignNumber( searchFilterProteinAlignNumber );
+        this.setSearchFilterTotalNumberSeqAligned( searchFilterTotalNumberSeqAligned );
+        this.setSearchFilterProveanScore( searchFilterProveanScore );
+        
+        this.setSearchSortField( searchSortField );
+        this.setSearchSortDirection( searchSortDirection );
+        
+        this.setSearchRegion( searchRegion );
+        this.setSearchPredictionCategory( searchPredictionCategory );
+        this.setSearchEnsemblTranscript( searchEnsemblTranscript );
+    }
+    
+    // 9 Attributes (9/24)
+    public DTOSearchSNPChromosome( 
+        	int pageIndex,
+            String searchGeneName,
+            String searchDownStream,
+            String searchUpStream,
+            String searchLowRange,
+            String searchHighRange,
+            SearchReference searchReference,
+            SearchAlternative searchAlternative,
+            SearchChromosome searchChromosome ) {
+
+    	this( pageIndex,
+    			searchLowRange,
+    			searchHighRange,
+    			searchReference,
+    			searchAlternative,
+    			searchChromosome);
+
+        this.searchGeneName = searchGeneName;
+        this.searchDownStream = searchDownStream;
+        this.searchUpStream = searchUpStream;
+
+        this.searchFilterSiftScoreValue = "";
+        this.searchFilterSiftConservationScoreValue = "";
+        this.searchFilterProteinAlignNumberValue = "";
+        this.searchFilterTotalNumberSeqAlignedValue = "";
+        this.searchFilterProveanScoreValue = "";
+
+        this.searchFilterSiftScore = SearchFilterSiftScore.SIFT_SCORE_ABOVE;
+        this.searchFilterSiftConservationScore = SearchFilterSiftConservationScore.SIFT_CONSERVATION_SCORE_ABOVE;
+        this.searchFilterProteinAlignNumber = SearchFilterProteinAlignNumber.PROTEIN_ALIGN_NUMBER_ABOVE;
+        this.searchFilterTotalNumberSeqAligned = SearchFilterTotalNumberSeqAligned.TOTAL_NUMBER_SEQ_ALIGNED_ABOVE;
+        this.searchFilterProveanScore = SearchFilterProveanScore.PROVEAN_SCORE_ABOVE;
+
+        this.searchSortField = SearchSortField.SORT_FIELD_POSITION;
+        this.searchSortDirection = SearchSortDirection.SORT_DIRECTION_ASCENDING;
+        
+        this.searchRegion = SearchRegion.REGION_NONE; 
+        this.searchPredictionCategory = SearchPredictionCategory.PREDCAT_NONE; 
+        this.searchEnsemblTranscript = SearchEnsemblTranscript.TRANSCRIPT_NONE; 
+    }
+
+    // 9 Attributes (9/24) - Strings
+    public DTOSearchSNPChromosome( 
+        	int pageIndex,
+            String searchGeneName,
+            String searchDownStream,
+            String searchUpStream,
+            String searchLowRange,
+            String searchHighRange,
+            String searchReference,
+            String searchAlternative,
+            String searchChromosome ) {
+
+    	this( pageIndex,
+    			searchLowRange,
+    			searchHighRange,
+    			searchReference,
+    			searchAlternative,
+    			searchChromosome);
+
+        this.searchGeneName = searchGeneName;
+        this.searchDownStream = searchDownStream;
+        this.searchUpStream = searchUpStream;
+
+        this.searchFilterSiftScoreValue = "";
+        this.searchFilterSiftConservationScoreValue = "";
+        this.searchFilterProteinAlignNumberValue = "";
+        this.searchFilterTotalNumberSeqAlignedValue = "";
+        this.searchFilterProveanScoreValue = "";
+
+        this.searchFilterSiftScore = SearchFilterSiftScore.SIFT_SCORE_ABOVE;
+        this.searchFilterSiftConservationScore = SearchFilterSiftConservationScore.SIFT_CONSERVATION_SCORE_ABOVE;
+        this.searchFilterProteinAlignNumber = SearchFilterProteinAlignNumber.PROTEIN_ALIGN_NUMBER_ABOVE;
+        this.searchFilterTotalNumberSeqAligned = SearchFilterTotalNumberSeqAligned.TOTAL_NUMBER_SEQ_ALIGNED_ABOVE;
+        this.searchFilterProveanScore = SearchFilterProveanScore.PROVEAN_SCORE_ABOVE;
+
+        this.searchSortField = SearchSortField.SORT_FIELD_POSITION;
+        this.searchSortDirection = SearchSortDirection.SORT_DIRECTION_ASCENDING;
+        
+        this.searchRegion = SearchRegion.REGION_NONE; 
+        this.searchPredictionCategory = SearchPredictionCategory.PREDCAT_NONE; 
+        this.searchEnsemblTranscript = SearchEnsemblTranscript.TRANSCRIPT_NONE; 
+    }
+
+    // 6 Attributes (6/24)
+    public DTOSearchSNPChromosome( 
+        	int pageIndex,
+            String searchLowRange,
+            String searchHighRange,
+            SearchReference searchReference,
+            SearchAlternative searchAlternative,
+            SearchChromosome searchChromosome ) {
+
+    	this.pageIndex = pageIndex;
+        this.searchLowRange = searchLowRange;
+        this.searchHighRange = searchHighRange;
+        this.searchReference = searchReference;
+        this.searchAlternative = searchAlternative;
+        this.searchChromosome = searchChromosome;
+
+        this.searchGeneName = "";
+        this.searchDownStream = "";
+        this.searchUpStream = "";
+
+        this.searchFilterSiftScoreValue = "";
+        this.searchFilterSiftConservationScoreValue = "";
+        this.searchFilterProteinAlignNumberValue = "";
+        this.searchFilterTotalNumberSeqAlignedValue = "";
+        this.searchFilterProveanScoreValue = "";
+
+        this.searchFilterSiftScore = SearchFilterSiftScore.SIFT_SCORE_ABOVE;
+        this.searchFilterSiftConservationScore = SearchFilterSiftConservationScore.SIFT_CONSERVATION_SCORE_ABOVE;
+        this.searchFilterProteinAlignNumber = SearchFilterProteinAlignNumber.PROTEIN_ALIGN_NUMBER_ABOVE;
+        this.searchFilterTotalNumberSeqAligned = SearchFilterTotalNumberSeqAligned.TOTAL_NUMBER_SEQ_ALIGNED_ABOVE;
+        this.searchFilterProveanScore = SearchFilterProveanScore.PROVEAN_SCORE_ABOVE;
+
+        this.searchSortField = SearchSortField.SORT_FIELD_POSITION;
+        this.searchSortDirection = SearchSortDirection.SORT_DIRECTION_ASCENDING;
+        
+        this.searchRegion = SearchRegion.REGION_NONE; 
+        this.searchPredictionCategory = SearchPredictionCategory.PREDCAT_NONE; 
+        this.searchEnsemblTranscript = SearchEnsemblTranscript.TRANSCRIPT_NONE; 
+    }
+
+    // 6 Attributes (6/24) - Strings
+    public DTOSearchSNPChromosome( 
+        	int pageIndex,
+            String searchLowRange,
+            String searchHighRange,
+            String searchReference,
+            String searchAlternative,
+            String searchChromosome ) {
+
+    	this.pageIndex = pageIndex;
+        this.searchLowRange = searchLowRange;
+        this.searchHighRange = searchHighRange;
+        this.setSearchReference( searchReference ) ;
+        this.setSearchAlternative( searchAlternative );
+        this.setSearchChromosome( searchChromosome );
+
+        this.searchGeneName = "";
+        this.searchDownStream = "";
+        this.searchUpStream = "";
+
+        this.searchFilterSiftScoreValue = "";
+        this.searchFilterSiftConservationScoreValue = "";
+        this.searchFilterProteinAlignNumberValue = "";
+        this.searchFilterTotalNumberSeqAlignedValue = "";
+        this.searchFilterProveanScoreValue = "";
+
+        this.searchFilterSiftScore = SearchFilterSiftScore.SIFT_SCORE_ABOVE;
+        this.searchFilterSiftConservationScore = SearchFilterSiftConservationScore.SIFT_CONSERVATION_SCORE_ABOVE;
+        this.searchFilterProteinAlignNumber = SearchFilterProteinAlignNumber.PROTEIN_ALIGN_NUMBER_ABOVE;
+        this.searchFilterTotalNumberSeqAligned = SearchFilterTotalNumberSeqAligned.TOTAL_NUMBER_SEQ_ALIGNED_ABOVE;
+        this.searchFilterProveanScore = SearchFilterProveanScore.PROVEAN_SCORE_ABOVE;
+
+        this.searchSortField = SearchSortField.SORT_FIELD_POSITION;
+        this.searchSortDirection = SearchSortDirection.SORT_DIRECTION_ASCENDING;
+        
+        this.searchRegion = SearchRegion.REGION_NONE; 
+        this.searchPredictionCategory = SearchPredictionCategory.PREDCAT_NONE; 
+        this.searchEnsemblTranscript = SearchEnsemblTranscript.TRANSCRIPT_NONE; 
+    }
 
     // Getters ------------------------------------------------------------------------------------
     public int getPageIndex() {
@@ -1469,81 +1783,108 @@ public class DTOSearchSNPChromosome {
     }
     
     public int getSearchDownStreamAsInt(){
-        return ObjectConverter.convert(this.searchDownStream, Integer.class);
+    	
+        return ObjectConverter.convert( StringUtility.getIntegerStringFromFormatted( this.searchDownStream ), Integer.class);
     }
     public boolean isSearchDownStreamNumeric() {
-    	if ( StringUtility.isItNumeric(this.searchDownStream) ){
+    	
+    	if ( StringUtility.isItNumberFormat(this.searchDownStream) ){
+    	
     		return true;
     	}
     	else {
+    		
     		return false;
     	}
     }
     public boolean isSearchDownStreamEmpty() {
+
     	if ( this.searchDownStream.equals("") ){
+    	
     		return true;
     	}
     	else {
+    		
     		return false;
     	}
     }
     
     public int getSearchUpStreamAsInt(){
-        return ObjectConverter.convert(this.searchUpStream, Integer.class);
+
+    	return ObjectConverter.convert( StringUtility.getIntegerStringFromFormatted( this.searchUpStream ), Integer.class);
     }
     public boolean isSearchUpStreamNumeric() {
-    	if ( StringUtility.isItNumeric(this.searchUpStream) ){
+    	
+    	if ( StringUtility.isItNumberFormat(this.searchUpStream) ){
+    	
     		return true;
     	}
     	else {
+    		
     		return false;
     	}
     }
     public boolean isSearchUpStreamEmpty() {
+    	
     	if ( this.searchUpStream.equals("") ){
+    	
     		return true;
     	}
     	else {
+    		
     		return false;
     	}
     }
     
     public int getSearchLowRangeAsInt(){
-        return ObjectConverter.convert(this.searchLowRange, Integer.class);
+
+    	return ObjectConverter.convert( StringUtility.getIntegerStringFromFormatted( this.searchLowRange ), Integer.class);
     }
     public boolean isSearchLowRangeNumeric() {
-    	if ( StringUtility.isItNumeric(this.searchLowRange) ){
+    	
+    	if ( StringUtility.isItNumberFormat(this.searchLowRange) ){
+    		
     		return true;
     	}
     	else {
+    		
     		return false;
     	}
     }
     public boolean isSearchLowRangeEmpty() {
     	if ( this.searchLowRange.equals("") ){
+    		
     		return true;
     	}
     	else {
+    		
     		return false;
     	}
     }
     
     public int getSearchHighRangeAsInt(){
-        return ObjectConverter.convert(this.searchHighRange, Integer.class);
+
+        return ObjectConverter.convert( StringUtility.getIntegerStringFromFormatted( this.searchHighRange ), Integer.class);
     }
     public boolean isSearchHighRangeNumeric() {
-    	if ( StringUtility.isItNumeric(this.searchHighRange) ){
+    	
+    	if ( StringUtility.isItNumberFormat(this.searchHighRange) ){
+    	
     		return true;
     	}
     	else {
+    		
     		return false;
     	}
     }
     public boolean isSearchHighRangeEmpty() {
+    	
     	if ( this.searchHighRange.equals("") ){
+    	
     		return true;
     	}
     	else {
+    		
     		return false;
     	}
     }
@@ -2806,6 +3147,236 @@ public class DTOSearchSNPChromosome {
         	strReturn = ONLY_PROVEAN_SCORE_BELOW;
         }
         return strReturn;
+    }
+
+    public String isDTOSearchSNPChromosomeValid(ServiceEnsemblGene serviceensemblgene) throws Exception {
+    
+        int intSearchLow = 0;
+        int intSearchHigh = 0;
+        int intSearchLowHighDiff = 0;
+
+        int intSearchUp = 0;
+        int intSearchDown = 0;
+        
+        String successMsg = "";
+        
+        //System.out.println("BEFORE this.toString() : " + this.toString());
+        
+    	if ( !this.isSearchFilterProteinAlignNumberValueEmpty() ) {
+    		
+    		if ( !this.isSearchFilterProteinAlignNumberValueANumber() ) {
+    			
+    			throw new ExceptionSNPChromosomeSearchFilterProteinAlignNumberValueNotNumeric("ERROR: Search Filter Protein Alignment Number is NOT Numeric : " + this.getSearchFilterProteinAlignNumberValue() + " !!!");
+    		}
+    	}
+    	
+    	if ( !this.isSearchFilterProveanScoreValueEmpty() ) {
+    		
+    		if ( !this.isSearchFilterProveanScoreValueANumber() ) {
+    			
+    			throw new ExceptionSNPChromosomeSearchFilterProveanScoreValueNotNumeric("ERROR: Search Filter PROVEAN Score is NOT Numeric : " + this.getSearchFilterProveanScoreValue() + " !!!");        		}
+    	}
+    	
+    	if ( !this.isSearchFilterSiftConservationScoreValueEmpty() ) {
+    		
+    		if ( !this.isSearchFilterSiftConservationScoreValueANumber() ) {
+    			
+    			throw new ExceptionSNPChromosomeSearchFilterSiftConservationScoreValueNotNumeric("ERROR: Search Filter SIFT Conservation Score is NOT Numeric : " + this.getSearchFilterSiftConservationScoreValue() + " !!!");
+    		}
+    	}
+    	
+    	if ( !this.isSearchFilterSiftScoreValueEmpty() ) {
+    		
+    		if ( !this.isSearchFilterSiftScoreValueANumber() ) {
+    			
+    			throw new ExceptionSNPChromosomeSearchFilterSiftScoreValueNotNumeric("ERROR: Search Filter SIFT Score is NOT Numeric : " + this.getSearchFilterSiftScoreValue() + " !!!");
+    		}
+    	}
+    	
+    	if ( !this.isSearchFilterTotalNumberSeqAlignedValueEmpty() ) {
+    		
+    		if ( !this.isSearchFilterTotalNumberSeqAlignedValueANumber() ) {
+    			
+    			throw new ExceptionSNPChromosomeSearchFilterTotalNumberSeqAlignedValueNotNumeric("ERROR: Search Filter Total Number of Sequences Aligned is NOT Numeric : " + this.getSearchFilterTotalNumberSeqAlignedValue() + " !!!");
+    		}
+    	}
+    	
+        if ( this.isSearchReferenceNone() ) {
+        	
+            throw new ExceptionSNPChromosomeReferenceAlleleNotSupplied("ERROR: Reference Allele Not Supplied !!!");
+        }
+        
+        if ( this.isSearchAlternativeNone()  ) {
+        	
+            throw new ExceptionSNPChromosomeAlternativeAlleleNotSupplied("ERROR: Alternative Allele Not Supplied !!!");
+        }
+        
+        if ( this.getSearchReference().name().equals(this.getSearchAlternative().name()) ) {
+        	
+            throw new ExceptionSNPChromosomeReferenceAlleleEqualsAlternativeAllele("ERROR: Reference Allele EQUALS Alternative Allele !!!");
+        }
+
+        if ( this.isSearchGeneNameEmpty() ) {
+    		
+    		if ( this.isSearchChromosomeNone() ) {
+
+    			throw new ExceptionSNPChromosomeNotSelected("ERROR: Search Chromosome Not Supplied !!!");
+    		}
+    		
+    		if ( this.isSearchLowRangeEmpty() ) {
+            	
+    			throw new ExceptionSNPChromosomeLowCoordinateNotSupplied("ERROR: Search Low Co-ordinate is NOT Supplied !!!");
+    		}
+    		else {
+        		if ( this.isSearchLowRangeNumeric() ) {
+                
+        			intSearchLow = this.getSearchLowRangeAsInt();
+                }
+                else {
+                	
+                	throw new ExceptionSNPChromosomeLowCoordinateNotNumeric("ERROR: Search Low Co-ordinate is NOT Numeric : " + this.getSearchLowRange() + " !!!");
+                }
+    		}
+    		
+    		if ( this.isSearchHighRangeEmpty() ) {
+    			
+    			throw new ExceptionSNPChromosomeHighCoordinateNotSupplied("ERROR: Search High Co-ordinate is NOT Supplied !!!");
+    		}
+    		else {
+                
+    			if ( this.isSearchHighRangeNumeric() ) {
+                
+    				intSearchHigh = this.getSearchHighRangeAsInt();
+                }
+                else {
+                    
+                	throw new ExceptionSNPChromosomeHighCoordinateNotNumeric("ERROR: Search High Co-ordinate is NOT Numeric : " + this.getSearchHighRange() + " !!!");
+                }
+    		}
+    		
+            if ( intSearchLow > intSearchHigh) {
+                
+            	throw new ExceptionSNPChromosomeLowCoordinateGreaterThanHighCoordinate("ERROR: Search Low Co-ordinate (" + intSearchLow + ") is GREATER THAN Search High Co-ordinate (" + intSearchHigh + ") !!!");
+            }
+            
+            intSearchLowHighDiff = intSearchHigh - intSearchLow;
+            
+            if ( intSearchLowHighDiff > ONE_MILLION) {
+            	
+                throw new ExceptionSNPChromosomeSearchRangeGreaterThanOneMillion("ERROR: Search Range (" + intSearchLowHighDiff + ") is GREATER THAN One Million Base Pairs !!!");
+            }
+
+            successMsg = "for the Query: Chr." + this.getSearchChromosomeAsString() + ", " + this.getSearchLowRange() + "-" + this.getSearchHighRange() + 
+            		", Ref." + this.getSearchReferenceAsString() +" and Alt." + this.getSearchAlternativeAsString();
+    	}
+    	else {
+    		
+    		if ( !this.isSearchChromosomeNone() ) {
+    			
+                throw new ExceptionSNPChromosomeSelectedWithGeneName("ERROR: Search Chromosome Supplied AND Ensembl Gene Name Supplied !!!");
+    		}
+    		
+    		if ( this.isSearchDownStreamEmpty() ) {
+    			
+    			this.setSearchDownStream("0");
+    		}
+    		else {
+        		
+    			if ( this.isSearchDownStreamNumeric()) {
+        		
+    				intSearchDown = this.getSearchDownStreamAsInt();
+        		}
+        		else {
+                    
+        			throw new ExceptionEnsemblGeneDownStreamNotNumeric("ERROR: Search Downstream Range is NOT Numeric : " + this.getSearchDownStream() + " !!!");
+        		}
+    		}
+    		
+    		if ( this.isSearchUpStreamEmpty() ) {
+    		
+    			this.setSearchUpStream("0");
+    		}
+    		else {
+    			
+        		if ( this.isSearchUpStreamNumeric()) {
+        		
+        			intSearchUp = this.getSearchUpStreamAsInt();
+        		}
+        		else {
+                    
+        			throw new ExceptionEnsemblGeneUpStreamNotNumeric("ERROR: Search Upstream Range is NOT Numeric : " + this.getSearchUpStream() + " !!!");
+        		}
+    		}
+    		
+            if ( intSearchUp > TEN_THOUSAND) {
+            
+            	throw new ExceptionEnsemblGeneUpStreamSearchRangeGreaterThanTenThousand("ERROR: Up Stream Search Range (" + intSearchUp + ") is GREATER THAN Ten Thousand Base Pairs !!!");
+            }
+            
+            if ( intSearchDown > TEN_THOUSAND) {
+            
+            	throw new ExceptionEnsemblGeneDownStreamSearchRangeGreaterThanTenThousand("ERROR: Down Stream Search Range (" + intSearchDown + ") is GREATER THAN Ten Thousand Base Pairs !!!");
+            }
+
+            List<EnsemblGene> ensemblgenes = serviceensemblgene.findByGeneName(this.getSearchGeneName());
+            
+            if ( ensemblgenes.isEmpty() ) {
+            
+            	throw new ExceptionEnsemblGeneNotFound("ERROR: Requested Gene does NOT Exist !!!");
+            }
+            
+            if ( ensemblgenes.size() > 1 ) {
+            
+            	throw new ExceptionEnsemblGeneMultiplesFound("ERROR: Multiple Genes Exist !!!");
+            }
+            
+            EnsemblGene ensemblgene = ensemblgenes.get(0);
+            
+            this.setSearchChromosome(ensemblgene.getChromosomeId());
+            
+        	long searchLowRange = 0;
+        	long searchHighRange = 0;
+        	
+            if ( ensemblgene.isStrandPositive() ) {
+            	
+            	searchLowRange = ensemblgene.getStart() - this.getSearchUpStreamAsInt();
+            	searchHighRange = ensemblgene.getEnd() + this.getSearchDownStreamAsInt();
+            	this.setSearchHighRange(ObjectConverter.convert(searchHighRange, String.class));
+            	this.setSearchLowRange(ObjectConverter.convert(searchLowRange, String.class));
+                
+            	successMsg = "for the Query: Gene " + this.getSearchGeneName() + ", +" + NumberFormat.getNumberInstance(Locale.US).format(this.getSearchUpStreamAsInt()) + 
+            			", -" + NumberFormat.getNumberInstance(Locale.US).format(this.getSearchDownStreamAsInt()) + 
+                		", Ref." + this.getSearchReferenceAsString() +" and Alt." + this.getSearchAlternativeAsString();
+            }
+            
+            if ( ensemblgene.isStrandNegative() ) {
+            
+            	searchHighRange = ensemblgene.getStart() - this.getSearchUpStreamAsInt();
+            	searchLowRange = ensemblgene.getEnd() + this.getSearchDownStreamAsInt();
+            	this.setSearchLowRange(ObjectConverter.convert(searchHighRange, String.class));
+            	this.setSearchHighRange(ObjectConverter.convert(searchLowRange, String.class));
+
+            	successMsg = "for the Query: Gene " + this.getSearchGeneName() + ", +" + NumberFormat.getNumberInstance(Locale.US).format(this.getSearchDownStreamAsInt()) + 
+            			", -" + NumberFormat.getNumberInstance(Locale.US).format(this.getSearchUpStreamAsInt()) + 
+                		", Ref." + this.getSearchReferenceAsString() +" and Alt." + this.getSearchAlternativeAsString();
+            }
+            
+            if ( searchHighRange < 0 ) {
+            
+            	throw new ExceptionEnsemblGeneSearchRangeLessThanZero("ERROR: Search Range (" + searchHighRange + ") is LESS THAN Zero !!!");
+            }
+            
+            if ( searchLowRange < 0 ) {
+                
+            	throw new ExceptionEnsemblGeneSearchRangeLessThanZero("ERROR: Search Range (" + searchLowRange + ") is LESS THAN Zero !!!");
+            }
+    	}
+
+        //System.out.println("successMsg : " + successMsg);
+
+        //System.out.println("AFTER this.toString() : " + this.toString());
+
+        return successMsg;
     }
     
     public String toString() {
