@@ -49,13 +49,24 @@ public class PageSNPChromosome extends ArrayList<SNPChromosome> {
     public void setPageNumber(int pageNumber) {
     	this.pageNumber = pageNumber;
     }
-    public void getTotalPages(int totalPages) {
+    public void setTotalPages(int totalPages) {
     	this.totalPages = totalPages;
     }
-    public void geTotalElements(long totalElements) {
+    public void setTotalElements(long totalElements) {
     	this.totalElements = totalElements;
     }
+    
 
     // Helpers ------------------------------------------------------------------------------------
+    public void incrementPageNumber() {
+    	this.pageNumber++;
+    }
+    public void incrementTotalPages() {
+    	this.totalPages++;
+    }
+    public void incrementTotalElements() {
+    	this.totalElements++;
+    }
+
 
 }

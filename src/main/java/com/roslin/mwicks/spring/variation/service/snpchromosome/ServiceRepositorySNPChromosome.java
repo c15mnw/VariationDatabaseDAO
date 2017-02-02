@@ -114,378 +114,367 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
 
     	int longPartition = 0;
 
-    	if ( dtoDownload.isDownloadChromosome1() ) {
+    	if ( dtoDownload.isSearchChromosome1() ) {
     		longPartition = 1;
     	}
-    	if ( dtoDownload.isDownloadChromosome2() ) {
+    	if ( dtoDownload.isSearchChromosome2() ) {
     		longPartition = 2;
     	}
-    	if ( dtoDownload.isDownloadChromosome3() ) {
+    	if ( dtoDownload.isSearchChromosome3() ) {
     		longPartition = 3;
     	}
-    	if ( dtoDownload.isDownloadChromosome4() ) {
+    	if ( dtoDownload.isSearchChromosome4() ) {
     		longPartition = 4;
     	}
-    	if ( dtoDownload.isDownloadChromosome5() ) {
+    	if ( dtoDownload.isSearchChromosome5() ) {
     		longPartition = 5;
     	}
-    	if ( dtoDownload.isDownloadChromosome6() ) {
+    	if ( dtoDownload.isSearchChromosome6() ) {
     		longPartition = 6;
     	}
-    	if ( dtoDownload.isDownloadChromosome7() ) {
+    	if ( dtoDownload.isSearchChromosome7() ) {
     		longPartition = 7;
     	}
-    	if ( dtoDownload.isDownloadChromosome8() ) {
+    	if ( dtoDownload.isSearchChromosome8() ) {
     		longPartition = 8;
     	}
-    	if ( dtoDownload.isDownloadChromosome9() ) {
+    	if ( dtoDownload.isSearchChromosome9() ) {
     		longPartition = 9;
     	}
-    	if ( dtoDownload.isDownloadChromosome10() ) {
+    	if ( dtoDownload.isSearchChromosome10() ) {
     		longPartition = 10;
     	}
-    	if ( dtoDownload.isDownloadChromosome11() ) {
+    	if ( dtoDownload.isSearchChromosome11() ) {
     		longPartition = 11;
     	}
-    	if ( dtoDownload.isDownloadChromosome12() ) {
+    	if ( dtoDownload.isSearchChromosome12() ) {
     		longPartition = 12;
     	}
-    	if ( dtoDownload.isDownloadChromosome13() ) {
+    	if ( dtoDownload.isSearchChromosome13() ) {
     		longPartition = 13;
     	}
-    	if ( dtoDownload.isDownloadChromosome14() ) {
+    	if ( dtoDownload.isSearchChromosome14() ) {
     		longPartition = 14;
     	}
-    	if ( dtoDownload.isDownloadChromosome15() ) {
+    	if ( dtoDownload.isSearchChromosome15() ) {
     		longPartition = 15;
     	}
-    	if ( dtoDownload.isDownloadChromosome16() ) {
+    	if ( dtoDownload.isSearchChromosome16() ) {
     		longPartition = 16;
     	}
-    	if ( dtoDownload.isDownloadChromosome17() ) {
+    	if ( dtoDownload.isSearchChromosome17() ) {
     		longPartition = 17;
     	}
-    	if ( dtoDownload.isDownloadChromosome18() ) {
+    	if ( dtoDownload.isSearchChromosome18() ) {
     		longPartition = 18;
     	}
-    	if ( dtoDownload.isDownloadChromosome19() ) {
+    	if ( dtoDownload.isSearchChromosome19() ) {
     		longPartition = 19;
     	}
-    	if ( dtoDownload.isDownloadChromosome20() ) {
+    	if ( dtoDownload.isSearchChromosome20() ) {
     		longPartition = 20;
     	}
-    	if ( dtoDownload.isDownloadChromosome21() ) {
+    	if ( dtoDownload.isSearchChromosome21() ) {
     		longPartition = 21;
     	}
-    	if ( dtoDownload.isDownloadChromosome22() ) {
+    	if ( dtoDownload.isSearchChromosome22() ) {
     		longPartition = 22;
     	}
-    	if ( dtoDownload.isDownloadChromosome23() ) {
+    	if ( dtoDownload.isSearchChromosome23() ) {
     		longPartition = 23;
     	}
-    	if ( dtoDownload.isDownloadChromosome24() ) {
+    	if ( dtoDownload.isSearchChromosome24() ) {
     		longPartition = 24;
     	}
-    	if ( dtoDownload.isDownloadChromosome25() ) {
+    	if ( dtoDownload.isSearchChromosome25() ) {
     		longPartition = 25;
     	}
-    	if ( dtoDownload.isDownloadChromosome26() ) {
+    	if ( dtoDownload.isSearchChromosome26() ) {
     		longPartition = 26;
     	}
-    	if ( dtoDownload.isDownloadChromosome27() ) {
+    	if ( dtoDownload.isSearchChromosome27() ) {
     		longPartition = 27;
     	}
-    	if ( dtoDownload.isDownloadChromosome28() ) {
+    	if ( dtoDownload.isSearchChromosome28() ) {
     		longPartition = 28;
     	}
-    	if ( dtoDownload.isDownloadChromosomeLGE22C19W28_E50C23() ) {
+    	if ( dtoDownload.isSearchChromosomeLGE22C19W28_E50C23() ) {
     		longPartition = 29;
     	}
-    	if ( dtoDownload.isDownloadChromosomeLGE64() ) {
+    	if ( dtoDownload.isSearchChromosomeLGE64() ) {
     		longPartition = 30;
     	}
-    	if ( dtoDownload.isDownloadChromosomeW() ) {
+    	if ( dtoDownload.isSearchChromosomeW() ) {
     		longPartition = 31;
     	}
-    	if ( dtoDownload.isDownloadChromosome32() ) {
+    	if ( dtoDownload.isSearchChromosome32() ) {
     		longPartition = 32;
     	}
-    	if ( dtoDownload.isDownloadChromosomeZ() ) {
+    	if ( dtoDownload.isSearchChromosomeZ() ) {
     		longPartition = 33;
     	}
 
-        if (dtoDownload.isDownloadReferenceReference() && dtoDownload.isDownloadAlternativeP()) {
+        if (dtoDownload.isSearchReferenceReference() && dtoDownload.isSearchAlternativeP()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDReferenceNEStrainP");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDReferenceNEStrainP(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDReferenceNEStrainP(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceReference() && dtoDownload.isDownloadAlternativeW()) {
+        if (dtoDownload.isSearchReferenceReference() && dtoDownload.isSearchAlternativeW()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDReferenceNEStrainW");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDReferenceNEStrainW(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDReferenceNEStrainW(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceReference() && dtoDownload.isDownloadAlternativeN()) {
+        if (dtoDownload.isSearchReferenceReference() && dtoDownload.isSearchAlternativeN()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDReferenceNEStrainN");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDReferenceNEStrainN(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDReferenceNEStrainN(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceReference() && dtoDownload.isDownloadAlternative15I()) {
+        if (dtoDownload.isSearchReferenceReference() && dtoDownload.isSearchAlternative15I()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDReferenceNEStrain15I");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDReferenceNEStrain15I(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDReferenceNEStrain15I(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceReference() && dtoDownload.isDownloadAlternativeZero()) {
+        if (dtoDownload.isSearchReferenceReference() && dtoDownload.isSearchAlternativeZero()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDReferenceNEstrainZero");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDReferenceNEstrainZero(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDReferenceNEstrainZero(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceReference() && dtoDownload.isDownloadAlternative6()) {
+        if (dtoDownload.isSearchReferenceReference() && dtoDownload.isSearchAlternative6()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDReferenceNEStrain6");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDReferenceNEStrain6(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDReferenceNEStrain6(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceReference() && dtoDownload.isDownloadAlternativeC()) {
+        if (dtoDownload.isSearchReferenceReference() && dtoDownload.isSearchAlternativeC()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDReferenceNEStrainC");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDReferenceNEStrainC(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDReferenceNEStrainC(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceReference() && dtoDownload.isDownloadAlternative7()) {
+        if (dtoDownload.isSearchReferenceReference() && dtoDownload.isSearchAlternative7()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainPNEStrain&");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDReferenceNEStrainP(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDReferenceNEStrainP(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReference7() && dtoDownload.isDownloadAlternativeP()) {
+        if (dtoDownload.isSearchReference7() && dtoDownload.isSearchAlternativeP()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrain7NEStrainP");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain7NEStrainP(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain7NEStrainP(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReference7() && dtoDownload.isDownloadAlternativeW()) {
+        if (dtoDownload.isSearchReference7() && dtoDownload.isSearchAlternativeW()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrain7NEStrainW");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain7NEStrainW(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain7NEStrainW(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReference7() && dtoDownload.isDownloadAlternativeN()) {
+        if (dtoDownload.isSearchReference7() && dtoDownload.isSearchAlternativeN()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrain7NEStrainN");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain7NEStrainN(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain7NEStrainN(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReference7() && dtoDownload.isDownloadAlternative15I()) {
+        if (dtoDownload.isSearchReference7() && dtoDownload.isSearchAlternative15I()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrain7NEStrain15I");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain7NEStrain15I(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain7NEStrain15I(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReference7() && dtoDownload.isDownloadAlternativeZero()) {
+        if (dtoDownload.isSearchReference7() && dtoDownload.isSearchAlternativeZero()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrain7NEstrainZero");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain7NEstrainZero(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain7NEstrainZero(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReference7() && dtoDownload.isDownloadAlternative6()) {
+        if (dtoDownload.isSearchReference7() && dtoDownload.isSearchAlternative6()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrain7NEStrain6");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain7NEStrain6(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain7NEStrain6(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReference7() && dtoDownload.isDownloadAlternativeC()) {
+        if (dtoDownload.isSearchReference7() && dtoDownload.isSearchAlternativeC()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrain7NEStrainC");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain7NEStrainC(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain7NEStrainC(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceP() && dtoDownload.isDownloadAlternative7()) {
+        if (dtoDownload.isSearchReferenceP() && dtoDownload.isSearchAlternative7()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainPNEStrain&");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain7NEStrainP(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain7NEStrainP(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceP() && dtoDownload.isDownloadAlternativeW()) {
+        if (dtoDownload.isSearchReferenceP() && dtoDownload.isSearchAlternativeW()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainPNEStrainW");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainPNEStrainW(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainPNEStrainW(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceP() && dtoDownload.isDownloadAlternativeN()) {
+        if (dtoDownload.isSearchReferenceP() && dtoDownload.isSearchAlternativeN()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainPNEStrainN");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainPNEStrainN(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainPNEStrainN(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceP() && dtoDownload.isDownloadAlternative15I()) {
+        if (dtoDownload.isSearchReferenceP() && dtoDownload.isSearchAlternative15I()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainPNEStrain15I");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainPNEStrain15I(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainPNEStrain15I(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceP() && dtoDownload.isDownloadAlternativeZero()) {
+        if (dtoDownload.isSearchReferenceP() && dtoDownload.isSearchAlternativeZero()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainPNEstrainZero");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainPNEstrainZero(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainPNEstrainZero(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceP() && dtoDownload.isDownloadAlternative6()) {
+        if (dtoDownload.isSearchReferenceP() && dtoDownload.isSearchAlternative6()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainPNEStrain6");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainPNEStrain6(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainPNEStrain6(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceP() && dtoDownload.isDownloadAlternativeC()) {
+        if (dtoDownload.isSearchReferenceP() && dtoDownload.isSearchAlternativeC()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainPNEStrainC");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainPNEStrainC(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainPNEStrainC(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceW() && dtoDownload.isDownloadAlternative7()) {
+        if (dtoDownload.isSearchReferenceW() && dtoDownload.isSearchAlternative7()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainWNEStrainW");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain7NEStrainW(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain7NEStrainW(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceW() && dtoDownload.isDownloadAlternativeP()) {
+        if (dtoDownload.isSearchReferenceW() && dtoDownload.isSearchAlternativeP()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainWNEStrainW");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainPNEStrainW(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainPNEStrainW(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceW() && dtoDownload.isDownloadAlternativeN()) {
+        if (dtoDownload.isSearchReferenceW() && dtoDownload.isSearchAlternativeN()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainWNEStrainN");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainWNEStrainN(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainWNEStrainN(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceW() && dtoDownload.isDownloadAlternative15I()) {
+        if (dtoDownload.isSearchReferenceW() && dtoDownload.isSearchAlternative15I()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainWNEStrain15I");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainWNEStrain15I(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainWNEStrain15I(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceW() && dtoDownload.isDownloadAlternativeZero()) {
+        if (dtoDownload.isSearchReferenceW() && dtoDownload.isSearchAlternativeZero()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainWNEstrainZero");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainWNEstrainZero(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainWNEstrainZero(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceW() && dtoDownload.isDownloadAlternative6()) {
+        if (dtoDownload.isSearchReferenceW() && dtoDownload.isSearchAlternative6()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainWNEStrain6");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainWNEStrain6(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainWNEStrain6(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceW() && dtoDownload.isDownloadAlternativeC()) {
+        if (dtoDownload.isSearchReferenceW() && dtoDownload.isSearchAlternativeC()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainWNEStrainC");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainWNEStrainC(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainWNEStrainC(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceN() && dtoDownload.isDownloadAlternative7()) {
+        if (dtoDownload.isSearchReferenceN() && dtoDownload.isSearchAlternative7()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrain7NEStrainN");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain7NEStrainN(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain7NEStrainN(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceN() && dtoDownload.isDownloadAlternativeP()) {
+        if (dtoDownload.isSearchReferenceN() && dtoDownload.isSearchAlternativeP()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainPNEStrainN");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainPNEStrainN(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainPNEStrainN(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceN() && dtoDownload.isDownloadAlternativeW()) {
+        if (dtoDownload.isSearchReferenceN() && dtoDownload.isSearchAlternativeW()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainWNEStrainN");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainWNEStrainN(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainWNEStrainN(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceN() && dtoDownload.isDownloadAlternative15I()) {
+        if (dtoDownload.isSearchReferenceN() && dtoDownload.isSearchAlternative15I()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainNNEStrain15I");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainNNEStrain15I(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainNNEStrain15I(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceN() && dtoDownload.isDownloadAlternativeZero()) {
+        if (dtoDownload.isSearchReferenceN() && dtoDownload.isSearchAlternativeZero()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainNNEstrainZero");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainNNEstrainZero(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainNNEstrainZero(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceN() && dtoDownload.isDownloadAlternative6()) {
+        if (dtoDownload.isSearchReferenceN() && dtoDownload.isSearchAlternative6()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainNNEStrain6");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainNNEStrain6(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainNNEStrain6(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceN() && dtoDownload.isDownloadAlternativeC()) {
+        if (dtoDownload.isSearchReferenceN() && dtoDownload.isSearchAlternativeC()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainNNEStrainC");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainNNEStrainC(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainNNEStrainC(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReference15I() && dtoDownload.isDownloadAlternative7()) {
+        if (dtoDownload.isSearchReference15I() && dtoDownload.isSearchAlternative7()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrain7NEStrain15I");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain7NEStrain15I(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain7NEStrain15I(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReference15I() && dtoDownload.isDownloadAlternativeP()) {
+        if (dtoDownload.isSearchReference15I() && dtoDownload.isSearchAlternativeP()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainPNEStrain15I");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainPNEStrain15I(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainPNEStrain15I(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReference15I() && dtoDownload.isDownloadAlternativeN()) {
+        if (dtoDownload.isSearchReference15I() && dtoDownload.isSearchAlternativeN()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainNNEStrain15I");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainNNEStrain15I(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainNNEStrain15I(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReference15I() && dtoDownload.isDownloadAlternativeW()) {
+        if (dtoDownload.isSearchReference15I() && dtoDownload.isSearchAlternativeW()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainWNEStrain15I");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainWNEStrain15I(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainWNEStrain15I(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReference15I() && dtoDownload.isDownloadAlternativeZero()) {
+        if (dtoDownload.isSearchReference15I() && dtoDownload.isSearchAlternativeZero()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrain15INEstrainZero");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain15INEstrainZero(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain15INEstrainZero(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReference15I() && dtoDownload.isDownloadAlternative6()) {
+        if (dtoDownload.isSearchReference15I() && dtoDownload.isSearchAlternative6()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrain15INEStrain6");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain15INEStrain6(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain15INEStrain6(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReference15I() && dtoDownload.isDownloadAlternativeC()) {
+        if (dtoDownload.isSearchReference15I() && dtoDownload.isSearchAlternativeC()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrain15INEStrainC");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain15INEStrainC(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain15INEStrainC(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceZero() && dtoDownload.isDownloadAlternative7()) {
+        if (dtoDownload.isSearchReferenceZero() && dtoDownload.isSearchAlternative7()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrain7NEstrainZero");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain7NEstrainZero(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain7NEstrainZero(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceZero() && dtoDownload.isDownloadAlternativeP()) {
+        if (dtoDownload.isSearchReferenceZero() && dtoDownload.isSearchAlternativeP()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainPNEstrainZero");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainPNEstrainZero(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainPNEstrainZero(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceZero() && dtoDownload.isDownloadAlternativeN()) {
+        if (dtoDownload.isSearchReferenceZero() && dtoDownload.isSearchAlternativeN()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainNNEstrainZero");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainNNEstrainZero(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainNNEstrainZero(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceZero() && dtoDownload.isDownloadAlternativeW()) {
+        if (dtoDownload.isSearchReferenceZero() && dtoDownload.isSearchAlternativeW()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainWNEstrainZero");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainWNEstrainZero(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainWNEstrainZero(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceZero() && dtoDownload.isDownloadAlternative15I()) {
+        if (dtoDownload.isSearchReferenceZero() && dtoDownload.isSearchAlternative15I()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrain15INEstrainZero");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain15INEstrainZero(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain15INEstrainZero(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceZero() && dtoDownload.isDownloadAlternative6()) {
+        if (dtoDownload.isSearchReferenceZero() && dtoDownload.isSearchAlternative6()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainZeroNEStrain6");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainZeroNEStrain6(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainZeroNEStrain6(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceZero() && dtoDownload.isDownloadAlternativeC()) {
+        if (dtoDownload.isSearchReferenceZero() && dtoDownload.isSearchAlternativeC()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainZeroNEStrainC");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainZeroNEStrainC(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainZeroNEStrainC(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReference6() && dtoDownload.isDownloadAlternative7()) {
+        if (dtoDownload.isSearchReference6() && dtoDownload.isSearchAlternative7()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrain7NEStrain6");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain7NEStrain6(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain7NEStrain6(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReference6() && dtoDownload.isDownloadAlternativeP()) {
+        if (dtoDownload.isSearchReference6() && dtoDownload.isSearchAlternativeP()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainPNEStrain6");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainPNEStrain6(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainPNEStrain6(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReference6() && dtoDownload.isDownloadAlternativeN()) {
+        if (dtoDownload.isSearchReference6() && dtoDownload.isSearchAlternativeN()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainNNEStrain6");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainNNEStrain6(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainNNEStrain6(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReference6() && dtoDownload.isDownloadAlternativeW()) {
+        if (dtoDownload.isSearchReference6() && dtoDownload.isSearchAlternativeW()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainWNEStrain6");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainWNEStrain6(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainWNEStrain6(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReference6() && dtoDownload.isDownloadAlternative15I()) {
+        if (dtoDownload.isSearchReference6() && dtoDownload.isSearchAlternative15I()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrain15INEStrain6");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain15INEStrain6(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain15INEStrain6(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReference6() && dtoDownload.isDownloadAlternativeZero()) {
+        if (dtoDownload.isSearchReference6() && dtoDownload.isSearchAlternativeZero()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainZeroNEStrain6");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainZeroNEStrain6(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainZeroNEStrain6(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReference6() && dtoDownload.isDownloadAlternativeC()) {
+        if (dtoDownload.isSearchReference6() && dtoDownload.isSearchAlternativeC()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainZeroNEStrainC");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainZeroNEStrainC(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainZeroNEStrainC(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceC() && dtoDownload.isDownloadAlternative7()) {
+        if (dtoDownload.isSearchReferenceC() && dtoDownload.isSearchAlternative7()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrain7NEStrainC");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain7NEStrainC(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain7NEStrainC(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceC() && dtoDownload.isDownloadAlternativeP()) {
+        if (dtoDownload.isSearchReferenceC() && dtoDownload.isSearchAlternativeP()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainPNEStrainC");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainPNEStrainC(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainPNEStrainC(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceC() && dtoDownload.isDownloadAlternativeN()) {
+        if (dtoDownload.isSearchReferenceC() && dtoDownload.isSearchAlternativeN()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainNNEStrainC");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainNNEStrainC(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainNNEStrainC(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceC() && dtoDownload.isDownloadAlternativeW()) {
+        if (dtoDownload.isSearchReferenceC() && dtoDownload.isSearchAlternativeW()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainWNEStrainC");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainWNEStrainC(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainWNEStrainC(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceC() && dtoDownload.isDownloadAlternative15I()) {
+        if (dtoDownload.isSearchReferenceC() && dtoDownload.isSearchAlternative15I()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrain15INEStrainC");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain15INEStrainC(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain15INEStrainC(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceC() && dtoDownload.isDownloadAlternativeZero()) {
+        if (dtoDownload.isSearchReferenceC() && dtoDownload.isSearchAlternativeZero()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrainZeroNEStrainC");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainZeroNEStrainC(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrainZeroNEStrainC(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if (dtoDownload.isDownloadReferenceC() && dtoDownload.isDownloadAlternativeC()) {
+        if (dtoDownload.isSearchReferenceC() && dtoDownload.isSearchAlternativeC()) {
             LOGGER.debug("Searching snpchromosomes by using findByRangeANDStrain6NEStrainC");
-            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain6NEStrainC(longPartition, dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpchromosomesAll = repositorysnpchromosome.findByRangeANDStrain6NEStrainC(longPartition, dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
         
         if ( snpchromosomesAll.size() != 0 ) {
         	
-         	//System.out.println("snpchromosomes.size() : " + snpchromosomesAll.size() );
-
          	Iterator<SNPChromosome> iteratorSNPChromosomes = snpchromosomesAll.iterator();
             
-     		//System.out.println("dtoDownload.isDownloadFilterSiftScoreValueEmpty() : " + dtoDownload.isDownloadFilterSiftScoreValueEmpty() );
-     		//System.out.println("dtoDownload.isDownloadFilterSiftConservationScoreValueEmpty() : " + dtoDownload.isDownloadFilterSiftConservationScoreValueEmpty() );
-     		//System.out.println("dtoDownload.isDownloadFilterProteinAlignNumberValueEmpty() : " + dtoDownload.isDownloadFilterProteinAlignNumberValueEmpty() );
-     		//System.out.println("dtoDownload.isDownloadFilterTotalNumberSeqAlignedValueEmpty() : " + dtoDownload.isDownloadFilterTotalNumberSeqAlignedValueEmpty() );
-     		//System.out.println("dtoDownload.isDownloadFilterProveanScoreValueEmpty() : " + dtoDownload.isDownloadFilterProveanScoreValueEmpty() );
-     		//System.out.println("dtoDownload.isDownloadRegionNone() : " + dtoDownload.isDownloadRegionNone() );
-     		//System.out.println("dtoDownload.isDownloadPredictionCategoryNone() : " + dtoDownload.isDownloadPredictionCategoryNone() );
-     		//System.out.println("dtoDownload.isDownloadEnsemblTranscriptNone() : " + dtoDownload.isDownloadEnsemblTranscriptNone() );
-
          	while (iteratorSNPChromosomes.hasNext()) {
         		
          		SNPChromosome snpchromosome = iteratorSNPChromosomes.next();
@@ -493,29 +482,20 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
          		boolean addRow = false;
          		
          		// Are there any Filters set?
-         		if ( dtoDownload.isDownloadFilterSiftScoreValueEmpty() &&
-         				dtoDownload.isDownloadFilterSiftConservationScoreValueEmpty() &&
-         				dtoDownload.isDownloadFilterProteinAlignNumberValueEmpty() &&
-         				dtoDownload.isDownloadFilterTotalNumberSeqAlignedValueEmpty() &&
-         				dtoDownload.isDownloadFilterProveanScoreValueEmpty() && 
-         				dtoDownload.isDownloadRegionNone() && 
-         				dtoDownload.isDownloadPredictionCategoryNone() && 
-         				dtoDownload.isDownloadEnsemblTranscriptNone() ) {
+         		if ( dtoDownload.isSearchFilterSiftScoreValueEmpty() &&
+         				dtoDownload.isSearchFilterSiftConservationScoreValueEmpty() &&
+         				dtoDownload.isSearchFilterProteinAlignNumberValueEmpty() &&
+         				dtoDownload.isSearchFilterTotalNumberSeqAlignedValueEmpty() &&
+         				dtoDownload.isSearchFilterProveanScoreValueEmpty() && 
+         				dtoDownload.isSearchRegionNone() && 
+         				dtoDownload.isSearchPredictionCategoryNone() && 
+         				dtoDownload.isSearchEnsemblTranscriptNone() ) {
 
          			// No - All Zeroes, therefore cannot filter, pass through in list to out list
          			addRow = true;
         		}
          		// Yes - Filter values set
          		else {
-             		//System.out.println("============================");
-             		//System.out.println("snpchromosome.getScoreSift() : " + snpchromosome.getScoreSift() );
-             		//System.out.println("snpchromosome.getScoreConservation() : " + snpchromosome.getScoreConservation() );
-             		//System.out.println("snpchromosome.getProteinAlignNumber() : " + snpchromosome.getProteinAlignNumber() );
-             		//System.out.println("snpchromosome.getTotalAlignSequenceNumber() : " + snpchromosome.getTotalAlignSequenceNumber() );
-             		//System.out.println("snpchromosome.getScoreProvean() : " + snpchromosome.getScoreProvean() );
-             		//System.out.println("snpchromosome.getRegion() : " + snpchromosome.getRegion() );
-             		//System.out.println("snpchromosome.getPredictionCategory() : " + snpchromosome.getPredictionCategory() );
-             		//System.out.println("snpchromosome.getEnsemblTranscript() : " + snpchromosome.getEnsemblTranscript() );
 
              		// Does the input row have any Provean/Sift data
          			if ( snpchromosome.getScoreSift() == 0 &&
@@ -534,19 +514,15 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
          			else {
 
          				// searchFilterProveanScoreValue;
-         				if ( !dtoDownload.isDownloadFilterProveanScoreValueEmpty() ) {
-            				if ( dtoDownload.isDownloadFilterProveanScoreAbove() ) {
-        						if ( snpchromosome.getScoreProvean() > dtoDownload.getDownloadFilterProveanScoreValueAsDouble() ) {
+         				if ( !dtoDownload.isSearchFilterProveanScoreValueEmpty() ) {
+            				if ( dtoDownload.isSearchFilterProveanScoreAbove() ) {
+        						if ( snpchromosome.getScoreProvean() > dtoDownload.getSearchFilterProveanScoreValueAsDouble() ) {
         							
-        	         				//System.out.println("HERE : snpchromosome.getScoreProvean() > dtoDownload.getDownloadFilterProveanScoreValueAsDouble()");
-
         							addRow = true;
         						}
             				}
             				else {
-        						if ( snpchromosome.getScoreProvean() < dtoDownload.getDownloadFilterProveanScoreValueAsDouble() ) {
-
-        	         				//System.out.println("HERE : snpchromosome.getScoreProvean() < dtoDownload.getDownloadFilterProveanScoreValueAsDouble()");
+        						if ( snpchromosome.getScoreProvean() < dtoDownload.getSearchFilterProveanScoreValueAsDouble() ) {
 
         	         				addRow = true;
         						}
@@ -554,19 +530,15 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
          				}
         				
          				// searchFilterSiftScoreValue;
-         				if ( !dtoDownload.isDownloadFilterSiftScoreValueEmpty() ) {
-             				if ( dtoDownload.isDownloadFilterSiftScoreAbove()) {
-         				        if ( snpchromosome.getScoreSift() > dtoDownload.getDownloadFilterSiftScoreValueAsDouble() ) {
+         				if ( !dtoDownload.isSearchFilterSiftScoreValueEmpty() ) {
+             				if ( dtoDownload.isSearchFilterSiftScoreAbove()) {
+         				        if ( snpchromosome.getScoreSift() > dtoDownload.getSearchFilterSiftScoreValueAsDouble() ) {
         	         				
-         				        	//System.out.println("HERE : snpchromosome.getScoreSift() > dtoDownload.getDownloadFilterSiftScoreValueAsDouble()");
-
         	         				addRow = true;
          				        }
              				}
              				else {
-         						if ( snpchromosome.getScoreSift() < dtoDownload.getDownloadFilterSiftScoreValueAsDouble() ) {
-
-         							//System.out.println("HERE : snpchromosome.getScoreSift() < dtoDownload.getDownloadFilterSiftScoreValueAsDouble()");
+         						if ( snpchromosome.getScoreSift() < dtoDownload.getSearchFilterSiftScoreValueAsDouble() ) {
 
          							addRow = true;
          						}
@@ -574,19 +546,15 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
          				}
          				
          				// searchFilterSiftConservationScoreValue
-         				if ( !dtoDownload.isDownloadFilterSiftConservationScoreValueEmpty() ) {
-             				if ( dtoDownload.isDownloadFilterSiftConservationScoreAbove() ) {
-         						if ( snpchromosome.getScoreConservation() > dtoDownload.getDownloadFilterSiftConservationScoreValueAsDouble() ) {
-
-         							//System.out.println("HERE : snpchromosome.getScoreConservation() > dtoDownload.getDownloadFilterSiftConservationScoreValueAsDouble()");
+         				if ( !dtoDownload.isSearchFilterSiftConservationScoreValueEmpty() ) {
+             				if ( dtoDownload.isSearchFilterSiftConservationScoreAbove() ) {
+         						if ( snpchromosome.getScoreConservation() > dtoDownload.getSearchFilterSiftConservationScoreValueAsDouble() ) {
 
          							addRow = true;
          						}
              				}
              				else {
-         						if ( snpchromosome.getScoreConservation() < dtoDownload.getDownloadFilterSiftConservationScoreValueAsDouble() ) {
-
-         				        	//System.out.println("HERE : snpchromosome.getScoreConservation() < dtoDownload.getDownloadFilterSiftConservationScoreValueAsDouble()");
+         						if ( snpchromosome.getScoreConservation() < dtoDownload.getSearchFilterSiftConservationScoreValueAsDouble() ) {
 
          							addRow = true;
          						}
@@ -594,19 +562,15 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
          				}
          				
          				// searchFilterProteinAlignNumberValue
-         				if ( !dtoDownload.isDownloadFilterProteinAlignNumberValueEmpty() ) {
-             				if ( dtoDownload.isDownloadFilterProteinAlignNumberAbove() ) {
-         						if ( snpchromosome.getProteinAlignNumber() > dtoDownload.getDownloadFilterProteinAlignNumberValueAsLong() ) {
-
-         							//System.out.println("HERE : snpchromosome.getProteinAlignNumber() > dtoDownload.getDownloadFilterProteinAlignNumberValueAsLong()");
+         				if ( !dtoDownload.isSearchFilterProteinAlignNumberValueEmpty() ) {
+             				if ( dtoDownload.isSearchFilterProteinAlignNumberAbove() ) {
+         						if ( snpchromosome.getProteinAlignNumber() > dtoDownload.getSearchFilterProteinAlignNumberValueAsLong() ) {
 
          							addRow = true;
         						}
              				}
              				else {
-         						if ( snpchromosome.getProteinAlignNumber() < dtoDownload.getDownloadFilterProteinAlignNumberValueAsLong() ) {
-
-         							//System.out.println("HERE : snpchromosome.getProteinAlignNumber() < dtoDownload.getDownloadFilterProteinAlignNumberValueAsLong()");
+         						if ( snpchromosome.getProteinAlignNumber() < dtoDownload.getSearchFilterProteinAlignNumberValueAsLong() ) {
 
          							addRow = true;
          						}
@@ -614,19 +578,15 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
          				}
          				
          				// searchFilterTotalNumberSeqAlignedValue
-         				if ( !dtoDownload.isDownloadFilterTotalNumberSeqAlignedValueEmpty() ) {
-             				if ( dtoDownload.isDownloadFilterTotalNumberSeqAlignedAbove() ) {
-         						if ( snpchromosome.getTotalAlignSequenceNumber() > dtoDownload.getDownloadFilterTotalNumberSeqAlignedValueAsLong() ) {
-
-         							//System.out.println("HERE : snpchromosome.getTotalAlignSequenceNumber() > dtoDownload.getDownloadFilterTotalNumberSeqAlignedValueAsLong()");
+         				if ( !dtoDownload.isSearchFilterTotalNumberSeqAlignedValueEmpty() ) {
+             				if ( dtoDownload.isSearchFilterTotalNumberSeqAlignedAbove() ) {
+         						if ( snpchromosome.getTotalAlignSequenceNumber() > dtoDownload.getSearchFilterTotalNumberSeqAlignedValueAsLong() ) {
 
          							addRow = true;
          						}
              				}
              				else {
-         						if ( snpchromosome.getTotalAlignSequenceNumber() < dtoDownload.getDownloadFilterTotalNumberSeqAlignedValueAsLong() ) {
-
-         							//System.out.println("HERE : snpchromosome.getTotalAlignSequenceNumber() < dtoDownload.getDownloadFilterTotalNumberSeqAlignedValueAsLong()");
+         						if ( snpchromosome.getTotalAlignSequenceNumber() < dtoDownload.getSearchFilterTotalNumberSeqAlignedValueAsLong() ) {
 
          							addRow = true;
          						}
@@ -634,61 +594,52 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
          				}
          				
          				// searchRegion
-         				if ( !dtoDownload.isDownloadRegionNone() ) {
+         				if ( !dtoDownload.isSearchRegionNone() ) {
          					
-             				if ( ( dtoDownload.isDownloadRegionDownstream() && snpchromosome.isRegionDownstream() ) || 
-             						( dtoDownload.isDownloadRegionExonicSplicing() && snpchromosome.isRegionExonicSplicing() ) || 
-             						( dtoDownload.isDownloadRegionExonic() && snpchromosome.isRegionExonic() ) || 
-             						( dtoDownload.isDownloadRegionIntergenic() && snpchromosome.isRegionIntergenic() ) || 
-             						( dtoDownload.isDownloadRegionIntronic() && snpchromosome.isRegionIntronic() ) || 
-             						( dtoDownload.isDownloadRegionNcRNAExonic() && snpchromosome.isRegionNcRNAExonic() ) || 
-             						( dtoDownload.isDownloadRegionNcRNAIntronic() && snpchromosome.isRegionNcRNAIntronic() ) || 
-             						( dtoDownload.isDownloadRegionNcRNASplicing() && snpchromosome.isRegionNcRNASplicing() ) || 
-             						( dtoDownload.isDownloadRegionSplicing() && snpchromosome.isRegionSplicing() ) || 
-             						( dtoDownload.isDownloadRegionUpstreamDownstream() && snpchromosome.isRegionUpstreamDownstream() ) || 
-             						( dtoDownload.isDownloadRegionUpstream() && snpchromosome.isRegionUpstream() ) || 
-             						( dtoDownload.isDownloadRegionUTR3() && snpchromosome.isRegionUTR3() ) || 
-             						( dtoDownload.isDownloadRegionUTR5UTR3() && snpchromosome.isRegionUTR5UTR3() ) || 
-             						( dtoDownload.isDownloadRegionUTR5() && snpchromosome.isRegionUTR5() ) ) {
-
-     							//System.out.println("HERE : " + snpchromosome.getRegion() + " ; " + dtoDownload.getDownloadRegion());
+             				if ( ( dtoDownload.isSearchRegionDownstream() && snpchromosome.isRegionDownstream() ) || 
+             						( dtoDownload.isSearchRegionExonicSplicing() && snpchromosome.isRegionExonicSplicing() ) || 
+             						( dtoDownload.isSearchRegionExonic() && snpchromosome.isRegionExonic() ) || 
+             						( dtoDownload.isSearchRegionIntergenic() && snpchromosome.isRegionIntergenic() ) || 
+             						( dtoDownload.isSearchRegionIntronic() && snpchromosome.isRegionIntronic() ) || 
+             						( dtoDownload.isSearchRegionNcRNAExonic() && snpchromosome.isRegionNcRNAExonic() ) || 
+             						( dtoDownload.isSearchRegionNcRNAIntronic() && snpchromosome.isRegionNcRNAIntronic() ) || 
+             						( dtoDownload.isSearchRegionNcRNASplicing() && snpchromosome.isRegionNcRNASplicing() ) || 
+             						( dtoDownload.isSearchRegionSplicing() && snpchromosome.isRegionSplicing() ) || 
+             						( dtoDownload.isSearchRegionUpstreamDownstream() && snpchromosome.isRegionUpstreamDownstream() ) || 
+             						( dtoDownload.isSearchRegionUpstream() && snpchromosome.isRegionUpstream() ) || 
+             						( dtoDownload.isSearchRegionUTR3() && snpchromosome.isRegionUTR3() ) || 
+             						( dtoDownload.isSearchRegionUTR5UTR3() && snpchromosome.isRegionUTR5UTR3() ) || 
+             						( dtoDownload.isSearchRegionUTR5() && snpchromosome.isRegionUTR5() ) ) {
 
              					addRow = true;
              				}
          				}
          				
          				// searchEnsemblTranscript
-         				if ( !dtoDownload.isDownloadEnsemblTranscriptNone() ) {
+         				if ( !dtoDownload.isSearchEnsemblTranscriptNone() ) {
          					
-             				if ( ( dtoDownload.isDownloadEnsemblTranscriptNotAvailable() && snpchromosome.isEnsemblTranscriptNotAvailable() ) ||
-             						( dtoDownload.isDownloadEnsemblTranscriptNonSynonymousSNV() && snpchromosome.isEnsemblTranscriptNonSynonymousSNV() ) ||
-             						( dtoDownload.isDownloadEnsemblTranscriptStopGainSNV() && snpchromosome.isEnsemblTranscriptStopGainSNV() ) ||
-             						( dtoDownload.isDownloadEnsemblTranscriptStopLossSNV() && snpchromosome.isEnsemblTranscriptStopLossSNV() ) ||
-             						( dtoDownload.isDownloadEnsemblTranscriptSynonymousSNV() && snpchromosome.isEnsemblTranscriptSynonymousSNV() ) ||
-             						( dtoDownload.isDownloadEnsemblTranscriptUnknown() && snpchromosome.isEnsemblTranscriptUnknown() ) ) {
-
-     							//System.out.println("HERE : " + snpchromosome.getEnsemblTranscript() + " ; " + dtoDownload.getDownloadEnsemblTranscript());
+             				if ( ( dtoDownload.isSearchEnsemblTranscriptNotAvailable() && snpchromosome.isEnsemblTranscriptNotAvailable() ) ||
+             						( dtoDownload.isSearchEnsemblTranscriptNonSynonymousSNV() && snpchromosome.isEnsemblTranscriptNonSynonymousSNV() ) ||
+             						( dtoDownload.isSearchEnsemblTranscriptStopGainSNV() && snpchromosome.isEnsemblTranscriptStopGainSNV() ) ||
+             						( dtoDownload.isSearchEnsemblTranscriptStopLossSNV() && snpchromosome.isEnsemblTranscriptStopLossSNV() ) ||
+             						( dtoDownload.isSearchEnsemblTranscriptSynonymousSNV() && snpchromosome.isEnsemblTranscriptSynonymousSNV() ) ||
+             						( dtoDownload.isSearchEnsemblTranscriptUnknown() && snpchromosome.isEnsemblTranscriptUnknown() ) ) {
 
      							addRow = true;
              				}
          				}
 
          				// searchPredictionCategory
-         				if ( !dtoDownload.isDownloadPredictionCategoryNone() ) {
+         				if ( !dtoDownload.isSearchPredictionCategoryNone() ) {
          					
-             				if ( ( dtoDownload.isDownloadPredictionCategoryBlank() && snpchromosome.isPredictionCategoryBlank() ) ||
-             						( dtoDownload.isDownloadPredictionCategoryDeleterious() && snpchromosome.isPredictionCategoryDeleterious() ) ||
-             						( dtoDownload.isDownloadPredictionCategoryNotScored() && snpchromosome.isPredictionCategoryNotScored() ) ||
-             						( dtoDownload.isDownloadPredictionCategoryTolerated() && snpchromosome.isPredictionCategoryTolerated() ) ) {
-
-     							//System.out.println("HERE : " + snpchromosome.getPredictionCategory() + " ; " + dtoDownload.getDownloadPredictionCategory());
+             				if ( ( dtoDownload.isSearchPredictionCategoryBlank() && snpchromosome.isPredictionCategoryBlank() ) ||
+             						( dtoDownload.isSearchPredictionCategoryDeleterious() && snpchromosome.isPredictionCategoryDeleterious() ) ||
+             						( dtoDownload.isSearchPredictionCategoryNotScored() && snpchromosome.isPredictionCategoryNotScored() ) ||
+             						( dtoDownload.isSearchPredictionCategoryTolerated() && snpchromosome.isPredictionCategoryTolerated() ) ) {
 
      							addRow = true;
              				}
          				}
-         				
-         				//System.out.println("addRow : " + addRow);
-
          			}
          		}
 
@@ -1079,19 +1030,8 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
         
         if ( snpchromosomesAll.size() != 0 ) {
         	
-         	//System.out.println("snpchromosomes.size() : " + snpchromosomesAll.size() );
-
          	Iterator<SNPChromosome> iteratorSNPChromosomes = snpchromosomesAll.iterator();
             
-     		//System.out.println("dtoSearch.isSearchFilterSiftScoreValueEmpty() : " + dtoSearch.isSearchFilterSiftScoreValueEmpty() );
-     		//System.out.println("dtoSearch.isSearchFilterSiftConservationScoreValueEmpty() : " + dtoSearch.isSearchFilterSiftConservationScoreValueEmpty() );
-     		//System.out.println("dtoSearch.isSearchFilterProteinAlignNumberValueEmpty() : " + dtoSearch.isSearchFilterProteinAlignNumberValueEmpty() );
-     		//System.out.println("dtoSearch.isSearchFilterTotalNumberSeqAlignedValueEmpty() : " + dtoSearch.isSearchFilterTotalNumberSeqAlignedValueEmpty() );
-     		//System.out.println("dtoSearch.isSearchFilterProveanScoreValueEmpty() : " + dtoSearch.isSearchFilterProveanScoreValueEmpty() );
-     		//System.out.println("dtoSearch.isSearchRegionNone() : " + dtoSearch.isSearchRegionNone() );
-     		//System.out.println("dtoSearch.isSearchPredictionCategoryNone() : " + dtoSearch.isSearchPredictionCategoryNone() );
-     		//System.out.println("dtoSearch.isSearchEnsemblTranscriptNone() : " + dtoSearch.isSearchEnsemblTranscriptNone() );
-
          	while (iteratorSNPChromosomes.hasNext()) {
         		
          		SNPChromosome snpchromosome = iteratorSNPChromosomes.next();
@@ -1113,15 +1053,6 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
         		}
          		// Yes - Filter values set
          		else {
-             		//System.out.println("============================");
-             		//System.out.println("snpchromosome.getScoreSift() : " + snpchromosome.getScoreSift() );
-             		//System.out.println("snpchromosome.getScoreConservation() : " + snpchromosome.getScoreConservation() );
-             		//System.out.println("snpchromosome.getProteinAlignNumber() : " + snpchromosome.getProteinAlignNumber() );
-             		//System.out.println("snpchromosome.getTotalAlignSequenceNumber() : " + snpchromosome.getTotalAlignSequenceNumber() );
-             		//System.out.println("snpchromosome.getScoreProvean() : " + snpchromosome.getScoreProvean() );
-             		//System.out.println("snpchromosome.getRegion() : " + snpchromosome.getRegion() );
-             		//System.out.println("snpchromosome.getPredictionCategory() : " + snpchromosome.getPredictionCategory() );
-             		//System.out.println("snpchromosome.getEnsemblTranscript() : " + snpchromosome.getEnsemblTranscript() );
 
              		// Does the input row have any Provean/Sift data
          			if ( snpchromosome.getScoreSift() == 0 &&
@@ -1144,15 +1075,11 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
             				if ( dtoSearch.isSearchFilterProveanScoreAbove() ) {
         						if ( snpchromosome.getScoreProvean() > dtoSearch.getSearchFilterProveanScoreValueAsDouble() ) {
         							
-        	         				//System.out.println("HERE : snpchromosome.getScoreProvean() > dtoSearch.getSearchFilterProveanScoreValueAsDouble()");
-
         							addRow = true;
         						}
             				}
             				else {
         						if ( snpchromosome.getScoreProvean() < dtoSearch.getSearchFilterProveanScoreValueAsDouble() ) {
-
-        	         				//System.out.println("HERE : snpchromosome.getScoreProvean() < dtoSearch.getSearchFilterProveanScoreValueAsDouble()");
 
         	         				addRow = true;
         						}
@@ -1164,15 +1091,11 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
              				if ( dtoSearch.isSearchFilterSiftScoreAbove()) {
          				        if ( snpchromosome.getScoreSift() > dtoSearch.getSearchFilterSiftScoreValueAsDouble() ) {
         	         				
-         				        	//System.out.println("HERE : snpchromosome.getScoreSift() > dtoSearch.getSearchFilterSiftScoreValueAsDouble()");
-
         	         				addRow = true;
          				        }
              				}
              				else {
          						if ( snpchromosome.getScoreSift() < dtoSearch.getSearchFilterSiftScoreValueAsDouble() ) {
-
-         							//System.out.println("HERE : snpchromosome.getScoreSift() < dtoSearch.getSearchFilterSiftScoreValueAsDouble()");
 
          							addRow = true;
          						}
@@ -1184,15 +1107,11 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
              				if ( dtoSearch.isSearchFilterSiftConservationScoreAbove() ) {
          						if ( snpchromosome.getScoreConservation() > dtoSearch.getSearchFilterSiftConservationScoreValueAsDouble() ) {
 
-         							//System.out.println("HERE : snpchromosome.getScoreConservation() > dtoSearch.getSearchFilterSiftConservationScoreValueAsDouble()");
-
          							addRow = true;
          						}
              				}
              				else {
          						if ( snpchromosome.getScoreConservation() < dtoSearch.getSearchFilterSiftConservationScoreValueAsDouble() ) {
-
-         				        	//System.out.println("HERE : snpchromosome.getScoreConservation() < dtoSearch.getSearchFilterSiftConservationScoreValueAsDouble()");
 
          							addRow = true;
          						}
@@ -1204,15 +1123,11 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
              				if ( dtoSearch.isSearchFilterProteinAlignNumberAbove() ) {
          						if ( snpchromosome.getProteinAlignNumber() > dtoSearch.getSearchFilterProteinAlignNumberValueAsLong() ) {
 
-         							//System.out.println("HERE : snpchromosome.getProteinAlignNumber() > dtoSearch.getSearchFilterProteinAlignNumberValueAsLong()");
-
          							addRow = true;
         						}
              				}
              				else {
          						if ( snpchromosome.getProteinAlignNumber() < dtoSearch.getSearchFilterProteinAlignNumberValueAsLong() ) {
-
-         							//System.out.println("HERE : snpchromosome.getProteinAlignNumber() < dtoSearch.getSearchFilterProteinAlignNumberValueAsLong()");
 
          							addRow = true;
          						}
@@ -1224,15 +1139,11 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
              				if ( dtoSearch.isSearchFilterTotalNumberSeqAlignedAbove() ) {
          						if ( snpchromosome.getTotalAlignSequenceNumber() > dtoSearch.getSearchFilterTotalNumberSeqAlignedValueAsLong() ) {
 
-         							//System.out.println("HERE : snpchromosome.getTotalAlignSequenceNumber() > dtoSearch.getSearchFilterTotalNumberSeqAlignedValueAsLong()");
-
          							addRow = true;
          						}
              				}
              				else {
          						if ( snpchromosome.getTotalAlignSequenceNumber() < dtoSearch.getSearchFilterTotalNumberSeqAlignedValueAsLong() ) {
-
-         							//System.out.println("HERE : snpchromosome.getTotalAlignSequenceNumber() < dtoSearch.getSearchFilterTotalNumberSeqAlignedValueAsLong()");
 
          							addRow = true;
          						}
@@ -1257,8 +1168,6 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
              						( dtoSearch.isSearchRegionUTR5UTR3() && snpchromosome.isRegionUTR5UTR3() ) || 
              						( dtoSearch.isSearchRegionUTR5() && snpchromosome.isRegionUTR5() ) ) {
 
-     							//System.out.println("HERE : " + snpchromosome.getRegion() + " ; " + dtoSearch.getSearchRegion());
-
              					addRow = true;
              				}
          				}
@@ -1273,8 +1182,6 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
              						( dtoSearch.isSearchEnsemblTranscriptSynonymousSNV() && snpchromosome.isEnsemblTranscriptSynonymousSNV() ) ||
              						( dtoSearch.isSearchEnsemblTranscriptUnknown() && snpchromosome.isEnsemblTranscriptUnknown() ) ) {
 
-     							//System.out.println("HERE : " + snpchromosome.getEnsemblTranscript() + " ; " + dtoSearch.getSearchEnsemblTranscript());
-
      							addRow = true;
              				}
          				}
@@ -1287,14 +1194,9 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
              						( dtoSearch.isSearchPredictionCategoryNotScored() && snpchromosome.isPredictionCategoryNotScored() ) ||
              						( dtoSearch.isSearchPredictionCategoryTolerated() && snpchromosome.isPredictionCategoryTolerated() ) ) {
 
-     							//System.out.println("HERE : " + snpchromosome.getPredictionCategory() + " ; " + dtoSearch.getSearchPredictionCategory());
-
      							addRow = true;
              				}
          				}
-         				
-         				//System.out.println("addRow : " + addRow);
-
          			}
          		}
 
@@ -1325,12 +1227,6 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
         		intStop = ObjectConverter.convert(snpchromosomesFiltered.size(), Integer.class);
         	}
         	
-         	//System.out.println("snpchromosomesFiltered.size() : " + snpchromosomesFiltered.size());
-            
-         	//System.out.println("intStart : " + intStart);
-            //System.out.println("intStop : " + intStop);
-            //System.out.println("intTotalPages : " + intTotalPages);
-        			
             if ( strColumn.equals(FIELD_POSITION) && strDirection.equals(SORT_ASC) ) {
                 Collections.sort(snpchromosomesFiltered, new SNPChromosome.OrderByPositionAsc());
             }
@@ -1417,9 +1313,6 @@ public class ServiceRepositorySNPChromosome implements ServiceSNPChromosome {
             }
             
             snpchromosomesSorted = snpchromosomesFiltered.subList(intStart - 1, intStop);
-            
-         	//System.out.println("snpchromosomesSorted.size() : " + snpchromosomesSorted.size());
-
         }
         
         PageSNPChromosome pagesnpchromosome = new PageSNPChromosome(pageNumber, intTotalPages, snpchromosomesFiltered.size(), snpchromosomesSorted);

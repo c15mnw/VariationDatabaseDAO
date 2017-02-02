@@ -3,133 +3,135 @@ package com.roslin.mwicks.spring.variation.model.other;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import com.roslin.mwicks.spring.variation.dto.web.objects.snpchromosome.DTODownloadSNPChromosome;
+import com.roslin.mwicks.spring.variation.dto.web.objects.snpchromosome.DTOSearchSNPChromosome;
 import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome;
 
 
 @SuppressWarnings("serial")
-public class CSVResponseSNPChromosome extends ArrayList<SNPChromosome> {
+public class CSVRequestSNPChromosome extends ArrayList<DTOSearchSNPChromosome> {
 
     // Constants ----------------------------------------------------------------------------------
 
 	
 	// Properties ---------------------------------------------------------------------------------
-    private DTODownloadSNPChromosome dtoDownload;
+    private DTOSearchSNPChromosome dtoSearch;
 
     
     // Constructor --------------------------------------------------------------------------------
-	public CSVResponseSNPChromosome() {
+	public CSVRequestSNPChromosome() {
     }
 
-    public CSVResponseSNPChromosome(DTODownloadSNPChromosome dtoDownload, Collection<? extends SNPChromosome> c) {
+    public CSVRequestSNPChromosome(DTOSearchSNPChromosome dtoSearch, Collection<? extends DTOSearchSNPChromosome> c) {
      
     	super(c);
 
-    	this.dtoDownload = dtoDownload;
+    	this.dtoSearch = dtoSearch;
     }
 
     
     // Getters ------------------------------------------------------------------------------------
-    public DTODownloadSNPChromosome getDTODownloadSNPChromosome() {
-        return this.dtoDownload;
+    public DTOSearchSNPChromosome getDTODownloadSNPChromosome() {
+        return this.dtoSearch;
     }
 
     
     // Setters ------------------------------------------------------------------------------------
-    public void setDTODownloadSNPChromosome(DTODownloadSNPChromosome dtoDownload) {
-        this.dtoDownload = dtoDownload;
+    public void setDTOSearchSNPChromosome(DTOSearchSNPChromosome dtoSearch) {
+        this.dtoSearch = dtoSearch;
     }
 
     
     // Helpers ------------------------------------------------------------------------------------
+    /*
     public boolean isDownloadFormatNone() {
-    	return this.dtoDownload.isDownloadFormatNone(); 
+    	return this.dtoSearch.isDownloadFormatNone(); 
     }
     public boolean isDownloadFormatCSV() {
-    	return this.dtoDownload.isDownloadFormatCSV(); 
+    	return this.dtoSearch.isDownloadFormatCSV(); 
     }
     public boolean isDownloadFormatTSV() {
-    	return this.dtoDownload.isDownloadFormatTSV(); 
+    	return this.dtoSearch.isDownloadFormatTSV(); 
     }
     public boolean isDownloadFormatVCF() {
-    	return this.dtoDownload.isDownloadFormatVCF(); 
+    	return this.dtoSearch.isDownloadFormatVCF(); 
     }
 
     public boolean isDownloadQuotesNone() {
-    	return this.dtoDownload.isDownloadQuotesNone();
+    	return this.dtoSearch.isDownloadQuotesNone();
     }
     public boolean isDownloadQuotesYes() {
-    	return this.dtoDownload.isDownloadQuotesYes();
+    	return this.dtoSearch.isDownloadQuotesYes();
     }
     public boolean isDownloadQuotesNo() {
-    	return this.dtoDownload.isDownloadQuotesNo();
+    	return this.dtoSearch.isDownloadQuotesNo();
     }
     
     public boolean isDownloadHeadersNone() {
-    	return this.dtoDownload.isDownloadHeadersNone();
+    	return this.dtoSearch.isDownloadHeadersNone();
     }
     public boolean isDownloadHeadersYes() {
-    	return this.dtoDownload.isDownloadHeadersYes();
+    	return this.dtoSearch.isDownloadHeadersYes();
     }
     public boolean isDownloadHeadersNo() {
-    	return this.dtoDownload.isDownloadHeadersNo();
+    	return this.dtoSearch.isDownloadHeadersNo();
     }
     
     public boolean isDownloadReferenceNone() {
-        return this.dtoDownload.isSearchReferenceNone();
+        return this.dtoSearch.isDownloadReferenceNone();
     }
     public boolean isDownloadReference7() {
-        return this.dtoDownload.isSearchReference7();
+        return this.dtoSearch.isDownloadReference7();
     }
     public boolean isDownloadReferenceP() {
-        return this.dtoDownload.isSearchReferenceP();
+        return this.dtoSearch.isDownloadReferenceP();
     }
     public boolean isDownloadReferenceW() {
-        return this.dtoDownload.isSearchReferenceW();
+        return this.dtoSearch.isDownloadReferenceW();
     }
     public boolean isDownloadReferenceN() {
-        return this.dtoDownload.isSearchReferenceN();
+        return this.dtoSearch.isDownloadReferenceN();
     }
     public boolean isDownloadReference15I() {
-        return this.dtoDownload.isSearchReference15I();
+        return this.dtoSearch.isDownloadReference15I();
     }
     public boolean isDownloadReferenceZero() {
-        return this.dtoDownload.isSearchReferenceZero();
+        return this.dtoSearch.isDownloadReferenceZero();
     }
     public boolean isDownloadReference6() {
-        return this.dtoDownload.isSearchReference6();
+        return this.dtoSearch.isDownloadReference6();
     }
     public boolean isDownloadReferenceC() {
-        return this.dtoDownload.isSearchReferenceC();
+        return this.dtoSearch.isDownloadReferenceC();
     }
 
     public boolean isDownloadAlternativeNone() {
-        return this.dtoDownload.isSearchAlternativeNone();
+        return this.dtoSearch.isDownloadAlternativeNone();
     }
     public boolean isDownloadAlternative7() {
-        return this.dtoDownload.isSearchAlternative7();
+        return this.dtoSearch.isDownloadAlternative7();
     }
     public boolean isDownloadAlternativeP() {
-        return this.dtoDownload.isSearchAlternativeP();
+        return this.dtoSearch.isDownloadAlternativeP();
     }
     public boolean isDownloadAlternativeW() {
-        return this.dtoDownload.isSearchAlternativeW();
+        return this.dtoSearch.isDownloadAlternativeW();
     }
     public boolean isDownloadAlternativeN() {
-        return this.dtoDownload.isSearchAlternativeN();
+        return this.dtoSearch.isDownloadAlternativeN();
     }
     public boolean isDownloadAlternative15I() {
-        return this.dtoDownload.isSearchAlternative15I();
+        return this.dtoSearch.isDownloadAlternative15I();
     }
     public boolean isDownloadAlternativeZero() {
-        return this.dtoDownload.isSearchAlternativeZero();
+        return this.dtoSearch.isDownloadAlternativeZero();
     }
     public boolean isDownloadAlternative6() {
-        return this.dtoDownload.isSearchAlternative6();
+        return this.dtoSearch.isDownloadAlternative6();
     }
     public boolean isDownloadAlternativeC() {
-        return this.dtoDownload.isSearchAlternativeC();
+        return this.dtoSearch.isDownloadAlternativeC();
     }
+     */
 
 
 }

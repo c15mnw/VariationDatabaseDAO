@@ -93,6 +93,8 @@ public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CS
         
     	output.getHeaders().setContentType(MEDIA_TYPE);
 
+        //System.out.println("CSVResponse writeInternal : " + csvResponse);
+
     	// Set Download File SUFFIX and Format
         if ( csvResponse.isDownloadFormatVCF() ) {
             output.getHeaders().set("Content-Disposition", "attachment; filename=\" " + filename + ".vcf" + "\"");

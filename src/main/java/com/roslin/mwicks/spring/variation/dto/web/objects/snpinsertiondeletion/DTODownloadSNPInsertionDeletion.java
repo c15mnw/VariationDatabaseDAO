@@ -260,9 +260,6 @@ public class DTODownloadSNPInsertionDeletion {
     		String downloadHighRange,
     		SearchReferenceBreed downloadReferenceBreed,
     		SearchAlternativeBreed downloadAlternativeBreed,
-    		DownloadFormat downloadFormat,
-    		DownloadQuotes downloadQuotes,
-    		DownloadHeaders downloadHeaders,
     		SearchChromosome downloadChromosome,
     		String downloadFilterSiftScoreValue,
     		String downloadFilterSiftConservationScoreValue,
@@ -283,9 +280,6 @@ public class DTODownloadSNPInsertionDeletion {
     	this.downloadHighRange = downloadHighRange;
     	this.downloadReferenceBreed = downloadReferenceBreed;
     	this.downloadAlternativeBreed = downloadAlternativeBreed;
-    	this.downloadFormat = downloadFormat;
-    	this.downloadQuotes = downloadQuotes;
-    	this.downloadHeaders = downloadHeaders;
     	this.downloadChromosome = downloadChromosome;
     	this.downloadFilterSiftScoreValue = downloadFilterSiftScoreValue;
     	this.downloadFilterSiftConservationScoreValue =downloadFilterSiftConservationScoreValue;
@@ -299,6 +293,10 @@ public class DTODownloadSNPInsertionDeletion {
     	this.downloadFilterProveanScore = downloadFilterProveanScore;
     	this.downloadSortField = downloadSortField;
     	this.downloadSortDirection = downloadSortDirection;
+    	
+        this.downloadFormat = DownloadFormat.FORMAT_CSV;
+        this.downloadQuotes = DownloadQuotes.QUOTES_NO;
+        this.downloadHeaders = DownloadHeaders.HEADERS_NO;
     }
 
 
