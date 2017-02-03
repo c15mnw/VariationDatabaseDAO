@@ -76,48 +76,48 @@ public class CSVResponseSNPInsertionDeletion extends ArrayList<SNPInsertionDelet
     	return this.dtoDownload.isDownloadHeadersNo();
     }
     
-    public boolean isDownloadReferenceBreedNone() {
-        return this.dtoDownload.isDownloadReferenceBreedNone();
+    public boolean isSearchReferenceBreedNone() {
+        return this.dtoDownload.isSearchReferenceBreedNone();
     }
-    public boolean isDownloadReferenceBreedJ() {
-        return this.dtoDownload.isDownloadReferenceBreedJ();
+    public boolean isSearchReferenceBreedJ() {
+        return this.dtoDownload.isSearchReferenceBreedJ();
     }
-    public boolean isDownloadReferenceBreedL() {
-        return this.dtoDownload.isDownloadReferenceBreedL();
+    public boolean isSearchReferenceBreedL() {
+        return this.dtoDownload.isSearchReferenceBreedL();
     }
-    public boolean isDownloadReferenceBreedW() {
-        return this.dtoDownload.isDownloadReferenceBreedW();
+    public boolean isSearchReferenceBreedW() {
+        return this.dtoDownload.isSearchReferenceBreedW();
     }
-    public boolean isDownloadReferenceBreedN() {
-        return this.dtoDownload.isDownloadReferenceBreedN();
+    public boolean isSearchReferenceBreedN() {
+        return this.dtoDownload.isSearchReferenceBreedN();
     }
-    public boolean isDownloadReferenceBreedI() {
-        return this.dtoDownload.isDownloadReferenceBreedI();
+    public boolean isSearchReferenceBreedI() {
+        return this.dtoDownload.isSearchReferenceBreedI();
     }
-    public boolean isDownloadReferenceBreedZ() {
-        return this.dtoDownload.isDownloadReferenceBreedZ();
+    public boolean isSearchReferenceBreedZ() {
+        return this.dtoDownload.isSearchReferenceBreedZ();
     }
 
-    public boolean isDownloadAlternativeBreedNone() {
-        return this.dtoDownload.isDownloadAlternativeBreedNone();
+    public boolean isSearchAlternativeBreedNone() {
+        return this.dtoDownload.isSearchAlternativeBreedNone();
     }
-    public boolean isDownloadAlternativeBreedJ() {
-        return this.dtoDownload.isDownloadAlternativeBreedJ();
+    public boolean isSearchAlternativeBreedJ() {
+        return this.dtoDownload.isSearchAlternativeBreedJ();
     }
-    public boolean isDownloadAlternativeBreedL() {
-        return this.dtoDownload.isDownloadAlternativeBreedL();
+    public boolean isSearchAlternativeBreedL() {
+        return this.dtoDownload.isSearchAlternativeBreedL();
     }
-    public boolean isDownloadAlternativeBreedW() {
-        return this.dtoDownload.isDownloadAlternativeBreedW();
+    public boolean isSearchAlternativeBreedW() {
+        return this.dtoDownload.isSearchAlternativeBreedW();
     }
-    public boolean isDownloadAlternativeBreedN() {
-        return this.dtoDownload.isDownloadAlternativeBreedN();
+    public boolean isSearchAlternativeBreedN() {
+        return this.dtoDownload.isSearchAlternativeBreedN();
     }
-    public boolean isDownloadAlternativeBreedI() {
-        return this.dtoDownload.isDownloadAlternativeBreedI();
+    public boolean isSearchAlternativeBreedI() {
+        return this.dtoDownload.isSearchAlternativeBreedI();
     }
-    public boolean isDownloadAlternativeBreedZ() {
-        return this.dtoDownload.isDownloadAlternativeBreedZ();
+    public boolean isSearchAlternativeBreedZ() {
+        return this.dtoDownload.isSearchAlternativeBreedZ();
     }
 
 

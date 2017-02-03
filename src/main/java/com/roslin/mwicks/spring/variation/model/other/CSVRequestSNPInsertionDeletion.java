@@ -3,24 +3,24 @@ package com.roslin.mwicks.spring.variation.model.other;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import com.roslin.mwicks.spring.variation.dto.web.objects.snpchromosome.DTOSearchSNPChromosome;
+import com.roslin.mwicks.spring.variation.dto.web.objects.snpinsertiondeletion.DTOSearchSNPInsertionDeletion;
 
 
 @SuppressWarnings("serial")
-public class CSVRequestSNPChromosome extends ArrayList<DTOSearchSNPChromosome> {
+public class CSVRequestSNPInsertionDeletion extends ArrayList<DTOSearchSNPInsertionDeletion> {
 
     // Constants ----------------------------------------------------------------------------------
 
 	
 	// Properties ---------------------------------------------------------------------------------
-    private DTOSearchSNPChromosome dtoSearch;
+    private DTOSearchSNPInsertionDeletion dtoSearch;
 
     
     // Constructor --------------------------------------------------------------------------------
-	public CSVRequestSNPChromosome() {
+	public CSVRequestSNPInsertionDeletion() {
     }
 
-    public CSVRequestSNPChromosome(DTOSearchSNPChromosome dtoSearch, Collection<? extends DTOSearchSNPChromosome> c) {
+    public CSVRequestSNPInsertionDeletion(DTOSearchSNPInsertionDeletion dtoSearch, Collection<? extends DTOSearchSNPInsertionDeletion> c) {
      
     	super(c);
 
@@ -29,13 +29,13 @@ public class CSVRequestSNPChromosome extends ArrayList<DTOSearchSNPChromosome> {
 
     
     // Getters ------------------------------------------------------------------------------------
-    public DTOSearchSNPChromosome getDTODownloadSNPChromosome() {
+    public DTOSearchSNPInsertionDeletion getDTODownloadSNPInsertionDeletion() {
         return this.dtoSearch;
     }
 
     
     // Setters ------------------------------------------------------------------------------------
-    public void setDTOSearchSNPChromosome(DTOSearchSNPChromosome dtoSearch) {
+    public void setDTOSearchSNPInsertionDeletion(DTOSearchSNPInsertionDeletion dtoSearch) {
         this.dtoSearch = dtoSearch;
     }
 

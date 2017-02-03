@@ -221,22 +221,22 @@ public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CS
             	headerList.add("Reference Allele");
             	headerList.add("Alternative Allele");
 
-            	if ( csvResponse.isDownloadReferenceBreedJ() || csvResponse.isDownloadAlternativeBreedJ() ) {
+            	if ( csvResponse.isSearchReferenceBreedJ() || csvResponse.isSearchAlternativeBreedJ() ) {
             		headerList.add("Breed J Allele");
             	}
-            	if ( csvResponse.isDownloadReferenceBreedL() || csvResponse.isDownloadAlternativeBreedL() ) {
+            	if ( csvResponse.isSearchReferenceBreedL() || csvResponse.isSearchAlternativeBreedL() ) {
             		headerList.add("Breed L Allele");
             	}
-            	if ( csvResponse.isDownloadReferenceBreedW() || csvResponse.isDownloadAlternativeBreedW() ) {
+            	if ( csvResponse.isSearchReferenceBreedW() || csvResponse.isSearchAlternativeBreedW() ) {
             		headerList.add("Breed W Allele");
             	}
-            	if ( csvResponse.isDownloadReferenceBreedN() || csvResponse.isDownloadAlternativeBreedN() ) {
+            	if ( csvResponse.isSearchReferenceBreedN() || csvResponse.isSearchAlternativeBreedN() ) {
             		headerList.add("Breed N Allele");
             	}
-            	if ( csvResponse.isDownloadReferenceBreedI() || csvResponse.isDownloadAlternativeBreedI() ) {
+            	if ( csvResponse.isSearchReferenceBreedI() || csvResponse.isSearchAlternativeBreedI() ) {
             		headerList.add("Breed I Allele");
             	}
-            	if ( csvResponse.isDownloadReferenceBreedZ() || csvResponse.isDownloadAlternativeBreedZ() ) {
+            	if ( csvResponse.isSearchReferenceBreedZ() || csvResponse.isSearchAlternativeBreedZ() ) {
             		headerList.add("Breed Z Allele");
             	}
 
@@ -259,22 +259,22 @@ public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CS
             	headerList.add("\"Reference Allele\"");
             	headerList.add("\"Alternative Allele\"");
 
-            	if ( csvResponse.isDownloadReferenceBreedJ() || csvResponse.isDownloadAlternativeBreedJ() ) {
+            	if ( csvResponse.isSearchReferenceBreedJ() || csvResponse.isSearchAlternativeBreedJ() ) {
             		headerList.add("\"Breed J Allele\"");
             	}
-            	if ( csvResponse.isDownloadReferenceBreedL() || csvResponse.isDownloadAlternativeBreedL() ) {
+            	if ( csvResponse.isSearchReferenceBreedL() || csvResponse.isSearchAlternativeBreedL() ) {
             		headerList.add("\"Breed L Allele\"");
             	}
-            	if ( csvResponse.isDownloadReferenceBreedW() || csvResponse.isDownloadAlternativeBreedW() ) {
+            	if ( csvResponse.isSearchReferenceBreedW() || csvResponse.isSearchAlternativeBreedW() ) {
             		headerList.add("\"Breed W Allele\"");
             	}
-            	if ( csvResponse.isDownloadReferenceBreedN() || csvResponse.isDownloadAlternativeBreedN() ) {
+            	if ( csvResponse.isSearchReferenceBreedN() || csvResponse.isSearchAlternativeBreedN() ) {
             		headerList.add("\"Breed N Allele\"");
             	}
-            	if ( csvResponse.isDownloadReferenceBreedI() || csvResponse.isDownloadAlternativeBreedI() ) {
+            	if ( csvResponse.isSearchReferenceBreedI() || csvResponse.isSearchAlternativeBreedI() ) {
             		headerList.add("\"Breed I Allele\"");
             	}
-            	if ( csvResponse.isDownloadReferenceBreedZ() || csvResponse.isDownloadAlternativeBreedZ() ) {
+            	if ( csvResponse.isSearchReferenceBreedZ() || csvResponse.isSearchAlternativeBreedZ() ) {
             		headerList.add("\"Breed Z Allele\"");
             	}
             	
@@ -301,22 +301,22 @@ public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CS
                 	outputList.add(snpchromosome.getReferenceQuoted());
                 	outputList.add(snpchromosome.getAlternativeQuoted());
 
-                	if ( csvResponse.isDownloadReferenceBreedJ() || csvResponse.isDownloadAlternativeBreedJ() ) {
+                	if ( csvResponse.isSearchReferenceBreedJ() || csvResponse.isSearchAlternativeBreedJ() ) {
                 		outputList.add(snpchromosome.getBreedAllelesJQuoted());
                 	}
-                	if ( csvResponse.isDownloadReferenceBreedL() || csvResponse.isDownloadAlternativeBreedL() ) {
+                	if ( csvResponse.isSearchReferenceBreedL() || csvResponse.isSearchAlternativeBreedL() ) {
                 		outputList.add(snpchromosome.getBreedAllelesLQuoted());
                 	}
-                	if ( csvResponse.isDownloadReferenceBreedW() || csvResponse.isDownloadAlternativeBreedW() ) {
+                	if ( csvResponse.isSearchReferenceBreedW() || csvResponse.isSearchAlternativeBreedW() ) {
                 		outputList.add(snpchromosome.getBreedAllelesWQuoted());
                 	}
-                	if ( csvResponse.isDownloadReferenceBreedN() || csvResponse.isDownloadAlternativeBreedN() ) {
+                	if ( csvResponse.isSearchReferenceBreedN() || csvResponse.isSearchAlternativeBreedN() ) {
                 		outputList.add(snpchromosome.getBreedAllelesNQuoted());
                 	}
-                	if ( csvResponse.isDownloadReferenceBreedI() || csvResponse.isDownloadAlternativeBreedI() ) {
+                	if ( csvResponse.isSearchReferenceBreedI() || csvResponse.isSearchAlternativeBreedI() ) {
                 		outputList.add(snpchromosome.getBreedAllelesIQuoted());
                 	}
-                	if ( csvResponse.isDownloadReferenceBreedZ() || csvResponse.isDownloadAlternativeBreedZ() ) {
+                	if ( csvResponse.isSearchReferenceBreedZ() || csvResponse.isSearchAlternativeBreedZ() ) {
                 		outputList.add(snpchromosome.getBreedAllelesZQuoted());
                 	}
 
@@ -344,22 +344,22 @@ public class CSVResponseMessageConverter extends AbstractHttpMessageConverter<CS
                 	outputList.add(snpchromosome.getReference());
                 	outputList.add(snpchromosome.getAlternative());
 
-                	if ( csvResponse.isDownloadReferenceBreedJ() || csvResponse.isDownloadAlternativeBreedJ() ) {
+                	if ( csvResponse.isSearchReferenceBreedJ() || csvResponse.isSearchAlternativeBreedJ() ) {
                 		outputList.add(snpchromosome.getBreedAllelesJ());
                 	}
-                	if ( csvResponse.isDownloadReferenceBreedL() || csvResponse.isDownloadAlternativeBreedL() ) {
+                	if ( csvResponse.isSearchReferenceBreedL() || csvResponse.isSearchAlternativeBreedL() ) {
                 		outputList.add(snpchromosome.getBreedAllelesL());
                 	}
-                	if ( csvResponse.isDownloadReferenceBreedW() || csvResponse.isDownloadAlternativeBreedW() ) {
+                	if ( csvResponse.isSearchReferenceBreedW() || csvResponse.isSearchAlternativeBreedW() ) {
                 		outputList.add(snpchromosome.getBreedAllelesW());
                 	}
-                	if ( csvResponse.isDownloadReferenceBreedN() || csvResponse.isDownloadAlternativeBreedN() ) {
+                	if ( csvResponse.isSearchReferenceBreedN() || csvResponse.isSearchAlternativeBreedN() ) {
                 		outputList.add(snpchromosome.getBreedAllelesN());
                 	}
-                	if ( csvResponse.isDownloadReferenceBreedI() || csvResponse.isDownloadAlternativeBreedI() ) {
+                	if ( csvResponse.isSearchReferenceBreedI() || csvResponse.isSearchAlternativeBreedI() ) {
                 		outputList.add(snpchromosome.getBreedAllelesI());
                 	}
-                	if ( csvResponse.isDownloadReferenceBreedZ() || csvResponse.isDownloadAlternativeBreedZ() ) {
+                	if ( csvResponse.isSearchReferenceBreedZ() || csvResponse.isSearchAlternativeBreedZ() ) {
                 		outputList.add(snpchromosome.getBreedAllelesZ());
                 	}
                 	

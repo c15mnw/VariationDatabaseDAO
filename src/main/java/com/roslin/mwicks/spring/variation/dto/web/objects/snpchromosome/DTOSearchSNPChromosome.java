@@ -442,7 +442,6 @@ public class DTOSearchSNPChromosome {
         
         this.searchUploadFileName = searchUploadFileName;
         this.searchUploadFile = searchUploadFile;
-
     }
     
     // 24 Attributes (ALL) - Strings
@@ -1970,7 +1969,6 @@ public class DTOSearchSNPChromosome {
     	if ( searchRegion.equals(REGION_UTR5)) {
             this.searchRegion = SearchRegion.REGION_UTR5;
     	}
-    	
     	if ( searchRegion.equals(ONLY_REGION_NONE)) {
             this.searchRegion = SearchRegion.REGION_NONE;
     	}
@@ -2038,7 +2036,6 @@ public class DTOSearchSNPChromosome {
     	if ( searchEnsemblTranscript.equals(TRANSCRIPT_UNKNOWN)) {
             this.searchEnsemblTranscript = SearchEnsemblTranscript.TRANSCRIPT_UNKNOWN;
     	}
-
     	if ( searchEnsemblTranscript.equals(ONLY_TRANSCRIPT_NONE)) {
             this.searchEnsemblTranscript = SearchEnsemblTranscript.TRANSCRIPT_NONE;
     	}
@@ -2079,7 +2076,6 @@ public class DTOSearchSNPChromosome {
     	if ( searchPredictionCategory.equals(PREDCAT_TOLERATED)) {
             this.searchPredictionCategory = SearchPredictionCategory.PREDCAT_TOLERATED;
     	}
-
     	if ( searchPredictionCategory.equals(ONLY_PREDCAT_NONE)) {
             this.searchPredictionCategory = SearchPredictionCategory.PREDCAT_NONE;
     	}

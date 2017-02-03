@@ -108,65 +108,65 @@ public class ServiceRepositorySNPInsertionDeletion implements ServiceSNPInsertio
 
     	List<SNPInsertionDeletion> snpinsertiondeletions = null;
     	
-        if ( dtoDownload.isDownloadReferenceBreedI() && dtoDownload.isDownloadAlternativeBreedJ() ) {
+        if ( dtoDownload.isSearchReferenceBreedI() && dtoDownload.isSearchAlternativeBreedJ() ) {
             LOGGER.debug("Searching snpinsertiondeletions by using repositorysnpinsertiondeletion.findByRangeANDAllelesINEAllelesJ");
-            snpinsertiondeletions = repositorysnpinsertiondeletion.findByRangeANDAllelesINEAllelesJ( dtoDownload.getDownloadChromosomeAsString(), dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpinsertiondeletions = repositorysnpinsertiondeletion.findByRangeANDAllelesINEAllelesJ( dtoDownload.getSearchChromosomeAsString(), dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if ( dtoDownload.isDownloadReferenceBreedI() && dtoDownload.isDownloadAlternativeBreedL() ) {
+        if ( dtoDownload.isSearchReferenceBreedI() && dtoDownload.isSearchAlternativeBreedL() ) {
             LOGGER.debug("Searching snpinsertiondeletions by using repositorysnpinsertiondeletion.findByRangeANDAllelesINEAllelesL");
-            snpinsertiondeletions = repositorysnpinsertiondeletion.findByRangeANDAllelesINEAllelesL( dtoDownload.getDownloadChromosomeAsString(), dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpinsertiondeletions = repositorysnpinsertiondeletion.findByRangeANDAllelesINEAllelesL( dtoDownload.getSearchChromosomeAsString(), dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if ( dtoDownload.isDownloadReferenceBreedI() && dtoDownload.isDownloadAlternativeBreedN() ) {
+        if ( dtoDownload.isSearchReferenceBreedI() && dtoDownload.isSearchAlternativeBreedN() ) {
             LOGGER.debug("Searching snpinsertiondeletions by using repositorysnpinsertiondeletion.findByRangeANDAllelesINEAllelesN");
-            snpinsertiondeletions = repositorysnpinsertiondeletion.findByRangeANDAllelesINEAllelesN( dtoDownload.getDownloadChromosomeAsString(), dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpinsertiondeletions = repositorysnpinsertiondeletion.findByRangeANDAllelesINEAllelesN( dtoDownload.getSearchChromosomeAsString(), dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if ( dtoDownload.isDownloadReferenceBreedI() && dtoDownload.isDownloadAlternativeBreedW() ) {
+        if ( dtoDownload.isSearchReferenceBreedI() && dtoDownload.isSearchAlternativeBreedW() ) {
             LOGGER.debug("Searching snpinsertiondeletions by using repositorysnpinsertiondeletion.findByRangeANDAllelesINEAllelesW");
-            snpinsertiondeletions = repositorysnpinsertiondeletion.findByRangeANDAllelesINEAllelesW( dtoDownload.getDownloadChromosomeAsString(), dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpinsertiondeletions = repositorysnpinsertiondeletion.findByRangeANDAllelesINEAllelesW( dtoDownload.getSearchChromosomeAsString(), dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if ( dtoDownload.isDownloadReferenceBreedI() && dtoDownload.isDownloadAlternativeBreedZ() ) {
+        if ( dtoDownload.isSearchReferenceBreedI() && dtoDownload.isSearchAlternativeBreedZ() ) {
             LOGGER.debug("Searching snpinsertiondeletions by using repositorysnpinsertiondeletion.findByRangeANDAllelesINEAllelesZ");
-            snpinsertiondeletions = repositorysnpinsertiondeletion.findByRangeANDAllelesINEAllelesZ( dtoDownload.getDownloadChromosomeAsString(), dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpinsertiondeletions = repositorysnpinsertiondeletion.findByRangeANDAllelesINEAllelesZ( dtoDownload.getSearchChromosomeAsString(), dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if ( dtoDownload.isDownloadReferenceBreedJ() && dtoDownload.isDownloadAlternativeBreedL() ) {
+        if ( dtoDownload.isSearchReferenceBreedJ() && dtoDownload.isSearchAlternativeBreedL() ) {
             LOGGER.debug("Searching snpinsertiondeletions by using repositorysnpinsertiondeletion.findByRangeANDAllelesJNEAllelesL");
-            snpinsertiondeletions = repositorysnpinsertiondeletion.findByRangeANDAllelesJNEAllelesL( dtoDownload.getDownloadChromosomeAsString(), dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpinsertiondeletions = repositorysnpinsertiondeletion.findByRangeANDAllelesJNEAllelesL( dtoDownload.getSearchChromosomeAsString(), dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if ( dtoDownload.isDownloadReferenceBreedJ() && dtoDownload.isDownloadAlternativeBreedN() ) {
+        if ( dtoDownload.isSearchReferenceBreedJ() && dtoDownload.isSearchAlternativeBreedN() ) {
             LOGGER.debug("Searching snpinsertiondeletions by using repositorysnpinsertiondeletion.findByRangeANDAllelesJNEAllelesN");
-            snpinsertiondeletions = repositorysnpinsertiondeletion.findByRangeANDAllelesJNEAllelesN( dtoDownload.getDownloadChromosomeAsString(), dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpinsertiondeletions = repositorysnpinsertiondeletion.findByRangeANDAllelesJNEAllelesN( dtoDownload.getSearchChromosomeAsString(), dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if ( dtoDownload.isDownloadReferenceBreedJ() && dtoDownload.isDownloadAlternativeBreedW() ) {
+        if ( dtoDownload.isSearchReferenceBreedJ() && dtoDownload.isSearchAlternativeBreedW() ) {
             LOGGER.debug("Searching snpinsertiondeletions by using repositorysnpinsertiondeletion.findByRangeANDAllelesJNEAllelesW");
-            snpinsertiondeletions = repositorysnpinsertiondeletion.findByRangeANDAllelesJNEAllelesW( dtoDownload.getDownloadChromosomeAsString(), dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpinsertiondeletions = repositorysnpinsertiondeletion.findByRangeANDAllelesJNEAllelesW( dtoDownload.getSearchChromosomeAsString(), dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if ( dtoDownload.isDownloadReferenceBreedJ() && dtoDownload.isDownloadAlternativeBreedZ() ) {
+        if ( dtoDownload.isSearchReferenceBreedJ() && dtoDownload.isSearchAlternativeBreedZ() ) {
             LOGGER.debug("Searching snpinsertiondeletions by using repositorysnpinsertiondeletion.findByRangeANDAllelesJNEAllelesZ");
-            snpinsertiondeletions = repositorysnpinsertiondeletion.findByRangeANDAllelesJNEAllelesZ( dtoDownload.getDownloadChromosomeAsString(), dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpinsertiondeletions = repositorysnpinsertiondeletion.findByRangeANDAllelesJNEAllelesZ( dtoDownload.getSearchChromosomeAsString(), dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if ( dtoDownload.isDownloadReferenceBreedL() && dtoDownload.isDownloadAlternativeBreedN() ) {
+        if ( dtoDownload.isSearchReferenceBreedL() && dtoDownload.isSearchAlternativeBreedN() ) {
             LOGGER.debug("Searching snpinsertiondeletions by using repositorysnpinsertiondeletion.findByRangeANDAllelesLNEAllelesN");
-            snpinsertiondeletions = repositorysnpinsertiondeletion.findByRangeANDAllelesLNEAllelesN( dtoDownload.getDownloadChromosomeAsString(), dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpinsertiondeletions = repositorysnpinsertiondeletion.findByRangeANDAllelesLNEAllelesN( dtoDownload.getSearchChromosomeAsString(), dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if ( dtoDownload.isDownloadReferenceBreedL() && dtoDownload.isDownloadAlternativeBreedW() ) {
+        if ( dtoDownload.isSearchReferenceBreedL() && dtoDownload.isSearchAlternativeBreedW() ) {
             LOGGER.debug("Searching snpinsertiondeletions by using repositorysnpinsertiondeletion.findByRangeANDAllelesLNEAllelesW");
-            snpinsertiondeletions = repositorysnpinsertiondeletion.findByRangeANDAllelesLNEAllelesW( dtoDownload.getDownloadChromosomeAsString(), dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpinsertiondeletions = repositorysnpinsertiondeletion.findByRangeANDAllelesLNEAllelesW( dtoDownload.getSearchChromosomeAsString(), dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if ( dtoDownload.isDownloadReferenceBreedL() && dtoDownload.isDownloadAlternativeBreedZ() ) {
+        if ( dtoDownload.isSearchReferenceBreedL() && dtoDownload.isSearchAlternativeBreedZ() ) {
             LOGGER.debug("Searching snpinsertiondeletions by using repositorysnpinsertiondeletion.findByRangeANDAllelesLNEAllelesZ");
-            snpinsertiondeletions = repositorysnpinsertiondeletion.findByRangeANDAllelesLNEAllelesZ( dtoDownload.getDownloadChromosomeAsString(), dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpinsertiondeletions = repositorysnpinsertiondeletion.findByRangeANDAllelesLNEAllelesZ( dtoDownload.getSearchChromosomeAsString(), dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if ( dtoDownload.isDownloadReferenceBreedN() && dtoDownload.isDownloadAlternativeBreedW() ) {
+        if ( dtoDownload.isSearchReferenceBreedN() && dtoDownload.isSearchAlternativeBreedW() ) {
             LOGGER.debug("Searching snpinsertiondeletions by using repositorysnpinsertiondeletion.findByRangeANDAllelesNNEAllelesW");
-            snpinsertiondeletions = repositorysnpinsertiondeletion.findByRangeANDAllelesNNEAllelesW( dtoDownload.getDownloadChromosomeAsString(), dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpinsertiondeletions = repositorysnpinsertiondeletion.findByRangeANDAllelesNNEAllelesW( dtoDownload.getSearchChromosomeAsString(), dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if ( dtoDownload.isDownloadReferenceBreedN() && dtoDownload.isDownloadAlternativeBreedZ() ) {
+        if ( dtoDownload.isSearchReferenceBreedN() && dtoDownload.isSearchAlternativeBreedZ() ) {
             LOGGER.debug("Searching snpinsertiondeletions by using repositorysnpinsertiondeletion.findByRangeANDAllelesNNEAllelesZ");
-            snpinsertiondeletions = repositorysnpinsertiondeletion.findByRangeANDAllelesNNEAllelesZ( dtoDownload.getDownloadChromosomeAsString(), dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpinsertiondeletions = repositorysnpinsertiondeletion.findByRangeANDAllelesNNEAllelesZ( dtoDownload.getSearchChromosomeAsString(), dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
-        if ( dtoDownload.isDownloadReferenceBreedW() && dtoDownload.isDownloadAlternativeBreedZ() ) {
+        if ( dtoDownload.isSearchReferenceBreedW() && dtoDownload.isSearchAlternativeBreedZ() ) {
             LOGGER.debug("Searching snpinsertiondeletions by using repositorysnpinsertiondeletion.findByRangeANDAllelesWNEAllelesZ");
-            snpinsertiondeletions = repositorysnpinsertiondeletion.findByRangeANDAllelesWNEAllelesZ( dtoDownload.getDownloadChromosomeAsString(), dtoDownload.getDownloadLowRangeAsInt(), dtoDownload.getDownloadHighRangeAsInt() );
+            snpinsertiondeletions = repositorysnpinsertiondeletion.findByRangeANDAllelesWNEAllelesZ( dtoDownload.getSearchChromosomeAsString(), dtoDownload.getSearchLowRangeAsInt(), dtoDownload.getSearchHighRangeAsInt() );
         }
 
         return snpinsertiondeletions;

@@ -1,6 +1,7 @@
 	package com.roslin.mwicks.spring.variation.dto.web.objects.snpchromosome;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
+
 import org.springframework.web.multipart.MultipartFile;
 
 import com.roslin.mwicks.spring.variation.dto.web.enums.DownloadFormat;
